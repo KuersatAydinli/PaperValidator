@@ -33,7 +33,7 @@ import scala.io.Source
 object PaperProcessingManager {
 
   var BYPASS_CROWD_PROCESSING = false
-  var AUTO_ANNOTATION = false
+  var AUTO_ANNOTATION = true
 
   var isRunning = false
 
@@ -42,8 +42,10 @@ object PaperProcessingManager {
           paperResultService: PaperResultService, paperMethodService: PaperMethodService,
           permutationsService: PermutationsService, answerService: AnswerService,
           conferenceSettingsService: ConferenceSettingsService): Boolean = {
-    if (!isRunning) {
-      isRunning = true
+    if (!synchronized(isRunning)) {
+      synchronized {
+        isRunning = true
+      }
       val processPapers: Future[Int] = Future {
         val papersToProcess = papersService.findProcessablePapers()
         if (papersToProcess.nonEmpty) {
@@ -67,7 +69,9 @@ object PaperProcessingManager {
       }
       processPapers onComplete {
         case newPapers => {
-          isRunning = false
+          synchronized {
+            isRunning = false
+          }
           if (newPapers.get > 0) {
             run(database, configuration, papersService, questionService, method2AssumptionService,
               paperResultService, paperMethodService, permutationsService, answerService, conferenceSettingsService)
