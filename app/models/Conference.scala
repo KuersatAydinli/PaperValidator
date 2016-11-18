@@ -11,53 +11,53 @@ import play.api.db.Database
   */
 case class Conference(id: Option[Int], name: String, email: String, secret: String) extends Serializable
 
-class ConferenceService  @Inject()(db:Database) {
+class ConferenceService @Inject()(db: Database) {
 
-	private val answerParser: RowParser[Conference] =
-		get[Option[Int]]("id") ~
-			get[String]("name") ~
-			get[String]("email") ~
-			get[String]("secret") map {
-			case id ~ name ~ email ~ secret =>
-				Conference(id, name, email, secret)
-		}
+  private val answerParser: RowParser[Conference] =
+    get[Option[Int]]("id") ~
+      get[String]("name") ~
+      get[String]("email") ~
+      get[String]("secret") map {
+      case id ~ name ~ email ~ secret =>
+        Conference(id, name, email, secret)
+    }
 
-	def findById(id: Int): Option[Conference] =
-		db.withConnection { implicit c =>
-			SQL("SELECT * FROM conference WHERE id = {id}").on(
-				'id -> id
-			).as(answerParser.singleOpt)
-		}
+  def findById(id: Int): Option[Conference] =
+    db.withConnection { implicit c =>
+      SQL("SELECT * FROM conference WHERE id = {id}").on(
+        'id -> id
+      ).as(answerParser.singleOpt)
+    }
 
-	def findByIdAndSecret(id: Int, secret: String): Option[Conference] =
-	//AND secret = {secret}
-		db.withConnection { implicit c =>
-			SQL("SELECT * FROM conference WHERE id = {id} ").on(
-				'id -> id,
-				'secret -> secret
-			).as(answerParser.singleOpt)
-		}
+  def findByIdAndSecret(id: Int, secret: String): Option[Conference] =
+  //AND secret = {secret}
+    db.withConnection { implicit c =>
+      SQL("SELECT * FROM conference WHERE id = {id} ").on(
+        'id -> id,
+        'secret -> secret
+      ).as(answerParser.singleOpt)
+    }
 
-	def findByEmail(email: String): List[Conference] =
-		db.withConnection { implicit c =>
-			SQL("SELECT * FROM conference WHERE email = {email} ORDER BY name").on(
-				'email -> email
-			).as(answerParser *)
-		}
+  def findByEmail(email: String): List[Conference] =
+    db.withConnection { implicit c =>
+      SQL("SELECT * FROM conference WHERE email = {email} ORDER BY name").on(
+        'email -> email
+      ).as(answerParser *)
+    }
 
-	def findAll(): List[Conference] =
-		db.withConnection { implicit c =>
-			SQL("SELECT * FROM conference ORDER BY name").as(answerParser *)
-		}
+  def findAll(): List[Conference] =
+    db.withConnection { implicit c =>
+      SQL("SELECT * FROM conference ORDER BY name").as(answerParser *)
+    }
 
 
-	def create(name: String, email: String, secret: String) : Int =
-		db.withConnection { implicit c =>
-			SQL("INSERT INTO conference(name, email, secret) VALUES ({name}, {email}, {secret})").on(
-				'name -> name,
-				'email -> email,
-				'secret -> secret
-			).executeInsert(scalar[Int].single)
-		}
+  def create(name: String, email: String, secret: String): Int =
+    db.withConnection { implicit c =>
+      SQL("INSERT INTO conference(name, email, secret) VALUES ({name}, {email}, {secret})").on(
+        'name -> name,
+        'email -> email,
+        'secret -> secret
+      ).executeInsert(scalar[Int].single)
+    }
 
 }

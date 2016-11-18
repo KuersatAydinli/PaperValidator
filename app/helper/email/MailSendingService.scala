@@ -5,16 +5,15 @@ import javax.mail._
 import javax.mail.internet._
 import play.Configuration
 
-object MailSendingService
-{
+object MailSendingService {
   val FROM = Configuration.root().getString("helper.mailing.from")
   val PW = Configuration.root().getString("helper.mailing.pw")
   val HOST = "smtp.gmail.com"
   val PORT = "587"
 
   def sendMail(to: String,
-           subject: String,
-           content: String) : Unit = {
+               subject: String,
+               content: String): Unit = {
 
     val props = new Properties()
     props.put("mail.smtp.host", HOST)
@@ -22,12 +21,12 @@ object MailSendingService
     props.put("mail.smtp.auth", "true")
     props.put("mail.smtp.starttls.enable", "true")
 
-    def getPasswordAuthentication : Authenticator=
-    {
-      new Authenticator(){
-        override def getPasswordAuthentication:PasswordAuthentication = {
+    def getPasswordAuthentication: Authenticator = {
+      new Authenticator() {
+        override def getPasswordAuthentication: PasswordAuthentication = {
           new PasswordAuthentication(FROM, PW)
-        }}
+        }
+      }
     }
 
     val session = Session.getInstance(props, getPasswordAuthentication)

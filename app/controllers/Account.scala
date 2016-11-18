@@ -19,18 +19,18 @@ import scala.io.Source
 class Account @Inject()(configuration: Configuration, conferenceService: ConferenceService, papersService: PapersService,
                         emailService: EmailService, paperResultService: PaperResultService, answerService: AnswerService,
                         conferenceSettingsService: ConferenceSettingsService
-                           ) extends Controller {
+                       ) extends Controller {
 
   def account(id: Int, secret: String) = Action {
-    val email = emailService.findById(id,secret)
-    if(email.isEmpty) {
+    val email = emailService.findById(id, secret)
+    if (email.isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
       val papers = papersService.findByEmail(email.get.emailAddress)
       val papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
         answerService, conferenceSettingsService)
       val conferences = conferenceService.findByEmail(email.get.emailAddress)
-      Ok(views.html.account.account(email.get.emailAddress,papersWithStats,conferences))
+      Ok(views.html.account.account(email.get.emailAddress, papersWithStats, conferences))
     }
   }
 
@@ -39,9 +39,9 @@ class Account @Inject()(configuration: Configuration, conferenceService: Confere
   }
 
   def sendAccessEmail = Action(parse.urlFormEncoded) { request =>
-      val email = request.body.get("email").get.head
-      MailTemplates.sendAccountMail(email,configuration,emailService)
-      Ok(views.html.account.getAccess(email))
+    val email = request.body.get("email").get.head
+    MailTemplates.sendAccountMail(email, configuration, emailService)
+    Ok(views.html.account.getAccess(email))
   }
 
 

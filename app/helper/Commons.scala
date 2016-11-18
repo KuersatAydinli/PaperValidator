@@ -21,7 +21,7 @@ object Commons {
     Base64.encodeBase64URLSafeString(b)
   }
 
-  def getSecretHash(secret:String): String = {
+  def getSecretHash(secret: String): String = {
     val secretHash = MessageDigest.getInstance("MD5").digest(secret.getBytes)
     Base64.encodeBase64URLSafeString(secretHash)
   }
@@ -31,9 +31,9 @@ object Commons {
     val pdfDoc = PDDocument.load(new File(paperDir))
     val pdfRenderer = new PDFRenderer(pdfDoc)
     val image = pdfRenderer.renderImageWithDPI(0, 33, ImageType.RGB)
-    val newDir = new File("public/papers/"+getSecretHash(paper.secret))
-    if(!newDir.exists()) newDir.mkdir()
-    ImageIOUtil.writeImage(image, newDir.getPath+"/cover.jpg", 33)
+    val newDir = new File("public/papers/" + getSecretHash(paper.secret))
+    if (!newDir.exists()) newDir.mkdir()
+    ImageIOUtil.writeImage(image, newDir.getPath + "/cover.jpg", 33)
   }
 
 }

@@ -7,8 +7,8 @@ import org.joda.time.DateTime
 import scalikejdbc._
 
 /**
- * Created by mattia on 06.07.15.
- */
+  * Created by mattia on 06.07.15.
+  */
 class BallotDAO extends DAO {
 
   override def countAllAnswers(): Int = {
@@ -87,14 +87,14 @@ class BallotDAO extends DAO {
     val hashCode = java.security.MessageDigest.getInstance("SHA-1").digest(binary).map("%02x".format(_)).mkString
 
     val possibleMatch = findAssetsIdByHashCode(hashCode).map(id => id -> getAssetsContentById(id))
-        .find(p => p._2.equalsIgnoreCase(contentType))
+      .find(p => p._2.equalsIgnoreCase(contentType))
 
     val id = if (possibleMatch.nonEmpty) {
       possibleMatch.get._1
     } else {
       DB localTx { implicit session =>
         sql"INSERT INTO assets(hash_code, byte_array, content_type, filename) VALUES(${hashCode}, ${binary}, ${contentType}, ${filename})"
-            .updateAndReturnGeneratedKey().apply()
+          .updateAndReturnGeneratedKey().apply()
       }
     }
     id
@@ -122,7 +122,7 @@ class BallotDAO extends DAO {
   override def updateAnswer(answerId: Long, accepted: Boolean) = {
     DB localTx { implicit session =>
       sql"UPDATE answer SET accepted = ${accepted} WHERE id = ${answerId}"
-          .update().apply()
+        .update().apply()
     }
   }
 
@@ -154,7 +154,7 @@ class BallotDAO extends DAO {
       sql"""INSERT INTO permutations(create_time, group_name, method_index, snippet_filename, pdf_path, method_on_top, relative_height_top, relative_height_bottom, paper_id)
       VALUES(NOW(), ${permutation.groupName}, ${permutation.methodIndex}, ${permutation.snippetFilename}, ${permutation.pdfPath}, ${permutation.methodOnTop},
       ${permutation.relativeHeightTop}, ${permutation.relativeHeightBottom}, ${paperId})"""
-          .updateAndReturnGeneratedKey().apply()
+        .updateAndReturnGeneratedKey().apply()
     }
   }
 
@@ -185,7 +185,7 @@ class BallotDAO extends DAO {
   override def updateStateOfPermutationId(id: Long, becauseOfId: Long, excludedByStep: Int = 0) {
     DB localTx { implicit session =>
       sql"UPDATE permutations SET state = ${becauseOfId}, excluded_step = ${excludedByStep} WHERE id = ${id}"
-          .update().apply()
+        .update().apply()
     }
   }
 

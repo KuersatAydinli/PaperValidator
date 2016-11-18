@@ -16,15 +16,15 @@ class StatTerms @Inject()(configuration: Configuration, methodService: MethodSer
                           conferenceService: ConferenceService, conferenceSettingsService: ConferenceSettingsService
                          ) extends Controller {
   def showStatTerms(conferenceId: Int, secret: String) = Action {
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
-      Ok(views.html.conference.statterms(conferenceId,secret,methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.statterms(conferenceId, secret, methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
   def addMethod(conferenceId: Int, secret: String) = Action(parse.urlFormEncoded) { request =>
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
       val name = request.body.get("method-name").get(0)
@@ -34,100 +34,100 @@ class StatTerms @Inject()(configuration: Configuration, methodService: MethodSer
       }
       val synonyms = request.body.get("method-synonyms").get(0)
       methodService.create(conferenceId, name, delta, synonyms)
-      Ok(views.html.conference.statterms(conferenceId,secret,methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.statterms(conferenceId, secret, methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
   def editMethod(conferenceId: Int, secret: String) = Action(parse.urlFormEncoded) { request =>
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
-      if(request.body.get("delete-method-id").isDefined) {
-        val id=request.body.get("method-id").get(0).toInt
+      if (request.body.get("delete-method-id").isDefined) {
+        val id = request.body.get("method-id").get(0).toInt
         conferenceSettingsService.deleteByMethodId(id)
         method2AssumptionService.deleteByMethodId(id)
-        methodService.delete(id,conferenceId)
+        methodService.delete(id, conferenceId)
       } else {
-        val id=request.body.get("method-id").get(0).toInt
+        val id = request.body.get("method-id").get(0).toInt
         val name = request.body.get("method-name").get(0)
         var delta = 0
-        if(request.body.get("method-delta").get(0) != "") {
+        if (request.body.get("method-delta").get(0) != "") {
           delta = request.body.get("method-delta").get(0).toInt
         }
         val synonyms = request.body.get("method-synonyms").get(0)
-        methodService.update(id,conferenceId,name,delta,synonyms)
+        methodService.update(id, conferenceId, name, delta, synonyms)
       }
-      Ok(views.html.conference.statterms(conferenceId,secret,methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.statterms(conferenceId, secret, methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
   def addAssumption(conferenceId: Int, secret: String) = Action(parse.urlFormEncoded) { request =>
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
       val name = request.body.get("assumption-name").get(0)
       val synonyms = request.body.get("assumption-synonyms").get(0)
       assumptionService.create(conferenceId, name, synonyms)
-      Ok(views.html.conference.statterms(conferenceId,secret,methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.statterms(conferenceId, secret, methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
 
   def editAssumption(conferenceId: Int, secret: String) = Action(parse.urlFormEncoded) { request =>
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
-      if(request.body.get("delete-assumption-id").isDefined) {
-        val id=request.body.get("assumption-id").get(0).toInt
+      if (request.body.get("delete-assumption-id").isDefined) {
+        val id = request.body.get("assumption-id").get(0).toInt
         conferenceSettingsService.deleteByAssumptionId(id)
         method2AssumptionService.deleteByAssumptionId(id)
-        assumptionService.delete(id,conferenceId)
+        assumptionService.delete(id, conferenceId)
       } else {
-        val id=request.body.get("assumption-id").get(0).toInt
+        val id = request.body.get("assumption-id").get(0).toInt
         val name = request.body.get("assumption-name").get(0)
         val synonyms = request.body.get("assumption-synonyms").get(0)
-        assumptionService.update(id,conferenceId,name,synonyms)
+        assumptionService.update(id, conferenceId, name, synonyms)
       }
-      Ok(views.html.conference.statterms(conferenceId,secret,methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.statterms(conferenceId, secret, methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
-  def method2assumptions(conferenceId : Int, secret: String) = Action {
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+  def method2assumptions(conferenceId: Int, secret: String) = Action {
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
-      Ok(views.html.conference.method2assumption(conferenceId,secret,method2AssumptionService.findAll(conferenceId),methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.method2assumption(conferenceId, secret, method2AssumptionService.findAll(conferenceId), methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
-  def addMethod2assumptions(conferenceId : Int, secret: String) = Action(parse.urlFormEncoded) { request =>
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+  def addMethod2assumptions(conferenceId: Int, secret: String) = Action(parse.urlFormEncoded) { request =>
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
       val methodId = request.body.get("method2assumption-methodId").get(0).toInt
       val assumptionId = request.body.get("method2assumption-assumptionId").get(0).toInt
       val question = request.body.get("method2assumption-question").get(0).toString
       method2AssumptionService.create(conferenceId, methodId, assumptionId, question)
-      Ok(views.html.conference.method2assumption(conferenceId,secret,method2AssumptionService.findAll(conferenceId), methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.method2assumption(conferenceId, secret, method2AssumptionService.findAll(conferenceId), methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 
-  def editMethod2assumptions(conferenceId : Int, secret: String) = Action(parse.urlFormEncoded) { request =>
-    if(conferenceService.findByIdAndSecret(conferenceId,secret).isEmpty) {
+  def editMethod2assumptions(conferenceId: Int, secret: String) = Action(parse.urlFormEncoded) { request =>
+    if (conferenceService.findByIdAndSecret(conferenceId, secret).isEmpty) {
       Unauthorized(views.html.error.unauthorized())
     } else {
-      if(request.body.get("delete-method2assumption-id").isDefined) {
-        val id=request.body.get("method2assumption-id").get(0).toInt
+      if (request.body.get("delete-method2assumption-id").isDefined) {
+        val id = request.body.get("method2assumption-id").get(0).toInt
         conferenceSettingsService.deleteByM2AId(id)
-        method2AssumptionService.delete(id,conferenceId)
+        method2AssumptionService.delete(id, conferenceId)
       } else {
-        val id=request.body.get("method2assumption-id").get(0).toInt
+        val id = request.body.get("method2assumption-id").get(0).toInt
         val methodId = request.body.get("method2assumption-methodId").get(0).toInt
         val assumptionId = request.body.get("method2assumption-assumptionId").get(0).toInt
         val question = request.body.get("method2assumption-question").get(0).toString
-        method2AssumptionService.update(id, conferenceId, methodId,assumptionId, question)
+        method2AssumptionService.update(id, conferenceId, methodId, assumptionId, question)
       }
-      Ok(views.html.conference.method2assumption(conferenceId,secret,method2AssumptionService.findAll(conferenceId),methodService.findAll(conferenceId),assumptionService.findAll(conferenceId)))
+      Ok(views.html.conference.method2assumption(conferenceId, secret, method2AssumptionService.findAll(conferenceId), methodService.findAll(conferenceId), assumptionService.findAll(conferenceId)))
     }
   }
 

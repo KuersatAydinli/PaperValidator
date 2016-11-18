@@ -5,30 +5,24 @@ import java.util.zip.{ZipEntry, ZipInputStream}
 import javax.inject.Inject
 
 import helper.pdfpreprocessing.PreprocessPDF
-import helper.pdfpreprocessing.pdf.PDFLoader
-import helper.pdfpreprocessing.stats.{PruneTermsWithinOtherTerms, StatTermPermuter, StatTermPruning, StatTermSearcher}
-import helper.pdfpreprocessing.util.FileUtils
 import helper.{Commons, PaperProcessingManager}
 import models._
-import play.api.{Configuration, Logger}
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-
-import scala.concurrent.Future
+import play.api.{Configuration, Logger}
 
 /**
   * Created by manuel on 11.04.2016.
   */
-class Upload @Inject() (database: Database, configuration: Configuration, questionService : QuestionService,
-                        papersService: PapersService, conferenceService: ConferenceService,
-                        method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService,
-                        paperMethodService: PaperMethodService, permutationsServcie: PermutationsService,
-                        answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService
-                       ) extends Controller {
+class Upload @Inject()(database: Database, configuration: Configuration, questionService: QuestionService,
+                       papersService: PapersService, conferenceService: ConferenceService,
+                       method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService,
+                       paperMethodService: PaperMethodService, permutationsServcie: PermutationsService,
+                       answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService
+                      ) extends Controller {
   def upload = Action {
     PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
-      paperResultService,paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
+      paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
     val conferences = conferenceService.findAll()
     Ok(views.html.upload(conferences))
   }
@@ -39,18 +33,18 @@ class Upload @Inject() (database: Database, configuration: Configuration, questi
     val conference = request.body.dataParts.get("conference").get.mkString("").toInt
     request.body.file("paper").map { paper =>
       val filename = paper.filename
-      if(filename.toLowerCase().contains(".pdf") || filename.toLowerCase().contains(".zip")) {
+      if (filename.toLowerCase().contains(".pdf") || filename.toLowerCase().contains(".zip")) {
         val secret = Commons.generateSecret()
         val tmpDirs: File = new File(PreprocessPDF.INPUT_DIR + "/" + Commons.getSecretHash(secret))
         if (!tmpDirs.exists()) tmpDirs.mkdir()
         val file = paper.ref.moveTo(new File(PreprocessPDF.INPUT_DIR + "/" + Commons.getSecretHash(secret) + "/" + filename))
-        if(filename.toLowerCase.contains(".zip")) {
-          extractAndProcessZip(file,email,conference)
+        if (filename.toLowerCase.contains(".zip")) {
+          extractAndProcessZip(file, email, conference)
         } else {
-          papersService.create(filename,email,conference,secret)
+          papersService.create(filename, email, conference, secret)
         }
         PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
-          paperResultService,paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
+          paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
         Logger.info("done")
         Ok("Ok")
       } else {
@@ -61,12 +55,12 @@ class Upload @Inject() (database: Database, configuration: Configuration, questi
     }
   }
 
-  def extractAndProcessZip(file : File, email: String, conference: Int) = {
+  def extractAndProcessZip(file: File, email: String, conference: Int) = {
     val zis: ZipInputStream = new ZipInputStream(new FileInputStream(file))
     val buffer = new Array[Byte](1024)
     var ze: ZipEntry = zis.getNextEntry()
     while (ze != null) {
-      if(ze.getName().contains(".pdf")) {
+      if (ze.getName().contains(".pdf")) {
         val fileName = ze.getName()
         val secret = Commons.generateSecret()
         val newFile = new File(PreprocessPDF.INPUT_DIR + "/" + Commons.getSecretHash(secret) + "/" + fileName)
@@ -80,7 +74,7 @@ class Upload @Inject() (database: Database, configuration: Configuration, questi
         }
 
         fos.close()
-        papersService.create(fileName,email,conference,secret)
+        papersService.create(fileName, email, conference, secret)
       }
       ze = zis.getNextEntry()
     }
@@ -107,7 +101,7 @@ class Upload @Inject() (database: Database, configuration: Configuration, questi
     // val zipDir = new File("G:\\CHI-Crawl\\ZIP")
     val zipDir = new File("F:\\Wifo_5_Semester\\CrowdSourcing\\Thesis\\test_files_zip")
     zipDir.listFiles().foreach(file => {
-      extractAndProcessZip(file,"kuersat.aydinli@uzh.ch",1)
+      extractAndProcessZip(file, "kuersat.aydinli@uzh.ch", 1)
     })
     /*PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
       paperResultService,paperMethodService, permutationsServcie, answerService)*/

@@ -12,20 +12,20 @@ import play.api.db.Database
   * Created by mattia on 02.07.15.
   */
 case class Permutations(id: Option[Long], createTime: DateTime, groupName: String, methodIndex: String,
-												snippetFilename: String, pdfPath: String, methodOnTop: Boolean, state: Long, excludedStep: Int,
-												relHeightTop: Double, relHeightBottom: Double, distanceMinIndexMax: Long, paperId: Int)
+                        snippetFilename: String, pdfPath: String, methodOnTop: Boolean, state: Long, excludedStep: Int,
+                        relHeightTop: Double, relHeightBottom: Double, distanceMinIndexMax: Long, paperId: Int)
 
-class PermutationsService @Inject()(db:Database) {
+class PermutationsService @Inject()(db: Database) {
 
-	def create(groupName: String, methodIndex: String, paperId: Int) : Long =
-		db.withConnection { implicit c =>
-			SQL("INSERT INTO permutations(create_time, group_name, method_index, snippet_filename,pdf_path, method_on_top, " +
-				"state, excluded_step, relative_height_top, relative_height_bottom, distanceMinIndexMax, paper_id) " +
-				"VALUES ({create_time},{group_name},{method_index},'','',false,0,2,0.0,0.0,0,{paper_id})").on(
-				'create_time -> DateTime.now(),
-				'group_name -> groupName,
-				'method_index -> methodIndex,
-				'paper_id -> paperId
-			).executeInsert(scalar[Long].single)
-		}
+  def create(groupName: String, methodIndex: String, paperId: Int): Long =
+    db.withConnection { implicit c =>
+      SQL("INSERT INTO permutations(create_time, group_name, method_index, snippet_filename,pdf_path, method_on_top, " +
+        "state, excluded_step, relative_height_top, relative_height_bottom, distanceMinIndexMax, paper_id) " +
+        "VALUES ({create_time},{group_name},{method_index},'','',false,0,2,0.0,0.0,0,{paper_id})").on(
+        'create_time -> DateTime.now(),
+        'group_name -> groupName,
+        'method_index -> methodIndex,
+        'paper_id -> paperId
+      ).executeInsert(scalar[Long].single)
+    }
 }

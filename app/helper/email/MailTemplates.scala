@@ -12,14 +12,14 @@ import play.api.Logger
   */
 object MailTemplates {
 
-  def sendAccountMail(toEmail : String, configuration: Configuration, emailService: EmailService): Unit = {
+  def sendAccountMail(toEmail: String, configuration: Configuration, emailService: EmailService): Unit = {
     var isNewEmailAddress = false
     val email = emailService.findByEmail(toEmail).getOrElse({
-      emailService.create(toEmail,Commons.generateSecret())
+      emailService.create(toEmail, Commons.generateSecret())
       isNewEmailAddress = true
       emailService.findByEmail(toEmail).get
     })
-    val link = configuration.getString("hcomp.ballot.baseURL") + routes.Account.account(email.id.get,email.secret).url
+    val link = configuration.getString("hcomp.ballot.baseURL") + routes.Account.account(email.id.get, email.secret).url
     val subject = "PaperValidator: Your papers and conferences"
     val content =
       s"""Dear user of PaperValidator,<br><br>
@@ -34,36 +34,36 @@ object MailTemplates {
         |Have fun using PaperValidator!
       """.stripMargin
     Logger.debug(content)
-    if(Hours.hoursBetween(email.lastMail,DateTime.now()).getHours > 12 || isNewEmailAddress) {
+    if (Hours.hoursBetween(email.lastMail, DateTime.now()).getHours > 12 || isNewEmailAddress) {
       Logger.debug("Email would be sent!")
-      emailService.setLastMailNow(email.id.getOrElse(-1),email.secret)
-      if(configuration.getString("helper.mailing.active") == "true") {
-        MailSendingService.sendMail(toEmail,subject,content)
+      emailService.setLastMailNow(email.id.getOrElse(-1), email.secret)
+      if (configuration.getString("helper.mailing.active") == "true") {
+        MailSendingService.sendMail(toEmail, subject, content)
       }
     } else {
-      Logger.debug("Email would not be sent! Daycount:" + Hours.hoursBetween(email.lastMail,DateTime.now()).getHours)
+      Logger.debug("Email would not be sent! Daycount:" + Hours.hoursBetween(email.lastMail, DateTime.now()).getHours)
     }
   }
 
-  def sendConferenceMail(conferenceName : String, conferenceLink : String, toEmail : String): Unit = {
+  def sendConferenceMail(conferenceName: String, conferenceLink: String, toEmail: String): Unit = {
     val subject = "PaperValidator: About Conference " + conferenceName
     val content =
       s"""Dear user of PaperValidator,<br><br>
-        |
+          |
         |Here is the link to your Conference '"$conferenceName"':<br>
-        |<a href="$conferenceLink">
-        | <b>$conferenceLink</b>
-        |</a><br><br>
-        |
+          |<a href="$conferenceLink">
+          | <b>$conferenceLink</b>
+          |</a><br><br>
+          |
         |You can edit the conference settings or delete the conference under this link.
-        |
+          |
         |Have fun using PaperValidator!
       """.stripMargin
     Logger.debug(content)
     //MailSendingService.sendMail(toEmail,subject,content)
   }
 
-  def sendPaperAnalyzedMail(paperName: String, paperLink : String, permutations: Int, toEmail: String, comment: String = ""): Unit = {
+  def sendPaperAnalyzedMail(paperName: String, paperLink: String, permutations: Int, toEmail: String, comment: String = ""): Unit = {
     val subject = "PaperValidator: " + paperName + " analyzed!"
     val content =
       s"""Dear user of PaperValidator,<br><br>
@@ -83,7 +83,7 @@ object MailTemplates {
   }
 
 
-  def sendPaperCompletedMail(paperName: String, paperLink : String, toEmail: String): Unit = {
+  def sendPaperCompletedMail(paperName: String, paperLink: String, toEmail: String): Unit = {
     val subject = "PaperValidator: " + paperName + " completed!"
     val content =
       s"""Dear user of PaperValidator,<br><br>

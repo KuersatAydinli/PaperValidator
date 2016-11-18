@@ -11,21 +11,21 @@ import play.api.db.Database
   */
 case class Batch(id: Option[Long], allowedAnswersPerTurker: Int) extends Serializable
 
-class BatchService @Inject()(db:Database) {
+class BatchService @Inject()(db: Database) {
 
 
-	private val batchParser: RowParser[Batch] =
-		get[Option[Long]]("id") ~
-				get[Int]("allowed_answers_per_turker") map {
-			case id ~ allowed_answers_per_turker =>
-				Batch(id, allowed_answers_per_turker)
-		}
+  private val batchParser: RowParser[Batch] =
+    get[Option[Long]]("id") ~
+      get[Int]("allowed_answers_per_turker") map {
+      case id ~ allowed_answers_per_turker =>
+        Batch(id, allowed_answers_per_turker)
+    }
 
-	def findById(id: Long): Option[Batch] =
-		db.withConnection { implicit c =>
-			SQL("SELECT * FROM batch WHERE id = {id}").on(
-				'id -> id
-			).as(batchParser.singleOpt)
-		}
+  def findById(id: Long): Option[Batch] =
+    db.withConnection { implicit c =>
+      SQL("SELECT * FROM batch WHERE id = {id}").on(
+        'id -> id
+      ).as(batchParser.singleOpt)
+    }
 
 }

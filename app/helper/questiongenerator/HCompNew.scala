@@ -16,55 +16,55 @@ import play.api.Logger
 import scala.collection.mutable
 
 /**
- * Created by mattia on 28.08.15.
- */
+  * Created by mattia on 28.08.15.
+  */
 object HCompNew {
-	private val portals = new mutable.HashMap[String, HCompPortalAdapter]()
+  private val portals = new mutable.HashMap[String, HCompPortalAdapter]()
 
-	def addPortal(portal: HCompPortalAdapter) {
-		addPortal(portal.getDefaultPortalKey, portal)
-	}
+  def addPortal(portal: HCompPortalAdapter) {
+    addPortal(portal.getDefaultPortalKey, portal)
+  }
 
-	def addPortal(key: String, portal: HCompPortalAdapter) {
-		if (!portals.contains(key)) {
-			Logger.info(s"adding portaladapter ${portal.getClass.getSimpleName} with key ${portal.getDefaultPortalKey}")
-			portals += (key -> portal)
-		}
-	}
+  def addPortal(key: String, portal: HCompPortalAdapter) {
+    if (!portals.contains(key)) {
+      Logger.info(s"adding portaladapter ${portal.getClass.getSimpleName} with key ${portal.getDefaultPortalKey}")
+      portals += (key -> portal)
+    }
+  }
 
-	def allDefinedPortals = portals.values.filter(_ != null).toList
+  def allDefinedPortals = portals.values.filter(_ != null).toList
 
-	def apply(key: String) = portals(key)
+  def apply(key: String) = portals(key)
 
-	//convenience methods, may be removed at a later stage
-	def crowdFlower: CrowdFlowerPortalAdapter = portals.get(CrowdFlowerPortalAdapter.PORTAL_KEY).get.asInstanceOf[CrowdFlowerPortalAdapter]
+  //convenience methods, may be removed at a later stage
+  def crowdFlower: CrowdFlowerPortalAdapter = portals.get(CrowdFlowerPortalAdapter.PORTAL_KEY).get.asInstanceOf[CrowdFlowerPortalAdapter]
 
-	def mechanicalTurk: MechanicalTurkPortalAdapter = portals.get(MechanicalTurkPortalAdapter.PORTAL_KEY).get.asInstanceOf[MechanicalTurkPortalAdapter]
+  def mechanicalTurk: MechanicalTurkPortalAdapter = portals.get(MechanicalTurkPortalAdapter.PORTAL_KEY).get.asInstanceOf[MechanicalTurkPortalAdapter]
 
-	def randomPortal: RandomHCompPortal = portals.get(RandomHCompPortal.PORTAL_KEY).get.asInstanceOf[RandomHCompPortal]
+  def randomPortal: RandomHCompPortal = portals.get(RandomHCompPortal.PORTAL_KEY).get.asInstanceOf[RandomHCompPortal]
 
-	def autoloadConfiguredPortals() {
-		val config = ConfigFactory.load()
+  def autoloadConfiguredPortals() {
+    val config = ConfigFactory.load()
 
-		val classes = U.findClassesInPackageWithProcessAnnotation("ch.uzh.ifi.pdeboer.pplib.hcomp", classOf[HCompPortal])
-			.asInstanceOf[Set[Class[HCompPortalAdapter]]]
-		val annotations = classes.map(_.getAnnotation(classOf[HCompPortal])).filter(a => a != null && a.autoInit)
-		val builders = annotations.map(_.builder().newInstance())
-		builders.toList.sortBy(_.order).foreach(b => {
-			try {
-				b.loadConfig(config)
-				val portal: HCompPortalAdapter = b.build
-				addPortal(portal.getDefaultPortalKey, portal)
-			}
-			catch {
-				case e: Throwable => {
-					val errorMessage: String = s"Skipped automatic initialization of ${b.getClass.getSimpleName} due to missing / invalid configuration."
-					Logger.error(errorMessage, e)
-				}
-			}
-		})
-		Logger.debug(builders.toList.toString)
+    val classes = U.findClassesInPackageWithProcessAnnotation("ch.uzh.ifi.pdeboer.pplib.hcomp", classOf[HCompPortal])
+      .asInstanceOf[Set[Class[HCompPortalAdapter]]]
+    val annotations = classes.map(_.getAnnotation(classOf[HCompPortal])).filter(a => a != null && a.autoInit)
+    val builders = annotations.map(_.builder().newInstance())
+    builders.toList.sortBy(_.order).foreach(b => {
+      try {
+        b.loadConfig(config)
+        val portal: HCompPortalAdapter = b.build
+        addPortal(portal.getDefaultPortalKey, portal)
+      }
+      catch {
+        case e: Throwable => {
+          val errorMessage: String = s"Skipped automatic initialization of ${b.getClass.getSimpleName} due to missing / invalid configuration."
+          Logger.error(errorMessage, e)
+        }
+      }
+    })
+    Logger.debug(builders.toList.toString)
 
-	}
+  }
 
 }
