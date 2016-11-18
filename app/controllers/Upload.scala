@@ -104,9 +104,10 @@ class Upload @Inject() (database: Database, configuration: Configuration, questi
 
   def statTest = Action {
     Logger.info("uploadZips")
-    val zipDir = new File("G:\\CHI-Crawl\\ZIP")
+    // val zipDir = new File("G:\\CHI-Crawl\\ZIP")
+    val zipDir = new File("F:\\Wifo_5_Semester\\CrowdSourcing\\Thesis\\test_files_zip")
     zipDir.listFiles().foreach(file => {
-      extractAndProcessZip(file,"manuelroesch@gmail.com",1)
+      extractAndProcessZip(file,"kuersat.aydinli@uzh.ch",1)
     })
     /*PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
       paperResultService,paperMethodService, permutationsServcie, answerService)*/
