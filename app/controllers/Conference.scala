@@ -70,7 +70,7 @@ class Conference @Inject() (configuration: Configuration, conferenceService: Con
 
   }
 
-  def conferenceEditor(conferenceId: Int, secret: String) = Action {
+  def conferenceEditor(conferenceId: Int, secret: String = "") = Action {
     val conference = conferenceService.findByIdAndSecret(conferenceId,secret)
     if(conference.isEmpty) {
       Unauthorized(views.html.error.unauthorized())

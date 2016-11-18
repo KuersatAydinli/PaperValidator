@@ -53,7 +53,7 @@ object MailSendingService
 
       Transport.send(message);
     } catch {
-      case e: MessagingException => throw new RuntimeException(e)
+      case e: MessagingException => println("there was a problem" + e)
     }
 
   }

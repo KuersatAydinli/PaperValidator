@@ -3,63 +3,63 @@
 # ~~~~
 
 # Home
-GET        /                                        controllers.Home.index
+GET         /                                                        controllers.Home.index
 
 #Mturk
-GET        /showQuestion                            controllers.Mturk.showQuestion(q: String, s:String)
-GET        /showMTQuestion                          controllers.Mturk.showMTQuestion(q:String, s:String, assignmentId:String, hitId:String, turkSubmitTo:String ?="", workerId:String?="", target:String)
-GET        /storeAnswer                             controllers.Mturk.storeAnswer
-GET        /assetsBallot/:id/:secret                controllers.Mturk.showAsset(id: Long, secret:String)
+GET         /showQuestion                                            controllers.Mturk.showQuestion(q: String, s:String)
+GET         /showMTQuestion                                          controllers.Mturk.showMTQuestion(q:String, s:String, assignmentId:String, hitId:String, turkSubmitTo:String ?="", workerId:String?="", target:String)
+GET         /storeAnswer                                             controllers.Mturk.storeAnswer
+GET         /assetsBallot/:id/:secret                                controllers.Mturk.showAsset(id: Long, secret:String)
 
 #Account
-GET        /account/:id/:secret                     controllers.Account.account(id: Int, secret:String)
-GET        /account                                 controllers.Account.getAccess
-POST       /account                                 controllers.Account.sendAccessEmail
+GET         /account/:id/:secret                                     controllers.Account.account(id: Int, secret:String)
+GET         /account                                                 controllers.Account.getAccess
+POST        /account                                                 controllers.Account.sendAccessEmail
 
 # Upload
-GET        /upload                                  controllers.Upload.upload
-POST       /uploaded                                controllers.Upload.uploaded
-GET        /test                                    controllers.Upload.statTest
+GET         /upload                                                  controllers.Upload.upload
+POST        /uploaded                                                controllers.Upload.uploaded
+GET         /test                                                    controllers.Upload.statTest
 
 # Paper
-GET        /show-paper/:id/:secret                  controllers.Paper.show(id: Int, secret: String)
-GET        /confirm-paper/:id/:secret               controllers.Paper.confirmPaper(id: Int, secret: String)
-GET        /skip-paper/:id/:secret                  controllers.Paper.skipPaper(id: Int, secret: String)
-GET        /paper-file/:basePath/*path              controllers.Paper.getFile(basePath: String, path: String)
-GET        /spellchecker/:id/:secret                controllers.Paper.loadSpellCheckerResults(id: Int, secret: String)
-GET        /generate-mturk-results/:id/:secret      controllers.Paper.generateMturkResults(id: Int, secret: String)
-GET        /annotate-paper/:id/:secret              controllers.Paper.annotatePaper(id: Int, secret: String)
-GET        /annotate-glossary/:id/:secret           controllers.Paper.annotatePaperGlossaryMode(id: Int, secret: String)
+GET         /show-paper/:id/:secret                                  controllers.Paper.show(id: Int, secret: String)
+GET         /confirm-paper/:id/:secret                               controllers.Paper.confirmPaper(id: Int, secret: String)
+GET         /skip-paper/:id/:secret                                  controllers.Paper.skipPaper(id: Int, secret: String)
+GET         /paper-file/:basePath/*path                              controllers.Paper.getFile(basePath: String, path: String)
+GET         /spellchecker/:id/:secret                                controllers.Paper.loadSpellCheckerResults(id: Int, secret: String)
+GET         /generate-mturk-results/:id/:secret                      controllers.Paper.generateMturkResults(id: Int, secret: String)
+GET         /annotate-paper/:id/:secret                              controllers.Paper.annotatePaper(id: Int, secret: String)
+GET         /annotate-glossary/:id/:secret                           controllers.Paper.annotatePaperGlossaryMode(id: Int, secret: String)
 
 # Conference
-GET        /conference-creator                      controllers.Conference.conferenceCreator
-POST       /conference-created                      controllers.Conference.conferenceCreated
-GET        /conference-editor/:id/:secret           controllers.Conference.conferenceEditor(id: Int, secret: String)
-GET        /flag-editor/:id/:secret                 controllers.Conference.flagEditor(id: Int, secret: String)
-POST       /save-flags                              controllers.Conference.saveFlags
-GET        /csv/methods/:id/:secret                 controllers.Conference.getMethodsCSV(id: Int, secret: String)
-GET        /csv/pairs/:id/:secret                   controllers.Conference.getPairsCSV(id: Int, secret: String)
+GET         /conference-creator                                      controllers.Conference.conferenceCreator
+POST        /conference-created                                      controllers.Conference.conferenceCreated
+GET         /conference-editor/:id/:secret                           controllers.Conference.conferenceEditor(id: Int, secret: String)
+GET         /flag-editor/:id/:secret                                 controllers.Conference.flagEditor(id: Int, secret: String)
+POST        /save-flags                                              controllers.Conference.saveFlags
+GET         /csv/methods/:id/:secret                                 controllers.Conference.getMethodsCSV(id: Int, secret: String)
+GET         /csv/pairs/:id/:secret                                   controllers.Conference.getPairsCSV(id: Int, secret: String)
 
 # StatTerms
-GET        /statterms/:conference_id/:secret                    controllers.StatTerms.showStatTerms(conference_id: Int, secret: String)
-POST       /statterms/add-method/:conference_id/:secret         controllers.StatTerms.addMethod(conference_id: Int, secret: String)
-POST       /statterms/edit-method/:conference_id/:secret        controllers.StatTerms.editMethod(conference_id: Int, secret: String)
-POST       /statterms/add-assumption/:conference_id/:secret     controllers.StatTerms.addAssumption(conference_id: Int, secret: String)
-POST       /statterms/edit-assumption/:conference_id/:secret    controllers.StatTerms.editAssumption(conference_id: Int, secret: String)
-GET        /methods2assumptions/:conference_id/:secret          controllers.StatTerms.method2assumptions(conference_id: Int, secret: String)
-POST       /methods2assumptions/add/:conference_id/:secret      controllers.StatTerms.addMethod2assumptions(conference_id: Int, secret: String)
-POST       /methods2assumptions/edit/:conference_id/:secret     controllers.StatTerms.editMethod2assumptions(conference_id: Int, secret: String)
+GET         /statterms/:conference_id/:secret                        controllers.StatTerms.showStatTerms(conference_id: Int, secret: String)
+POST        /statterms/add-method/:conference_id/:secret             controllers.StatTerms.addMethod(conference_id: Int, secret: String)
+POST        /statterms/edit-method/:conference_id/:secret            controllers.StatTerms.editMethod(conference_id: Int, secret: String)
+POST        /statterms/add-assumption/:conference_id/:secret         controllers.StatTerms.addAssumption(conference_id: Int, secret: String)
+POST        /statterms/edit-assumption/:conference_id/:secret        controllers.StatTerms.editAssumption(conference_id: Int, secret: String)
+GET         /methods2assumptions/:conference_id/:secret              controllers.StatTerms.method2assumptions(conference_id: Int, secret: String)
+POST        /methods2assumptions/add/:conference_id/:secret          controllers.StatTerms.addMethod2assumptions(conference_id: Int, secret: String)
+POST        /methods2assumptions/edit/:conference_id/:secret         controllers.StatTerms.editMethod2assumptions(conference_id: Int, secret: String)
 
 # Footer
-GET        /faq                                     controllers.Footer.faq
-GET        /about                                   controllers.Footer.about
-GET        /impressum                               controllers.Footer.impressum
+GET         /faq                                                     controllers.Footer.faq
+GET         /about                                                   controllers.Footer.about
+GET         /impressum                                               controllers.Footer.impressum
 
 # Login
-GET        /login                                   controllers.Login.login
-GET        /logout                                  controllers.Login.logout
+GET         /login                                                   controllers.Login.login
+GET         /logout                                                  controllers.Login.logout
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                            controllers.Assets.at(path="/public", file)
+GET         /assets/*file                                            controllers.Assets.at(path="/public", file)
 
     
