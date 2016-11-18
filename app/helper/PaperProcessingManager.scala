@@ -2,12 +2,12 @@ package helper
 
 import java.io.{File, FileWriter}
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.HTMLQuery
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{DBSettings, Permutation}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.Report
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.{Algorithm250, BallotPortalAdapter}
-import ch.uzh.ifi.pdeboer.pplib.hcomp.HTMLQuery
 import ch.uzh.ifi.pdeboer.pplib.util.CollectionUtils._
 import controllers.routes
 import helper.email.MailTemplates
@@ -17,13 +17,12 @@ import helper.statcheck.Statchecker
 import models._
 import org.codehaus.plexus.util.FileUtils
 import org.joda.time.DateTime
-import play.api.{Configuration, Logger}
 import play.api.db.Database
-
-import scala.concurrent.{Await, Future}
-import scala.concurrent.duration._
 import play.api.libs.concurrent.Execution.Implicits._
+import play.api.{Configuration, Logger}
 
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 import scala.io.Source
 
 
@@ -176,9 +175,8 @@ object PaperProcessingManager {
 
     DBSettings.initialize()
     val dao = new BallotDAO
-    val hComp = HCompNew
-    hComp.autoloadConfiguredPortals()
-    val ballotPortalAdapter = hComp(BallotPortalAdapter.PORTAL_KEY)
+    HCompNew.autoloadConfiguredPortals()
+    val ballotPortalAdapter = HCompNew(BallotPortalAdapter.PORTAL_KEY)
     val algorithm250 = Algorithm250(dao, ballotPortalAdapter, method2AssumptionService)
 
     if (questionService.findById(DEFAULT_TEMPLATE_ID).isEmpty) {
@@ -216,7 +214,7 @@ object PaperProcessingManager {
         dao.createPermutation(perm, paper.id.get)
       })
       Thread.sleep(1000)
-      val ballotPortalAdapter = hComp(BallotPortalAdapter.PORTAL_KEY)
+      val ballotPortalAdapter = HCompNew(BallotPortalAdapter.PORTAL_KEY)
 
       templatePermutations.foreach(permutationId => {
         val q = algorithm250.buildQuestion(paper.conferenceId, dao.getPermutationById(permutationId).get, isTemplate = true)
