@@ -33,7 +33,7 @@ import scala.io.Source
 object PaperProcessingManager {
 
   var BYPASS_CROWD_PROCESSING = false
-  var AUTO_ANNOTATION = true
+  var AUTO_ANNOTATION = false
 
   var isRunning = false
 
@@ -89,72 +89,82 @@ object PaperProcessingManager {
                    conferenceSettingsService: ConferenceSettingsService, paper: Papers) = {
     Logger.debug("processPaper: " + paper.name + " " + DateTime.now())
     if (paper.status == Papers.STATUS_NEW) {
-      writePaperLog("<b>Start</b> Analysis\n", paper.secret)
-      Commons.generateCoverFile(paper)
-      writePaperLog("Run StatChecker\n", paper.secret)
-      try {
-        val statCheck = Future {
-          Statchecker.run(paper, paperResultService)
-        }
-        Await.result(statCheck, 120 seconds)
-      } catch {
-        case e: Throwable => {
-          Logger.info("StatCheck Timeout/Error!!!")
-          writePaperLog("StatChecker Timeout/Error!!!\n", paper.secret)
-          writePaperLog(e.getStackTrace.mkString("\n") + "\n", paper.secret)
-        }
+      processNewPaper(database, configuration, papersService, questionService, paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService, paper)
+    } else if (paper.status == Papers.STATUS_IN_PPLIB_QUEUE) {
+      processExistingPaper(configuration, papersService, questionService, method2AssumptionService, paperResultService, paperMethodService, answerService, conferenceSettingsService, paper)
+    }
+  }
+
+  def processExistingPaper(configuration: Configuration, papersService: PapersService, questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService, paperMethodService: PaperMethodService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService, paper: Papers): Unit = {
+    writePaperLog("Run Question Generator\n", paper.secret)
+    questionGenerator(questionService, method2AssumptionService, paper)
+    papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
+    if (AUTO_ANNOTATION) PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
+      paperResultService, paperMethodService, paper, false)
+    writePaperLog("Finish and Notify Crowdwork\n", paper.secret)
+    val paperLink = configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.show(paper.id.get, paper.secret).url
+    MailTemplates.sendPaperCompletedMail(paper.name, paperLink, paper.email)
+    writePaperLog("Clean Up\n", paper.secret)
+    //cleanUpTmpDir(paper)
+    writePaperLog("<b>Completed!</b>\n\n", paper.secret)
+  }
+
+  private def processNewPaper(database: Database, configuration: Configuration, papersService: PapersService, questionService: QuestionService, paperResultService: PaperResultService, paperMethodService: PaperMethodService, permutationsServcie: PermutationsService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService, paper: Papers): Unit = {
+    writePaperLog("<b>Start</b> Analysis\n", paper.secret)
+    Commons.generateCoverFile(paper)
+    writePaperLog("Run StatChecker\n", paper.secret)
+    try {
+      val statCheck = Future {
+        Statchecker.run(paper, paperResultService)
       }
-      writePaperLog("Run Layout Checker\n", paper.secret)
-      try {
-        val layoutCheck = Future {
-          LayoutChecker.check(paper, paperResultService)
-        }
-        Await.result(layoutCheck, 120 seconds)
-      } catch {
-        case e: Throwable => {
-          Logger.info("Layout Check Timeout/Error!!!")
-          writePaperLog("Layout Checker Timeout/Error!!!\n", paper.secret)
-          writePaperLog(e.getStackTrace.mkString("\n") + "\n", paper.secret)
-        }
+      Await.result(statCheck, 120 seconds)
+    } catch {
+      case e: Throwable => {
+        Logger.info("StatCheck Timeout/Error!!!")
+        writePaperLog("StatChecker Timeout/Error!!!\n", paper.secret)
+        writePaperLog(e.getStackTrace.mkString("\n") + "\n", paper.secret)
       }
-      writePaperLog("Run PreprocessPDF\n", paper.secret)
-      val process = Future {
-        PreprocessPDF.start(database, paperMethodService, paper)
+    }
+    writePaperLog("Run Layout Checker\n", paper.secret)
+    try {
+      val layoutCheck = Future {
+        LayoutChecker.check(paper, paperResultService)
       }
-      val permutations = Await.result(process, 700 seconds)
-      //val permutations = 0
-      if (permutations > 0) {
-        writePaperLog("<b>" + permutations + " Permutation(s)</b> Found\n", paper.secret)
-        papersService.updateStatus(paper.id.get, Papers.STATUS_AWAIT_CONFIRMATION)
-        papersService.updatePermutations(paper.id.get, permutations)
-        if (BYPASS_CROWD_PROCESSING) {
-          skipCrowdWork(paper.id.get, paper.secret, questionService, permutationsServcie, answerService)
-          papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
-          if (AUTO_ANNOTATION) PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
-            paperResultService, paperMethodService, paper, false)
-        }
-      } else {
-        writePaperLog("<b>No Permutations</b> Found\n", paper.secret)
+      Await.result(layoutCheck, 120 seconds)
+    } catch {
+      case e: Throwable => {
+        Logger.info("Layout Check Timeout/Error!!!")
+        writePaperLog("Layout Checker Timeout/Error!!!\n", paper.secret)
+        writePaperLog(e.getStackTrace.mkString("\n") + "\n", paper.secret)
+      }
+    }
+    writePaperLog("Run PreprocessPDF\n", paper.secret)
+    val process = Future {
+      PreprocessPDF.start(database, paperMethodService, paper)
+    }
+    val permutations = Await.result(process, 700 seconds)
+    //val permutations = 0
+    if (permutations > 0) {
+      writePaperLog("<b>" + permutations + " Permutation(s)</b> Found\n", paper.secret)
+      papersService.updateStatus(paper.id.get, Papers.STATUS_AWAIT_CONFIRMATION)
+      papersService.updatePermutations(paper.id.get, permutations)
+      /*
+      if (BYPASS_CROWD_PROCESSING) {
+        skipCrowdWork(paper.id.get, paper.secret, questionService, permutationsServcie, answerService)
         papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
         if (AUTO_ANNOTATION) PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
           paperResultService, paperMethodService, paper, false)
-      }
-      writePaperLog("Finish and Notify Analysis\n", paper.secret)
-      val paperLink = configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.confirmPaper(paper.id.get, paper.secret).url
-      MailTemplates.sendPaperAnalyzedMail(paper.name, paperLink, permutations, paper.email)
-    } else if (paper.status == Papers.STATUS_IN_PPLIB_QUEUE) {
-      writePaperLog("Run Question Generator\n", paper.secret)
-      questionGenerator(questionService, method2AssumptionService, paper)
+      }*/
+
+    } else {
+      writePaperLog("<b>No Permutations</b> Found\n", paper.secret)
       papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
       if (AUTO_ANNOTATION) PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
         paperResultService, paperMethodService, paper, false)
-      writePaperLog("Finish and Notify Crowdwork\n", paper.secret)
-      val paperLink = configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.show(paper.id.get, paper.secret).url
-      MailTemplates.sendPaperCompletedMail(paper.name, paperLink, paper.email)
-      writePaperLog("Clean Up\n", paper.secret)
-      //cleanUpTmpDir(paper)
-      writePaperLog("<b>Completed!</b>\n\n", paper.secret)
     }
+    writePaperLog("Finish and Notify Analysis\n", paper.secret)
+    val paperLink = configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.confirmPaper(paper.id.get, paper.secret).url
+    MailTemplates.sendPaperAnalyzedMail(paper.name, paperLink, permutations, paper.email)
   }
 
   def cleanUpTmpDir(paper: Papers): Unit = {
@@ -162,7 +172,6 @@ object PaperProcessingManager {
   }
 
   def questionGenerator(questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paper: Papers): Unit = {
-
     val DEFAULT_TEMPLATE_ID: Long = 1L
 
     DBSettings.initialize()
@@ -173,32 +182,13 @@ object PaperProcessingManager {
     val algorithm250 = Algorithm250(dao, ballotPortalAdapter, method2AssumptionService)
 
     if (questionService.findById(DEFAULT_TEMPLATE_ID).isEmpty) {
-      Logger.info("templateInit")
-      val template: File = new File("public/template/perm.csv")
-      if (template.exists()) {
-        val templatePermutations = Source.fromFile(template).getLines().drop(1).map(l => {
-          val perm: Permutation = Permutation.fromCSVLine(l)
-          dao.createPermutation(perm, paper.id.get)
-        })
-        Thread.sleep(1000)
-        templatePermutations.foreach(permutationId => {
-          val q = algorithm250.buildQuestion(paper.conferenceId, dao.getPermutationById(permutationId).get, isTemplate = true)
-          Logger.info("WriteTemplate")
-          ballotPortalAdapter.sendQuery(HTMLQuery(q._2, 1, "Statistical Methods and Prerequisites", ""), q._1)
-          Thread.sleep(1000)
-        })
-        Thread.sleep(1000)
-        assert(!templatePermutations.contains(DEFAULT_TEMPLATE_ID), "Our template didn't get ID 1. Please adapt DB. Current template IDs: " + templatePermutations.mkString(","))
-      }
-      Logger.info("templateInit Done")
-      questionGenerator(questionService, method2AssumptionService, paper)
-    } else {
-      Logger.info("Loading new permutations")
-      dao.loadPermutationsCSV(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/permutations.csv",
-        paper.id.get)
-      Logger.info("Removing state information of previous runs")
-      new File("state").listFiles().foreach(f => f.delete())
+      createFirstTimePaperTemplate(questionService, method2AssumptionService, paper, DEFAULT_TEMPLATE_ID, algorithm250)
     }
+    Logger.info("Loading new permutations")
+    dao.loadPermutationsCSV(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/permutations.csv",
+      paper.id.get)
+    Logger.info("Removing state information of previous runs")
+    new File("state").listFiles().foreach(f => f.delete())
 
     val groups = dao.getAllPermutations().filter(_.id != ConsoleIntegrationTest.DEFAULT_TEMPLATE_ID).groupBy(gr => {
       gr.groupName.split("/").apply(0)
@@ -214,6 +204,31 @@ object PaperProcessingManager {
 
     Report.writeCSVReport(dao)
     Report.writeCSVReportAllAnswers(dao)
+  }
+
+  def createFirstTimePaperTemplate(questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paper: Papers, DEFAULT_TEMPLATE_ID: Long, algorithm250: Algorithm250): Unit = {
+    Logger.info("templateInit")
+    val template: File = new File("public/template/perm.csv")
+    val dao = new BallotDAO
+    if (template.exists()) {
+      val templatePermutations = Source.fromFile(template).getLines().drop(1).map(l => {
+        val perm: Permutation = Permutation.fromCSVLine(l)
+        dao.createPermutation(perm, paper.id.get)
+      })
+      Thread.sleep(1000)
+      val ballotPortalAdapter = hComp(BallotPortalAdapter.PORTAL_KEY)
+
+      templatePermutations.foreach(permutationId => {
+        val q = algorithm250.buildQuestion(paper.conferenceId, dao.getPermutationById(permutationId).get, isTemplate = true)
+        Logger.info("WriteTemplate")
+        ballotPortalAdapter.sendQuery(HTMLQuery(q._2, 1, "Statistical Methods and Prerequisites", ""), q._1)
+        Thread.sleep(1000)
+      })
+      Thread.sleep(1000)
+      assert(!templatePermutations.contains(DEFAULT_TEMPLATE_ID), "Our template didn't get ID 1. Please adapt DB. Current template IDs: " + templatePermutations.mkString(","))
+    }
+    Logger.info("templateInit Done")
+    //questionGenerator(questionService, method2AssumptionService, paper)
   }
 
   def writePaperLog(logMsg: String, secret: String) = {

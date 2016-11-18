@@ -61,7 +61,7 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
     process.process(IndexedPatch.from(List(SnippetHTMLQueryBuilder.POSITIVE, SnippetHTMLQueryBuilder.NEGATIVE)))
 
     process.portal.queries.map(_.answer.get.is[HTMLQueryAnswer]).map(a => {
-      ParsedAnswer(a.answers.get("isRelated"), a.answers.get("isCheckedBefore"), a.answers.get("confidence").get.toInt, a.answers.get("descriptionIsRelated").get)
+      ParsedAnswer(a.answers.get("isRelated"), a.answers.get("isCheckedBefore"), a.answers("confidence").toInt, a.answers("descriptionIsRelated"))
     })
   }
 

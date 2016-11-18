@@ -29,8 +29,8 @@ class Upload @Inject()(database: Database, configuration: Configuration, questio
 
   def uploaded = Action(parse.multipartFormData) { request =>
     createDirs()
-    val email = request.body.dataParts.get("email").get.mkString("")
-    val conference = request.body.dataParts.get("conference").get.mkString("").toInt
+    val email = request.body.dataParts("email").mkString("")
+    val conference = request.body.dataParts("conference").mkString("").toInt
     request.body.file("paper").map { paper =>
       val filename = paper.filename
       if (filename.toLowerCase().contains(".pdf") || filename.toLowerCase().contains(".zip")) {
