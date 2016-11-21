@@ -6,13 +6,14 @@ package controllers
 import java.io._
 import java.util.zip.{ZipEntry, ZipInputStream}
 import javax.inject.Inject
-
+import scala.collection.mutable.ListBuffer
 import helper.pdfpreprocessing.PreprocessPDF
 import helper.{Commons, PaperProcessingManager}
 import models._
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
 import play.api.{Configuration, Logger}
+import controllers.Conference
 
 class Admin @Inject()(database: Database, configuration: Configuration, questionService: QuestionService,
                       papersService: PapersService, conferenceService: ConferenceService,
@@ -25,6 +26,13 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
     PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
       paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
     val conferences = conferenceService.findAll()
-    Ok(views.html.admin(conferences))
+    val papers = papersService.findByConference(1)
+    val papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
+      answerService, conferenceSettingsService)
+    val conferenceIds = List[Int]()
+    for(conference <- conferenceService.findAll()){
+      conferenceIds.++(conference.id)
+    }
+    Ok(views.html.admin(papersWithStats,conferences, conferenceIds))
   }
 }

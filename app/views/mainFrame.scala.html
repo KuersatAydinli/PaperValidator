@@ -75,23 +75,23 @@
 		</style>
 	</head>
 	<body ng-app="ballotApp">
-			<div class="header">
-				<div class="container">
-					<div class="col-sm-1">
-					</div>
-					<div class="col-sm-3">
-						<a href="@{urlPrefix + routes.Home.index.url}">
-							<img src="@{urlPrefix + routes.Assets.at("images/papval_logo.png").url}" alt="Logo" class="logo">
-						</a>
-					</div>
-					<div class="col-sm-7 text-right">
-                        <a href="@{urlPrefix + routes.Admin.show_admin().url}"><button class="btn btn-primary">Admin View</button></a>
-                        <a href="@{urlPrefix + routes.Upload.upload.url}"><button class="btn btn-primary">Upload Paper</button></a>
-						<a href="@{urlPrefix + routes.Conference.conferenceCreator().url}"><button class="btn btn-primary">Create Conference</button></a>
-						<a href="@{urlPrefix + routes.Account.getAccess.url}"><button class="btn btn-primary">My Account</button></a>
-					</div>
-				</div>
-			</div>
+        <div class="header">
+            <div class="container">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3">
+                    <a href="@{urlPrefix + routes.Home.index.url}">
+                        <img src="@{urlPrefix + routes.Assets.at("images/papval_logo.png").url}" alt="Logo" class="logo">
+                    </a>
+                </div>
+                <div class="col-sm-7 text-right">
+                    <a href="@{urlPrefix + routes.Admin.show_admin().url}"><button class="btn btn-primary">Admin View</button></a>
+                    <a href="@{urlPrefix + routes.Upload.upload.url}"><button class="btn btn-primary">Upload Paper</button></a>
+                    <a href="@{urlPrefix + routes.Conference.conferenceCreator().url}"><button class="btn btn-primary">Create Conference</button></a>
+                    <a href="@{urlPrefix + routes.Account.getAccess.url}"><button class="btn btn-primary">My Account</button></a>
+                </div>
+            </div>
+            </div>
 		<div class="container">
 			@content
 			<div class="row footer">
