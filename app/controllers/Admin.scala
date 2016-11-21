@@ -14,6 +14,8 @@ import play.api.db.Database
 import play.api.mvc.{Action, Controller}
 import play.api.{Configuration, Logger}
 import controllers.Conference
+import scala.collection.JavaConverters._
+
 
 class Admin @Inject()(database: Database, configuration: Configuration, questionService: QuestionService,
                       papersService: PapersService, conferenceService: ConferenceService,
@@ -30,9 +32,22 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
     val papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
       answerService, conferenceSettingsService)
     val conferenceIds = List[Int]()
+    val conIdPaperDict = scala.collection.mutable.Map[Int,List[PapersWithStats]]()
     for(conference <- conferenceService.findAll()){
       conferenceIds.++(conference.id)
     }
-    Ok(views.html.admin(papersWithStats,conferences, conferenceIds))
+    for(id <- conferenceIds){
+      conIdPaperDict += (id -> PaperStats.getStats(papersService.findByConference(long(id)),
+        papersService, paperResultService,
+        answerService, conferenceSettingsService))
+    }
+    Ok(views.html.admin(conIdPaperDict,conferences, conferenceIds))
+  }
+
+  def long(a: AnyRef) :Long = {
+    a match {
+      case v: java.lang.Integer => v.intValue
+      case v: java.lang.Long => v.longValue
+    }
   }
 }

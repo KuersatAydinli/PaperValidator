@@ -4,7 +4,7 @@
 @import play.api.libs.json.Json
 
 @import play.api.libs.json.JsObject
-@(papers: List[PapersWithStats], conferences: List[models.Conference], ids: List[Int])
+@(conIdPaperDict: scala.collection.mutable.Map[Int,List[PapersWithStats]], conferences: List[models.Conference], ids: List[Int])
 
 @urlPrefix = {@Configuration.root().getString("url.prefix")}
 @baseUrl = {@Configuration.root().getString("hcomp.ballot.baseURL")}
@@ -24,13 +24,13 @@
                 </h1>
                 @for(conference <- conferences){
                     <h2>
-                        @conference.name
+                    @conference.name
                     </h2>
                     <h3>Papers</h3>
-                    @if(papers.isEmpty) {
+                    @if(conIdPaperDict.get(conference.id.asInstanceOf[Integer]).isEmpty) {
                         No paper has been uploaded and completely processed so far.
                     }
-                    @for(paper <- papers) {
+                    @for(paper <- conIdPaperDict.get(conference.id.asInstanceOf[Integer]).map(x=>asInstanceOf[PapersWithStats])) {
                         <div class="row paper">
                             <div class="col-md-2"></div>
                             <div class="col-md-10">
