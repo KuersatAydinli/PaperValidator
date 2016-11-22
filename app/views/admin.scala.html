@@ -1,0 +1,197 @@
+@import play.Configuration
+@import play.Configuration
+@import models.PaperResult
+@import play.api.libs.json.Json
+
+@import play.api.libs.json.JsObject
+@(conIdPaperDict: scala.collection.mutable.Map[Int,List[PapersWithStats]], conferences: List[models.Conference], ids: List[Int])
+
+@urlPrefix = {@Configuration.root().getString("url.prefix")}
+@baseUrl = {@Configuration.root().getString("hcomp.ballot.baseURL")}
+
+@mainFrame("Admin View") {
+  <div class="row">
+    <div class="col-sm-12 text-center">
+        <div>
+        <!--@for(conference <- conferences) {
+            <option value="@conference.id">@conference.name</option>
+        }-->
+        </div>
+        <div class="panel panel-default" onclick="loadConferencesResult()">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h1>
+                    CONFERENCES
+                </h1>
+                @for(conference <- conferences){
+                    <h2>
+                    @conference.name
+                    </h2>
+                    <h3>Papers</h3>
+                    @if(conIdPaperDict.get(conference.id.asInstanceOf[Integer]).isEmpty) {
+                        No paper has been uploaded and completely processed so far.
+                    }
+                    @for(paper <- conIdPaperDict.get(conference.id.asInstanceOf[Integer]).map(x=>asInstanceOf[PapersWithStats])) {
+                        <div class="row paper">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <div class="col-xs-1" style="width: 3%"></div>
+                                <div class="col-xs-1 text-center">
+                                    <img class="pdf-icon" src="@{urlPrefix + routes.Assets.at("images/pdf-small.png").url}">
+                                    <div class="paper-status">
+                                    @paper.status match {
+                                        case Papers.STATUS_COMPLETED => {
+                                            <span class="glyphicon glyphicon-ok text-success"></span>
+                                        }
+                                        case Papers.STATUS_ERROR => {
+                                            <span class="glyphicon glyphicon glyphicon-ban-circle text-danger"></span>
+                                        }
+                                        case _ => {
+                                            <span class="glyphicon glyphicon-refresh text-muted"></span>
+                                        }
+                                    }
+                                    </div>
+                                </div>
+                                <div class="col-xs-10">
+                                    <div class="row">
+                                        <div class="col-md-12 text-left">
+                                            <b>@paper.name</b>
+                                            <br>
+                                            <br>
+                                            <a href="@{urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}">
+                                                <span class="glyphicon glyphicon-share"></span>
+                                                @{baseUrl.toString() + urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}
+                                            </a><br>
+                                            <div class="paper-stats">
+                                                <span class="glyphicon glyphicon-ok text-success"></span>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_OK,0)</div>
+                                                <span class="glyphicon glyphicon-warning-sign text-warning"></span>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
+                                                <span class="glyphicon glyphicon-ban-circle text-danger"></span>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_ERROR,0)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body pb-padding-top">
+                    <img id="sc-loader" src="@{urlPrefix + routes.Assets.at("images/loader2.gif").url}">
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default" onclick="loadSpellCheckerResults()">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        All Papers
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body pb-padding-top">
+                    <img id="sc-loader" src="@{urlPrefix + routes.Assets.at("images/loader2.gif").url}">
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <script>
+      function loadConferencesResult() {
+          var conference = conferenceService.findByIdAndSecret(conferenceId, secret)
+          if (conference.isEmpty) {
+              Unauthorized(views.html.error.unauthorized())
+          } else {
+              var papers = papersService.findByConference(conferenceId)
+              var papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
+                      answerService, conferenceSettingsService)
+              var stats = calculateConferenceStats(conferenceId, papersWithStats)
+              Ok(views.html.conference.conferenceEditor(conferenceId, secret, conference.get.name, stats, papersWithStats))
+          }
+      }
+      function selectFile() {
+        $("#fileSelect").get(0).click();
+      }
+
+      function submitForm() {
+        showUploadProgress("upload");
+        var data = new FormData();
+        var fileData = $('input[name="paper"]')[0].files[0];
+        var email = $('#emailIn').val()
+        var conference = $('#conference').val()
+        data.append("paper", fileData);
+        data.append("conference", conference);
+        data.append("email", email);
+        $.ajax({
+          url: '@{urlPrefix + routes.Upload.uploaded.url}',
+          type: 'POST',
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(data){
+            console.log(data);
+            if(data == "Ok") {
+              showUploadProgress("success");
+            } else {
+              alert("Error, sorry! " + data);
+              showUploadProgress("start");
+            }
+          }
+        });
+        return false;
+      }
+
+      function showUploadProgress(progress) {
+        $("#upload-start").css({"display":"none"});
+        $("#upload-upload").css({"display":"none"});
+        $("#upload-success").css({"display":"none"});
+        $("#upload-"+progress).css({"display":"inline-block"});
+      }
+  </script>
+  <style>
+          .file_button_container,
+          .file_button_container #fileSelect {
+            height: 135px;
+            width: 130px;
+            cursor:pointer ;
+          }
+          .statItem {
+              display:inline-block ;
+              width: 30px ;
+              padding-right:5px ;
+          }
+
+          .file_button_container {
+            display:inline-block;
+            margin-top : 50px;
+            background: transparent url('@{urlPrefix + routes.Assets.at("images/pdf.png").url}') left top no-repeat;
+          }
+
+          .file_button_container #fileSelect {
+            opacity: 0;
+          }
+
+          #upload-upload, #upload-success {
+            display:none;
+          }
+
+          #upload-upload img {
+            width: 35px;
+          }
+
+          .data-input {
+            display:inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin:20px;
+          }
+
+          .data-input select {
+            margin-top: 5px
+          }
+  </style>
+}
