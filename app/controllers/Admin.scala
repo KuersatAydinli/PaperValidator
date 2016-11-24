@@ -37,7 +37,7 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
       conferenceIds.++(conference.id)
     }
     for(id <- conferenceIds){
-      conIdPaperDict += (id -> PaperStats.getStats(papersService.findByConference(long(id)),
+      conIdPaperDict += (id -> PaperStats.getStats(papersService.findByConference(id),
         papersService, paperResultService,
         answerService, conferenceSettingsService))
     }
