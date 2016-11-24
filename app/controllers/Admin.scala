@@ -3,18 +3,13 @@ package controllers
 /**
   * Created by Aydinli on 21.11.2016.
   */
-import java.io._
-import java.util.zip.{ZipEntry, ZipInputStream}
 import javax.inject.Inject
-import scala.collection.mutable.ListBuffer
-import helper.pdfpreprocessing.PreprocessPDF
-import helper.{Commons, PaperProcessingManager}
+
+import helper.PaperProcessingManager
 import models._
+import play.api.Configuration
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
-import play.api.{Configuration, Logger}
-import controllers.Conference
-import scala.collection.JavaConverters._
 
 
 class Admin @Inject()(database: Database, configuration: Configuration, questionService: QuestionService,
