@@ -32,7 +32,7 @@ import scala.io.Source
 object PaperProcessingManager {
 
   var BYPASS_CROWD_PROCESSING = false
-  var AUTO_ANNOTATION = false
+  var AUTO_ANNOTATION = true
 
   var isRunning = false
 
@@ -137,9 +137,17 @@ object PaperProcessingManager {
         writePaperLog(e.getStackTrace.mkString("\n") + "\n", paper.secret)
       }
     }
+    if (AUTO_ANNOTATION) {
+      writePaperLog("Getting annotations of paper\n", paper.secret)
+      PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
+        paperResultService, paperMethodService, paper, glossaryWithIDMode = false)
+      println("done annotating")
+    }
+
     writePaperLog("Run PreprocessPDF\n", paper.secret)
     val process = Future {
-      PreprocessPDF.start(database, paperMethodService, paper)
+      //PreprocessPDF.start(database, paperMethodService, paper)
+      1
     }
     val permutations = Await.result(process, 700 seconds)
     //val permutations = 0
