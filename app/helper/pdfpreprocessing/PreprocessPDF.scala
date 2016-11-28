@@ -29,7 +29,6 @@ object PreprocessPDF {
   def start(database: Database, paperMethodService: PaperMethodService, paper: Papers): Int = {
     Logger.debug("starting highlighting")
 
-
     //FileUtils.emptyDir(new File(OUTPUT_DIR))
     val secretHash = Commons.getSecretHash(paper.secret)
     val allPapers = new PDFLoader(new File(INPUT_DIR + "/" + secretHash)).papers
@@ -58,7 +57,7 @@ object PreprocessPDF {
     val permFile = new File(OUTPUT_DIR + "/" + secretHash + "/permutations.csv")
 
     if (!permFile.exists()) {
-      permFile.getParentFile().mkdirs()
+      permFile.getParentFile.mkdirs()
       new FileWriter(permFile)
     }
     new CSVExporter(OUTPUT_DIR + "/" + secretHash + "/permutations.csv", snippets).persist()
