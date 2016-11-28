@@ -146,11 +146,9 @@ object PaperProcessingManager {
 
     writePaperLog("Run PreprocessPDF\n", paper.secret)
     val process = Future {
-      //PreprocessPDF.start(database, paperMethodService, paper)
-      1
+      PreprocessPDF.start(database, paperMethodService, paper)
     }
     val permutations = Await.result(process, 700 seconds)
-    //val permutations = 0
     if (permutations > 0) {
       writePaperLog("<b>" + permutations + " Permutation(s)</b> Found\n", paper.secret)
       papersService.updateStatus(paper.id.get, Papers.STATUS_AWAIT_CONFIRMATION)
