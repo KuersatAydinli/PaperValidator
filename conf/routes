@@ -9,6 +9,7 @@ GET         /                                                        controllers
 GET         /showQuestion                                            controllers.Mturk.showQuestion(q: String, s:String)
 GET         /showMTQuestion                                          controllers.Mturk.showMTQuestion(q:String, s:String, assignmentId:String, hitId:String, turkSubmitTo:String ?="", workerId:String?="", target:String)
 GET         /storeAnswer                                             controllers.Mturk.storeAnswer
+GET         /storeAnswer                                             controllers.Mturk.storeAnswer
 GET         /assetsBallot/:id/:secret                                controllers.Mturk.showAsset(id: Long, secret:String)
 
 #Account
@@ -64,5 +65,3 @@ GET         /logout                                                  controllers
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                                            controllers.Assets.at(path="/public", file)
-
-    
