@@ -60,6 +60,7 @@ object PreprocessPDF {
       permFile.getParentFile.mkdirs()
       new FileWriter(permFile)
     }
+
     new CSVExporter(OUTPUT_DIR + "/" + secretHash + "/permutations.csv", snippets).persist()
     snippets.length
   }
