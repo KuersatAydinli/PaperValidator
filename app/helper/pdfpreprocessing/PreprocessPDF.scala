@@ -1,14 +1,13 @@
 package helper.pdfpreprocessing
 
-import java.io.{FileWriter, File}
+import java.io.{File, FileWriter}
 
+import com.typesafe.config.ConfigFactory
 import helper.Commons
 import helper.pdfpreprocessing.csv.{CSVExporter, Snippet}
 import helper.pdfpreprocessing.pdf.{PDFHighlighter, PDFLoader}
-import helper.pdfpreprocessing.png.{PNGProcessor, PDFToPNGConverter}
+import helper.pdfpreprocessing.png.{PDFToPNGConverter, PNGProcessor}
 import helper.pdfpreprocessing.stats._
-import helper.pdfpreprocessing.util.FileUtils
-import com.typesafe.config.ConfigFactory
 import models.{PaperMethodService, Papers}
 import play.api.Logger
 import play.api.db.Database
@@ -29,7 +28,6 @@ object PreprocessPDF {
 
   def start(database: Database, paperMethodService: PaperMethodService, paper: Papers): Int = {
     Logger.debug("starting highlighting")
-
 
     //FileUtils.emptyDir(new File(OUTPUT_DIR))
     val secretHash = Commons.getSecretHash(paper.secret)
@@ -57,8 +55,9 @@ object PreprocessPDF {
     }).toList
 
     val permFile = new File(OUTPUT_DIR + "/" + secretHash + "/permutations.csv")
+
     if (!permFile.exists()) {
-      permFile.getParentFile().mkdirs()
+      permFile.getParentFile.mkdirs()
       new FileWriter(permFile)
     }
     new CSVExporter(OUTPUT_DIR + "/" + secretHash + "/permutations.csv", snippets).persist()

@@ -49,7 +49,7 @@ class PapersService @Inject()(db: Database) {
 
   def findByIdAndSecret(id: Int, secret: String): Option[Papers] =
     db.withConnection { implicit c =>
-      SQL("SELECT * FROM papers WHERE id = {id} ").on(//AND secret = {secret}
+      SQL("SELECT * FROM papers WHERE id = {id} AND secret = {secret}").on(
         'id -> id,
         'secret -> secret
       ).as(answerParser.singleOpt)

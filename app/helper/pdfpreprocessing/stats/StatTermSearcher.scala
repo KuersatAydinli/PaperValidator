@@ -2,7 +2,6 @@ package helper.pdfpreprocessing.stats
 
 import helper.pdfpreprocessing.entities.{Paper, StatTermOccurrence, StatisticalTerm}
 import models.Papers
-import play.api.Logger
 import play.api.db.Database
 
 import scala.collection.immutable.Iterable
@@ -50,7 +49,7 @@ class StatTermSearcher(paper: Paper, database: Database, papers: Papers, include
 
     if (searchString.length < 7)
       searchStringInclSuffixes.map(search => {
-        "(\\b" + addRegexToAllowSpaces(search) + "\\b)"
+        "(\\b" + addRegexToAllowSpaces(search) + "\\b)" //b is word boundary
       })
     else
       List("(?i)(" + addRegexToAllowSpaces(searchString) + ")")

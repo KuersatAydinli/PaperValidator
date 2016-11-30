@@ -1,10 +1,10 @@
 independen;randomly
 homoscedasticity;homogeneity of variance,same variance,equal variance,sphericity,Constant variance
 homogeneity of regression slopes
-normal;gaussian,bell,normal error,multivariate normality
+normal;gaussian,bell,normal error,multivariate normality,normally,normality
 interval;ratio
 multicollinearity
-linearity
+linearity,linear
 linearity of dependent variable
 categorical;dichotomous
 homogenity of variance-covariance;homogenity of variance-covariance,homogenity of var-covar
