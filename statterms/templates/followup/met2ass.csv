@@ -1,14 +1,14 @@
-t test,Normal
-t test,Independen
-t test,Homogeneity of variance
-ANOVA,Independen
-ANOVA,Normal
-ANOVA,Homogeneity of variance
-Linear regression,Homogeneity of variance
-Linear regression,Normal
-Linear regression,lack of multicollinearity
-Linear regression,linearity
-Linear regression,Independen
-chi square,Expected cell count
-chi square,Independen
-Logistic regression,Independen
+t test;Normal
+t test;Independen
+t test;Homogeneity of variance
+ANOVA;Independen
+ANOVA;Normal
+ANOVA;Homogeneity of variance
+Linear regression;Homogeneity of variance
+Linear regression;Normal
+Linear regression;lack of multicollinearity
+Linear regression;linearity
+Linear regression;Independen
+chi square;Expected cell count
+chi square;Independen
+Logistic regression;Independen
