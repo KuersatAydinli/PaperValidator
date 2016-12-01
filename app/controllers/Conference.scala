@@ -43,7 +43,6 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
   def readTemplate(conferenceId: Int, templateName: String) = {
     Source.fromFile("statterms/templates/" + templateName + "/methods.csv", "UTF-8").getLines().foreach(line => {
       val cols = line.split(";")
-      println(cols)
       if (cols.length > 2) {
         methodService.create(conferenceId, cols(0), cols(1).toInt, cols(2))
       } else {
