@@ -42,7 +42,7 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
 
   def readTemplate(conferenceId: Int, templateName: String) = {
     Source.fromFile("statterms/templates/" + templateName + "/methods.csv", "UTF-8").getLines().foreach(line => {
-      val cols = line.split(";")
+      val cols = line.split(",")
       if (cols.length > 2) {
         methodService.create(conferenceId, cols(0), cols(1).toInt, cols(2))
       } else {
@@ -50,7 +50,7 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
       }
     })
     Source.fromFile("statterms/templates/" + templateName + "/assumptions.csv", "UTF-8").getLines().foreach(line => {
-      val cols = line.split(";")
+      val cols = line.split(",")
       if (cols.length > 1) {
         assumptionService.create(conferenceId, cols(0), cols(1))
       } else {
@@ -58,7 +58,7 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
       }
     })
     Source.fromFile("statterms/templates/" + templateName + "/met2ass.csv", "UTF-8").getLines().foreach(line => {
-      val cols = line.split(";")
+      val cols = line.split(",")
       val methodId = methodService.findByName(conferenceId, cols(0)).get.id.get
       val assumptionId = assumptionService.findByName(conferenceId, cols(1)).get.id.get
       if (cols.length > 2) {
