@@ -4,7 +4,7 @@
 @import play.api.libs.json.Json
 
 @import play.api.libs.json.JsObject
-@(conIdPaperDict: scala.collection.mutable.Map[Int,List[PapersWithStats]], conferences: List[models.Conference], ids: List[Int])
+@(papersService: PapersService, conferences: List[models.Conference], papers: List[PapersWithStats])
 
 @urlPrefix = {@Configuration.root().getString("url.prefix")}
 @baseUrl = {@Configuration.root().getString("hcomp.ballot.baseURL")}
@@ -24,18 +24,22 @@
                 </h1>
                 @for(conference <- conferences){
                     <h2>
+                    @conference.id
+                    </h2>
+                    <h2>
                     @conference.name
                     </h2>
-                    <h3>Papers</h3>
-                    @if(conIdPaperDict.get(conference.id.asInstanceOf[Integer]).isEmpty) {
+                    <h3 id="papers">Papers</h3>
+                    @if(papersService.findByConference(conference.id.getOrElse(0)).isEmpty) {
                         No paper has been uploaded and completely processed so far.
                     }
-                    @for(paper <- conIdPaperDict.get(conference.id.asInstanceOf[Integer]).map(x=>asInstanceOf[PapersWithStats])) {
+                    @for(paper <- papersService.findByConference(conference.id.getOrElse(0))) {
                         <div class="row paper">
                             <div class="col-md-2"></div>
                             <div class="col-md-10">
                                 <div class="col-xs-1" style="width: 3%"></div>
                                 <div class="col-xs-1 text-center">
+                                        <!--<span class="glyphicon glyphicon-file"></span>-->
                                     <img class="pdf-icon" src="@{urlPrefix + routes.Assets.at("images/pdf-small.png").url}">
                                     <div class="paper-status">
                                     @paper.status match {
@@ -56,18 +60,17 @@
                                         <div class="col-md-12 text-left">
                                             <b>@paper.name</b>
                                             <br>
-                                            <br>
                                             <a href="@{urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}">
                                                 <span class="glyphicon glyphicon-share"></span>
                                                 @{baseUrl.toString() + urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}
                                             </a><br>
                                             <div class="paper-stats">
                                                 <span class="glyphicon glyphicon-ok text-success"></span>
-                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_OK,0)</div>
+                                                <div class="statItem">SomeStats</div>
                                                 <span class="glyphicon glyphicon-warning-sign text-warning"></span>
-                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
+                                                <div class="statItem">SomeStats</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
-                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_ERROR,0)</div>
+                                                <div class="statItem">SomeStats</div>
                                             </div>
                                         </div>
                                     </div>
@@ -112,6 +115,7 @@
               Ok(views.html.conference.conferenceEditor(conferenceId, secret, conference.get.name, stats, papersWithStats))
           }
       }
+
       function selectFile() {
         $("#fileSelect").get(0).click();
       }

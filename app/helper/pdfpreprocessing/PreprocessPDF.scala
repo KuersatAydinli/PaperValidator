@@ -53,7 +53,9 @@ object PreprocessPDF {
       Logger.info(s"finished processing paper $snip")
       snippets.filter(_.isDefined).map(_.get)
     }).toList
+
     Logger.debug("NO. OF SNIPPETS IN PAPER: " + paper + " : "+ snippets.length)
+
     val permFile = new File(OUTPUT_DIR + "/" + secretHash + "/permutations.csv")
 
     if (!permFile.exists()) {

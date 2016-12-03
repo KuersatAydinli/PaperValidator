@@ -23,7 +23,7 @@ POST        /uploaded                                                controllers
 GET         /test                                                    controllers.Upload.statTest
 
 # Admin View
-GET         /admin                                                    controllers.Admin.show_admin
+GET         /admin                                                   controllers.Admin.show_admin
 
 # Paper
 GET         /show-paper/:id/:secret                                  controllers.Paper.show(id: Int, secret: String)
