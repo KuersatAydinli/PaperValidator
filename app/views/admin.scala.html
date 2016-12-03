@@ -4,7 +4,8 @@
 @import play.api.libs.json.Json
 
 @import play.api.libs.json.JsObject
-@(papersService: PapersService, conferences: List[models.Conference], papers: List[PapersWithStats])
+@(paperResultService: PaperResultService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService,
+        papersService: PapersService, conferences: List[models.Conference], papers: List[PapersWithStats])
 
 @urlPrefix = {@Configuration.root().getString("url.prefix")}
 @baseUrl = {@Configuration.root().getString("hcomp.ballot.baseURL")}
@@ -19,21 +20,16 @@
         </div>
         <div class="panel panel-default" onclick="loadConferencesResult()">
             <div class="panel-heading" role="tab" id="headingThree">
-                <h1>
-                    CONFERENCES
-                </h1>
                 @for(conference <- conferences){
-                    <h2>
-                    @conference.id
-                    </h2>
-                    <h2>
-                    @conference.name
-                    </h2>
-                    <h3 id="papers">Papers</h3>
+                    <h1>
+                    Conference : @conference.name
+                    </h1>
+                    <h2 id="papers">Papers</h2>
                     @if(papersService.findByConference(conference.id.getOrElse(0)).isEmpty) {
                         No paper has been uploaded and completely processed so far.
                     }
-                    @for(paper <- papersService.findByConference(conference.id.getOrElse(0))) {
+                    @for(paper <- PaperStats.getStats(papersService.findByConference(conference.id.getOrElse(0)), papersService, paperResultService,
+                        answerService, conferenceSettingsService)) {
                         <div class="row paper">
                             <div class="col-md-2"></div>
                             <div class="col-md-10">
@@ -66,11 +62,11 @@
                                             </a><br>
                                             <div class="paper-stats">
                                                 <span class="glyphicon glyphicon-ok text-success"></span>
-                                                <div class="statItem">SomeStats</div>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_OK,0)</div>
                                                 <span class="glyphicon glyphicon-warning-sign text-warning"></span>
-                                                <div class="statItem">SomeStats</div>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
-                                                <div class="statItem">SomeStats</div>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                             </div>
                                         </div>
                                     </div>

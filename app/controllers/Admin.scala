@@ -46,7 +46,7 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
     Logger.info("DICT: " + conIdPaperDict.size)
 
 //    Ok(views.html.admin(conIdPaperDict,conferences, conferenceIds))
-    Ok(views.html.admin(papersService, conferences, papersWithStats))
+    Ok(views.html.admin(paperResultService, answerService, conferenceSettingsService, papersService, conferences, papersWithStats))
   }
 
   def long(a: AnyRef) :Long = {
