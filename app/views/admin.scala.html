@@ -67,6 +67,8 @@
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
+                                                <span class="glyphicon glyphicon-share"></span>
+                                                <div class="confirmItem">Confirmed : </div>
                                             </div>
                                         </div>
                                     </div>
@@ -160,6 +162,11 @@
             cursor:pointer ;
           }
           .statItem {
+              display:inline-block ;
+              width: 30px ;
+              padding-right:5px ;
+          }
+          .confirmItem {
               display:inline-block ;
               width: 30px ;
               padding-right:5px ;

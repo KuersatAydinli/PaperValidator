@@ -26,7 +26,6 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
     val conferences = conferenceService.findAll()
     Logger.info("CONFERENCES: "+conferences.length)
     val papers = papersService.findByConference(1)
-    Logger.info("PAPERS: "+papers.length)
     val papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
       answerService, conferenceSettingsService)
     val conferenceIds = List[Int]()
@@ -43,7 +42,6 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
 //    }
 
     conIdPaperDict foreach ( (t2) => Logger.info(t2._1 + "-->" + t2._2))
-    Logger.info("DICT: " + conIdPaperDict.size)
 
 //    Ok(views.html.admin(conIdPaperDict,conferences, conferenceIds))
     Ok(views.html.admin(paperResultService, answerService, conferenceSettingsService, papersService, conferences, papersWithStats))
