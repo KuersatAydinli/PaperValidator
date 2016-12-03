@@ -1,14 +1,14 @@
-@import play.Configuration
-@import play.Configuration
+@import play.{Configuration => confi}
 @import models.PaperResult
+@import play.api.Configuration
 @import play.api.libs.json.Json
 
 @import play.api.libs.json.JsObject
-@(paperResultService: PaperResultService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService,
+@(configuration: Configuration, paperResultService: PaperResultService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService,
         papersService: PapersService, conferences: List[models.Conference], papers: List[PapersWithStats])
 
-@urlPrefix = {@Configuration.root().getString("url.prefix")}
-@baseUrl = {@Configuration.root().getString("hcomp.ballot.baseURL")}
+@urlPrefix = {@confi.root().getString("url.prefix")}
+@baseUrl = {@confi.root().getString("hcomp.ballot.baseURL")}
 
 @mainFrame("Admin View") {
   <div class="row">
@@ -67,8 +67,24 @@
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
-                                                <span class="glyphicon glyphicon-share"></span>
-                                                <div class="confirmItem">Confirmed : </div>
+                                                @if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
+                                                    <span class="glyphicon glyphicon-share"></span>
+                                                    <div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;
+                                                        <span style="color:blue;font-weight:bold">
+                                                            <a href=@configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.confirmPaper(paper.id.get, paper.secret).url>
+                                                                Confirm&nbsp;Now
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                }
+                                                @if(paper.status == Papers.STATUS_IN_PPLIB_QUEUE){
+                                                    <span class="glyphicon glyphicon-check"></span>
+                                                    <div class="confirmItem">Paper&nbsp;Confirmed</div>
+                                                }
+                                                @if(paper.status == Papers.STATUS_COMPLETED){
+                                                    <span class="glyphicon glyphicon-ok-circle"></span>
+                                                    <div class="confirmItem"> Analysis&nbsp;Completed </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +184,7 @@
           }
           .confirmItem {
               display:inline-block ;
-              width: 30px ;
+              width: 100px ;
               padding-right:5px ;
           }
 
