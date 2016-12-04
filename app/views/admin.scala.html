@@ -14,16 +14,11 @@
 @mainFrame("Admin View") {
     <div class="row">
         <div class="col-sm-12 text-center">
-            <div>
-                    <!--@for(conference <- conferences) {
-                <option value="@conference.id">@conference.name</option>
-            }-->
-            </div>
             <div class="panel panel-default" onclick="loadConferencesResult()">
                 <div class="panel-heading" role="tab" id="headingThree">
                 @for(conference <- conferences){
                     <h1>
-                    Conference : @conference.name
+                    Conference : <b>@conference.name</b>
                     </h1>
                     <h2 id="papers">Papers</h2>
                     @if(papersService.findByConference(conference.id.getOrElse(0)).isEmpty) {
@@ -105,6 +100,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="break"></div>
                     }
                     <hr style="height:2px; color: #0f0f0f">
                 }
@@ -138,6 +134,16 @@
             background-color:#0f0f0f;
             height: 1px;
         }
+
+        .break{
+            width: 100%;
+            float: left;
+            clear: both;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
         .file_button_container,
         .file_button_container #fileSelect {
             height: 135px;
