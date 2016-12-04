@@ -106,6 +106,7 @@
                             </div>
                         </div>
                     }
+                    <hr style="height:2px; color: #0f0f0f">
                 }
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -131,44 +132,50 @@
             }
     </script>
     <style>
-            .file_button_container,
-            .file_button_container #fileSelect {
-                height: 135px;
-                width: 130px;
-                cursor:pointer ;
-            }
-            .statItem {
-                display:inline-block ;
-                width: 30px ;
-                padding-right:5px ;
-            }
-            .confirmItem {
-                display:inline-block ;
-                width: 100px ;
-                padding-right:5px ;
-            }
-            .file_button_container {
-                display:inline-block;
-                margin-top : 50px;
-                background: transparent url('@{urlPrefix + routes.Assets.at("images/pdf.png").url}') left top no-repeat;
-            }
-            .file_button_container #fileSelect {
-                opacity: 0;
-            }
-            #upload-upload, #upload-success {
-                display:none;
-            }
-            #upload-upload img {
-                width: 35px;
-            }
-            .data-input {
-                display:inline-block;
-                width: 100%;
-                max-width: 300px;
-                margin:20px;
-            }
-            .data-input select {
-                margin-top: 5px
-            }
+        hr{
+            display:block;
+            width: 96%;
+            background-color:#0f0f0f;
+            height: 1px;
+        }
+        .file_button_container,
+        .file_button_container #fileSelect {
+            height: 135px;
+            width: 130px;
+            cursor:pointer ;
+        }
+        .statItem {
+            display:inline-block ;
+            width: 30px ;
+            padding-right:5px ;
+        }
+        .confirmItem {
+            display:inline-block ;
+            width: 100px ;
+            padding-right:5px ;
+        }
+        .file_button_container {
+            display:inline-block;
+            margin-top : 50px;
+            background: transparent url('@{urlPrefix + routes.Assets.at("images/pdf.png").url}') left top no-repeat;
+        }
+        .file_button_container #fileSelect {
+            opacity: 0;
+        }
+        #upload-upload, #upload-success {
+            display:none;
+        }
+        #upload-upload img {
+            width: 35px;
+        }
+        .data-input {
+            display:inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin:20px;
+        }
+        .data-input select {
+            margin-top: 5px
+        }
     </style>
 }
