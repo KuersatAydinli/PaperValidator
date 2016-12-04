@@ -36,7 +36,6 @@
                             <div class="col-md-10">
                                 <div class="col-xs-1" style="width: 3%"></div>
                                 <div class="col-xs-1 text-center">
-                                        <!--<span class="glyphicon glyphicon-file"></span>-->
                                     <img class="pdf-icon" src="@{urlPrefix + routes.Assets.at("images/pdf-small.png").url}">
                                     <div class="paper-status">
                                     @paper.status match {
@@ -68,24 +67,27 @@
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
-                                                <span class="glyphicon glyphicon-sunglasses"></span>
-                                                <div onclick="confirmPaper(@paper)">Confirm&nbsp;Now</div>
                                                 @if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
-                                                    <span class="glyphicon glyphicon-share"></span>
+                                                    <span class="glyphicon glyphicon-eye-open"></span>
                                                     <div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;
-                                                        <span style="color:blue;font-weight:bold" onclick="confirmPaper(@paper)">
-                                                                Confirm&nbsp;Now
-                                                        </span>
+                                                            <a href="@{urlPrefix + routes.Paper.confirmPaper(paper.id.get,paper.secret).url}">
+                                                                <span style="color:blue;font-weight:bold" onclick="confirmPaper(@paper)">
+                                                                    Confirm&nbsp;Now
+                                                                </span>
+                                                            </a>
                                                     </div>
                                                 }
+
                                                 @if(paper.status == Papers.STATUS_IN_PPLIB_QUEUE){
                                                     <span class="glyphicon glyphicon-check"></span>
                                                     <div class="confirmItem">Paper&nbsp;Confirmed</div>
                                                 }
+
                                                 @if(paper.status == Papers.STATUS_COMPLETED){
                                                     <span class="glyphicon glyphicon-ok-circle"></span>
                                                     <div class="confirmItem"> Analysis&nbsp;Completed </div>
                                                 }
+
                                             </div>
                                         </div>
                                     </div>
