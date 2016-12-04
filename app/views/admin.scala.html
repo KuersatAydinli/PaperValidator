@@ -2,8 +2,9 @@
 @import models.PaperResult
 @import play.api.Configuration
 @import play.api.libs.json.Json
-
+@import controllers.routes
 @import play.api.libs.json.JsObject
+@import play.api.{Configuration, Logger}
 @(configuration: Configuration, paperResultService: PaperResultService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService,
         papersService: PapersService, conferences: List[models.Conference], papers: List[PapersWithStats])
 
@@ -67,13 +68,13 @@
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
+                                                <span class="glyphicon glyphicon-sunglasses"></span>
+                                                <div onclick="confirmPaper(@paper)">Confirm&nbsp;Now</div>
                                                 @if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
                                                     <span class="glyphicon glyphicon-share"></span>
                                                     <div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;
-                                                        <span style="color:blue;font-weight:bold">
-                                                            <a href=@configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.confirmPaper(paper.id.get, paper.secret).url>
+                                                        <span style="color:blue;font-weight:bold" onclick="confirmPaper(@paper)">
                                                                 Confirm&nbsp;Now
-                                                            </a>
                                                         </span>
                                                     </div>
                                                 }
@@ -128,6 +129,12 @@
               var stats = calculateConferenceStats(conferenceId, papersWithStats)
               Ok(views.html.conference.conferenceEditor(conferenceId, secret, conference.get.name, stats, papersWithStats))
           }
+      }
+
+      function confirmPaper(paper) {
+          var paperLink = configuration.getString("hcomp.ballot.baseURL").get + routes.Paper.confirmPaper(paper.id.get, paper.secret).url;
+          Logger.info("PAPERLINK: " + paperLink);
+          window.open(paperLink);
       }
 
       function selectFile() {
