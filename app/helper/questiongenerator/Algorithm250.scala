@@ -5,7 +5,7 @@ import javax.activation.MimetypesFileTypeMap
 
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.DAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.Constants
-import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.Permutation
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Permutation, PermutationState}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.{AnswerParser, ParsedAnswer}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.snippet.{SnippetHTMLQueryBuilder, SnippetHTMLTemplate}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.{HCompPortalAdapter, HCompQueryProperties, HTMLQueryAnswer}
@@ -25,22 +25,28 @@ import scala.xml.NodeSeq
   */
 case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, method2AssumptionService: Method2AssumptionService) {
 
-  val conf = Configuration.root()
+  val ALLOW_SAME_ASSUMPTION_TO_BE_REPORTED_FOR_MULTIPLE_METHODS = true
 
-  def executePermutation(conferenceId: Int, p: Permutation) = {
+  val conf: Configuration = Configuration.root()
+
+  def executePermutation(conferenceId: Int, p: Permutation): Unit = {
     val answers: List[ParsedAnswer] = buildAndExecuteQuestion(conferenceId, p)
     if (isFinalAnswerYesYes(answers)) {
-      dao.updateStateOfPermutationId(p.id, p.id)
-      dao.getAllOpenByGroupName(p.groupName).foreach(g => {
-        dao.updateStateOfPermutationId(g.id, p.id, 1)
-      })
+      dao.updateStateOfPermutationId(p.id, p.id) //set done
+      if (ALLOW_SAME_ASSUMPTION_TO_BE_REPORTED_FOR_MULTIPLE_METHODS) {
+        dao.getAllOpenByGroupName(p.groupName).foreach(g => {
+          //same assumption (and index) can only be used for 1 method)
+          dao.updateStateOfPermutationId(g.id, p.id, PermutationState.EXCLUDED_OTHER_METHOD_MATCHES_FOR_THIS_ASSUMPTION)
+        })
+      }
       val groupName = p.groupName.split("/")
-      val secondExclusionMatches = groupName.slice(0, 2).mkString("/")
+      val secondExclusionMatches = groupName.slice(0, 2).mkString("/") //equal assumption (e.g. normal for ANOVA)
       dao.getAllOpenGroupsStartingWith(secondExclusionMatches).filter(_.methodIndex.equalsIgnoreCase(p.methodIndex)).foreach(g => {
-        dao.updateStateOfPermutationId(g.id, p.id, 2)
+        //deactivate all other "normal" checks for ANOVA if we just accepted NORMAL to be ok for that anova
+        dao.updateStateOfPermutationId(g.id, p.id, PermutationState.EXCLUDED_SAME_ASSUMPTIONS_FOR_METHOD)
       })
     } else {
-      dao.updateStateOfPermutationId(p.id, -1)
+      dao.updateStateOfPermutationId(p.id, PermutationState.ANSWER_IS_NO)
     }
   }
 

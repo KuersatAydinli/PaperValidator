@@ -28,7 +28,6 @@ object PreprocessPDF {
 
   def start(database: Database, paperMethodService: PaperMethodService, paper: Papers): Int = {
     Logger.debug("starting highlighting")
-
     //FileUtils.emptyDir(new File(OUTPUT_DIR))
     val secretHash = Commons.getSecretHash(paper.secret)
     Logger.info("SECRET HASH: " + secretHash)
@@ -73,5 +72,4 @@ object PreprocessPDF {
     new CSVExporter(OUTPUT_DIR + "/" + secretHash + "/permutations.csv", snippets).persist()
     snippets.length
   }
-
 }

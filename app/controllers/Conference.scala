@@ -46,7 +46,7 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
       if (cols.length > 2) {
         methodService.create(conferenceId, cols(0), cols(1).toInt, cols(2))
       } else {
-        methodService.create(conferenceId, cols(0), cols(1).toInt, "")
+        methodService.create(conferenceId, cols(0), 0, cols(1))
       }
     })
     Source.fromFile("statterms/templates/" + templateName + "/assumptions.csv", "UTF-8").getLines().foreach(line => {

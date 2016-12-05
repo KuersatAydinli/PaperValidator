@@ -10,6 +10,13 @@ case class Answer(id: Long, time: DateTime, questionId: Long, answerJson: String
 case class Permutation(id: Long, groupName: String, methodIndex: String, snippetFilename: String, pdfPath: String,
                        methodOnTop: Boolean, state: Long, excluded_step: Int, relativeHeightTop: Double, relativeHeightBottom: Double, distanceMinIndexMax: Long)
 
+object PermutationState {
+  //BECAUSE OF ID marks the skipped ones
+  val ANSWER_IS_NO = -1
+  val EXCLUDED_OTHER_METHOD_MATCHES_FOR_THIS_ASSUMPTION = 1
+  val EXCLUDED_SAME_ASSUMPTIONS_FOR_METHOD = 2
+}
+
 object Permutation {
   def fromCSVLine(line: String, idToGive: Long = -1): Permutation = {
     val cols = line.split(",")
