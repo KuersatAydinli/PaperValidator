@@ -25,6 +25,9 @@
                 <button class="btn btn-primary">Get Paper</button>
             </a>
             @if(annotated) {
+                <script>
+                    window.alert(@paper.name)
+                </script>
                 <a target="_blank" href="@{urlPrefix + routes.Paper.getFile("public","papers/"+hashedSecret+"/annotated-"+paper.name).url}">
                     <button class="btn btn-primary">Get Annotations</button>
                 </a>
