@@ -138,7 +138,6 @@ object PaperProcessingManager {
       writePaperLog("Getting annotations of paper\n", paper.secret)
       PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
         paperResultService, paperMethodService, paper, glossaryWithIDMode = false)
-      println("done annotating")
     }
 
     writePaperLog("Run PreprocessPDF\n", paper.secret)
@@ -186,7 +185,7 @@ object PaperProcessingManager {
       createFirstTimePaperTemplate(questionService, method2AssumptionService, paper, DEFAULT_TEMPLATE_ID, algorithm250)
     }
 
-    if (!dao.getAllPermutations().exists(p => p.paperId.toInt == paper.id.get)) {
+    if (!dao.getAllPermutations().exists(p => p.paperId.toInt == paper.id.get && !p.snippetFilename.contains("/template/"))) {
       //see if we have already loaded this paper before
       Logger.info("Loading new permutations")
       dao.loadPermutationsCSV(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/permutations.csv",
