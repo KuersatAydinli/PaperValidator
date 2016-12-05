@@ -33,8 +33,11 @@ object PreprocessPDF {
     val secretHash = Commons.getSecretHash(paper.secret)
     Logger.info("SECRET HASH: " + secretHash)
     val allPapers = new PDFLoader(new File(INPUT_DIR + "/" + secretHash)).papers
+    val papersWithoutDuplicates = allPapers.filter(_.name.contains("annotated"))
     allPapers.foreach(x => Logger.info("PAPER " + x.name))
-    val snippets = allPapers.par.flatMap(snip => {
+    papersWithoutDuplicates.foreach(x => Logger.info("PAPER " + x.name))
+    val snippets = papersWithoutDuplicates.par.flatMap(snip => {
+    //val snippets = allPapers.par.flatMap(snip => {
       val searcher = new StatTermSearcher(snip, database, paper)
       searcher.occurrences.foreach(occ => Logger.info("Occurence: " + occ.term))
       searcher.occurrences.foreach(occurence => {
