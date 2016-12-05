@@ -31,7 +31,7 @@ import scala.io.Source
   */
 object PaperProcessingManager {
   var BYPASS_CROWD_PROCESSING = false
-  var AUTO_ANNOTATION = true
+  var AUTO_ANNOTATION = false
 
   var isRunning = false
 
