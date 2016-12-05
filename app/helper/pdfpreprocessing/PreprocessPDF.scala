@@ -32,6 +32,7 @@ object PreprocessPDF {
     //FileUtils.emptyDir(new File(OUTPUT_DIR))
     val secretHash = Commons.getSecretHash(paper.secret)
     val allPapers = new PDFLoader(new File(INPUT_DIR + "/" + secretHash)).papers
+
     val snippets = allPapers.par.flatMap(snip => {
       val searcher = new StatTermSearcher(snip, database, paper)
       searcher.occurrences.foreach(occurence => {
