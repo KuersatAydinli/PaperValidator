@@ -29,6 +29,7 @@ class ConferenceService @Inject()(db: Database) {
       ).as(answerParser.singleOpt)
     }
 
+
   def findByIdAndSecret(id: Int, secret: String): Option[Conference] =
     db.withConnection { implicit c =>
       SQL("SELECT * FROM conference WHERE id = {id} AND secret = {secret} ").on(
