@@ -9,7 +9,7 @@ import scala.collection.mutable.ListBuffer
 import util.control.Breaks._
 import helper._
 import models._
-import play.api.Configuration
+import play.api.{Configuration, Logger}
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
 
@@ -142,13 +142,16 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
 
   def getFile(basePath: String, path: String) = Action {
     val file = new java.io.File(basePath + "/" + path)
+    Logger.info("FILE: " + file.getName)
     if (file.exists() && (basePath == "public" || basePath == "tmp")) {
       //TODO: Security
+      Logger.info("File exists")
       Ok.sendFile(
         content = file,
         inline = true
       )
     } else {
+      Logger.info("File does not exist")
       Unauthorized(views.html.error.unauthorized())
     }
   }
