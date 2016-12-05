@@ -18,7 +18,9 @@
                 <div class="panel-heading" role="tab" id="headingThree">
                 @for(conference <- conferences){
                     <h1>
-                    Conference : <b>@conference.name</b>
+                        <a href="@{urlPrefix + routes.Conference.conferenceEditor(conference.id.get,conference.secret).url}">
+                            Conference : <b>@conference.name</b>
+                        </a>
                     </h1>
                     <h2 id="papers">Papers</h2>
                     @if(papersService.findByConference(conference.id.getOrElse(0)).isEmpty) {
@@ -54,14 +56,15 @@
                                             <a href="@{urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}">
                                                 <span class="glyphicon glyphicon-share"></span>
                                                 @{baseUrl.toString() + urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}
-                                            </a><br>
+                                            </a>
+                                            <br>
                                             <div class="paper-stats">
                                                 <span class="glyphicon glyphicon-ok text-success"></span>
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_OK,0)</div>
                                                 <span class="glyphicon glyphicon-warning-sign text-warning"></span>
                                                 <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
                                                 <span class="glyphicon glyphicon-ban-circle text-danger"></span>
-                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
+                                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_ERROR,0)</div>
 
                                                 @if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
                                                     <span class="glyphicon glyphicon-eye-open"></span>
