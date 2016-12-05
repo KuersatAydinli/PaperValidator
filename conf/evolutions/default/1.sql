@@ -14,7 +14,7 @@ CREATE TABLE `answer` (
   `answer_json` longtext NOT NULL,
   `expected_output_code` bigint(20) NOT NULL,
   `accepted` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `assets` (
   `id` bigint(20) NOT NULL,
@@ -22,34 +22,34 @@ CREATE TABLE `assets` (
   `byte_array` longblob NOT NULL,
   `content_type` varchar(255) NOT NULL,
   `filename` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `assumptions` (
   `id` int(11) UNSIGNED NOT NULL,
   `conference_id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `synonyms` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `batch` (
   `id` bigint(20) NOT NULL,
   `allowed_answers_per_turker` int(11) NOT NULL,
   `uuid` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `conference` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(1024) NOT NULL,
   `secret` varchar(1024) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `conference_settings` (
   `id` int(11) UNSIGNED NOT NULL,
   `conference_id` int(11) UNSIGNED NOT NULL,
   `method2assumption_id` int(11) UNSIGNED NOT NULL,
   `flag` int(11) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `email` (
   `id` int(11) UNSIGNED NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE `methods` (
   `name` varchar(255) NOT NULL,
   `delta` int(11) NOT NULL,
   `synonyms` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `methods2assumptions` (
   `id` int(11) UNSIGNED NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `methods2assumptions` (
   `method_id` int(11) UNSIGNED NOT NULL,
   `assumption_id` int(11) UNSIGNED NOT NULL,
   `question` varchar(512) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `permutations` (
   `id` bigint(20) NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE `permutations` (
   `relative_height_bottom` double(5,2) NOT NULL,
   `distanceMinIndexMax` bigint(20) NOT NULL DEFAULT '0',
   `paper_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `papers` (
   `id` bigint(20) NOT NULL,
@@ -107,14 +107,14 @@ CREATE TABLE `papers` (
   `permutations` int(11) NOT NULL,
   `last_modified` datetime NOT NULL,
   `secret` varchar(1024) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `paper_methods` (
   `id` bigint(20) NOT NULL,
   `paper_id` bigint(20) NOT NULL,
   `method` varchar(255) NOT NULL,
   `pos` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `paper_results` (
   `id` bigint(20) NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE `paper_results` (
   `result` varchar(256) NOT NULL,
   `symbol` int(11) NOT NULL,
   `position` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `question` (
   `id` bigint(20) NOT NULL,
@@ -134,19 +134,19 @@ CREATE TABLE `question` (
   `uuid` varchar(255) NOT NULL,
   `permutation` bigint(20) NOT NULL,
   `secret` varchar(1024) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `question2assets` (
   `id` bigint(20) NOT NULL,
   `question_id` bigint(20) NOT NULL,
   `asset_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
   `turker_id` varchar(255) NOT NULL,
   `first_seen_date_time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 ALTER TABLE `answer`
