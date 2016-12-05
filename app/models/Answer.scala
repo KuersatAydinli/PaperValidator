@@ -1,13 +1,12 @@
 package models
 
-import javax.inject.{Singleton, Inject}
+import javax.inject.Inject
 
+import anorm.JodaParameterMetaData._
 import anorm.SqlParser._
 import anorm._
-import anorm.JodaParameterMetaData._
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.Constants
 import org.joda.time.DateTime
-import play.api.Logger
 import play.api.db.Database
 
 import scala.collection.mutable.ListBuffer
@@ -234,7 +233,7 @@ class AnswerService @Inject()(db: Database) {
   }
 
   def existsAcceptedAnswerForQuestionId(questionId: Long): Boolean = {
-    findAllByQuestionId(questionId).exists(answer => answer.accepted == true)
+    findAllByQuestionId(questionId).exists(_.accepted)
   }
 
   def getAll(): List[Answer] = {

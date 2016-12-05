@@ -22,7 +22,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
 
   def showAsset(id: Long, secret: String) = Action { request =>
     val parentQuestions = questionService.findByAssetId(id).filter(_.secret == secret)
-    val turkerId: Option[String] = request.session.get(Mturk.TURKER_ID_KEY)
+    val turkerId: Option[String] = sessionUser(request)
 
     val isAssetOfTemplate: Boolean = parentQuestions.exists(_.id.get == Mturk.TEMPLATE_ID)
     if (!isAssetOfTemplate && logAccessAndCheckIfExceedsAccessCount(request, turkerId.orNull)) {
@@ -49,10 +49,10 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     }
   }
 
-  def sessionUser(request: Request[AnyContent]) = request.session.get(Mturk.TURKER_ID_KEY).filterNot(_.isEmpty)
+  def sessionUser(request: Request[AnyContent]): Option[String] = request.session.get(Mturk.TURKER_ID_KEY).filterNot(_.isEmpty)
 
   def showMTQuestion(uuid: String, secret: String, assignmentId: String, hitId: String, turkSubmitTo: String, workerId: String, target: String) = Action { request =>
-    if (workerId.length > 5 && userService.findByTurkerId(workerId).isEmpty) {
+    if (workerId.length > 2 && userService.findByTurkerId(workerId).isEmpty) {
       userService.create(workerId, new DateTime())
     }
 
@@ -74,7 +74,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       //val newSession = request.session + ("TurkerID" -> workerId) + ("assignmentId" -> assignmentId) + ("target" -> target)
       val newSession = request.session + (Mturk.TURKER_ID_KEY -> workerId) + ("assignmentId" -> assignmentId) + ("target" -> target)
 
-      showQuestionAction(uuid, secret, request, Some(workerId), Some(newSession))
+      showQuestionAction(uuid, secret, request, workerId, Some(newSession))
     }
   }
 
@@ -90,36 +90,33 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     * @return
     */
   def showQuestion(uuid: String, secret: String = "") = Action { request =>
-    showQuestionAction(uuid, secret, request, request.session.get(Mturk.TURKER_ID_KEY))
+    showQuestionAction(uuid, secret, request, request.session.get(Mturk.TURKER_ID_KEY).get)
   }
 
-  def showQuestionAction(uuid: String, secret: String, request: Request[AnyContent], turkerId: Option[String], _replaceSession: Option[Session] = None) = {
-    //dont allow session to be reset turker ID field
+  def showQuestionAction(uuid: String, secret: String, request: Request[AnyContent], turkerId: String, _replaceSession: Option[Session] = None) = {
+    //dont allow session to reset turker ID field
     val replaceSession = _replaceSession.map(s => {
-      val t = s.get(Mturk.TURKER_ID_KEY)
-      if (t.isDefined && t.get.length < 5) {
-        println("nasty removal")
-        s - Mturk.TURKER_ID_KEY
-      } else s
+      s + (Mturk.TURKER_ID_KEY -> turkerId)
     })
-    if (!logAccessAndCheckIfExceedsAccessCount(request, turkerId.orNull)) {
+
+    if (!logAccessAndCheckIfExceedsAccessCount(request, turkerId)) {
       val questionId = questionService.findIdByUUID(uuid)
-      turkerId.map { user =>
-        // get the answers of the turker in the batch group
-        val userFound = userService.findByTurkerId(user)
-        if (userFound.isDefined && isUserAllowedToAnswer(questionId, userFound.get.id.get, secret)) {
+      if (questionId == Mturk.TEMPLATE_ID) Logger.debug(s"user tried to look at template after being accepted: $turkerId")
+      assert(questionId != Mturk.TEMPLATE_ID, "you are about to look at the template. This should not happen")
+
+      val userFound = userService.findByTurkerId(turkerId)
+      if (userFound.isDefined) {
+        if (checkUserDidntExceedMaxAnswersPerBatch(userFound.get.id.get, questionService.findById(questionId).get)) {
+          Unauthorized(views.html.tooManyAnswersInBatch()).withSession(replaceSession.getOrElse(request.session))
+        } else if (isUserAllowedToAnswer(questionId, userFound.get.id.get, secret)) {
           val question = questionService.findById(questionId).get
           val formattedHTML: String = new QuestionHTMLFormatter(question.html).format
-          Ok(views.html.question(user, formattedHTML, questionId, secret)).withSession(replaceSession.getOrElse(request.session))
-        } else if (userFound.isDefined) {
-          if (checkUserDidntExceedMaxAnswersPerBatch(userFound.get.id.get, questionService.findById(questionId).get))
-            Unauthorized("This HIT has already been answered / you don't have permission to answer this HIT. If this error persists, please write pdeboer@mit.edu ")
-          else
-            Unauthorized(views.html.tooManyAnswersInBatch()).withSession(replaceSession.getOrElse(request.session))
+          Ok(views.html.question(turkerId, formattedHTML, questionId, secret)).withSession(replaceSession.getOrElse(request.session))
         } else {
-          Ok(views.html.login()).withSession("redirect" -> (configuration.getString("url.prefix") + "/showQuestion?q=" + uuid + "&s=" + secret))
+          Unauthorized("This HIT has already been answered / you don't have permission to answer this HIT. If this error persists, please write pdeboer@mit.edu ")
         }
-      }.getOrElse {
+      } else {
+        //forward to login
         Ok(views.html.login()).withSession("redirect" -> (configuration.getString("url.prefix") + "/showQuestion?q=" + uuid + "&s=" + secret))
       }
     } else Unauthorized("We have received too many requests from your IP address")
@@ -137,11 +134,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
   def isUserAllowedToAnswer(questionId: Long, userId: Long, providedSecret: String = ""): Boolean = {
     val question = questionService.findById(questionId)
     // The question exists and there is no answer yet accepted in the DB
-    if (question.isDefined && !answerService.existsAcceptedAnswerForQuestionId(questionId) && question.get.secret == providedSecret) {
-      checkUserDidntExceedMaxAnswersPerBatch(userId, question.get)
-    } else {
-      false
-    }
+    question.isDefined && !answerService.existsAcceptedAnswerForQuestionId(questionId) && question.get.secret == providedSecret
   }
 
   def checkUserDidntExceedMaxAnswersPerBatch(userId: Long, question: Question): Boolean = {
@@ -169,10 +162,10 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       try {
 
         val questionId = request.getQueryString("questionId").mkString.toLong
-        val isRelated = request.getQueryString("isRelated").mkString == ("Yes")
-        val isCheckedBefore = request.getQueryString("isCheckedBefore").mkString == ("Yes")
+        val isRelated = request.getQueryString("isRelated").mkString == "Yes"
+        val isCheckedBefore = request.getQueryString("isCheckedBefore").mkString == "Yes"
         val confidence = request.getQueryString("confidence").mkString.toInt
-        val extraAnswer = request.getQueryString("extraAnswer").mkString == ("Yes")
+        val extraAnswer = request.getQueryString("extraAnswer").mkString == "Yes"
         val secret = request.getQueryString("secret").mkString
         val userId: Long = userService.findByTurkerId(user).get.id.get
 
@@ -191,6 +184,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
           } else
             Ok(views.html.code(user, outputCode)).withSession(request.session)
         } else {
+          Logger.debug(s"$userId was not allowed to answer since the question has already been answered")
           Unauthorized("This question has already been answered.")
         }
       } catch {
@@ -210,7 +204,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     log.createEntry(request.uri, request.remoteAddress, userIdCleaned)
 
     val requestsPerSnippetAnswer = 3
-    val maxSnippetsPerCrowdWorker: Int = 200
+    val maxSnippetsPerCrowdWorker: Int = 5000
 
     val numberOfEntries = log.ipLogEntriesSince(request.remoteAddress, DateTime.now().minusWeeks(4))
     if (numberOfEntries.isLeft) {
