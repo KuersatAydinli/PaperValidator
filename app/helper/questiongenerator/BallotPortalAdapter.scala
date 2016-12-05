@@ -10,6 +10,7 @@ import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.AnswerParser
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.snippet.SnippetHTMLValidator
 import helper.questiongenerator.HCompNew
 import org.joda.time.DateTime
+import play.api.Logger
 
 import scala.xml._
 
@@ -38,6 +39,8 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
 
         (actualProperties, batchIdFromDB)
       }
+
+    Logger.debug(s"initialized quers $query")
 
     val html = query match {
       case q: HTMLQuery => q.html
