@@ -30,7 +30,6 @@ import scala.io.Source
   * Created by manuel on 21.04.2016.
   */
 object PaperProcessingManager {
-
   var BYPASS_CROWD_PROCESSING = false
   var AUTO_ANNOTATION = true
 
@@ -47,23 +46,21 @@ object PaperProcessingManager {
       }
       val processPapers: Future[Int] = Future {
         val papersToProcess = papersService.findProcessablePapers()
-        if (papersToProcess.nonEmpty) {
-          papersToProcess.foreach(paper =>
-            try {
-              processPaper(database, configuration, papersService, questionService, method2AssumptionService,
-                paperResultService, paperMethodService, permutationsService, answerService, conferenceSettingsService,
-                paper)
-            } catch {
-              case error: Throwable => {
-                Logger.info("ERROR!!!!!!")
-                Logger.info(error.getMessage + " " + error.getStackTrace.mkString("\n"))
-                val errorMsg = error.getStackTrace.mkString("\n") + "\n"
-                PaperProcessingManager.writePaperLog(errorMsg, paper.secret)
-                papersService.updateStatus(paper.id.get, Papers.STATUS_ERROR)
-              }
+        papersToProcess.foreach(paper =>
+          try {
+            processPaper(database, configuration, papersService, questionService, method2AssumptionService,
+              paperResultService, paperMethodService, permutationsService, answerService, conferenceSettingsService,
+              paper)
+          } catch {
+            case error: Throwable => {
+              Logger.info("ERROR!!!!!!")
+              Logger.info(error.getMessage + " " + error.getStackTrace.mkString("\n"))
+              val errorMsg = error.getStackTrace.mkString("\n") + "\n"
+              PaperProcessingManager.writePaperLog(errorMsg, paper.secret)
+              papersService.updateStatus(paper.id.get, Papers.STATUS_ERROR)
             }
-          )
-        }
+          }
+        )
         papersService.findProcessablePapers().length
       }
       processPapers onComplete {
@@ -96,7 +93,7 @@ object PaperProcessingManager {
 
   def confirmExistingPaper(configuration: Configuration, papersService: PapersService, questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService, paperMethodService: PaperMethodService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService, paper: Papers): Unit = {
     writePaperLog("Run Question Generator\n", paper.secret)
-    questionGenerator(questionService, method2AssumptionService, paper)
+    startRunning(questionService, method2AssumptionService, paper)
     papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
     if (AUTO_ANNOTATION) PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
       paperResultService, paperMethodService, paper, false)
@@ -176,7 +173,7 @@ object PaperProcessingManager {
     FileUtils.deleteDirectory(new File(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret)))
   }
 
-  def questionGenerator(questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paper: Papers): Unit = {
+  def startRunning(questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paper: Papers): Unit = {
     val DEFAULT_TEMPLATE_ID: Long = 1L
 
     DBSettings.initialize()
@@ -189,9 +186,14 @@ object PaperProcessingManager {
       createFirstTimePaperTemplate(questionService, method2AssumptionService, paper, DEFAULT_TEMPLATE_ID, algorithm250)
     }
 
-    Logger.info("Loading new permutations")
-    dao.loadPermutationsCSV(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/permutations.csv",
-      paper.id.get)
+    if (!dao.getAllPermutations().exists(p => p.paperId.toInt == paper.id.get)) {
+      //see if we have already loaded this paper before
+      Logger.info("Loading new permutations")
+      dao.loadPermutationsCSV(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/permutations.csv",
+        paper.id.get)
+    } else {
+      Logger.info(s"found permutations for paper ${paper.name}, skipping import")
+    }
     Logger.info("Removing state information of previous runs")
     new File("state").listFiles().foreach(f => f.delete())
 
@@ -202,6 +204,7 @@ object PaperProcessingManager {
     groups.mpar.foreach(group => {
       group._2.foreach(permutation => {
         if (dao.getPermutationById(permutation.id).map(_.state).getOrElse(-1) == 0) {
+          Logger.debug(s"starting 250 for ${paper.name} -> permutation ${permutation.id}")
           algorithm250.executePermutation(paper.conferenceId, permutation)
         }
       })

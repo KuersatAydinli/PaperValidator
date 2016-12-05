@@ -161,7 +161,7 @@ class BallotDAO extends DAO {
   override def getAllPermutations(): List[Permutation] = {
     DB readOnly { implicit session =>
       sql"SELECT * FROM permutations".map(rs =>
-        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"))
+        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"), rs.long("paper_id"))
       ).list().apply()
     }
   }
@@ -169,7 +169,7 @@ class BallotDAO extends DAO {
   override def getPermutationById(id: Long): Option[Permutation] = {
     DB readOnly { implicit session =>
       sql"SELECT * FROM permutations WHERE id = ${id}".map(rs =>
-        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"))
+        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"), rs.long("paper_id"))
       ).single().apply()
     }
   }
@@ -177,7 +177,7 @@ class BallotDAO extends DAO {
   override def getAllOpenByGroupName(groupName: String): List[Permutation] = {
     DB readOnly { implicit session =>
       sql"SELECT * FROM permutations WHERE group_name = ${groupName} AND state = 0".map(rs =>
-        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"))
+        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"), rs.long("paper_id"))
       ).list().apply()
     }
   }
@@ -202,7 +202,7 @@ class BallotDAO extends DAO {
   override def getAllPermutationsWithStateEquals(state: Long): List[Permutation] = {
     DB readOnly { implicit session =>
       sql"SELECT * FROM permutations WHERE state = ${state}".map(rs =>
-        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"))).list().apply()
+        Permutation(rs.long("id"), rs.string("group_name"), rs.string("method_index"), rs.string("snippet_filename"), rs.string("pdf_path"), rs.boolean("method_on_top"), rs.long("state"), rs.int("excluded_step"), rs.double("relative_height_top"), rs.double("relative_height_bottom"), rs.long("distanceMinIndexMax"), rs.long("paper_id"))).list().apply()
     }
   }
 
