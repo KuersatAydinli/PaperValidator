@@ -2,15 +2,14 @@ package models
 
 import javax.inject.Inject
 
-import anorm._
-import anorm.SqlParser._
-import org.joda.time.DateTime
 import anorm.JodaParameterMetaData._
+import anorm.SqlParser._
+import anorm._
+import org.joda.time.DateTime
 import play.api.db.Database
 
 
 class PermutationsService @Inject()(db: Database) {
-
   def create(groupName: String, methodIndex: String, paperId: Int): Long =
     db.withConnection { implicit c =>
       SQL("INSERT INTO permutations(create_time, group_name, method_index, snippet_filename,pdf_path, method_on_top, " +

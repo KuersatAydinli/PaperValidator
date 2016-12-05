@@ -1,7 +1,7 @@
 package helper
 
 import java.io.{File, FileWriter}
-import java.nio.file.{Path, Paths, Files}
+
 import ch.uzh.ifi.pdeboer.pplib.hcomp.HTMLQuery
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
@@ -90,11 +90,12 @@ object PaperProcessingManager {
     if (paper.status == Papers.STATUS_NEW) {
       processNewPaper(database, configuration, papersService, questionService, paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService, paper)
     } else if (paper.status == Papers.STATUS_IN_PPLIB_QUEUE) {
-      processExistingPaper(configuration, papersService, questionService, method2AssumptionService, paperResultService, paperMethodService, answerService, conferenceSettingsService, paper)
+      confirmExistingPaper(configuration, papersService, questionService, method2AssumptionService, paperResultService, paperMethodService, answerService, conferenceSettingsService, paper)
     }
   }
 
-  def processExistingPaper(configuration: Configuration, papersService: PapersService, questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService, paperMethodService: PaperMethodService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService, paper: Papers): Unit = {
+  def confirmExistingPaper(configuration: Configuration, papersService: PapersService, questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService, paperMethodService: PaperMethodService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService, paper: Papers): Unit = {
+
     writePaperLog("Run Question Generator\n", paper.secret)
     questionGenerator(questionService, method2AssumptionService, paper)
     papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
