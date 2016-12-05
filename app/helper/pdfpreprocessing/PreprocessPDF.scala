@@ -28,13 +28,17 @@ object PreprocessPDF {
 
   def start(database: Database, paperMethodService: PaperMethodService, paper: Papers): Int = {
     Logger.debug("starting highlighting")
-
     //FileUtils.emptyDir(new File(OUTPUT_DIR))
     val secretHash = Commons.getSecretHash(paper.secret)
+    Logger.info("SECRET HASH: " + secretHash)
     val allPapers = new PDFLoader(new File(INPUT_DIR + "/" + secretHash)).papers
-
-    val snippets = allPapers.par.flatMap(snip => {
+    val papersWithoutDuplicates = allPapers.filter(_.name.contains("annotated"))
+    allPapers.foreach(x => Logger.info("PAPER " + x.name))
+    papersWithoutDuplicates.foreach(x => Logger.info("PAPER " + x.name))
+    val snippets = papersWithoutDuplicates.par.flatMap(snip => {
+    //val snippets = allPapers.par.flatMap(snip => {
       val searcher = new StatTermSearcher(snip, database, paper)
+      searcher.occurrences.foreach(occ => Logger.info("Occurence: " + occ.term))
       searcher.occurrences.foreach(occurence => {
         if (occurence.term.isStatisticalMethod) {
           paperMethodService.create(paper.id.get, occurence.term.name, occurence.page + ":" + occurence.startIndex)
@@ -42,6 +46,7 @@ object PreprocessPDF {
       })
       val statTermsInPaper = new StatTermPruning(List(new PruneTermsWithinOtherTerms)).prune(searcher.occurrences)
       val combinationsOfMethodsAndAssumptions = new StatTermPermuter(statTermsInPaper).permutations
+      combinationsOfMethodsAndAssumptions.foreach(x => Logger.info("CombiMethodAssumption " + x))
 
       val snippets = combinationsOfMethodsAndAssumptions.sortBy(_.distanceBetweenMinMaxIndex).zipWithIndex.par.map(p => {
         val highlightedPDF = new PDFHighlighter(p._1, OUTPUT_DIR, p._2 + "_").copyAndHighlight()
@@ -67,5 +72,4 @@ object PreprocessPDF {
     new CSVExporter(OUTPUT_DIR + "/" + secretHash + "/permutations.csv", snippets).persist()
     snippets.length
   }
-
 }
