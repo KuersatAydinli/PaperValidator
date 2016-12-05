@@ -10,6 +10,7 @@ import models._
 import play.api.Configuration
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
+import play.api.{Configuration, Logger}
 
 
 class Admin @Inject()(database: Database, configuration: Configuration, questionService: QuestionService,
@@ -23,20 +24,27 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
     PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
       paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
     val conferences = conferenceService.findAll()
+    Logger.info("CONFERENCES: "+conferences.length)
     val papers = papersService.findByConference(1)
     val papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
       answerService, conferenceSettingsService)
     val conferenceIds = List[Int]()
-    val conIdPaperDict = scala.collection.mutable.Map[Int,List[PapersWithStats]]()
-    for(conference <- conferenceService.findAll()){
-      conferenceIds.++(conference.id)
-    }
-    for(id <- conferenceIds){
-      conIdPaperDict += (id -> PaperStats.getStats(papersService.findByConference(id),
-        papersService, paperResultService,
-        answerService, conferenceSettingsService))
-    }
-    Ok(views.html.admin(conIdPaperDict,conferences, conferenceIds))
+    val conIdPaperDict = Map[Int,List[PapersWithStats]]()
+
+//    for(conference <- conferenceService.findAll()){
+//      conferenceIds.++(conference.id)
+//    }
+//
+//    for(id <- conferenceIds){
+//      conIdPaperDict.+ (id -> PaperStats.getStats(papersService.findByConference(id),
+//        papersService, paperResultService,
+//        answerService, conferenceSettingsService))
+//    }
+
+    conIdPaperDict foreach ( (t2) => Logger.info(t2._1 + "-->" + t2._2))
+
+//    Ok(views.html.admin(conIdPaperDict,conferences, conferenceIds))
+    Ok(views.html.admin(configuration, paperResultService, answerService, conferenceSettingsService, papersService, conferences, papersWithStats))
   }
 
   def long(a: AnyRef) :Long = {

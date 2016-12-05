@@ -1,7 +1,7 @@
 package helper
 
 import java.io.{File, FileWriter}
-
+import java.nio.file.{Path, Paths, Files}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.HTMLQuery
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
@@ -188,6 +188,7 @@ object PaperProcessingManager {
     if (questionService.findById(DEFAULT_TEMPLATE_ID).isEmpty) {
       createFirstTimePaperTemplate(questionService, method2AssumptionService, paper, DEFAULT_TEMPLATE_ID, algorithm250)
     }
+
     Logger.info("Loading new permutations")
     dao.loadPermutationsCSV(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/permutations.csv",
       paper.id.get)
