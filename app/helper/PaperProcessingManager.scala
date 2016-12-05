@@ -48,7 +48,7 @@ object PaperProcessingManager {
       val processPapers: Future[Int] = Future {
         val papersToProcess = papersService.findProcessablePapers()
         if (papersToProcess.nonEmpty) {
-          papersToProcess.foreach(paper =>
+          papersToProcess.par.foreach(paper =>
             try {
               processPaper(database, configuration, papersService, questionService, method2AssumptionService,
                 paperResultService, paperMethodService, permutationsService, answerService, conferenceSettingsService,

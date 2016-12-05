@@ -8,12 +8,6 @@ import org.joda.time.DateTime
 import anorm.JodaParameterMetaData._
 import play.api.db.Database
 
-/**
-  * Created by mattia on 02.07.15.
-  */
-case class Permutations(id: Option[Long], createTime: DateTime, groupName: String, methodIndex: String,
-                        snippetFilename: String, pdfPath: String, methodOnTop: Boolean, state: Long, excludedStep: Int,
-                        relHeightTop: Double, relHeightBottom: Double, distanceMinIndexMax: Long, paperId: Int)
 
 class PermutationsService @Inject()(db: Database) {
 
