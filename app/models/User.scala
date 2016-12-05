@@ -1,11 +1,11 @@
 package models
 
-import javax.inject.{Inject, Singleton}
+import javax.inject.Inject
 
+import anorm.JodaParameterMetaData._
 import anorm.SqlParser._
 import anorm._
 import org.joda.time.DateTime
-import anorm.JodaParameterMetaData._
 import play.api.db.Database
 
 /**
@@ -35,14 +35,14 @@ class UserService @Inject()(db: Database) {
     else
       db.withConnection { implicit c =>
         SQL("SELECT * FROM users WHERE turker_id = {turkerId}").on(
-          'turkerId -> turkerId
+          'turkerId -> turkerId.trim
         ).as(userParser.singleOpt)
       }
 
   def create(turkerId: String, firstSeenDateTime: DateTime): Option[Long] =
     db.withConnection { implicit c =>
       SQL("INSERT INTO users(turker_id, first_seen_date_time) VALUES ({turkerId}, {firstSeenDateTime})").on(
-        'turkerId -> turkerId,
+        'turkerId -> turkerId.trim,
         'firstSeenDateTime -> firstSeenDateTime
       ).executeInsert()
     }

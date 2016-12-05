@@ -97,7 +97,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     //dont allow session to reset turker ID field
     val replaceSession = _replaceSession.map(s => {
       s + (Mturk.TURKER_ID_KEY -> turkerId)
-    })
+    }).getOrElse(request.session)
 
     if (!logAccessAndCheckIfExceedsAccessCount(request, turkerId)) {
       val questionId = questionService.findIdByUUID(uuid)
@@ -107,17 +107,17 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       val userFound = userService.findByTurkerId(turkerId)
       if (userFound.isDefined) {
         if (checkUserDidntExceedMaxAnswersPerBatch(userFound.get.id.get, questionService.findById(questionId).get)) {
-          Unauthorized(views.html.tooManyAnswersInBatch()).withSession(replaceSession.getOrElse(request.session))
+          Unauthorized(views.html.tooManyAnswersInBatch()).withSession(replaceSession)
         } else if (isUserAllowedToAnswer(questionId, userFound.get.id.get, secret)) {
           val question = questionService.findById(questionId).get
           val formattedHTML: String = new QuestionHTMLFormatter(question.html).format
-          Ok(views.html.question(turkerId, formattedHTML, questionId, secret)).withSession(replaceSession.getOrElse(request.session))
+          Ok(views.html.question(turkerId, formattedHTML, questionId, secret)).withSession(replaceSession)
         } else {
           Unauthorized("This HIT has already been answered / you don't have permission to answer this HIT. If this error persists, please write pdeboer@mit.edu ")
         }
       } else {
-        //forward to login
-        Ok(views.html.login()).withSession("redirect" -> (configuration.getString("url.prefix") + "/showQuestion?q=" + uuid + "&s=" + secret))
+        Logger.debug(s"can't find user. Asking to log in: $userFound, $turkerId")
+        Ok(views.html.login()).withSession(replaceSession + "redirect" -> (configuration.getString("url.prefix") + "/showQuestion?q=" + uuid + "&s=" + secret))
       }
     } else Unauthorized("We have received too many requests from your IP address")
   }
