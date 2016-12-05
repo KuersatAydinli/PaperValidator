@@ -48,7 +48,7 @@ object PaperProcessingManager {
       val processPapers: Future[Int] = Future {
         val papersToProcess = papersService.findProcessablePapers()
         if (papersToProcess.nonEmpty) {
-          papersToProcess.par.foreach(paper =>
+          papersToProcess.foreach(paper =>
             try {
               processPaper(database, configuration, papersService, questionService, method2AssumptionService,
                 paperResultService, paperMethodService, permutationsService, answerService, conferenceSettingsService,
@@ -95,7 +95,6 @@ object PaperProcessingManager {
   }
 
   def confirmExistingPaper(configuration: Configuration, papersService: PapersService, questionService: QuestionService, method2AssumptionService: Method2AssumptionService, paperResultService: PaperResultService, paperMethodService: PaperMethodService, answerService: AnswerService, conferenceSettingsService: ConferenceSettingsService, paper: Papers): Unit = {
-
     writePaperLog("Run Question Generator\n", paper.secret)
     questionGenerator(questionService, method2AssumptionService, paper)
     papersService.updateStatus(paper.id.get, Papers.STATUS_COMPLETED)
