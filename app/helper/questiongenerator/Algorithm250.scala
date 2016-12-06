@@ -90,8 +90,10 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
     val snippetAsset = Asset(snippetByteArray, snippetContentType, snippetFile.getName)
     val jsAsset = Asset(javascriptByteArray, javascriptContentType, "script.js")
 
+    val qualifications = if (conf.getBoolean("hcomp.qualifications", true)) HCompQueryProperties.DEFAULT_QUALIFICATIONS else Nil
+    if (qualifications.isEmpty) Logger.debug("watch out, no qualifications set for MTurk")
     val properties = new BallotProperties(Batch(allowedAnswersPerTurker = 1), List(
-      snippetAsset, jsAsset), permutation.id, propertiesForDecoratedPortal = new HCompQueryProperties(conf.getInt("hcomp.paymentCents"), qualifications = Nil)) //TODO put in qualifications
+      snippetAsset, jsAsset), permutation.id, propertiesForDecoratedPortal = new HCompQueryProperties(conf.getInt("hcomp.paymentCents"), qualifications = qualifications)) //TODO put in qualifications
 
     //val method = permutation.methodIndex.substring(0,permutation.methodIndex.indexOf("_")).toLowerCase()
     //val assumption = permutation.groupName.substring(permutation.groupName.indexOf("/")+1,permutation.groupName.lastIndexOf("/")).toLowerCase()
