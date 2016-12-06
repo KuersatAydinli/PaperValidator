@@ -62,7 +62,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
           val userFound = userService.findByTurkerId(sessionUser(request).get)
           if (userFound.isDefined) {
             val question = questionService.findById(questionService.findIdByUUID(uuid))
-            if (question.isDefined) !checkUserDidntExceedMaxAnswersPerBatch(userFound.get.id.get, question.get) else false
+            if (question.isDefined) !checkUserExceededMaxAnswersPerBatch(userFound.get.id.get, question.get) else false
           } else false
         } else false
       }
@@ -106,7 +106,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
 
       val userFound = userService.findByTurkerId(turkerId)
       if (userFound.isDefined) {
-        if (checkUserDidntExceedMaxAnswersPerBatch(userFound.get.id.get, questionService.findById(questionId).get)) {
+        if (checkUserExceededMaxAnswersPerBatch(userFound.get.id.get, questionService.findById(questionId).get)) {
           Unauthorized(views.html.tooManyAnswersInBatch()).withSession(replaceSession)
         } else if (isUserAllowedToAnswer(questionId, userFound.get.id.get, secret)) {
           val question = questionService.findById(questionId).get
@@ -137,15 +137,15 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     question.isDefined && !answerService.existsAcceptedAnswerForQuestionId(questionId) && question.get.secret == providedSecret
   }
 
-  def checkUserDidntExceedMaxAnswersPerBatch(userId: Long, question: Question): Boolean = {
+  def checkUserExceededMaxAnswersPerBatch(userId: Long, question: Question): Boolean = {
     val batch = batchService.findById(question.batchId)
     if (batch.get.allowedAnswersPerTurker == 0) {
-      true
+      false
     } else {
       if (batch.get.allowedAnswersPerTurker > answerService.countUserAnswersForBatch(userId, question.batchId)) {
-        true
+        false //there is at least one more allowed answer
       } else {
-        false
+        true
       }
     }
   }
