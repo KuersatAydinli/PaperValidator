@@ -23,7 +23,11 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
   private var maxRetriesAfterRejectedAnswers = 10
   private var questionIdToQuery = collection.mutable.HashMap.empty[Long, HCompQuery]
 
-  override def processQuery(query: HCompQuery, properties: HCompQueryProperties): Option[HCompAnswer] = {
+  override def processQuery(query: HCompQuery, properties: HCompQueryProperties): Option[HCompAnswer] = fullProcessQuery(query, properties)
+
+  def simulateQuery(query: HCompQuery, properties: HCompQueryProperties) = fullProcessQuery(query, properties, isBallotOnly = true)
+
+  private def fullProcessQuery(query: HCompQuery, properties: HCompQueryProperties, isBallotOnly: Boolean = false): Option[HCompAnswer] = {
     val (actualProperties, batchIdFromDB) =
       this.synchronized {
         val actualProperties: BallotProperties = properties match {
@@ -76,31 +80,35 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
 
         val externalQuery: ExternalQuery = ExternalQuery(link, query.title, "code", "target")
 
-        addQueryToLog(questionId, externalQuery)
-        val answer = decorated.sendQueryAndAwaitResult(
-          externalQuery, actualProperties.propertiesForDecoratedPortal)
-          .get.is[FreetextAnswer]
+        if (!isBallotOnly) {
+          addQueryToLog(questionId, externalQuery)
+          val answer = decorated.sendQueryAndAwaitResult(
+            externalQuery, actualProperties.propertiesForDecoratedPortal)
+            .get.is[FreetextAnswer]
 
-        val answerId = dao.getAnswerIdByOutputCode(answer.answer.trim)
+          val answerId = dao.getAnswerIdByOutputCode(answer.answer.trim)
 
-        if (answerId.isDefined) {
-          decorated.approveAndBonusAnswer(answer)
-          dao.updateAnswer(answerId.get, accepted = true)
-          val ans = dao.getAnswerById(answerId.get)
-          logger.info(s"approving answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question ${ans.get.questionId}")
-          extractSingleAnswerFromDatabase(ans.get.answerJson, htmlToDisplayOnBallotPage)
-        }
-        else {
-          decorated.rejectAnswer(answer, "Invalid code")
-          logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
-          if (maxRetriesAfterRejectedAnswers > 0) {
-            maxRetriesAfterRejectedAnswers -= 1
-            processQuery(query, actualProperties)
-          } else {
-            logger.error("Query reached the maximum number of retry attempts.")
-            None
+          val result = if (answerId.isDefined) {
+            decorated.approveAndBonusAnswer(answer)
+            dao.updateAnswer(answerId.get, accepted = true)
+            val ans = dao.getAnswerById(answerId.get)
+            logger.info(s"approving answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question ${ans.get.questionId}")
+            extractSingleAnswerFromDatabase(ans.get.answerJson, htmlToDisplayOnBallotPage)
           }
-        }
+          else {
+            decorated.rejectAnswer(answer, "Invalid code")
+            logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
+            if (maxRetriesAfterRejectedAnswers > 0) {
+              maxRetriesAfterRejectedAnswers -= 1
+              processQuery(query, actualProperties)
+            } else {
+              logger.error("Query reached the maximum number of retry attempts.")
+              None
+            }
+          }
+          result
+        } else None
+
       }
     } else {
       logger.error("There exists no Form tag in the html page.")

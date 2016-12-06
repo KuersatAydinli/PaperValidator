@@ -221,12 +221,12 @@ object PaperProcessingManager {
         dao.createPermutation(perm, paper.id.get)
       })
       Thread.sleep(1000)
-      val ballotPortalAdapter = HCompNew(BallotPortalAdapter.PORTAL_KEY)
+      val ballotPortalAdapter = HCompNew(BallotPortalAdapter.PORTAL_KEY).asInstanceOf[BallotPortalAdapter]
 
       templatePermutations.foreach(permutationId => {
         val q = algorithm250.buildQuestion(dao.getPermutationById(permutationId).get, isTemplate = true)
         Logger.info("WriteTemplate")
-        ballotPortalAdapter.sendQuery(HTMLQuery(q._2, 1, "Statistical Methods and Prerequisites", ""), q._1)
+        ballotPortalAdapter.simulateQuery(HTMLQuery(q._2, 1, "Statistical Methods and Prerequisites", ""), q._1)
         Thread.sleep(1000)
       })
       Thread.sleep(1000)
