@@ -3,21 +3,22 @@
 # ~~~~
 
 # Home
-GET         /                                                        controllers.Home.index
+GET         /                                controllers.Home.index
 
 #Mturk
-GET         /showMTQuestion                                          controllers.Mturk.showMTQuestion(q:String, s:String, assignmentId:String, hitId:String, turkSubmitTo:String ?="", workerId:String?="", target:String)
-GET         /storeAnswer                                             controllers.Mturk.storeAnswer
-GET         /assetsBallot/:id/:secret                                controllers.Mturk.showAsset(id: Long, secret:String)
+GET         /showMTQuestion                  controllers.Mturk.showMTQuestion(q:String, s:String, assignmentId:String, hitId:String, turkSubmitTo:String ?="", workerId:String?="", target:String)
+GET         /storeAnswer                     controllers.Mturk.storeAnswer
+GET         /assetsBallot/:id/:secret        controllers.Mturk.showAsset(id: Long, secret:String)
+GET         /start250                        controllers.Mturk.start250Action
 
 #Account
-GET         /account/:id/:secret                                     controllers.Account.account(id: Int, secret:String)
-GET         /account                                                 controllers.Account.getAccess
-POST        /account                                                 controllers.Account.sendAccessEmail
+GET         /account/:id/:secret             controllers.Account.account(id: Int, secret:String)
+GET         /account                         controllers.Account.getAccess
+POST        /account                         controllers.Account.sendAccessEmail
 
 # Upload
-GET         /upload                                                  controllers.Upload.upload
-POST        /uploaded                                                controllers.Upload.uploaded
+GET         /upload                          controllers.Upload.upload
+POST        /uploaded                        controllers.Upload.uploaded
 GET         /test                                                    controllers.Upload.statTest
 
 # Admin View

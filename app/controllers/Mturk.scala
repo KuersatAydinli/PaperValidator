@@ -1,10 +1,16 @@
 package controllers
 
 
+import java.io.File
 import java.security.SecureRandom
 import javax.inject.Inject
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.{Algorithm250, BallotPortalAdapter}
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.Report
 import helper.QuestionHTMLFormatter
+import helper.questiongenerator.HCompNew
 import models._
 import org.joda.time.DateTime
 import play.Configuration
@@ -16,9 +22,11 @@ import scala.util.parsing.json.JSONObject
 object Mturk {
   val TEMPLATE_ID = 1L
   val TURKER_ID_KEY: String = "TurkerId"
+
+  var running250 = false
 }
 
-class Mturk @Inject()(configuration: Configuration, questionService: QuestionService, answerService: AnswerService, assetService: AssetService, userService: UserService, batchService: BatchService, log: Log) extends Controller {
+class Mturk @Inject()(configuration: Configuration, questionService: QuestionService, answerService: AnswerService, assetService: AssetService, userService: UserService, batchService: BatchService, log: Log, method2AssumptionService: Method2AssumptionService) extends Controller {
 
   def showAsset(id: Long, secret: String) = Action { request =>
     val parentQuestions = questionService.findByAssetId(id).filter(_.secret == secret)
@@ -62,7 +70,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
           val userFound = userService.findByTurkerId(sessionUser(request).get)
           if (userFound.isDefined) {
             val question = questionService.findById(questionService.findIdByUUID(uuid))
-            if (question.isDefined) !checkUserExceededMaxAnswersPerBatch(userFound.get.id.get, question.get) else false
+            if (question.isDefined) checkUserExceededMaxAnswersPerBatch(userFound.get.id.get, question.get) else false
           } else false
         } else false
       }
@@ -142,7 +150,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     if (batch.get.allowedAnswersPerTurker == 0) {
       false
     } else {
-      if (batch.get.allowedAnswersPerTurker > answerService.countUserAnswersForBatch(userId, question.batchId)) {
+      if (answerService.countUserAnswersForBatch(userId, question.batchId) < batch.get.allowedAnswersPerTurker) {
         false //there is at least one more allowed answer
       } else {
         true
@@ -214,5 +222,54 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       numberOfEntries.right.get > (requestsPerSnippetAnswer * maxSnippetsPerCrowdWorker)
     }
   }
+
+  def start250Action() = Action { request =>
+    val status = if (Mturk.running250) "250 was already running. Didn't do anything" else "started algo"
+
+    Mturk.TURKER_ID_KEY.synchronized {
+      if (!Mturk.running250) {
+        Mturk.running250 = true
+        new Thread(new Runnable {
+          override def run() = {
+            start250(method2AssumptionService)
+            Mturk.TURKER_ID_KEY.synchronized {
+              Mturk.running250 = false
+            }
+          }
+        }).start()
+      }
+    }
+    Ok(status)
+  }
+
+  def start250(method2AssumptionService: Method2AssumptionService) = {
+    assert(method2AssumptionService != null)
+    val dao = new BallotDAO
+    HCompNew.autoloadConfiguredPortals()
+    val ballotPortalAdapter = HCompNew(BallotPortalAdapter.PORTAL_KEY)
+    val algorithm250 = Algorithm250(dao, ballotPortalAdapter, method2AssumptionService)
+
+    Logger.info("Removing state information of previous runs")
+    new File("state").listFiles().foreach(f => f.delete())
+
+    val groups = dao.getAllPermutations().filter(_.id != ConsoleIntegrationTest.DEFAULT_TEMPLATE_ID).groupBy(gr => {
+      gr.groupName.split("/").apply(0)
+    }).map(g => (g._1, g._2.sortBy(_.distanceMinIndexMax))).toList
+
+    import ch.uzh.ifi.pdeboer.pplib.util.CollectionUtils._
+
+    groups.mpar.foreach(group => {
+      group._2.foreach(permutation => {
+        if (dao.getPermutationById(permutation.id).map(_.state).getOrElse(-1) == 0) {
+          Logger.debug(s"starting 250 for ${permutation.paperId} -> permutation ${permutation.id}")
+          algorithm250.executePermutation(permutation)
+        }
+      })
+    })
+
+    Report.writeCSVReport(dao)
+    Report.writeCSVReportAllAnswers(dao)
+  }
+
 
 }

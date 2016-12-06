@@ -14,7 +14,7 @@ import play.api.db.Database
 object Papers {
   val STATUS_NEW = 0
   val STATUS_AWAIT_CONFIRMATION = 1
-  val STATUS_IN_PPLIB_QUEUE = 2
+  val STATUS_SNIPPETS_EXTRACTED = 2
   val STATUS_COMPLETED = 3
   val STATUS_ERROR = 4
 }
@@ -88,7 +88,7 @@ class PapersService @Inject()(db: Database) {
   def findProcessablePapers(): List[Papers] = {
     db.withConnection { implicit c =>
       SQL("SELECT * FROM papers WHERE status = " + Papers.STATUS_NEW + " OR status = " +
-        Papers.STATUS_IN_PPLIB_QUEUE + " ORDER BY last_modified ASC").as(answerParser *)
+        Papers.STATUS_SNIPPETS_EXTRACTED + " ORDER BY last_modified ASC").as(answerParser *)
     }
   }
 

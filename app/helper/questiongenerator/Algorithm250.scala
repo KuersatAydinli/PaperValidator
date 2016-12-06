@@ -29,8 +29,8 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
 
   val conf: Configuration = Configuration.root()
 
-  def executePermutation(conferenceId: Int, p: Permutation): Unit = {
-    val answers: List[ParsedAnswer] = buildAndExecuteQuestion(conferenceId, p)
+  def executePermutation(p: Permutation): Unit = {
+    val answers: List[ParsedAnswer] = buildAndExecuteQuestion(p)
     if (isFinalAnswerYesYes(answers)) {
       dao.updateStateOfPermutationId(p.id, p.id) //set done
       if (ALLOW_SAME_ASSUMPTION_TO_BE_REPORTED_FOR_MULTIPLE_METHODS) {
@@ -51,8 +51,8 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
   }
 
 
-  def buildAndExecuteQuestion(conferenceId: Int, permutation: Permutation): List[ParsedAnswer] = {
-    val (properties: BallotProperties, ballotHtmlPage: NodeSeq) = buildQuestion(conferenceId, permutation)
+  def buildAndExecuteQuestion(permutation: Permutation): List[ParsedAnswer] = {
+    val (properties: BallotProperties, ballotHtmlPage: NodeSeq) = buildQuestion(permutation)
     val description: String = "Can you grasp some of the main concepts in the field of statistics without necessary prior knowledge in the field - just by basic text understanding?"
     val title: String = s"Are these two words related? {Batch ${properties.permutationId}}"
     val process = new ContestWithBeatByKVotingProcess(Map(
@@ -71,7 +71,7 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
     })
   }
 
-  def buildQuestion(conferenceId: Int, permutation: Permutation, isTemplate: Boolean = false): (BallotProperties, NodeSeq) = {
+  def buildQuestion(permutation: Permutation, isTemplate: Boolean = false): (BallotProperties, NodeSeq) = {
     Logger.debug(permutation.snippetFilename)
     val snippetFile: File = new File(permutation.snippetFilename)
     val snippetInputStream: InputStream = new FileInputStream(snippetFile)

@@ -7,7 +7,6 @@ import javax.inject.Inject
 
 import helper.PaperProcessingManager
 import models._
-import play.api.Configuration
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
 import play.api.{Configuration, Logger}
@@ -24,7 +23,6 @@ class Admin @Inject()(database: Database, configuration: Configuration, question
     PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
       paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
     val conferences = conferenceService.findAll()
-    Logger.info("CONFERENCES: "+conferences.length)
     val papers = papersService.findByConference(1)
     val papersWithStats = PaperStats.getStats(papers, papersService, paperResultService,
       answerService, conferenceSettingsService)

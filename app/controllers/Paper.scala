@@ -3,15 +3,14 @@ package controllers
 import javax.inject.Inject
 
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.Constants
+import helper._
+import models._
+import play.api.db.Database
+import play.api.mvc.{Action, Controller}
+import play.api.{Configuration, Logger}
 import play.libs.Json
 
 import scala.collection.mutable.ListBuffer
-import util.control.Breaks._
-import helper._
-import models._
-import play.api.{Configuration, Logger}
-import play.api.db.Database
-import play.api.mvc.{Action, Controller}
 
 
 /**
@@ -30,9 +29,9 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
       var results = paperResultService.findByPaperId(id)
       results = M2AResultHelper.addMethodsAndAssumptions(id, results, papersService, answerService, conferenceSettingsService)
       val fileBasePath = configuration.getString("highlighter.pdfSourceDir").get + "/" + Commons.getSecretHash(secret)
-      val fileLengh = scala.reflect.io.File(fileBasePath + "/log.txt").length
+      val fileLength = scala.reflect.io.File(fileBasePath + "/log.txt").length
       var log = ""
-      if (fileLengh < 9999999 && fileLengh > 0) {
+      if (fileLength < 9999999 && fileLength > 0) {
         val source = scala.io.Source.fromFile(fileBasePath + "/log.txt")
         log = try source.mkString.replace("\n", "\n<br>") finally source.close()
       }
@@ -49,7 +48,7 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
     val paper = papersService.findByIdAndSecret(id, secret)
     if (paper.isDefined) {
       PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
-        paperResultService, paperMethodService, paper.get, false)
+        paperResultService, paperMethodService, paper.get, glossaryWithIDMode = false)
       Ok("Ok")
     } else {
       Unauthorized(views.html.error.unauthorized())
@@ -60,7 +59,7 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
     val paper = papersService.findByIdAndSecret(id, secret)
     if (paper.isDefined) {
       PaperAnnotator.annotatePaper(configuration, answerService, papersService, conferenceSettingsService,
-        paperResultService, paperMethodService, paper.get, true)
+        paperResultService, paperMethodService, paper.get, glossaryWithIDMode = true)
       Ok("Ok")
     } else {
       Unauthorized(views.html.error.unauthorized())
@@ -120,7 +119,7 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
 
   def confirmPaper(id: Int, secret: String) = Action {
     if (papersService.findByIdAndSecret(id, secret).nonEmpty) {
-      papersService.updateStatus(id, Papers.STATUS_IN_PPLIB_QUEUE)
+      papersService.updateStatus(id, Papers.STATUS_SNIPPETS_EXTRACTED)
       PaperProcessingManager.run(database, configuration, papersService, questionService,
         method2AssumptionService, paperResultService, paperMethodService, permutationsServcie, answerService,
         conferenceSettingsService)
