@@ -18,3 +18,4 @@ dist
 /custom_lib/pdeboer/pplib_2.11/0.2-SNAPSHOT
 conf/application.conf
 conf/application.local.conf
+**.scala.save
