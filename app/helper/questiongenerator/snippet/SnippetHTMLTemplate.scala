@@ -33,7 +33,7 @@ object SnippetHTMLTemplate {
         In the field of statistics, one generally uses
         <b>statistical methods</b>
         (such as ANOVA) to compare groups of data and derive findings. These
-        <b>Statistical methods</b>
+        <b>statistical methods</b>
         in general require some
         <b>prerequisites</b>
         to be satisfied before being applied to data. Please have a look at the text-snipplet below. You'll find a
@@ -70,16 +70,20 @@ object SnippetHTMLTemplate {
       <br/>
       <hr style="width:100%"/>
       <div>
-        <h2>In the text above, is there any kind of relationship between the
+        <h2>In the text above, is there any kind of semantic relationship between the
           <span style="background-color:#00FF00;">prerequisite</span>
           and the
           <span style="background-color:#FFFF00;">method</span>
           ?</h2>
-        Note that the relationship can be direct or indirect.
+        For example, consider the following sentence: "my dog's name is Richard. Dogs sometimes bark". There is a semantic relationship between "bark" and "Richard": Richard barks. We are
+        <b>NOT</b>
+        asking about sentence structures (verbs etc).
+        Please also note that the relationship can be direct or indirect.
         <br/>
         <ul>
           <li>example for a direct relationship: "We have tested [PREREQUISITE] before we used [METHOD] and found that ..."</li>
-          <li>example for an indirect relationship: "Our data was tested for [PREREQUISITE]. Using [METHOD] on our data, we have found that ..."</li>
+          <li>example for an indirect relationship: "Our data was tested for [PREREQUISITE]. [lots of text in-between]. Using [METHOD] on our data, we have found that ..."</li>
+          <li>example for no relationship: "We have tested [PREREQUISITE] for all males in our data. We used [METHOD] on all females."</li>
         </ul>
       </div>
 
