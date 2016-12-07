@@ -93,7 +93,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
           val result = if (answerId.isDefined) {
             def theop() = decorated.approveAndBonusAnswer(answer)
 
-            retryBooleanOp(theop)
+            retryBooleanOp(theop, description = answerId.get.toString)
 
             dao.updateAnswer(answerId.get, accepted = true)
             val ans = dao.getAnswerById(answerId.get)
@@ -103,7 +103,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
           else {
             def theop() = decorated.rejectAnswer(answer, "Invalid code")
 
-            retryBooleanOp(theop)
+            retryBooleanOp(theop, description = answerId.get.toString)
 
             logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
             if (maxRetriesAfterRejectedAnswers > 0) {
@@ -124,14 +124,14 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
     }
   }
 
-  def retryBooleanOp(op: () => Boolean, tries: Int = 10): Boolean = {
+  def retryBooleanOp(op: () => Boolean, tries: Int = 20, description: String = ""): Boolean = {
     if (tries > 0) {
       if (op()) true else {
         Thread.sleep((100000 * Random.nextDouble()).toLong)
         retryBooleanOp(op, tries - 1)
       }
     } else {
-      Logger.error(s"could not retry often enough for function $op")
+      Logger.error(s"could not retry often enough for function $op, $description")
       false
     }
   }
