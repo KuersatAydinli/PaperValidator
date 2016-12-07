@@ -105,17 +105,21 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
 
             retryBooleanOp(theop, description = "rejecting " + answerId.get)
 
-            logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
+            Logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
             if (maxRetriesAfterRejectedAnswers > 0) {
               maxRetriesAfterRejectedAnswers -= 1
               processQuery(query, actualProperties)
             } else {
-              logger.error("Query reached the maximum number of retry attempts.")
+              Logger.error("Query reached the maximum number of retry attempts.")
               None
             }
           }
+          Logger.info(s"about to return $result")
           result
-        } else None
+        } else {
+          Logger.info("no answer to query!!")
+          None
+        }
 
       }
     } else {
@@ -126,7 +130,11 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
 
   def retryBooleanOp(op: () => Boolean, tries: Int = 20, description: String = ""): Boolean = {
     if (tries > 0) {
-      if (op()) true else {
+      if (try {
+        op()
+      } catch {
+        case e: Throwable => Logger.error(s"could not execute boolean op $description"); false
+      }) true else {
         Thread.sleep((100000 * Random.nextDouble()).toLong)
         retryBooleanOp(op, tries - 1, description)
       }
