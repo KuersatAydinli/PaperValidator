@@ -124,7 +124,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
     }
   }
 
-  def retryBooleanOp(op: () => Boolean, tries: Int = 3): Boolean = {
+  def retryBooleanOp(op: () => Boolean, tries: Int = 10): Boolean = {
     if (tries > 0) {
       if (op()) true else {
         Thread.sleep((100000 * Random.nextDouble()).toLong)
