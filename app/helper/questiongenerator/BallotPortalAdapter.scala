@@ -114,10 +114,10 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
               None
             }
           }
-          Logger.info(s"about to return $result")
+          Logger.info(s"about to return ${result.map(_.is[HTMLQueryAnswer].answers)}")
           result
         } else {
-          Logger.info("no answer to query!!")
+          Logger.error("no answer to query!!")
           None
         }
 
