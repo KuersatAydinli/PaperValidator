@@ -10,7 +10,9 @@ import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.AnswerParser
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.snippet.SnippetHTMLValidator
 import helper.questiongenerator.HCompNew
 import org.joda.time.DateTime
+import play.api.Logger
 
+import scala.util.Random
 import scala.xml._
 
 /**
@@ -89,14 +91,20 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
           val answerId = dao.getAnswerIdByOutputCode(answer.answer.trim)
 
           val result = if (answerId.isDefined) {
-            decorated.approveAndBonusAnswer(answer)
+            def theop() = decorated.approveAndBonusAnswer(answer)
+
+            retryBooleanOp(theop)
+
             dao.updateAnswer(answerId.get, accepted = true)
             val ans = dao.getAnswerById(answerId.get)
             logger.info(s"approving answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question ${ans.get.questionId}")
             extractSingleAnswerFromDatabase(ans.get.answerJson, htmlToDisplayOnBallotPage)
           }
           else {
-            decorated.rejectAnswer(answer, "Invalid code")
+            def theop() = decorated.rejectAnswer(answer, "Invalid code")
+
+            retryBooleanOp(theop)
+
             logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
             if (maxRetriesAfterRejectedAnswers > 0) {
               maxRetriesAfterRejectedAnswers -= 1
@@ -113,6 +121,18 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
     } else {
       logger.error("There exists no Form tag in the html page.")
       None
+    }
+  }
+
+  def retryBooleanOp(op: () => Boolean, tries: Int = 3): Boolean = {
+    if (tries > 0) {
+      if (op()) true else {
+        Thread.sleep((100000 * Random.nextDouble()).toLong)
+        retryBooleanOp(op, tries - 1)
+      }
+    } else {
+      Logger.error(s"could not retry often enough for function $op")
+      false
     }
   }
 

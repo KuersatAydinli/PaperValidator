@@ -228,7 +228,7 @@ class AnswerService @Inject()(db: Database) {
       SQL("SELECT * FROM answer WHERE question_id = {questionId} AND user_id = {userId} ").on(
         'userId -> userId,
         'questionId -> questionId
-      ).as(answerParser *).size != 0
+      ).as(answerParser *).nonEmpty
     }
   }
 
