@@ -186,7 +186,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
   }
 
   def forcePoll(questionId: Long): Unit = {
-    val q = questionIdToQuery(questionId)
+    val q = dao.synchronized(questionIdToQuery(questionId))
     decorated match {
       case portal: ForcedQueryPolling => portal.poll(q)
     }
