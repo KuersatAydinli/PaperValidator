@@ -97,7 +97,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
 
             dao.updateAnswer(answerId.get, accepted = true)
             val ans = dao.getAnswerById(answerId.get)
-            logger.info(s"approving answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question ${ans.get.questionId}")
+            Logger.info(s"approving answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question ${ans.get.questionId}")
             extractSingleAnswerFromDatabase(ans.get.answerJson, htmlToDisplayOnBallotPage)
           }
           else {
@@ -128,7 +128,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
     if (tries > 0) {
       if (op()) true else {
         Thread.sleep((100000 * Random.nextDouble()).toLong)
-        retryBooleanOp(op, tries - 1)
+        retryBooleanOp(op, tries - 1, description)
       }
     } else {
       Logger.error(s"could not retry often enough for function $op, $description")
@@ -200,7 +200,9 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
         val lastCheck = DateTime.now()
         Thread.sleep(1000)
         try {
-          dao.getQuestionIDsAnsweredSince(lastCheck).foreach(q => forcePoll(q))
+          val theIds = dao.getQuestionIDsAnsweredSince(lastCheck)
+          Thread.sleep(10000)
+          theIds.foreach(q => forcePoll(q))
         } catch {
           case e: Exception => logger.error("exception when polling", e)
         }
