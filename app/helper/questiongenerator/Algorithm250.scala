@@ -31,6 +31,7 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
 
   def executePermutation(p: Permutation): Unit = {
     val answers: List[ParsedAnswer] = buildAndExecuteQuestion(p)
+    Logger.info(s"got answer for question ${p.id}")
     if (isFinalAnswerYesYes(answers)) {
       dao.updateStateOfPermutationId(p.id, p.id) //set done
       if (ALLOW_SAME_ASSUMPTION_TO_BE_REPORTED_FOR_MULTIPLE_METHODS) {

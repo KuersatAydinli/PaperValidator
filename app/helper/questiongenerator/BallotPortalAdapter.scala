@@ -93,17 +93,15 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
           val result = if (answerId.isDefined) {
             def theop() = decorated.approveAndBonusAnswer(answer)
 
-            retryBooleanOp(theop, description = "accepting " + answerId.get)
-
+            //retryBooleanOp(theop, description = "accepting " + answerId.get)
             dao.updateAnswer(answerId.get, accepted = true)
             val ans = dao.getAnswerById(answerId.get)
             Logger.info(s"approving answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question ${ans.get.questionId}")
             extractSingleAnswerFromDatabase(ans.get.answerJson, htmlToDisplayOnBallotPage)
-          }
-          else {
+          } else {
             def theop() = decorated.rejectAnswer(answer, "Invalid code")
 
-            retryBooleanOp(theop, description = "rejecting " + answerId.get)
+            //retryBooleanOp(theop, description = "rejecting " + answerId.get)
 
             Logger.info(s"rejecting answer $answer of worker ${answer.responsibleWorkers.mkString(",")} to question $questionId")
             if (maxRetriesAfterRejectedAnswers > 0) {
