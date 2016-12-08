@@ -183,6 +183,18 @@ object PaperProcessingManager {
     MailTemplates.sendPaperAnalyzedMail(paper.name, paperLink, permutations, paper.email)
   }
 
+  def onPermutationCompleted(permutation: Permutation, papersService: PapersService, configuration: play.Configuration): Unit = {
+    val dao = new BallotDAO
+    if (!dao.getAllPermutationsWithStateEquals(0).exists(thisPerm => thisPerm.paperId == permutation.paperId)) {
+      val paper = papersService.findById(permutation.paperId.toInt).get
+      papersService.updateStatus(permutation.paperId.toInt, Papers.STATUS_COMPLETED)
+      writePaperLog("Finished Crowdwork\n", paper.secret)
+      val paperLink = configuration.getString("hcomp.ballot.baseURL") + routes.Paper.show(paper.id.get, paper.secret).url
+      MailTemplates.sendPaperCompletedMail(paper.name, paperLink, paper.email)
+      writePaperLog("Clean Up\n", paper.secret)
+    }
+  }
+
   private def cleanUpTmpDir(paper: Papers): Unit = {
     FileUtils.deleteDirectory(new File(PreprocessPDF.OUTPUT_DIR + "/" + Commons.getSecretHash(paper.secret)))
   }

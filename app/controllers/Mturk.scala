@@ -9,7 +9,7 @@ import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.{Algorithm250, BallotPortalAdapter}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.Report
-import helper.QuestionHTMLFormatter
+import helper.{PaperProcessingManager, QuestionHTMLFormatter}
 import helper.questiongenerator.HCompNew
 import models._
 import org.joda.time.DateTime
@@ -22,11 +22,12 @@ import scala.util.parsing.json.JSONObject
 object Mturk {
   val TEMPLATE_ID = 1L
   val TURKER_ID_KEY: String = "TurkerId"
+  val ASSIGNMENT_ID_KEY = "assignmentId"
 
   var running250 = false
 }
 
-class Mturk @Inject()(configuration: Configuration, questionService: QuestionService, answerService: AnswerService, assetService: AssetService, userService: UserService, batchService: BatchService, log: Log, method2AssumptionService: Method2AssumptionService) extends Controller {
+class Mturk @Inject()(configuration: Configuration, questionService: QuestionService, answerService: AnswerService, assetService: AssetService, userService: UserService, batchService: BatchService, log: Log, method2AssumptionService: Method2AssumptionService, papersService: PapersService) extends Controller {
 
   def showAsset(id: Long, secret: String) = Action { request =>
     val parentQuestions = questionService.findByAssetId(id).filter(_.secret == secret)
@@ -59,6 +60,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
 
   def sessionUser(request: Request[AnyContent]): Option[String] = request.session.get(Mturk.TURKER_ID_KEY).filterNot(_.isEmpty)
 
+
   def showMTQuestion(uuid: String, secret: String, assignmentId: String, hitId: String, turkSubmitTo: String, workerId: String, target: String) = Action { request =>
     if (workerId.length > 2 && userService.findByTurkerId(workerId).isEmpty) {
       userService.create(workerId, new DateTime())
@@ -80,7 +82,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     } else {
       assert(!workerId.isEmpty)
       //val newSession = request.session + ("TurkerID" -> workerId) + ("assignmentId" -> assignmentId) + ("target" -> target)
-      val newSession = request.session + (Mturk.TURKER_ID_KEY -> workerId) + ("assignmentId" -> assignmentId) + ("target" -> target)
+      val newSession = request.session + (Mturk.TURKER_ID_KEY -> workerId) + (Mturk.ASSIGNMENT_ID_KEY -> assignmentId) + ("target" -> target)
 
       showQuestionAction(uuid, secret, request, workerId, Some(newSession))
     }
@@ -121,7 +123,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
           val formattedHTML: String = new QuestionHTMLFormatter(question.html).format
           Ok(views.html.question(turkerId, formattedHTML, questionId, secret)).withSession(replaceSession)
         } else {
-          Unauthorized("This HIT has already been answered / you don't have permission to answer this HIT. If this error persists, please write pdeboer@mit.edu ")
+          Unauthorized("This HIT has already been answered / you don't have permission to answer this HIT. If this error persists, please write pdeboer@mit.edu ").withSession(replaceSession)
         }
       } else {
         Logger.debug(s"can't find user. Asking to log in: $userFound, $turkerId")
@@ -186,13 +188,14 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
 
           answerService.create(questionId, userId, new DateTime, isRelated, isCheckedBefore, extraAnswer, confidence, answer.toString(), outputCode)
 
-          if (request.session.get("assignmentId").isDefined) {
-            val newSessionInclUser: Session = Session() + (Mturk.TURKER_ID_KEY -> request.session.get(Mturk.TURKER_ID_KEY).get)
-            Ok(views.html.postToTurk(request.session.get("target").get, request.session.get("assignmentId").get, outputCode)).withSession(newSessionInclUser)
+          if (request.session.get(Mturk.ASSIGNMENT_ID_KEY).isDefined) {
+            val newSessionInclUser: Session = Session() + (Mturk.TURKER_ID_KEY -> user)
+            Ok(views.html.postToTurk(request.session.get("target").get, request.session.get(Mturk.ASSIGNMENT_ID_KEY).get, outputCode)).withSession(newSessionInclUser)
           } else
-            Ok(views.html.code(user, outputCode)).withSession(request.session)
+            Logger.error(s"assignment id was not defined. this shouldn't happen. session: ${request.session}, query string: ${request.queryString}")
+          Ok(views.html.code(user, outputCode)).withSession(request.session)
         } else {
-          Logger.debug(s"$userId was not allowed to answer since the question has already been answered")
+          Logger.error(s"$userId was not allowed to answer since the question has already been answered. session: ${request.session}, query string: ${request.queryString}")
           Unauthorized("This question has already been answered.")
         }
       } catch {
@@ -202,6 +205,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
         }
       }
     }.getOrElse {
+      Logger.error(s"redirecting user to login page on storeAnswer. This shouldn't happen. session: ${request.session}, query string: ${request.queryString}")
       Ok(views.html.login())
     }
   }
@@ -263,6 +267,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
         if (dao.getPermutationById(permutation.id).map(_.state).getOrElse(-1) == 0) {
           Logger.debug(s"starting 250 for ${permutation.paperId} -> permutation ${permutation.id}")
           algorithm250.executePermutation(permutation)
+          PaperProcessingManager.onPermutationCompleted(permutation, papersService, configuration)
         }
       })
     })
