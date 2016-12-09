@@ -193,7 +193,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
             Ok(views.html.postToTurk(request.session.get("target").get, request.session.get(Mturk.ASSIGNMENT_ID_KEY).get, outputCode)).withSession(newSessionInclUser)
           } else {
             Logger.error(s"assignment id was not defined. this shouldn't happen. session: ${request.session}, query string: ${request.queryString}")
-            Unauthorized(s"something went wrong, your assignment ID from MTurk got lost. session: ${request.session}, query string: ${request.queryString}. please let us know about this, so we can manually initiate payment: pdeboer@mit.edu ")
+            Unauthorized(s"something went wrong, your assignment ID from MTurk got lost. Was there something unusual about how you handled this HIT? Here's your info: session: ${request.session}, query string: ${request.queryString}. please let us know about this, so we can manually initiate payment: pdeboer@mit.edu ")
             //Ok(views.html.code(user, outputCode)).withSession(request.session)
           }
         } else {
@@ -208,7 +208,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       }
     }.getOrElse {
       Logger.error(s"redirecting user to login page on storeAnswer. This shouldn't happen. session: ${request.session}, query string: ${request.queryString}")
-      Ok(views.html.login())
+      Unauthorized(s"something went wrong, you don't seem to be logged in. Was there something unusual about how you handled this HIT? Do you have Javascript / cookies activated? Here's the info we have about you: session: ${request.session}, query string: ${request.queryString}. please let us know about this, so we can manually initiate payment: pdeboer@mit.edu ")
     }
   }
 
