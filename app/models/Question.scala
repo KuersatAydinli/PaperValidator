@@ -48,8 +48,21 @@ class QuestionService @Inject()(db: Database) {
   def findByAssetId(assetId: Long): List[Question] = {
     try {
       db.withConnection { implicit c =>
-        SQL("SELECT q.* FROM question q INNER JOIN question2assets q2a ON (q2a.asset_id = {assetId})").on(
+        SQL("SELECT q.id, q.batch_id, NULL as html, q.create_time, q.uuid, q.permutation, q.secret FROM question q INNER JOIN question2assets q2a ON (q2a.asset_id = {assetId})").on(
           'assetId -> assetId
+        ).as(questionParser *)
+      }
+    } catch {
+      case e: Exception => Nil
+    }
+  }
+
+  def findByAssetIdAndSecret(assetId: Long, secret: String): List[Question] = {
+    try {
+      db.withConnection { implicit c =>
+        SQL("SELECT q.id, q.batch_id, NULL as html, q.create_time, q.uuid, q.permutation, q.secret FROM question q INNER JOIN question2assets q2a ON (q2a.asset_id = {assetId})").on(
+          'assetId -> assetId,
+          'secret -> secret
         ).as(questionParser *)
       }
     } catch {

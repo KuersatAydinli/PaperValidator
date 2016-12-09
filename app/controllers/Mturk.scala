@@ -30,19 +30,19 @@ object Mturk {
 class Mturk @Inject()(configuration: Configuration, questionService: QuestionService, answerService: AnswerService, assetService: AssetService, userService: UserService, batchService: BatchService, log: Log, method2AssumptionService: Method2AssumptionService, papersService: PapersService) extends Controller {
 
   def showAsset(id: Long, secret: String) = Action { request =>
-    val parentQuestions = questionService.findByAssetId(id).filter(_.secret == secret)
+    val parentQuestions = questionService.findByAssetIdAndSecret(id, secret)
     val turkerId: Option[String] = sessionUser(request)
 
     val isAssetOfTemplate: Boolean = parentQuestions.exists(_.id.get == Mturk.TEMPLATE_ID)
     if (!isAssetOfTemplate && logAccessAndCheckIfExceedsAccessCount(request, turkerId.orNull)) {
       Unauthorized("We received too many requests by your IP address")
     } else {
-
       if (turkerId.isDefined || isAssetOfTemplate) {
         val asset = assetService.findById(id)
-        val hasUnansweredQuestions: Boolean = !parentQuestions.forall(q => answerService.existsAcceptedAnswerForQuestionId(q.id.get))
+        //val hasUnansweredQuestions: Boolean = !parentQuestions.forall(q => answerService.existsAcceptedAnswerForQuestionId(q.id.get))
 
-        if (asset.isDefined && parentQuestions.nonEmpty && hasUnansweredQuestions) {
+        if (asset.isDefined && parentQuestions.nonEmpty) {
+          //&& hasUnansweredQuestions
           val contentType = asset.get.contentType
           if (contentType.equalsIgnoreCase("application/pdf")) {
             Ok(asset.get.byteArray).as(contentType)
