@@ -191,9 +191,10 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
           if (request.session.get(Mturk.ASSIGNMENT_ID_KEY).isDefined) {
             val newSessionInclUser: Session = Session() + (Mturk.TURKER_ID_KEY -> user)
             Ok(views.html.postToTurk(request.session.get("target").get, request.session.get(Mturk.ASSIGNMENT_ID_KEY).get, outputCode)).withSession(newSessionInclUser)
-          } else
+          } else {
             Logger.error(s"assignment id was not defined. this shouldn't happen. session: ${request.session}, query string: ${request.queryString}")
-          Ok(views.html.code(user, outputCode)).withSession(request.session)
+            Ok(views.html.code(user, outputCode)).withSession(request.session)
+          }
         } else {
           Logger.error(s"$userId was not allowed to answer since the question has already been answered. session: ${request.session}, query string: ${request.queryString}")
           Unauthorized("This question has already been answered.")
