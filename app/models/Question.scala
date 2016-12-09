@@ -6,6 +6,7 @@ import anorm._
 import anorm.SqlParser._
 import org.joda.time.DateTime
 import anorm.JodaParameterMetaData._
+import play.Logger
 import play.api.db.Database
 
 /**
@@ -60,13 +61,13 @@ class QuestionService @Inject()(db: Database) {
   def findByAssetIdAndSecret(assetId: Long, secret: String): List[Question] = {
     try {
       db.withConnection { implicit c =>
-        SQL("SELECT q.id, q.batch_id, NULL as html, q.create_time, q.uuid, q.permutation, q.secret FROM question q INNER JOIN question2assets q2a ON (q2a.asset_id = {assetId} WHERE q.secret = {secret})").on(
+        SQL("SELECT q.* FROM question q INNER JOIN question2assets q2a ON (q.id = q2a.question_id AND q2a.asset_id = {assetId} WHERE q.secret = {secret})").on(
           'assetId -> assetId,
           'secret -> secret
         ).as(questionParser *)
       }
     } catch {
-      case e: Exception => Nil
+      case e: Exception => Logger.error("error fetching questions!", e); Nil
     }
   }
 
