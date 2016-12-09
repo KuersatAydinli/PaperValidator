@@ -10,7 +10,6 @@ import scalikejdbc._
   * Created by mattia on 06.07.15.
   */
 class BallotDAO extends DAO {
-
   override def countAllAnswers(): Int = {
     DB readOnly { implicit session =>
       sql"SELECT count(*) AS count FROM answer".map(rs => rs.int("count")).single().apply().get

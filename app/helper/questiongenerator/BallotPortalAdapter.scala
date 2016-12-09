@@ -31,7 +31,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
 
   private def fullProcessQuery(query: HCompQuery, properties: HCompQueryProperties, isBallotOnly: Boolean = false): Option[HCompAnswer] = {
     val (actualProperties, batchIdFromDB) =
-      this.synchronized {
+      baseURL.synchronized {
         val actualProperties: BallotProperties = properties match {
           case p: BallotProperties => p
           case _ =>
@@ -143,7 +143,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
   }
 
   def createQuestion(actualProperties: BallotProperties, batchIdFromDB: Long, htmlToDisplayOnBallotPage: NodeSeq, methodHeight: Double, prerequisiteHeight: Double, snippetHeight: Double): (Long, String) = {
-    this.synchronized {
+    baseURL.synchronized {
       val assetsId: Map[String, Long] =
         actualProperties.assets.map(asset => {
           asset.url -> dao.createAsset(asset.binary, asset.contentType, asset.filename)
