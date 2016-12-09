@@ -61,7 +61,7 @@ class QuestionService @Inject()(db: Database) {
   def findByAssetIdAndSecret(assetId: Long, secret: String): List[Question] = {
     try {
       db.withConnection { implicit c =>
-        SQL("SELECT q.* FROM question q INNER JOIN question2assets q2a ON (q.id = q2a.question_id AND q2a.asset_id = {assetId} WHERE q.secret = {secret})").on(
+        SQL("SELECT q.* FROM question q INNER JOIN question2assets q2a ON q.id = q2a.question_id AND q2a.asset_id = {assetId} WHERE q.secret = {secret}").on(
           'assetId -> assetId,
           'secret -> secret
         ).as(questionParser *)
