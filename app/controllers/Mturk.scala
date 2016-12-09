@@ -33,7 +33,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     val parentQuestions = questionService.findByAssetIdAndSecret(id, secret)
     val turkerId: Option[String] = sessionUser(request)
 
-    val isAssetOfTemplate: Boolean = parentQuestions.exists(_.id.get == Mturk.TEMPLATE_ID)
+    val isAssetOfTemplate: Boolean = id < 3 //ugly hack to speed up things
     if (!isAssetOfTemplate && logAccessAndCheckIfExceedsAccessCount(request, turkerId.orNull)) {
       Unauthorized("We received too many requests by your IP address")
     } else {
@@ -41,7 +41,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
         val asset = assetService.findById(id)
         //val hasUnansweredQuestions: Boolean = !parentQuestions.forall(q => answerService.existsAcceptedAnswerForQuestionId(q.id.get))
 
-        if (asset.isDefined && parentQuestions.nonEmpty) {
+        if (asset.isDefined && (isAssetOfTemplate || parentQuestions.nonEmpty)) {
           //&& hasUnansweredQuestions
           val contentType = asset.get.contentType
           if (contentType.equalsIgnoreCase("application/pdf")) {
