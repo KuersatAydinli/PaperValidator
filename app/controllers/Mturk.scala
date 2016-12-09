@@ -67,18 +67,22 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     }
 
     if (assignmentId == "ASSIGNMENT_ID_NOT_AVAILABLE") {
+      val questionId = questionService.findIdByUUID(uuid)
+
       def showAlreadyUsedMessage: Boolean = {
         if (sessionUser(request).isDefined) {
           val userFound = userService.findByTurkerId(sessionUser(request).get)
           if (userFound.isDefined) {
-            val question = questionService.findById(questionService.findIdByUUID(uuid))
+            val question = questionService.findById(questionId)
             if (question.isDefined) checkUserExceededMaxAnswersPerBatch(userFound.get.id.get, question.get) else false
           } else false
         } else false
       }
 
-      if (showAlreadyUsedMessage) Unauthorized(views.html.tooManyAnswersInBatch(true)) else Ok(views.html.question(workerId, questionService.findById(Mturk.TEMPLATE_ID).map(q => new QuestionHTMLFormatter(q.html).format).getOrElse("No Example page defined")))
-
+      if (showAlreadyUsedMessage) Unauthorized(views.html.tooManyAnswersInBatch(true))
+      else if (!questionHasNotBeenAnsweredYet(questionId, secret)) {
+        Unauthorized("This HIT has already been answered and is waiting to be approved. If this error persists for a long time, please write pdeboer@mit.edu ")
+      } else Ok(views.html.question(workerId, questionService.findById(Mturk.TEMPLATE_ID).map(q => new QuestionHTMLFormatter(q.html).format).getOrElse("No Example page defined")))
     } else {
       assert(!workerId.isEmpty)
       //val newSession = request.session + ("TurkerID" -> workerId) + ("assignmentId" -> assignmentId) + ("target" -> target)
@@ -118,12 +122,12 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       if (userFound.isDefined) {
         if (checkUserExceededMaxAnswersPerBatch(userFound.get.id.get, questionService.findById(questionId).get)) {
           Unauthorized(views.html.tooManyAnswersInBatch()).withSession(replaceSession)
-        } else if (isUserAllowedToAnswer(questionId, userFound.get.id.get, secret)) {
+        } else if (questionHasNotBeenAnsweredYet(questionId, secret)) {
           val question = questionService.findById(questionId).get
           val formattedHTML: String = new QuestionHTMLFormatter(question.html).format
           Ok(views.html.question(turkerId, formattedHTML, questionId, secret)).withSession(replaceSession)
         } else {
-          Unauthorized("This HIT has already been answered / you don't have permission to answer this HIT. If this error persists, please write pdeboer@mit.edu ").withSession(replaceSession)
+          Unauthorized("This HIT has already been answered and is waiting to be approved. If this error persists for a long time, please write pdeboer@mit.edu ").withSession(replaceSession)
         }
       } else {
         Logger.debug(s"can't find user. Asking to log in: $userFound, $turkerId")
@@ -131,7 +135,6 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       }
     } else Unauthorized("We have received too many requests from your IP address")
   }
-
 
   def insertSnippetInHTMLPage(html: String, snippet: String): String = {
     html.replace("<img id=\"snippet\" src=\"\" width=\"100%\"></img>", "<img id=\"snippet\" src=\"data:image/gif;base64," + snippet + "\" width=\"100%\"></img>")
@@ -141,7 +144,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     html.replaceAll("\\Q<![CDATA[\\E", "").replaceAll("\\Q]]>\\E", "")
   }
 
-  def isUserAllowedToAnswer(questionId: Long, userId: Long, providedSecret: String = ""): Boolean = {
+  def questionHasNotBeenAnsweredYet(questionId: Long, providedSecret: String = ""): Boolean = {
     val question = questionService.findById(questionId)
     // The question exists and there is no answer yet accepted in the DB
     question.isDefined && !answerService.existsAcceptedAnswerForQuestionId(questionId) && question.get.secret == providedSecret
@@ -179,7 +182,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
         val secret = request.getQueryString("secret").mkString
         val userId: Long = userService.findByTurkerId(user).get.id.get
 
-        if (isUserAllowedToAnswer(questionId, userId, secret)) {
+        if (questionHasNotBeenAnsweredYet(questionId, secret)) {
           val outputCode = Math.abs(new SecureRandom().nextLong())
 
           val answer: JSONObject = JSONObject.apply(request.queryString.map(m => {
