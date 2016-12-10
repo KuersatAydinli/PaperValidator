@@ -59,7 +59,6 @@ class Upload @Inject()(database: Database, configuration: Configuration, questio
           Logger.info("done")
           Ok("Ok")
         }
-
       } else {
         Ok("Error")
       }
