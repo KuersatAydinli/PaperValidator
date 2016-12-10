@@ -21,7 +21,11 @@
             <div class="text-right">
             <img src="@{urlPrefix + routes.Assets.at("images/pdf.png").url}" class="cover-ico text-right">
             </div>
-            <a target="_blank" href="@{urlPrefix + routes.Paper.getFile("public","papers/"+hashedSecret+"/"+paper.name).url}">
+            <a target="_blank" id="link" href="@{urlPrefix + routes.Paper.getFile("public","papers/"+hashedSecret+"/"+paper.name).url}">
+                <script>
+                    window.alert("showLink");
+                    window.alert(document.getElementById("link").getAttribute("href"));
+                </script>
                 <button class="btn btn-primary">Get Paper</button>
             </a>
             @if(annotated) {
