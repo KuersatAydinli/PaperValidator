@@ -51,7 +51,8 @@ class Upload @Inject()(database: Database, configuration: Configuration, questio
         }
 
         if (passwordInConf != password){
-          Ok("Error")
+          Logger.info("Password Error")
+          Ok("PasswordError")
         } else{
           PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
             paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
