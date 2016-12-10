@@ -15,6 +15,7 @@
 				<div class="data-input">
 					<label for="emailIn">Your Email address</label>
 					<input type="email" class="form-control" id="emailIn" name="Email" placeholder="Email">
+					<input type="password" class="form-control" id="passwordIn" name="Password" placeholder="Password">
 					<select class="form-control" id="conference">
 						<option value="">Select Conference</option>
 						@for(conference <- conferences) {
@@ -46,10 +47,12 @@
 			var data = new FormData();
 			var fileData = $('input[name="paper"]')[0].files[0];
 			var email = $('#emailIn').val()
+			var password = $('#passwordIn').val()
 			var conference = $('#conference').val()
 			data.append("paper", fileData);
 			data.append("conference", conference);
 			data.append("email", email);
+			data.append("password", password);
 			$.ajax({
 				url: '@{urlPrefix + routes.Upload.uploaded.url}',
 				type: 'POST',
