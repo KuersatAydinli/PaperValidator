@@ -3,11 +3,13 @@ package controllers
 import java.io.{File, PrintWriter}
 import javax.inject.Inject
 
+import com.typesafe.config.ConfigFactory
 import helper.Commons
 import helper.email.MailTemplates
 import helper.pdfpreprocessing.PreprocessPDF
 import models._
 import play.Configuration
+import play.api.Logger
 import play.api.mvc.{Action, Controller}
 
 import scala.io.Source
@@ -30,14 +32,23 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
   def conferenceCreated = Action(parse.urlFormEncoded) { request =>
     val name = request.body.get("name").get.head
     val email = request.body.get("email").get.head
+    val password = request.body.get("password").get.head
+    Logger.info("PW Conference" + password)
+    val conf = ConfigFactory.load()
+    val passwordConfig = conf.getString("admin.access.password")
+    Logger.info("PW Config: " + passwordConfig)
     val template = request.body.get("template").get.head
     val secret = Commons.generateSecret()
-    val id = conferenceService.create(name, email, secret)
-    readTemplate(id, template)
-    MailTemplates.sendAccountMail(email, configuration, emailService)
-    val conferenceLink = configuration.getString("hcomp.ballot.baseURL") + routes.Conference.conferenceEditor(id, secret).url
-    MailTemplates.sendConferenceMail(name, conferenceLink, email)
-    Ok(views.html.conference.conferenceCreated(name))
+    if(password == passwordConfig) {
+      val id = conferenceService.create(name, email, secret)
+      readTemplate(id, template)
+      MailTemplates.sendAccountMail(email, configuration, emailService)
+      val conferenceLink = configuration.getString("hcomp.ballot.baseURL") + routes.Conference.conferenceEditor(id, secret).url
+      MailTemplates.sendConferenceMail(name, conferenceLink, email)
+      Ok(views.html.conference.conferenceCreated(name))
+    } else {
+      Ok("Error: Incorrect Password")
+    }
   }
 
   def readTemplate(conferenceId: Int, templateName: String) = {
