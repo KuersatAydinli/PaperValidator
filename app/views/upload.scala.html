@@ -64,7 +64,11 @@
 					console.log(data);
 					if(data == "Ok") {
 						showUploadProgress("success");
-					} else {
+					} else if(data == "PasswordError"){
+						alert("Error, Wrong Password! " + data);
+						showUploadProgress("start");
+					}
+					else {
 						alert("Error, sorry! " + data);
 						showUploadProgress("start");
 					}
