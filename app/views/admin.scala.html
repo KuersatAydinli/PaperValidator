@@ -68,18 +68,18 @@
 
                                                 @if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
                                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                                    <div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;Confirm&nbsp;Now
+                                                    <div class="confirmItem"><i>Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;Confirm&nbsp;Now</i>
                                                     </div>
                                                 }
 
                                                 @if(paper.status == Papers.STATUS_SNIPPETS_EXTRACTED) {
                                                     <span class="glyphicon glyphicon-check"></span>
-                                                    <div class="confirmItem">Paper&nbsp;Confirmed</div>
+                                                    <div class="confirmItem"><i>Paper&nbsp;Confirmed</i></div>
                                                 }
 
                                                 @if(paper.status == Papers.STATUS_COMPLETED){
                                                     <span class="glyphicon glyphicon-ok-circle"></span>
-                                                    <div class="confirmItem"> Analysis&nbsp;Completed </div>
+                                                    <div class="confirmItem"><i>Analysis&nbsp;Completed</i> </div>
                                                 }
 
                                                 @if(paper.status == Papers.STATUS_NEW){
@@ -89,7 +89,7 @@
 
                                                 @if(paper.status == Papers.STATUS_ERROR){
                                                     <span class="glyphicon glyphicon glyphicon-ban-circle text-danger"></span>
-                                                    <div class="confirmItem"> Error&nbsp;Occured </div>
+                                                    <div class="confirmItem"><i>Error&nbsp;Occured</i> </div>
                                                 }
 
                                             </div>
