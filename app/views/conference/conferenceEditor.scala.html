@@ -103,6 +103,37 @@
 									<div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
 									<span class="glyphicon glyphicon-ban-circle text-danger"></span>
 									<div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_ERROR,0)</div>
+
+									@if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
+										<span class="glyphicon glyphicon-eye-open"></span>
+										<div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;
+											<a href="@{urlPrefix + routes.Paper.confirmPaper(paper.id.get,paper.secret).url}">
+												<span style="color:blue;font-weight:bold" onclick="confirmPaper(@paper)">
+													Confirm&nbsp;Now
+												</span>
+											</a>
+										</div>
+									}
+
+									@if(paper.status == Papers.STATUS_SNIPPETS_EXTRACTED) {
+										<span class="glyphicon glyphicon-check"></span>
+										<div class="confirmItem">Paper&nbsp;Confirmed</div>
+									}
+
+									@if(paper.status == Papers.STATUS_COMPLETED){
+										<span class="glyphicon glyphicon-ok-circle"></span>
+										<div class="confirmItem"> Analysis&nbsp;Completed </div>
+									}
+
+									@if(paper.status == Papers.STATUS_NEW){
+										<span class="glyphicon glyphicon-refresh text-muted"></span>
+										<div class="confirmItem"> Processing&nbsp;Started </div>
+									}
+
+									@if(paper.status == Papers.STATUS_ERROR){
+										<span class="glyphicon glyphicon glyphicon-ban-circle text-danger"></span>
+										<div class="confirmItem"> Error&nbsp;Occured </div>
+									}
 								</div>
 							</div>
 						</div>

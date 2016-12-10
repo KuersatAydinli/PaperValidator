@@ -68,12 +68,7 @@
 
                                                 @if(paper.status == Papers.STATUS_AWAIT_CONFIRMATION){
                                                     <span class="glyphicon glyphicon-eye-open"></span>
-                                                    <div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;
-                                                        <a href="@{urlPrefix + routes.Paper.confirmPaper(paper.id.get,paper.secret).url}">
-                                                            <span style="color:blue;font-weight:bold" onclick="confirmPaper(@paper)">
-                                                                Confirm&nbsp;Now
-                                                            </span>
-                                                        </a>
+                                                    <div class="confirmItem">Not&nbsp;confirmed&nbsp;yet&nbsp;-&nbsp;Confirm&nbsp;Now
                                                     </div>
                                                 }
 
