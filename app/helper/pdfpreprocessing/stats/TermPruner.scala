@@ -26,3 +26,15 @@ class PruneTermsWithinOtherTerms extends TermPruner {
     }).filter(_.isDefined).map(_.get)
   }
 }
+
+class PruneTermsInBlacklist extends TermPruner {
+  val blacklist = Set("independent variable")
+
+  override def prune(occurrences: Iterable[StatTermOccurrence]): Iterable[StatTermOccurrence] = {
+    occurrences.filter(o => {
+      blacklist.exists(b => {
+        o.paper.lowerCaseContents(o.page).substring(o.startIndex).matches(s"^${StatTermSearcher.addRegexToAllowSpaces(b)}.*")
+      })
+    })
+  }
+}
