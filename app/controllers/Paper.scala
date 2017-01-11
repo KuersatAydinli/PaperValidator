@@ -140,8 +140,9 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
   }
 
   def getFile(basePath: String, path: String) = Action {
-    val file = new java.io.File(basePath + "/" + path)
-    Logger.info("FILE: " + file.getName)
+    val file = new java.io.File(basePath + "/" + path.replace("%20"," "))
+    Logger.info("FILE: " + file)
+
     if (file.exists() && (basePath == "public" || basePath == "tmp")) {
       //TODO: Security
       Logger.info("File exists")

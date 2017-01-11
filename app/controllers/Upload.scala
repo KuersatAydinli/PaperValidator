@@ -4,6 +4,7 @@ import java.io._
 import java.util.zip.{ZipEntry, ZipInputStream}
 import javax.inject.Inject
 
+import com.typesafe.config.ConfigFactory
 import helper.pdfpreprocessing.PreprocessPDF
 import helper.{Commons, PaperProcessingManager}
 import models._
@@ -30,6 +31,11 @@ class Upload @Inject()(database: Database, configuration: Configuration, questio
   def uploaded = Action(parse.multipartFormData) { request =>
     createDirs()
     val email = request.body.dataParts("email").mkString("")
+    val password = request.body.dataParts("password").mkString("")
+
+    val conf = ConfigFactory.load()
+    val passwordInConf = conf.getString("admin.access.password")
+
     val conference = request.body.dataParts("conference").mkString("").toInt
     request.body.file("paper").map { paper =>
       val filename = paper.filename
@@ -43,10 +49,16 @@ class Upload @Inject()(database: Database, configuration: Configuration, questio
         } else {
           papersService.create(filename, email, conference, secret)
         }
-        PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
-          paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
-        Logger.info("done")
-        Ok("Ok")
+
+        if (passwordInConf != password){
+          Logger.info("Password Error")
+          Ok("PasswordError")
+        } else{
+          PaperProcessingManager.run(database, configuration, papersService, questionService, method2AssumptionService,
+            paperResultService, paperMethodService, permutationsServcie, answerService, conferenceSettingsService)
+          Logger.info("done")
+          Ok("Ok")
+        }
       } else {
         Ok("Error")
       }
