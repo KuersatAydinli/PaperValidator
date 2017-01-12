@@ -261,9 +261,12 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     Logger.info("Removing state information of previous runs")
     new File("state").listFiles().foreach(f => f.delete())
 
-    val groups = dao.getAllPermutations().filter(_.id != ConsoleIntegrationTest.DEFAULT_TEMPLATE_ID).groupBy(gr => {
+    val groups = dao.getAllPermutations().filter(p => p.id != ConsoleIntegrationTest.DEFAULT_TEMPLATE_ID && p.state == 0).groupBy(gr => {
       gr.groupName.split("/").apply(0)
     }).map(g => (g._1, g._2.sortBy(_.distanceMinIndexMax))).toList
+
+    Logger.info("** Will work on permutations in the following order: ")
+    groups.foreach(g => g._2.foreach(p => Logger.info(s"group: ${g._1} permutation: ${p.id}")))
 
     import ch.uzh.ifi.pdeboer.pplib.util.CollectionUtils._
 
