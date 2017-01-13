@@ -2,6 +2,7 @@ package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao
 
 import java.util.UUID
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.Batch
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Answer, Permutation, Question}
 import org.joda.time.DateTime
 
@@ -9,6 +10,8 @@ import org.joda.time.DateTime
   * Created by mattia on 06.07.15.
   */
 trait DAO {
+
+  def getBatchByPermutation(permutationId: Long): Option[Batch]
 
   def getQuestionIDsAnsweredSince(date: DateTime): List[Long]
 

@@ -2,6 +2,7 @@ package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao
 
 import java.util.UUID
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.Batch
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Answer, Permutation, Question}
 import org.joda.time.DateTime
 import scalikejdbc._
@@ -79,6 +80,12 @@ class BallotDAO extends DAO {
   override def getBatchIdByUUID(uuid: UUID): Option[Long] = {
     DB readOnly { implicit session =>
       sql"SELECT id FROM batch WHERE uuid = ${uuid.toString}".map(rs => rs.long("id")).single().apply()
+    }
+  }
+
+  override def getBatchByPermutation(permutationId: Long): Option[Batch] = {
+    DB readOnly { implicit session =>
+      sql"SELECT allowed_answers_per_turker, uuid FROM batch b INNER JOIN question q ON q.batch_id = b.id WHERE q.permutation= ${permutationId} LIMIT 1".map(rs => Batch(rs.long("allowed_answers_per_turker").toInt, UUID.fromString(rs.string("uuid")))).single().apply()
     }
   }
 

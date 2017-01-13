@@ -319,6 +319,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
         if (dao.getPermutationById(permutation.id).map(_.state).getOrElse(-1) == 0) {
           Logger.debug(s"starting 250 for ${permutation.paperId} -> permutation ${permutation.id}")
           algorithm250.executePermutation(permutation)
+          Logger.debug(s"finished 250 for ${permutation.paperId} -> permutation ${permutation.id}")
           PaperProcessingManager.onPermutationCompleted(permutation, papersService, configuration)
         }
       })

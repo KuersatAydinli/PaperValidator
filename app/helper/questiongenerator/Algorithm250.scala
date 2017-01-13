@@ -93,7 +93,7 @@ case class Algorithm250(dao: DAO, ballotPortalAdapter: HCompPortalAdapter, metho
 
     val qualifications = if (conf.getBoolean("hcomp.qualifications", true)) HCompQueryProperties.DEFAULT_QUALIFICATIONS else Nil
     if (qualifications.isEmpty) Logger.debug("watch out, no qualifications set for MTurk")
-    val properties = new BallotProperties(Batch(allowedAnswersPerTurker = 1), List(
+    val properties = new BallotProperties(dao.getBatchByPermutation(permutation.id).getOrElse(Batch(allowedAnswersPerTurker = 1)), List(
       snippetAsset, jsAsset), permutation.id, propertiesForDecoratedPortal = new HCompQueryProperties(conf.getInt("hcomp.paymentCents"), qualifications = qualifications)) //TODO put in qualifications
 
     //val method = permutation.methodIndex.substring(0,permutation.methodIndex.indexOf("_")).toLowerCase()
