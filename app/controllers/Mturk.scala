@@ -258,7 +258,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
             hitExpirator()
           }
         }
-      })
+      }).start()
     }
     Ok(status)
   }
