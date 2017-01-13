@@ -244,7 +244,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
           while (Mturk.runningZombieKiller) {
             hitExpirator()
             val ONE_MINUTE = 60 * 1000
-            Thread.sleep(15 * ONE_MINUTE)
+            Thread.sleep(30 * ONE_MINUTE)
           }
         }
       }).start()
