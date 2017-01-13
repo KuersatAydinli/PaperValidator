@@ -5,6 +5,7 @@ import java.io.File
 import java.security.SecureRandom
 import javax.inject.Inject
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.HComp
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.{Algorithm250, BallotPortalAdapter}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
@@ -25,6 +26,7 @@ object Mturk {
   val ASSIGNMENT_ID_KEY = "assignmentId"
 
   var running250 = false
+  var runningZombieKiller = false
 }
 
 class Mturk @Inject()(configuration: Configuration, questionService: QuestionService, answerService: AnswerService, assetService: AssetService, userService: UserService, batchService: BatchService, log: Log, method2AssumptionService: Method2AssumptionService, papersService: PapersService) extends Controller {
@@ -230,6 +232,57 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     } else {
       numberOfEntries.right.get > (requestsPerSnippetAnswer * maxSnippetsPerCrowdWorker)
     }
+  }
+
+  def startHitExpirator() = Action { request =>
+    val dao = new BallotDAO
+    HComp.mechanicalTurk.service.SearchHITs().foreach(h => {
+      if (h.Title.contains("related") && h.Expiration.isAfterNow) {
+        val postfix = h.Description.split("showMTQuestion\\?q=").apply(1)
+        val questionUUID = postfix.substring(0, postfix.indexOf("&amp;"))
+        val answer = dao.getQuestionIdByUUID(questionUUID).map(q => dao.getAnswerByQuestionId(q))
+        if (answer.isDefined) {
+          HComp.mechanicalTurk.service.DisableHIT(h.HITId)
+        }
+      }
+    })
+    val status = if (Mturk.runningZombieKiller) "zombie killer was already running. Didn't do anything" else "started zombie killer"
+
+    Mturk.runningZombieKiller = !Mturk.runningZombieKiller
+    if (Mturk.runningZombieKiller) {
+      new Thread(new Runnable {
+        override def run() = {
+          while (Mturk.runningZombieKiller) {
+            val ONE_MINUTE = 60 * 1000
+            Thread.sleep(15 * ONE_MINUTE)
+            hitExpirator()
+          }
+        }
+      })
+    }
+    Ok(status)
+  }
+
+  def forceExpireZombieHits() = Action { request =>
+    hitExpirator()
+    Ok("done")
+  }
+
+  def hitExpirator(): Unit = {
+    Logger.info("looking for zombie hits..")
+    val dao = new BallotDAO
+    HComp.mechanicalTurk.service.SearchHITs().foreach(h => {
+      if (h.Title.contains("related") && h.Expiration.isAfterNow) {
+        val postfix = h.Description.split("showMTQuestion\\?q=").apply(1)
+        val questionUUID = postfix.substring(0, postfix.indexOf("&amp;"))
+        val answer = dao.getQuestionIdByUUID(questionUUID).map(q => dao.getAnswerByQuestionId(q))
+        if (answer.isDefined) {
+          Logger.info(s"found zombie HIT: ${h.HITId}, disabling it")
+          HComp.mechanicalTurk.service.DisableHIT(h.HITId)
+        }
+      }
+    })
+    Logger.info("done killing zombie hits")
   }
 
   def start250Action() = Action { request =>
