@@ -235,17 +235,6 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
   }
 
   def startHitExpirator() = Action { request =>
-    val dao = new BallotDAO
-    HComp.mechanicalTurk.service.SearchHITs().foreach(h => {
-      if (h.Title.contains("related") && h.Expiration.isAfterNow) {
-        val postfix = h.Description.split("showMTQuestion\\?q=").apply(1)
-        val questionUUID = postfix.substring(0, postfix.indexOf("&amp;"))
-        val answer = dao.getQuestionIdByUUID(questionUUID).map(q => dao.getAnswerByQuestionId(q))
-        if (answer.isDefined) {
-          HComp.mechanicalTurk.service.DisableHIT(h.HITId)
-        }
-      }
-    })
     val status = if (Mturk.runningZombieKiller) "zombie killer was already running. Didn't do anything" else "started zombie killer"
 
     Mturk.runningZombieKiller = !Mturk.runningZombieKiller
