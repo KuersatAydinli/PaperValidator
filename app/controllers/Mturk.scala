@@ -242,9 +242,9 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       new Thread(new Runnable {
         override def run() = {
           while (Mturk.runningZombieKiller) {
+            hitExpirator()
             val ONE_MINUTE = 60 * 1000
             Thread.sleep(15 * ONE_MINUTE)
-            hitExpirator()
           }
         }
       }).start()
