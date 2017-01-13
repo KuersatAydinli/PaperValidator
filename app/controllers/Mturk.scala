@@ -264,10 +264,12 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
       if (h.Title.contains("related") && h.Expiration.isAfterNow) {
         val postfix = h.Description.split("showMTQuestion\\?q=").apply(1)
         val questionUUID = postfix.substring(0, postfix.indexOf("&amp;"))
-        val answer = dao.getQuestionIdByUUID(questionUUID).map(q => dao.getAnswerByQuestionId(q))
+        val answer: Option[String] = dao.getQuestionIdByUUID(questionUUID).flatMap(q => dao.getAnswerByQuestionId(q))
         if (answer.isDefined) {
-          Logger.info(s"found zombie HIT: ${h.HITId}, disabling it")
-          HComp.mechanicalTurk.service.DisableHIT(h.HITId)
+          if (HComp.mechanicalTurk.service.GetAssignmentsForHIT(h.HITId).toList.isEmpty) {
+            Logger.info(s"found zombie HIT: ${h.HITId}, disabling it")
+            HComp.mechanicalTurk.service.DisableHIT(h.HITId)
+          }
         }
       }
     })
