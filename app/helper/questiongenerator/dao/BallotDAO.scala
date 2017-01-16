@@ -85,7 +85,7 @@ class BallotDAO extends DAO {
 
   override def getBatchByPermutation(permutationId: Long): Option[Batch] = {
     DB readOnly { implicit session =>
-      sql"SELECT allowed_answers_per_turker, uuid FROM batch b INNER JOIN question q ON q.batch_id = b.id WHERE q.permutation= ${permutationId} LIMIT 1".map(rs => Batch(rs.long("allowed_answers_per_turker").toInt, UUID.fromString(rs.string("uuid")))).single().apply()
+      sql"SELECT allowed_answers_per_turker, b.uuid FROM batch b INNER JOIN question q ON q.batch_id = b.id WHERE q.permutation= ${permutationId} LIMIT 1".map(rs => Batch(rs.long("allowed_answers_per_turker").toInt, UUID.fromString(rs.string("uuid")))).single().apply()
     }
   }
 
