@@ -261,7 +261,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
     Logger.info("looking for zombie hits..")
     val dao = new BallotDAO
     HComp.mechanicalTurk.service.SearchHITs().foreach(h => {
-      if (h.Title.contains("related") && h.Expiration.isAfterNow) {
+      if (h.Title.contains("related") && h.Expiration.isAfterNow && h.CreationTime.plusMinutes(30).isBeforeNow) {
         val postfix = h.Description.split("showMTQuestion\\?q=").apply(1)
         val questionUUID = postfix.substring(0, postfix.indexOf("&amp;"))
         val answer: Option[String] = dao.getQuestionIdByUUID(questionUUID).flatMap(q => dao.getAnswerByQuestionId(q))
