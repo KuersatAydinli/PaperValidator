@@ -3,13 +3,15 @@ package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao
 import java.util.UUID
 
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.Batch
-import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Answer, Permutation, Question}
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Answer, JsonAnswer, Permutation, Question}
 import org.joda.time.DateTime
 
 /**
   * Created by mattia on 06.07.15.
   */
 trait DAO {
+
+  def getAnswersForPermutation(permutation: Long): List[Answer]
 
   def getBatchByPermutation(permutationId: Long): Option[Batch]
 
@@ -31,7 +33,7 @@ trait DAO {
 
   def updateAnswer(answerId: Long, accepted: Boolean)
 
-  def getAnswerById(id: Long): Option[Answer]
+  def getAnswerById(id: Long): Option[JsonAnswer]
 
   def getAnswerIdByOutputCode(insertOutput: String): Option[Long]
 
@@ -52,7 +54,7 @@ trait DAO {
     getAllPermutations().find(p => p.id == perm).map(p => p.groupName.substring(0, p.groupName.indexOf("/")))
   }
 
-  def allAnswers(): List[Answer]
+  def allAnswers(): List[JsonAnswer]
 
   def mapQuestionToAssets(qId: Long, assetId: Long): Long
 
@@ -78,6 +80,6 @@ trait DAO {
 
   def getPermutationIdByQuestionId(qId: Long): Option[Long]
 
-  def getAllAnswersForSnippet(fileName: String): List[Answer]
+  def getAllAnswersForSnippet(fileName: String): List[JsonAnswer]
 
 }

@@ -3,7 +3,7 @@ package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.snippet
 import ch.uzh.ifi.pdeboer.pplib.hcomp._
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.DBSettings
-import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.AnswerParser
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.JsonAnswerParser
 import ch.uzh.ifi.pdeboer.pplib.process.entities.DefaultParameters._
 import ch.uzh.ifi.pdeboer.pplib.process.entities.IndexedPatch
 import ch.uzh.ifi.pdeboer.pplib.process.stdlib.ContestWithBeatByKVotingProcess
@@ -23,7 +23,7 @@ private[snippet] class TestPortal extends HCompPortalAdapter {
       it += 1
 
       logger.info(s"returning $targetId ${answer.get.answerJson})")
-      Some(HTMLQueryAnswer(AnswerParser.buildAnswerMap(answer.get.answerJson), query, Nil))
+      Some(HTMLQueryAnswer(JsonAnswerParser.buildAnswerMap(answer.get.answerJson), query, Nil))
     }
   }
 

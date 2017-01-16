@@ -3,7 +3,7 @@ package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao
 import java.util.UUID
 
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.Batch
-import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Answer, Permutation, Question}
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.{Answer, JsonAnswer, Permutation, Question}
 import org.joda.time.DateTime
 import scalikejdbc._
 
@@ -47,9 +47,9 @@ class BallotDAO extends DAO {
     }
   }
 
-  override def getAnswerById(id: Long): Option[Answer] = {
+  override def getAnswerById(id: Long): Option[JsonAnswer] = {
     DB readOnly { implicit session =>
-      sql"SELECT * FROM answer WHERE id = ${id}".map(rs => Answer(rs.long("id"), rs.jodaDateTime("time"), rs.long("question_id"), rs.string("answer_json"), rs.boolean("accepted"))).single().apply()
+      sql"SELECT * FROM answer WHERE id = ${id}".map(rs => JsonAnswer(rs.long("id"), rs.jodaDateTime("time"), rs.long("question_id"), rs.string("answer_json"), rs.boolean("accepted"))).single().apply()
     }
   }
 
@@ -212,10 +212,10 @@ class BallotDAO extends DAO {
     }
   }
 
-  override def allAnswers(): List[Answer] = {
+  override def allAnswers(): List[JsonAnswer] = {
     DB readOnly { implicit session =>
       sql"SELECT * FROM answer WHERE accepted = 1".map(rs =>
-        Answer(rs.long("id"), rs.jodaDateTime("time"), rs.long("question_id"), rs.string("answer_json"), rs.boolean("accepted"))
+        JsonAnswer(rs.long("id"), rs.jodaDateTime("time"), rs.long("question_id"), rs.string("answer_json"), rs.boolean("accepted"))
       ).list().apply()
     }
   }
@@ -227,7 +227,15 @@ class BallotDAO extends DAO {
     }
   }
 
-  override def getAllAnswersForSnippet(fileName: String): List[Answer] = {
+  override def getAnswersForPermutation(permutation: Long): List[Answer] = {
+    DB readOnly { implicit session =>
+      sql"SELECT id, time, question_id, confidence, is_related, is_checked_before, extra_answer, answer_json, accepted FROM answer WHERE accepted = 1 AND question_id IN (SELECT id FROM question WHERE permutation = ${permutation}) ORDER BY time ASC".map(rs =>
+        Answer(rs.long("id"), rs.jodaDateTime("time"), rs.long("question_id"), rs.int("confidence"), rs.boolean("is_related"), rs.boolean("is_checked_before"), rs.boolean("extra_answer"), rs.string("answer_json"), rs.boolean("accepted"))
+      ).list().apply()
+    }
+  }
+
+  override def getAllAnswersForSnippet(fileName: String): List[JsonAnswer] = {
     allAnswers.filter(f => f.answerJson.contains(fileName))
   }
 

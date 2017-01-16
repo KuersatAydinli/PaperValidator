@@ -1,11 +1,16 @@
 package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.HTMLQueryAnswer
 import org.joda.time.DateTime
 
 /**
   * Created by mattia on 24.08.15.
   */
-case class Answer(id: Long, time: DateTime, questionId: Long, answerJson: String, accepted: Boolean)
+case class JsonAnswer(id: Long, time: DateTime, questionId: Long, answerJson: String, accepted: Boolean)
+
+case class Answer(id: Long, time: DateTime, questionId: Long, confidence: Int, isRelated: Boolean, isCheckedBefore: Boolean, extraAnswer: Boolean, descriptionIsRelated: String, accepted: Boolean) {
+  def toHTMLAnswer = new HTMLQueryAnswer(Map("confidence" -> confidence.toString, "isRelated" -> isRelated.toString, "isCheckedBefore" -> isCheckedBefore.toString, "descriptionIsRelated" -> descriptionIsRelated), null)
+}
 
 case class Permutation(id: Long, groupName: String, methodIndex: String, snippetFilename: String, pdfPath: String,
                        methodOnTop: Boolean, state: Long, excluded_step: Int, relativeHeightTop: Double, relativeHeightBottom: Double, distanceMinIndexMax: Long, paperId: Long)

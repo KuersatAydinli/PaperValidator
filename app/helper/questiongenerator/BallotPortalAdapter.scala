@@ -6,7 +6,7 @@ import javax.imageio.ImageIO
 
 import ch.uzh.ifi.pdeboer.pplib.hcomp._
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.{BallotDAO, DAO}
-import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.AnswerParser
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.JsonAnswerParser
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.snippet.SnippetHTMLValidator
 import helper.questiongenerator.HCompNew
 import org.joda.time.DateTime
@@ -172,7 +172,7 @@ class BallotPortalAdapter(val decorated: HCompPortalAdapter with AnswerRejection
   }
 
   def extractSingleAnswerFromDatabase(answerJson: String, html: NodeSeq): Option[HCompAnswer] = {
-    val answerMap = AnswerParser.buildAnswerMap(answerJson)
+    val answerMap = JsonAnswerParser.buildAnswerMap(answerJson)
     Some(HTMLQueryAnswer(answerMap, HTMLQuery(html)))
   }
 

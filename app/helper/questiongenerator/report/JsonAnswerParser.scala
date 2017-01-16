@@ -1,13 +1,13 @@
 package ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report
 
-import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.Answer
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.JsonAnswer
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.snippet.SnippetHTMLQueryBuilder
 import play.api.libs.json.{JsObject, Json}
 
 /**
   * Created by mattia on 31.08.15.
   */
-object AnswerParser {
+object JsonAnswerParser {
   def evaluateAnswer(toCheck: Option[String]): Option[Boolean] = {
     toCheck match {
       case Some(x) => Option(x.equalsIgnoreCase(SnippetHTMLQueryBuilder.POSITIVE))
@@ -15,7 +15,7 @@ object AnswerParser {
     }
   }
 
-  def parseJSONAnswers(answers: List[Answer]): List[ParsedAnswer] = {
+  def parseJSONAnswers(answers: List[JsonAnswer]): List[ParsedAnswer] = {
     val ans = answers.map(answer => buildAnswerMap(answer.answerJson))
     createParsedAnswers(ans)
   }

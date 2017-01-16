@@ -30,7 +30,7 @@ object Report {
       val allPermutationsDisabledByActualAnswer = dao.getAllPermutationsWithStateEquals(permutationId).filterNot(_.excluded_step == 0)
       val snippetName = answersForSnippet._1
 
-      val allAnswersParsed: List[ParsedAnswer] = AnswerParser.parseJSONAnswers(answersForSnippet._2)
+      val allAnswersParsed: List[ParsedAnswer] = JsonAnswerParser.parseJSONAnswers(answersForSnippet._2)
 
       val overallSummary = SummarizedAnswersFormat.summarizeAnswers(allAnswersParsed)
 
@@ -62,12 +62,12 @@ object Report {
     dao.allAnswers().groupBy(g => {
       dao.getAssetPDFFileNameByQuestionId(g.questionId).get
     }).foreach(answersForSnippet => {
-      val parsedAnswers = AnswerParser.parseJSONAnswers(answersForSnippet._2.filter(_.accepted).sortWith(_.time.getMillis < _.time.getMillis))
+      val parsedAnswers = JsonAnswerParser.parseJSONAnswers(answersForSnippet._2.filter(_.accepted).sortWith(_.time.getMillis < _.time.getMillis))
 
       val cleanedParsedAnswers = parsedAnswers.filter(_.likert >= LIKERT_CLEANED_ANSWERS)
       cleanedParsedAnswers.zipWithIndex.foreach(anss => {
-        val q1 = if (AnswerParser.evaluateAnswer(anss._1.q1).getOrElse(false)) 1 else 0
-        val q2 = if (AnswerParser.evaluateAnswer(anss._1.q2).getOrElse(false)) 1 else 0
+        val q1 = if (JsonAnswerParser.evaluateAnswer(anss._1.q1).getOrElse(false)) 1 else 0
+        val q2 = if (JsonAnswerParser.evaluateAnswer(anss._1.q2).getOrElse(false)) 1 else 0
         writer.writeRow(Seq(answersForSnippet._1, anss._2, q1, Math.abs(1 - q1), q2, Math.abs(1 - q2), anss._1.likert))
       })
     })
