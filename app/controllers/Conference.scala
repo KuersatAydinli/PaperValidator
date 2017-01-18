@@ -3,6 +3,9 @@ package controllers
 import java.io.{File, PrintWriter}
 import javax.inject.Inject
 
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.DBSettings
+import com.github.tototoshi.csv.CSVWriter
 import com.typesafe.config.ConfigFactory
 import helper.Commons
 import helper.email.MailTemplates
@@ -39,7 +42,7 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
     Logger.info("PW Config: " + passwordConfig)
     val template = request.body.get("template").get.head
     val secret = Commons.generateSecret()
-    if(password == passwordConfig) {
+    if (password == passwordConfig) {
       val id = conferenceService.create(name, email, secret)
       readTemplate(id, template)
       MailTemplates.sendAccountMail(email, configuration, emailService)
@@ -175,16 +178,40 @@ class Conference @Inject()(configuration: Configuration, conferenceService: Conf
     } else {
       val paperPairsCSV = answerService.findByConferenceId(conferenceId)
       val csvFile = new File(PreprocessPDF.TMP_DIR + "/pairs-" + conferenceId + "-" + secret + ".csv")
-      val pw = new PrintWriter(csvFile)
+      val csvWriter = CSVWriter.open(csvFile)
       paperPairsCSV.foreach(pp => {
-        val parsedGroup = pp.groupName.substring(22).split("/")
+        val parsedGroup = pp.groupName.split("/")
         val pair = "\"" + pp.method.replaceAll("_", ",") + "," + parsedGroup(1) + "\",\"" + parsedGroup(2) + "\""
-        pw.write("\"" + parsedGroup(0) + "\"," + pair + ",\"" + (pp.isValid >= 0.5) + "\"\r\n")
+        csvWriter.writeRow(List(parsedGroup(0), pair, pp.isValid >= 0.5))
       })
-      pw.close()
+      csvWriter.close()
       Ok.sendFile(csvFile).withHeaders(
         "Content-Disposition" -> "attachment;filename=pairs.csv"
       )
     }
+  }
+
+  def getAllPermutationsCSV = Action {
+    def extractMethodName(methodIndex: String) = methodIndex.substring(0, methodIndex.indexOf("_"))
+
+    def extractAssumptionName(groupName: String) = groupName.split("/").apply(1)
+
+    def isPermutationCheckedInPaper(state: Long) = if (state < 0) 0 else 1
+
+    DBSettings.initialize()
+    val dao = new BallotDAO()
+    val allPapers = papersService.findAll().map(p => p.id.get.toLong -> p).toMap
+    val allConferences = conferenceService.findAll().map(c => c.id.get -> c).toMap
+    val header = List("conference", "paper id", "paper name", "method name", "assumption name", "permutation checked", "group name", "method index", "actual state", "excluded in step id")
+    val data = dao.getAllPermutations().map(p => {
+      val paper = allPapers(p.paperId)
+      val conferenceName = allConferences(paper.conferenceId).name
+      List(conferenceName, p.paperId, paper.name, extractMethodName(p.methodIndex), extractAssumptionName(p.groupName), isPermutationCheckedInPaper(p.state).toString, p.groupName, p.methodIndex, p.state, p.excluded_step)
+    })
+    val csvFile = File.createTempFile("permutations", ".csv")
+    val csvWriter = CSVWriter.open(csvFile)
+    csvWriter.writeAll(header :: data)
+    csvWriter.close()
+    Ok.sendFile(csvFile).withHeaders("Content-Disposition" -> "attachment;filename=permutations.csv")
   }
 }

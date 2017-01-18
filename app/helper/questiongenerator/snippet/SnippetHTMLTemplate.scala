@@ -103,12 +103,18 @@ object SnippetHTMLTemplate {
           <hr style="width:100%"/>
           <div>
             <h2>
-              Did the authors of the text confirm that they have checked the
+              Did the authors of the text confirm that they have thought about the
               <span style="background-color:#00FF00;">prerequisite</span>
               before applying the
               <span style="background-color:#FFFF00;">method</span>
               ?
             </h2>
+            This means, that the authors have either stated that they have
+            <b>checked</b>
+            the prerequisite before applying the method, or that they give a reason as to why they have
+            <b>not checked</b>
+            the prerequisite for that method.
+            If have not checked the prerequisite and omitted a reasoning, please select NO below.
           </div>
           <h3>
             <label class="radio-inline">
