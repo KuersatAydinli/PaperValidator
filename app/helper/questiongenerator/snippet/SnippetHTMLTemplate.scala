@@ -114,7 +114,7 @@ object SnippetHTMLTemplate {
             the prerequisite before applying the method, or that they give a reason as to why they have
             <b>not checked</b>
             the prerequisite for that method.
-            If have not checked the prerequisite and omitted a reasoning, please select NO below.
+            If they have not checked the prerequisite and omitted a reasoning, please select NO below.
           </div>
           <h3>
             <label class="radio-inline">
