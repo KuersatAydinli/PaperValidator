@@ -9,6 +9,7 @@ import ch.uzh.ifi.pdeboer.pplib.hcomp.HComp
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.{Algorithm250, BallotPortalAdapter}
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.dao.BallotDAO
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.ConsoleIntegrationTest
+import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.persistence.DBSettings
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.report.Report
 import helper.{PaperProcessingManager, QuestionHTMLFormatter}
 import helper.questiongenerator.HCompNew
@@ -297,6 +298,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
 
   def start250(method2AssumptionService: Method2AssumptionService) = {
     assert(method2AssumptionService != null)
+    DBSettings.initialize()
     val dao = new BallotDAO
     HCompNew.autoloadConfiguredPortals()
     val ballotPortalAdapter = HCompNew(BallotPortalAdapter.PORTAL_KEY)
