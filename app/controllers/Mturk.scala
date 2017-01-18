@@ -286,6 +286,7 @@ class Mturk @Inject()(configuration: Configuration, questionService: QuestionSer
         new Thread(new Runnable {
           override def run() = {
             start250(method2AssumptionService)
+            Logger.info("done running 250")
             Mturk.TURKER_ID_KEY.synchronized {
               Mturk.running250 = false
             }
