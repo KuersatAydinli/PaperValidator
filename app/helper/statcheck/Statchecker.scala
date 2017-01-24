@@ -56,16 +56,20 @@ object Statchecker {
 
   def basicStats(paper: Papers, textList: List[String], paperResultService: PaperResultService) {
     val text = textList.mkString("\n")
+    Logger.debug("TextList Length: " + textList.length)
     val sampleSizePos = extractSampleSizeStated(textList)
     val sampleSize = extractSampleSize(textList)
     Logger.debug("Regex Match: " + sampleSize)
     val sampleSizeDescr = "Sample size stated in text"
+    val sampleSizeIntDesc = "Sample Size"
     if (sampleSizePos.isEmpty) {
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASICS_SAMPLE_SIZE, sampleSizeDescr,
         "Could <b>not</b> be <b>detected!</b>", PaperResult.SYMBOL_WARNING, sampleSizePos)
     } else {
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASICS_SAMPLE_SIZE, sampleSizeDescr,
         "<b>Detected!</b>", PaperResult.SYMBOL_OK, sampleSizePos)
+      paperResultService.create(paper.id.get, PaperResult.TYPE_BASIC_SAMPLE_SIZE_INT, sampleSizeIntDesc,
+        "<b>Some Number</b>", PaperResult.SYMBOL_OK, sampleSizePos)
     }
 
     val statTermErrorPos = extractStatTermError(textList)
