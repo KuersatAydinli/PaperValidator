@@ -174,23 +174,24 @@ object Statchecker {
 //"\\s+[A-Za-z,;'\"\\s]+\\d+\\s?consecutive[A-Za-z,;'\"\\s]+[.?!]$" +
   val REGEX_SAMPLE_SIZE = new Regex("" +
     "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]$" +
-    "\\d+\\s?\\w?\\s?persons" +
+    "\\d+[^...]{0,30}persons" +
     "|sample\\s?size" +
-    "|\\d+\\s?participants" +
-    "|\\d+\\s?subjects" +
+    "|\\d+[^...]{0,30}participants" +
+    "|\\d+[^...]{0,30}subjects" +
     "|n\\s?=\\s?\\d+" +
-    "|\\d+\\s?\\w?\\s?patients" +
-    "|\\d+\\s?newborns" +
-    "|sample\\s?\\w?\\s?of\\s?\\d+" +
-    "|\\d+\\s?\\w?\\s?samples" +
-    "|\\s?cohort\\s?study\\s?of\\s?\\d+" +
-    "|\\d+\\s?\\w?were\\s?recruited" +
-    "|[Ww]e\\s?\\w?recruited\\s?\\w?\\d?" +
-    "|\\d+\\s?enrolled" +
+    "|\\d+[^...]{0,30}patients" +
+    "|\\d+[^...]{0,30}newborns" +
+    "|sample[^...]{0,30}of[^...]{0,30}\\d+" +
+    "|\\d+[^...]{0,30}samples" +
+    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of[^...]{0,15}\\d+" +
+    "|\\d+[^...]{0,30}were\\s*recruited" +
+    "|[Ww]e[^...]{0,30}recruited[^...]{0,30}\\d+" +
+    "|\\d+[^...]{0,30}enrolled" +
     "|[Tt]otal\\s?of\\s?\\d+" +
-    "|\\d+\\s?\\w?took\\s?part" +
-    "|\\d+\\s?consecutive\\s?[patients|participants]" +
-    "|\\s?data\\s?\\w?from\\s?\\w?\\d+")
+    "|\\d+[^...]{0,30}took\\s*part" +
+    "|\\d+[^...]{0,15}consecutive\\s?patient" +
+    "|\\d+[^...]{0,15}consecutive\\s?participant" +
+    "|\\s?data[^...]{0,30}from[^...]{0,30}\\d+")
 
   //new Regex("n\\s?=\\d+")
   def extractSampleSizeStated(textList: List[String]): String = {
