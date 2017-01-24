@@ -62,6 +62,7 @@ object Statchecker {
     val sampleSizePos = extractSampleSizeStated(textList)
     val sampleSize = extractSampleSize(textList)
     val sampleSizeDigits = getDigitFromString(sampleSize)
+    val mostOccuringSampleSize = sampleSizeDigits.groupBy(identity).maxBy(_._2.length)._1
 
     Logger.debug("Regex Match: " + sampleSize)
     Logger.debug("Digits Match: " + sampleSizeDigits.mkString(","))
@@ -75,7 +76,7 @@ object Statchecker {
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASICS_SAMPLE_SIZE, sampleSizeDescr,
         "<b>Detected!</b>", PaperResult.SYMBOL_OK, sampleSizePos)
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASIC_SAMPLE_SIZE_INT, sampleSizeIntDesc,
-        "<b>Some Number</b>", PaperResult.SYMBOL_OK, sampleSizePos)
+        "<b>"+mostOccuringSampleSize.toString+"</b>", PaperResult.SYMBOL_OK, sampleSizePos)
     }
 
     val statTermErrorPos = extractStatTermError(textList)
