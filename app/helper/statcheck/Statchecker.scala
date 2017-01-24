@@ -1,6 +1,7 @@
 package helper.statcheck
 
 import java.io._
+import java.util
 import java.util.regex.Pattern
 
 import breeze.linalg.{max, min}
@@ -13,6 +14,7 @@ import models.{PaperResult, PaperResultService, Papers}
 import org.apache.commons.math3.distribution.{ChiSquaredDistribution, TDistribution}
 import play.api.Logger
 
+import scala.collection.mutable
 import scala.util.matching.Regex
 
 /**
@@ -59,7 +61,11 @@ object Statchecker {
     Logger.debug("TextList Length: " + textList.length)
     val sampleSizePos = extractSampleSizeStated(textList)
     val sampleSize = extractSampleSize(textList)
+    val sampleSizeDigits = getDigitFromString(sampleSize)
+
     Logger.debug("Regex Match: " + sampleSize)
+    Logger.debug("Digits Match: " + sampleSizeDigits.mkString(","))
+
     val sampleSizeDescr = "Sample size stated in text"
     val sampleSizeIntDesc = "Sample Size"
     if (sampleSizePos.isEmpty) {
@@ -164,13 +170,27 @@ object Statchecker {
   }
 
   //val stringNumberMap = new scala.collection.mutable.Map[String, Int]
-
+//"\\s+[A-Za-z,;'\"\\s]+\\d+\\s?consecutive[A-Za-z,;'\"\\s]+[.?!]$" +
   val REGEX_SAMPLE_SIZE = new Regex("" +
-    "\\d+\\s?\\w?\\s?persons|sample\\s?size|\\d+\\s?participants|\\d+\\s?subjects|n\\s?=\\s?\\d+" +
-    "|\\d+\\s?\\w?\\s?patients|\\d+\\s?newborns|sample\\s?\\w?\\s?of\\s?\\d+|\\d+\\s?\\w?\\s?samples" +
-    "|\\s?cohort\\s?study\\s?of\\s?\\d+|\\d+\\s?\\w?were\\s?recruited|[Ww]e\\s?\\s?recruited\\s?\\w?\\d?" +
-    "|\\d+\\s?enrolled|[Tt]otal\\s?of\\s?\\d+|\\d+\\s?\\w?took\\s?part|\\d+\\s?consecutive\\s?[patients|participants]" +
+    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]$" +
+    "\\d+\\s?\\w?\\s?persons" +
+    "|sample\\s?size" +
+    "|\\d+\\s?participants" +
+    "|\\d+\\s?subjects" +
+    "|n\\s?=\\s?\\d+" +
+    "|\\d+\\s?\\w?\\s?patients" +
+    "|\\d+\\s?newborns" +
+    "|sample\\s?\\w?\\s?of\\s?\\d+" +
+    "|\\d+\\s?\\w?\\s?samples" +
+    "|\\s?cohort\\s?study\\s?of\\s?\\d+" +
+    "|\\d+\\s?\\w?were\\s?recruited" +
+    "|[Ww]e\\s?\\w?recruited\\s?\\w?\\d?" +
+    "|\\d+\\s?enrolled" +
+    "|[Tt]otal\\s?of\\s?\\d+" +
+    "|\\d+\\s?\\w?took\\s?part" +
+    "|\\d+\\s?consecutive\\s?[patients|participants]" +
     "|\\s?data\\s?\\w?from\\s?\\w?\\d+")
+
   //new Regex("n\\s?=\\d+")
   def extractSampleSizeStated(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {
@@ -188,6 +208,16 @@ object Statchecker {
           page + ":" + m
         )
     }.mkString(",")
+  }
+
+  def getDigitFromString(text: String): Array[Int] ={
+    val textArray = text.split(",")
+    val textArrayStripped = textArray.foreach(s => s.substring(s.indexOf(":"),s.length-1))
+    for (i <- 0 until textArray.length){
+      textArray(i) = textArray(i).substring(textArray(i).indexOf(":")+1,textArray(i).length)
+      textArray(i) = textArray(i).replaceAll("\\D+","")
+    }
+    textArray.map(_.toInt)
   }
 
 
