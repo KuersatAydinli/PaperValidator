@@ -11,6 +11,7 @@ import helper.pdfpreprocessing.PreprocessPDF
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import models.{PaperResult, PaperResultService, Papers}
 import org.apache.commons.math3.distribution.{ChiSquaredDistribution, TDistribution}
+import play.api.Logger
 
 import scala.util.matching.Regex
 
@@ -56,6 +57,8 @@ object Statchecker {
   def basicStats(paper: Papers, textList: List[String], paperResultService: PaperResultService) {
     val text = textList.mkString("\n")
     val sampleSizePos = extractSampleSizeStated(textList)
+    val sampleSize = extractSampleSize(textList)
+    Logger.debug("Regex Match: " + sampleSize)
     val sampleSizeDescr = "Sample size stated in text"
     if (sampleSizePos.isEmpty) {
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASICS_SAMPLE_SIZE, sampleSizeDescr,
@@ -156,17 +159,33 @@ object Statchecker {
     tooPreciseDouble
   }
 
+  //val stringNumberMap = new scala.collection.mutable.Map[String, Int]
 
-  val REGEX_SAMPLE_SIZE = new Regex("sample\\s?size|\\d+\\s?participants|\\d+\\s?subjects|n\\s?=\\s?\\d+")
-
+  val REGEX_SAMPLE_SIZE = new Regex("" +
+    "\\d+\\s?\\w?\\s?persons|sample\\s?size|\\d+\\s?participants|\\d+\\s?subjects|n\\s?=\\s?\\d+" +
+    "|\\d+\\s?\\w?\\s?patients|\\d+\\s?newborns|sample\\s?\\w?\\s?of\\s?\\d+|\\d+\\s?\\w?\\s?samples" +
+    "|\\s?cohort\\s?study\\s?of\\s?\\d+|\\d+\\s?\\w?were\\s?recruited|[Ww]e\\s?\\s?recruited\\s?\\w?\\d?" +
+    "|\\d+\\s?enrolled|[Tt]otal\\s?of\\s?\\d+|\\d+\\s?\\w?took\\s?part|\\d+\\s?consecutive\\s?[patients|participants]" +
+    "|\\s?data\\s?\\w?from\\s?\\w?\\d+")
+  //new Regex("n\\s?=\\d+")
   def extractSampleSizeStated(textList: List[String]): String = {
-    textList.zipWithIndex.flatMap { case (text, page) =>
+    textList.zipWithIndex.flatMap {
+      case (text, page) =>
       REGEX_SAMPLE_SIZE.findAllIn(text).matchData.map(m =>
         page + ":" + m.start(0) + "-" + m.end(0)
       )
     }.mkString(",")
-
   }
+
+  def extractSampleSize(textList: List[String]): String = {
+    textList.zipWithIndex.flatMap {
+      case (text, page) =>
+        REGEX_SAMPLE_SIZE.findAllIn(text).matchData.map(m =>
+          page + ":" + m
+        )
+    }.mkString(",")
+  }
+
 
   val REGEX_STAT_TERM_ERROR = new Regex("(arc\\s?sinus\\s?transformation|impaired\\s?t.?test|variance\\s?analysis|multivariate\\s?analysis)")
 
