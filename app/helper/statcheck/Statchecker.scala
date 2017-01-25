@@ -59,13 +59,17 @@ object Statchecker {
   def basicStats(paper: Papers, textList: List[String], paperResultService: PaperResultService) {
     val text = textList.mkString("\n")
     Logger.debug("TextList Length: " + textList.length)
+//    val s = new PrintWriter("/app/helper/statcheck/testText.txt")
+//    s.print(text)
+//    s.close()
     val sampleSizePos = extractSampleSizeStated(textList)
     val sampleSize = extractSampleSize(textList)
-    val sampleSizeDigits = getDigitFromString(sampleSize)
-    val mostOccuringSampleSize = sampleSizeDigits.groupBy(identity).maxBy(_._2.length)._1
-
     Logger.debug("Regex Match: " + sampleSize)
+    val sampleSizeDigits = getDigitFromString(sampleSize)
     Logger.debug("Digits Match: " + sampleSizeDigits.mkString(","))
+    //val mostOccuringSampleSize = sampleSizeDigits.groupBy(identity).maxBy(_._2.length)._1
+    val firstSampleSize = sampleSizeDigits(0)
+
 
     val sampleSizeDescr = "Sample size stated in text"
     val sampleSizeIntDesc = "Sample Size"
@@ -76,7 +80,7 @@ object Statchecker {
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASICS_SAMPLE_SIZE, sampleSizeDescr,
         "<b>Detected!</b>", PaperResult.SYMBOL_OK, sampleSizePos)
       paperResultService.create(paper.id.get, PaperResult.TYPE_BASIC_SAMPLE_SIZE_INT, sampleSizeIntDesc,
-        "<b>"+mostOccuringSampleSize.toString+"</b>", PaperResult.SYMBOL_OK, sampleSizePos)
+        "<b>"+firstSampleSize.toString+"</b>", PaperResult.SYMBOL_OK, sampleSizePos)
     }
 
     val statTermErrorPos = extractStatTermError(textList)
@@ -174,24 +178,25 @@ object Statchecker {
 //"\\s+[A-Za-z,;'\"\\s]+\\d+\\s?consecutive[A-Za-z,;'\"\\s]+[.?!]$" +
   val REGEX_SAMPLE_SIZE = new Regex("" +
     "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]$" +
-    "\\d+[^...]{0,30}persons" +
+    "\\d+\\D{0,20}persons" +
     "|sample\\s?size" +
-    "|\\d+[^...]{0,30}participants" +
-    "|\\d+[^...]{0,30}subjects" +
+    "|\\d+\\D{0,20}participants" +
+    "|\\d+\\D{0,20}subjects" +
     "|n\\s?=\\s?\\d+" +
-    "|\\d+[^...]{0,30}patients" +
-    "|\\d+[^...]{0,30}newborns" +
-    "|sample[^...]{0,30}of[^...]{0,30}\\d+" +
-    "|\\d+[^...]{0,30}samples" +
-    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of[^...]{0,15}\\d+" +
-    "|\\d+[^...]{0,30}were\\s*recruited" +
-    "|[Ww]e[^...]{0,30}recruited[^...]{0,30}\\d+" +
-    "|\\d+[^...]{0,30}enrolled" +
+    "|\\d+\\D{0,20}patients" +
+    "|\\d+\\D{0,20}adults" +
+    "|\\d+\\D{0,20}newborns" +
+    "|sample[^...]{0,20}of[^...]{0,20}\\d+" +
+    "|\\d+\\D{0,20}samples" +
+    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+" +
+    "|\\d+\\D{0,20}were\\D{0,10}recruited" +
+    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\d+" +
+    "|\\d+\\D{0,20}enrolled" +
     "|[Tt]otal\\s?of\\s?\\d+" +
-    "|\\d+[^...]{0,30}took\\s*part" +
-    "|\\d+[^...]{0,15}consecutive\\s?patient" +
-    "|\\d+[^...]{0,15}consecutive\\s?participant" +
-    "|\\s?data[^...]{0,30}from[^...]{0,30}\\d+")
+    "|\\d+\\D{0,20}took\\s*part" +
+    "|\\d+\\D{0,15}consecutive\\s?patient" +
+    "|\\d+\\D{0,15}consecutive\\s?participant" +
+    "|\\s?data\\D{0,20}from\\D{0,20}\\d+")
 
   //new Regex("n\\s?=\\d+")
   def extractSampleSizeStated(textList: List[String]): String = {
@@ -209,17 +214,17 @@ object Statchecker {
         REGEX_SAMPLE_SIZE.findAllIn(text).matchData.map(m =>
           page + ":" + m
         )
-    }.mkString(",")
+    }.mkString("::")
   }
 
   def getDigitFromString(text: String): Array[Int] ={
-    val textArray = text.split(",")
-    val textArrayStripped = textArray.foreach(s => s.substring(s.indexOf(":"),s.length-1))
-    for (i <- 0 until textArray.length){
-      textArray(i) = textArray(i).substring(textArray(i).indexOf(":")+1,textArray(i).length)
-      textArray(i) = textArray(i).replaceAll("\\D+","")
+    val textArray = text.split("::")
+    var filteredTextArray = textArray.filterNot(_.contains("%")).filterNot(_.matches("\\d{0}"))
+    for (i <- 0 until filteredTextArray.length){
+      filteredTextArray(i) = filteredTextArray(i).substring(filteredTextArray(i).indexOf(":")+1,filteredTextArray(i).length)
+      filteredTextArray(i) = filteredTextArray(i).replaceAll("\\D+","")
     }
-    textArray.map(_.toInt)
+    filteredTextArray.map(_.toInt)
   }
 
 
