@@ -216,10 +216,15 @@ object Statchecker {
       val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(textList(i)).matchData
       while(matchesInPage.hasNext){
         val currentMatch = matchesInPage.next()
+        val currentMatchAsString = currentMatch.toString()
         val currentStart = currentMatch.start
         val currentEnd = currentMatch.end
 
-        val context = currentMatch.before.toString.concat(currentMatch.after.toString)
+        val context = currentMatch.before.toString + currentMatch.toString + currentMatch.after.toString
+
+        val splittedContext = context.split(currentMatch.toString)
+        val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 200,splittedContext(0).length) +
+          currentMatch.toString() + splittedContext(1).substring(0,200)
 
         regexContext(currentMatch.toString()) = context
       }
