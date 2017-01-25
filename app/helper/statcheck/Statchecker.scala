@@ -59,11 +59,11 @@ object Statchecker {
   def basicStats(paper: Papers, textList: List[String], paperResultService: PaperResultService) {
     val text = textList.mkString("\n")
     Logger.debug("TextList Length: " + textList.length)
-//    val s = new PrintWriter("/app/helper/statcheck/testText.txt")
-//    s.print(text)
-//    s.close()
-    val sampleSizePos = extractSampleSizeStated(textList)
-    val sampleSize = extractSampleSize(textList)
+    val textListTrimmed = textList.filter(_.contains("-"))
+    val sampleSizePos = extractSampleSizeStated(textListTrimmed)
+    textListTrimmed.foreach(s => s.substring(s.indexOf("-",1),s.length-1))
+    val sampleSize = extractSampleSize(textListTrimmed)
+    val sampleSizeContext = extractSampleSizeContext(textListTrimmed)
     Logger.debug("Regex Match: " + sampleSize)
     val sampleSizeDigits = getDigitFromString(sampleSize)
     Logger.debug("Digits Match: " + sampleSizeDigits.mkString(","))
@@ -174,31 +174,31 @@ object Statchecker {
     tooPreciseDouble
   }
 
-  //val stringNumberMap = new scala.collection.mutable.Map[String, Int]
-//"\\s+[A-Za-z,;'\"\\s]+\\d+\\s?consecutive[A-Za-z,;'\"\\s]+[.?!]$" +
   val REGEX_SAMPLE_SIZE = new Regex("" +
     "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]$" +
-    "\\d+\\D{0,20}persons" +
-    "|sample\\s?size" +
-    "|\\d+\\D{0,20}participants" +
-    "|\\d+\\D{0,20}subjects" +
-    "|n\\s?=\\s?\\d+" +
-    "|\\d+\\D{0,20}patients" +
-    "|\\d+\\D{0,20}adults" +
-    "|\\d+\\D{0,20}newborns" +
-    "|sample[^...]{0,20}of[^...]{0,20}\\d+" +
-    "|\\d+\\D{0,20}samples" +
-    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+" +
-    "|\\d+\\D{0,20}were\\D{0,10}recruited" +
-    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\d+" +
-    "|\\d+\\D{0,20}enrolled" +
-    "|[Tt]otal\\s?of\\s?\\d+" +
-    "|\\d+\\D{0,20}took\\s*part" +
-    "|\\d+\\D{0,15}consecutive\\s?patient" +
-    "|\\d+\\D{0,15}consecutive\\s?participant" +
-    "|\\s?data\\D{0,20}from\\D{0,20}\\d+")
+    "|\\b\\d+\\b\\s+\\D{0,20}persons" +
+    "|\\b\\d+\\b\\s+\\D{0,20}participants" +
+    "|\\b\\d+\\b\\s+\\D{0,20}participants\\D{0,10}were\\D{0,10}included" +
+    "|\\b\\d+\\b\\s+\\D{0,20}persons\\D{0,10}were\\D{0,10}included" +
+    "|\\b\\d+\\b\\s+\\D{0,20}subjects\\D{0,10}were\\D{0,10}included" +
+    "|\\b\\d+\\b\\s+\\D{0,20}patients\\D{0,10}were\\D{0,10}included" +
+    "|\\b\\d+\\b\\s+\\D{0,20}subjects" +
+    "|n\\s?=\\s?\\b\\d+\\b" +
+    "|\\b\\d+\\b\\s+\\D{0,20}patients" +
+    "|\\b\\d+\\b\\s+\\D{0,20}adults" +
+    "|\\b\\d+\\b\\s+\\D{0,20}newborns" +
+    "|sample[^...]{0,20}of[^...]{0,20}\\b\\d+\\b\\s+" +
+    "|\\b\\d+\\b\\s+\\D{0,20}samples" +
+    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\b\\d+\\b\\s+" +
+    "|\\b\\d+\\b\\s+\\D{0,20}were\\D{0,10}recruited" +
+    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\b\\d+\\b\\s+" +
+    "|\\b\\d+\\b\\\\s+D{0,20}enrolled" +
+    "|[Tt]otal\\s?of\\s+\\b\\d+\\b\\s+" +
+    "|\\b\\d+\\b\\s+\\D{0,20}took\\s*part" +
+    "|\\b\\d+\\b\\s+\\D{0,15}consecutive\\s?patient" +
+    "|\\b\\d+\\b\\s+\\D{0,15}consecutive\\s?participant" +
+    "|\\s?data\\D{0,20}from\\D{0,20}\\s+\\b\\d+\\b\\s+")
 
-  //new Regex("n\\s?=\\d+")
   def extractSampleSizeStated(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {
       case (text, page) =>
@@ -208,28 +208,49 @@ object Statchecker {
     }.mkString(",")
   }
 
-  def extractSampleSize(textList: List[String]): String = {
+  def extractSampleSizeContext(textList: List[String]) : mutable.Map[String,String] = {
     var regexContext = mutable.Map.empty[String, String]
 
-    for (i <- textList.indices){
+    val slidingPages = textList.sliding(3).toList // split list of pages in sliding window of size 3
 
-      val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(textList(i)).matchData
-      while(matchesInPage.hasNext){
-        val currentMatch = matchesInPage.next()
-        val currentMatchAsString = currentMatch.toString()
-        val currentStart = currentMatch.start
-        val currentEnd = currentMatch.end
+    for (i <- slidingPages.indices){
+      for(j <- slidingPages(i).indices){
+        val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(slidingPages(i)(j)).matchData
+        while(matchesInPage.hasNext){
+          val currentMatch = matchesInPage.next()
+          val currentMatchAsString = currentMatch.toString()
+          val currentStart = currentMatch.start
+          val currentEnd = currentMatch.end
 
-        val context = currentMatch.before.toString + currentMatch.toString + currentMatch.after.toString
-
-        val splittedContext = context.split(currentMatch.toString)
-        val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 200,splittedContext(0).length) +
-          currentMatch.toString() + splittedContext(1).substring(0,200)
-
-        regexContext(currentMatch.toString()) = context
+          val context = slidingPages(i).mkString
+          val splittedContext = context.split(currentMatch.toString)
+          val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+            currentMatch.toString() + splittedContext(1).substring(0,100)
+          regexContext(currentMatch.toString()) = contextTrimmed
+        }
       }
     }
+//    for (i <- textList.indices){
+//      val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(textList(i)).matchData
+//      while(matchesInPage.hasNext){
+//        val currentMatch = matchesInPage.next()
+//        val currentMatchAsString = currentMatch.toString()
+//        val currentStart = currentMatch.start
+//        val currentEnd = currentMatch.end
+//
+//        val context = currentMatch.before.toString + currentMatch.toString + currentMatch.after.toString
+//
+//        val splittedContext = context.split(currentMatch.toString)
+//        val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+//          currentMatch.toString() + splittedContext(1).substring(0,100)
+//
+//        regexContext(currentMatch.toString()) = context
+//      }
+//    }
+    regexContext
+  }
 
+  def extractSampleSize(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {
       case (text, page) =>
         REGEX_SAMPLE_SIZE.findAllIn(text).matchData.map(m =>
@@ -240,9 +261,12 @@ object Statchecker {
 
   def getDigitFromString(text: String): Array[Int] ={
     val textArray = text.split("::")
-    var filteredTextArray = textArray.filterNot(_.contains("%")).filterNot(_.matches("\\d{0}"))
-    for (i <- 0 until filteredTextArray.length){
-      filteredTextArray(i) = filteredTextArray(i).substring(filteredTextArray(i).indexOf(":")+1,filteredTextArray(i).length)
+    for(i <- textArray.indices){
+      textArray(i) = textArray(i).substring(textArray(i).indexOf(":")+1,textArray(i).length)
+    }
+    val filteredTextArray = textArray.filterNot(_.contains("%")).filterNot(_.matches("\\d{0}"))
+    for (i <- filteredTextArray.indices){
+      //filteredTextArray(i) = filteredTextArray(i).substring(filteredTextArray(i).indexOf(":")+1,filteredTextArray(i).length)
       filteredTextArray(i) = filteredTextArray(i).replaceAll("\\D+","")
     }
     filteredTextArray.map(_.toInt)
