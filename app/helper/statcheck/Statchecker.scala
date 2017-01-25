@@ -1,5 +1,6 @@
 package helper.statcheck
 
+import scala.util.control.Breaks._
 import java.io._
 import java.util
 import java.util.regex.Pattern
@@ -216,18 +217,54 @@ object Statchecker {
     for (i <- slidingPages.indices){
       for(j <- slidingPages(i).indices){
         val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(slidingPages(i)(j)).matchData
-        while(matchesInPage.hasNext){
-          val currentMatch = matchesInPage.next()
-          val currentMatchAsString = currentMatch.toString()
-          val currentStart = currentMatch.start
-          val currentEnd = currentMatch.end
-
-          val context = slidingPages(i).mkString
-          val splittedContext = context.split(currentMatch.toString)
-          val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
-            currentMatch.toString() + splittedContext(1).substring(0,100)
-          regexContext(currentMatch.toString()) = contextTrimmed
+        var break = false
+        while(matchesInPage.hasNext && !break){
+          if(!(i == 0 && j == 0) && !(i == slidingPages.length-1 && j == 2)){
+            if(j == 1){
+              val currentMatch = matchesInPage.next()
+              val context = slidingPages(i).mkString
+              val splittedContext = context.split(currentMatch.toString)
+              val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+                currentMatch.toString() + splittedContext(1).substring(0,100)
+              regexContext(currentMatch.toString()) = contextTrimmed
+            } else {
+              break = true
+            }
+          } else {
+            val currentMatch = matchesInPage.next()
+            val context = slidingPages(i).mkString
+            val splittedContext = context.split(currentMatch.toString)
+            val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+              currentMatch.toString() + splittedContext(1).substring(0,100)
+            regexContext(currentMatch.toString()) = contextTrimmed
+          }
         }
+
+
+//        while(matchesInPage.hasNext){
+//          val currentMatch = matchesInPage.next()
+////          val currentMatchAsString = currentMatch.toString()
+////          val currentStart = currentMatch.start
+////          val currentEnd = currentMatch.end
+//          var context = ""
+//          if(!(i == 0 && j == 0) && !(i == slidingPages.length-1 && j == 2)){
+//            if(j == 1){
+//              context = slidingPages(i).mkString
+//              val splittedContext = context.split(currentMatch.toString)
+//              val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+//                currentMatch.toString() + splittedContext(1).substring(0,100)
+//              regexContext(currentMatch.toString()) = contextTrimmed
+//            } else {
+//
+//            }
+//          } else {
+//            context = slidingPages(i).mkString
+//            val splittedContext = context.split(currentMatch.toString)
+//            val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+//              currentMatch.toString() + splittedContext(1).substring(0,100)
+//            regexContext(currentMatch.toString()) = contextTrimmed
+//          }
+//        }
       }
     }
 //    for (i <- textList.indices){
