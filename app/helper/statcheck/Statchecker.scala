@@ -211,12 +211,19 @@ object Statchecker {
   def extractSampleSize(textList: List[String]): String = {
     var regexContext = mutable.Map.empty[String, String]
 
-//    textList.zipWithIndex.flatMap {
-//      case (text, page) =>
-//        REGEX_SAMPLE_SIZE.findAllIn(text).matchData.map(m =>
-//          regexContext(page + " : " + m) = m.before(50).toString.concat(m.after(50).toString)
-//        )
-//    }
+    for (i <- textList.indices){
+
+      val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(textList(i)).matchData
+      while(matchesInPage.hasNext){
+        val currentMatch = matchesInPage.next()
+        val currentStart = currentMatch.start
+        val currentEnd = currentMatch.end
+
+        val context = currentMatch.before.toString.concat(currentMatch.after.toString)
+
+        regexContext(currentMatch.toString()) = context
+      }
+    }
 
     textList.zipWithIndex.flatMap {
       case (text, page) =>
