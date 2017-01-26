@@ -11,13 +11,13 @@ import org.scalatest.FunSuite
   */
 class TestFirstPDF extends FunSuite{
 
-  test("GetSampleSize"){
-    val paperDir = "test/TestPDFs/manuscript4.pdf"
-    val pdfDoc = PDDocument.load(new File(paperDir))
-    val pdfText = convertPDFtoText(paperDir)
-    assert(pdfText.length == 38)
+  val paperDir = "test/TestPDFs/manuscript4.pdf"
+  val pdfDoc = PDDocument.load(new File(paperDir))
+  val pdfText = convertPDFtoText(paperDir)
+  val statChecker = StatChecker
 
-    val statChecker = StatChecker
+  test("GetSampleSize"){
+    assert(pdfText.length == 38)
     val sampleSize = statChecker.extractSampleSize(pdfText)
 
     if (new File("test/TestPDFs/sampleSizeString" + ".text").exists()){
@@ -29,8 +29,15 @@ class TestFirstPDF extends FunSuite{
       pw.write(sampleSize)
       pw.close()
     }
+
+    info("Sample Size: " + sampleSize)
     assert(sampleSize.length > 1)
-    info("Hey Ho")
+  }
+
+  test("Get SampleSize Context"){
+    val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
+    info("ContextMapSize : " + sampleSizeContext.size)
+    sampleSizeContext foreach((t2) => info(t2._1 + "-->" + t2._2))
   }
 
   def deleteFile(filename: String) = { new File(filename).delete() }
