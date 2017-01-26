@@ -20,13 +20,20 @@ class TestFirstPDF extends FunSuite{
     val statChecker = StatChecker
     val sampleSize = statChecker.extractSampleSize(pdfText)
 
+    if (new File("test/TestPDFs/sampleSizeString" + ".text").exists()){
+      deleteFile("test/TestPDFs/sampleSizeString" + ".txt")
+    }
+
     if (!new File("test/TestPDFs/sampleSizeString" + ".text").exists()) {
       val pw = new PrintWriter(new File("test/TestPDFs/sampleSizeString" + ".txt"))
       pw.write(sampleSize)
       pw.close()
     }
     assert(sampleSize.length > 1)
+    info("Hey Ho")
   }
+
+  def deleteFile(filename: String) = { new File(filename).delete() }
 
   def convertPDFtoText(path: String): List[String] = {
     val paperLink = path
