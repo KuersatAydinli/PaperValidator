@@ -1,14 +1,12 @@
 package helper.statcheck
 
-import scala.util.control.Breaks._
 import java.io._
-import java.util
 import java.util.regex.Pattern
 
 import breeze.linalg.{max, min}
 import breeze.numerics._
 import breeze.stats.distributions.FDistribution
-import helper.{Commons, PaperProcessingManager}
+import helper.Commons
 import helper.pdfpreprocessing.PreprocessPDF
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import models.{PaperResult, PaperResultService, Papers}
@@ -60,7 +58,7 @@ object Statchecker {
   def basicStats(paper: Papers, textList: List[String], paperResultService: PaperResultService) {
     val text = textList.mkString("\n")
     Logger.debug("TextList Length: " + textList.length)
-    val textListTrimmed = textList.filter(_.contains("-"))
+    val textListTrimmed = textList.filter(_.contains("-")) // Filter textList to only contain text and remove figure entries
     val sampleSizePos = extractSampleSizeStated(textListTrimmed)
     textListTrimmed.foreach(s => s.substring(s.indexOf("-",1),s.length-1))
     val sampleSize = extractSampleSize(textListTrimmed)
@@ -214,14 +212,16 @@ object Statchecker {
 
     val slidingPages = textList.sliding(3).toList // split list of pages in sliding window of size 3
 
+
     for (i <- slidingPages.indices){
       for(j <- slidingPages(i).indices){
         val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(slidingPages(i)(j)).matchData
+        val matchesInPageTrimmed = matchesInPage.filterNot(_.toString().contains("%"))
         var break = false
-        while(matchesInPage.hasNext && !break){
+        while(matchesInPageTrimmed.hasNext && !break){
           if(!(i == 0 && j == 0) && !(i == slidingPages.length-1 && j == 2)){
             if(j == 1){
-              val currentMatch = matchesInPage.next()
+              val currentMatch = matchesInPageTrimmed.next()
               val context = slidingPages(i).mkString
               val splittedContext = context.split(currentMatch.toString)
               val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
@@ -231,7 +231,7 @@ object Statchecker {
               break = true
             }
           } else {
-            val currentMatch = matchesInPage.next()
+            val currentMatch = matchesInPageTrimmed.next()
             val context = slidingPages(i).mkString
             val splittedContext = context.split(currentMatch.toString)
             val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
