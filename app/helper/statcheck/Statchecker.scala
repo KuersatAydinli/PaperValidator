@@ -174,7 +174,9 @@ object Statchecker {
   }
 
   val REGEX_SAMPLE_SIZE = new Regex("" +
-    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]$" +
+    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]" +
+    "|\\b\\d+\\b\\s+\\D{0,15}women" +
+    "|\\b\\d+\\b\\s+\\D{0,15}men" +
     "|\\b\\d+\\b\\s+\\D{0,20}persons" +
     "|\\b\\d+\\b\\s+\\D{0,20}participants" +
     "|\\b\\d+\\b\\s+\\D{0,20}participants\\D{0,10}were\\D{0,10}included" +
@@ -192,7 +194,7 @@ object Statchecker {
     "|\\b\\d+\\b\\s+\\D{0,20}were\\D{0,10}recruited" +
     "|[Ww]e\\D{0,20}recruited\\D{0,20}\\b\\d+\\b\\s+" +
     "|\\b\\d+\\b\\\\s+D{0,20}enrolled" +
-    "|[Tt]otal\\s?of\\s+\\b\\d+\\b\\s+" +
+    "|[Tt]otal\\s?of\\s+\\b\\d+\\b\\D+participated" +
     "|\\b\\d+\\b\\s+\\D{0,20}took\\s*part" +
     "|\\b\\d+\\b\\s+\\D{0,15}consecutive\\s?patient" +
     "|\\b\\d+\\b\\s+\\D{0,15}consecutive\\s?participant" +
@@ -210,20 +212,38 @@ object Statchecker {
   def extractSampleSizeContext(textList: List[String]) : mutable.Map[String,String] = {
     var regexContext = mutable.Map.empty[String, String]
 
-    val slidingPages = textList.sliding(3).toList // split list of pages in sliding window of size 3
+    val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase(""))
 
+    val newList = filteredTextList map(string => string.substring(string.indexOf(" "),string.length-1)) // Trim page indices
+
+    val slidingPages = newList.sliding(3).toList // split list of pages in sliding window of size 3
 
     for (i <- slidingPages.indices){
       for(j <- slidingPages(i).indices){
         val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(slidingPages(i)(j)).matchData
+//        val matchesInPageTrimmed = matchesInPage.filterNot(x => (x.toString().contains("%") || x.toString().contains("years")
+//          ||x.toString().contains("months") || x.toString().contains("hours") || x.toString().contains("days")))
         val matchesInPageTrimmed = matchesInPage.filterNot(_.toString().contains("%"))
-        var break = false
+
+        var break = false // to exit while loop
         while(matchesInPageTrimmed.hasNext && !break){
           if(!(i == 0 && j == 0) && !(i == slidingPages.length-1 && j == 2)){
             if(j == 1){
               val currentMatch = matchesInPageTrimmed.next()
               val context = slidingPages(i).mkString
-              val splittedContext = context.split(currentMatch.toString)
+              var escapeCharacters : Array[String] = new Array[String](4)
+
+//              val token = Pattern.quote(")")
+//
+//              escapeCharacters(0) = ")"; escapeCharacters(1) = "("; escapeCharacters(2) = "}"; escapeCharacters(3) = "{"
+//
+//              for (character <- escapeCharacters){
+//                if (currentMatch.toString().contains(character)){
+//                  currentMatch.toString().replaceAll(character,"\\\\"+character)
+//                }
+//              }
+              val token = Pattern.quote(currentMatch.toString())
+              val splittedContext = context.split(token)
               val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
                 currentMatch.toString() + splittedContext(1).substring(0,100)
               regexContext(currentMatch.toString()) = contextTrimmed
@@ -235,11 +255,19 @@ object Statchecker {
             val context = slidingPages(i).mkString
             val splittedContext = context.split(currentMatch.toString)
             val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
-              currentMatch.toString() + splittedContext(1).substring(0,100)
+              currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
             regexContext(currentMatch.toString()) = contextTrimmed
           }
         }
       }
+    }
+    regexContext
+  }
+
+  def filterSampleSizeContext(regexContext: mutable.Map[String, String]) : mutable.Map[String,String] = {
+    for ((key,value) <- regexContext){
+      val trimmedKey = key.replaceAll("\\D+","") //Get digit from match
+      if(trimmedKey.length == 4 && value.contains("during "+trimmedKey)) regexContext-= key
     }
     regexContext
   }

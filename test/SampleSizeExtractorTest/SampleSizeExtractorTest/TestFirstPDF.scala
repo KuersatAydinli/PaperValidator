@@ -11,33 +11,42 @@ import org.scalatest.FunSuite
   */
 class TestFirstPDF extends FunSuite{
 
-  val paperDir = "test/TestPDFs/manuscript4.pdf"
-  val pdfDoc = PDDocument.load(new File(paperDir))
-  val pdfText = convertPDFtoText(paperDir)
-  val statChecker = StatChecker
-
   test("GetSampleSize"){
+    val paperDir = "test/TestPDFs/manuscript4.pdf"
+    val pdfDoc = PDDocument.load(new File(paperDir))
+    val pdfText = convertPDFtoText(paperDir)
+    val statChecker = StatChecker
+
     assert(pdfText.length == 38)
     val sampleSize = statChecker.extractSampleSize(pdfText)
 
-    if (new File("test/TestPDFs/sampleSizeString" + ".text").exists()){
-      deleteFile("test/TestPDFs/sampleSizeString" + ".txt")
-    }
-
-    if (!new File("test/TestPDFs/sampleSizeString" + ".text").exists()) {
-      val pw = new PrintWriter(new File("test/TestPDFs/sampleSizeString" + ".txt"))
-      pw.write(sampleSize)
-      pw.close()
-    }
+//    if (new File("test/TestPDFs/sampleSizeString" + ".text").exists()){
+//      deleteFile("test/TestPDFs/sampleSizeString" + ".txt")
+//    }
+//
+//    if (!new File("test/TestPDFs/sampleSizeString" + ".text").exists()) {
+//      val pw = new PrintWriter(new File("test/TestPDFs/sampleSizeString" + ".txt"))
+//      pw.write(sampleSize)
+//      pw.close()
+//    }
 
     info("Sample Size: " + sampleSize)
     assert(sampleSize.length > 1)
   }
 
   test("Get SampleSize Context"){
+    val paperDir = "test/TestPDFs/2004_12404.pdf"
+    val pdfDoc = PDDocument.load(new File(paperDir))
+    val pdfText = convertPDFtoText(paperDir)
+    val statChecker = StatChecker
+
     val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
     info("ContextMapSize : " + sampleSizeContext.size)
-    sampleSizeContext foreach((t2) => info(t2._1 + "-->" + t2._2))
+    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
+    info("========================================================================================================")
+    val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
+    info("Size Filtered Context: " + filteredContext.size)
+    filteredContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
   }
 
   def deleteFile(filename: String) = { new File(filename).delete() }
