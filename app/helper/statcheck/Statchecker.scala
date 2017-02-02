@@ -174,31 +174,31 @@ object Statchecker {
   }
 
   val REGEX_SAMPLE_SIZE = new Regex("" +
-    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]" +
-    "|\\b\\d+\\b\\s+\\D{0,15}women" +
-    "|\\b\\d+\\b\\s+\\D{0,15}men" +
-    "|\\b\\d+\\b\\s+\\D{0,20}persons" +
-    "|\\b\\d+\\b\\s+\\D{0,20}participants" +
-    "|\\b\\d+\\b\\s+\\D{0,20}participants\\D{0,10}were\\D{0,10}included" +
-    "|\\b\\d+\\b\\s+\\D{0,20}persons\\D{0,10}were\\D{0,10}included" +
-    "|\\b\\d+\\b\\s+\\D{0,20}subjects\\D{0,10}were\\D{0,10}included" +
-    "|\\b\\d+\\b\\s+\\D{0,20}patients\\D{0,10}were\\D{0,10}included" +
-    "|\\b\\d+\\b\\s+\\D{0,20}subjects" +
-    "|n\\s?=\\s?\\b\\d+\\b" +
-    "|\\b\\d+\\b\\s+\\D{0,20}patients" +
-    "|\\b\\d+\\b\\s+\\D{0,20}adults" +
-    "|\\b\\d+\\b\\s+\\D{0,20}newborns" +
-    "|sample[^...]{0,20}of[^...]{0,20}\\b\\d+\\b\\s+" +
-    "|\\b\\d+\\b\\s+\\D{0,20}samples" +
-    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\b\\d+\\b\\s+" +
-    "|\\b\\d+\\b\\s+\\D{0,20}were\\D{0,10}recruited" +
-    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\b\\d+\\b\\s+" +
-    "|\\b\\d+\\b\\\\s+D{0,20}enrolled" +
-    "|[Tt]otal\\s?of\\s+\\b\\d+\\b\\D+participated" +
-    "|\\b\\d+\\b\\s+\\D{0,20}took\\s*part" +
-    "|\\b\\d+\\b\\s+\\D{0,15}consecutive\\s?patient" +
-    "|\\b\\d+\\b\\s+\\D{0,15}consecutive\\s?participant" +
-    "|\\s?data\\D{0,20}from\\D{0,20}\\s+\\b\\d+\\b\\s+")
+//    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]" +
+    "\\s+\\d+([,]\\d{3}|\\d+)\\s+\\D{0,15}women" +
+    "|\\s+\\d+\\s+\\D{0,15}men" +
+    "|\\s+\\d+\\s+\\D{0,20}persons" +
+    "|\\s+\\d+\\s+\\D{0,20}participants" +
+    "|\\s+\\d+\\s+\\D{0,20}participants\\D{0,10}were\\D{0,10}included" +
+    "|\\s+\\d+\\s+\\D{0,20}persons\\D{0,10}were\\D{0,10}included" +
+    "|\\s+\\d+\\s+\\D{0,20}subjects\\D{0,10}were\\D{0,10}included" +
+    "|\\s+\\d+\\s+\\D{0,20}patients\\D{0,10}were\\D{0,10}included" +
+    "|\\s+\\d+\\s+\\D{0,20}subjects" +
+    "|n\\s?=\\s+\\d+\\s+" +
+    "|\\s+\\d+\\s+\\D{0,30}patients" +
+    "|\\s+\\d+\\s+\\D{0,20}adults" +
+    "|\\s+\\d+\\s+\\D{0,20}newborns" +
+    "|sample[^...]{0,20}of[^...]{0,20}\\s+\\d+\\s+" +
+    "|\\s+\\d+\\s+\\D{0,20}samples" +
+    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\s+\\d+\\s+" +
+    "|\\s+\\d+\\s+\\D{0,20}were\\D{0,10}recruited" +
+    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\s+\\d+\\s+" +
+    "|\\s+\\d+\\s+D{0,20}enrolled" +
+    "|[Tt]otal\\s?of\\s+\\d+\\s+\\D+participated" +
+    "|\\s+\\d+\\s+\\D{0,20}took\\s*part" +
+    "|\\s+\\d+\\s+\\D{0,15}consecutive\\s?patient" +
+    "|\\s+\\d+\\s+\\D{0,15}consecutive\\s?participant" +
+    "|\\s?data\\D{0,20}from\\D{0,20}\\s+\\d+\\s+")
 
   def extractSampleSizeStated(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {
@@ -223,39 +223,42 @@ object Statchecker {
         val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(slidingPages(i)(j)).matchData
 //        val matchesInPageTrimmed = matchesInPage.filterNot(x => (x.toString().contains("%") || x.toString().contains("years")
 //          ||x.toString().contains("months") || x.toString().contains("hours") || x.toString().contains("days")))
-        val matchesInPageTrimmed = matchesInPage.filterNot(_.toString().contains("%"))
+
+        //val matchesInPageTrimmed = matchesInPage.filterNot(_.toString().contains("%"))
 
         var break = false // to exit while loop
-        while(matchesInPageTrimmed.hasNext && !break){
-          if(!(i == 0 && j == 0) && !(i == slidingPages.length-1 && j == 2)){
+        while(matchesInPage.hasNext && !break){
+          if(!(i == 0 && j == 0) && !(i == slidingPages.length-1 && j == 3)){
             if(j == 1){
-              val currentMatch = matchesInPageTrimmed.next()
+              var contextTrimmed = ""
+              val currentMatch = matchesInPage.next()
               val context = slidingPages(i).mkString
-              var escapeCharacters : Array[String] = new Array[String](4)
 
-//              val token = Pattern.quote(")")
-//
-//              escapeCharacters(0) = ")"; escapeCharacters(1) = "("; escapeCharacters(2) = "}"; escapeCharacters(3) = "{"
-//
-//              for (character <- escapeCharacters){
-//                if (currentMatch.toString().contains(character)){
-//                  currentMatch.toString().replaceAll(character,"\\\\"+character)
-//                }
-//              }
               val token = Pattern.quote(currentMatch.toString())
               val splittedContext = context.split(token)
-              val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+              contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
                 currentMatch.toString() + splittedContext(1).substring(0,100)
               regexContext(currentMatch.toString()) = contextTrimmed
             } else {
               break = true
             }
           } else {
-            val currentMatch = matchesInPageTrimmed.next()
+            var contextTrimmed = ""
+            val currentMatch = matchesInPage.next()
             val context = slidingPages(i).mkString
             val splittedContext = context.split(currentMatch.toString)
-            val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
-              currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
+            if(splittedContext(0).length >= 100 && splittedContext(1).length >= 100){
+              contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+                currentMatch.toString() + splittedContext(1).substring(0,100)
+            } else if (splittedContext(0).length < 100){
+              contextTrimmed = splittedContext(0).substring(0,splittedContext(0).length) +
+                currentMatch.toString() + splittedContext(1).substring(0,100)
+            } else if (splittedContext(1).length < 100){
+              contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+                currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
+            }
+//            val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+//              currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
             regexContext(currentMatch.toString()) = contextTrimmed
           }
         }
