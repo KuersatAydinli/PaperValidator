@@ -3,6 +3,7 @@ import java.io.{File, PrintWriter}
 
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import helper.statcheck.{Statchecker => StatChecker}
+import org.apache.commons.io.FilenameUtils
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.scalatest.FunSuite
 
@@ -49,6 +50,27 @@ class SampleSizeExtractorTest extends FunSuite{
     val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
     info("Size Filtered Context: " + filteredContext.size)
     filteredContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
+  }
+
+  test("Get SampleSize of Library"){
+    val PdfPath = "test/TestPDFs"
+    val files = getListOfFiles(PdfPath)
+    for (file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+
+      }
+    }
+  }
+
+  def getListOfFiles(dir: String):List[File] = {
+    val d = new File(dir)
+    if (d.exists && d.isDirectory) {
+      d.listFiles.filter(_.isFile).toList
+    } else {
+      info("Dir does not exist")
+      List[File]()
+    }
   }
 
   def deleteFile(filename: String) = { new File(filename).delete() }
