@@ -175,7 +175,7 @@ object Statchecker {
 
   val REGEX_SAMPLE_SIZE = new Regex("" +
 //    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]" +
-    "\\s+\\d+([,]\\d{3}|\\d+)\\s+\\D{0,15}women" +
+    "\\s+\\d+([,]\\d{3}|\\d+)\\s+\\D{0,20}women" +
     "|\\s+\\d+\\s+\\D{0,15}men" +
     "|\\s+\\d+\\s+\\D{0,20}persons" +
     "|\\s+\\d+\\s+\\D{0,20}participants" +
