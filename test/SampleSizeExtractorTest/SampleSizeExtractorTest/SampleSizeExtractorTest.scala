@@ -57,22 +57,25 @@ class SampleSizeExtractorTest extends FunSuite{
 
   test("Get SampleSize of Library"){
     val lines = Source.fromFile("test/TestPDFs/sampleSIzesExtracted.txt").getLines()
-    var sampleSizeMap = mutable.Map.empty[String, String]
+    var sampleSizePerPaper = mutable.Map.empty[String, String]
 
     for(line <- lines){ // build map of paper and sample size from PDF library
       val splittedLine = line.split(":")
-      sampleSizeMap(splittedLine(0)) = splittedLine(1)
+      sampleSizePerPaper(splittedLine(0)) = splittedLine(1)
     }
+
+    val totalPapers = sampleSizePerPaper.keySet.size
 
     val PdfPath = "test/TestPDFs"
     val files = getListOfFiles(PdfPath)
+    var correctFindings = 0 // count of how many PDFs the correct sample size is included in matches
+    var countPDFs = 0
     for (file <- files){
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
-
-        for(sampleSize <- sampleSizeMap.keys){
+        countPDFs += 1
+        for(sampleSize <- sampleSizePerPaper.keys){
           val fileBase = FilenameUtils.getBaseName(fileString)
-          info("File Base: " + fileBase)
           if(fileBase.equalsIgnoreCase(sampleSize)){
             val pdfDoc = PDDocument.load(new File(fileString))
             val pdfText = convertPDFtoText(fileString)
@@ -80,14 +83,16 @@ class SampleSizeExtractorTest extends FunSuite{
             val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
 
             for(entry <- sampleSizeContext){
-              if(entry._1.replaceAll("\\s","").contains(sampleSizeMap(sampleSize).replaceAll("\\s",""))){
-                info("Correct for " + fileString)
+              if(entry._1.replaceAll("\\s","").toLowerCase.contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
+                correctFindings += 1
+                info(fileString + " ==> " + true)
               }
             }
           }
         }
       }
     }
+    assert(correctFindings == countPDFs)
   }
 
   test("Read File"){
