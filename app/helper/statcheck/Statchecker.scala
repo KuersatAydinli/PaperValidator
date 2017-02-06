@@ -174,31 +174,33 @@ object Statchecker {
   }
 
   val REGEX_SAMPLE_SIZE = new Regex("" +
-    "\\d+[,]\\d{3}\\D{0,20}women" +
-    "|\\d+\\D{0,20}\\s+women" +
-    "|\\d+\\D{0,15}\\s+men" +
-    "|\\d+\\D{0,20}persons" +
-    "|\\d+\\D{0,20}participants" +
-    "|\\d+\\D{0,20}subjects" +
-    "|\\d+\\D{0,30}patients" +
-    "|\\d+\\D{0,20}adults" +
-    "|\\d+\\D{0,20}newborns" +
-    "|\\d+\\D{0,20}samples" +
-    "|n\\s?=\\d+" +
-    "|\\d+\\D{0,20}participants\\D{0,20}were\\D{0,10}included" +
-    "|\\d+\\D{0,20}persons\\D{0,20}were\\D{0,10}included" +
-    "|\\d+\\D{0,20}subjects\\D{0,20}were\\D{0,10}included" +
-    "|\\d+\\D{0,20}patients\\D{0,20}were\\D{0,10}included" +
-    "|sample[^...]{0,20}of[^...]{0,20}\\d+" +
-    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+" +
-    "|\\d+\\D{0,20}were\\D{0,10}recruited" +
-    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\d+" +
-    "|\\d+D{0,20}enrolled" +
-    "|[Tt]otal\\s?of\\d+\\D+participated" +
-    "|\\d+\\D{0,20}took\\s*part" +
-    "|\\d+\\D{0,15}consecutive\\s?patient" +
-    "|\\d+\\D{0,15}consecutive\\s?participant" +
-    "|\\s?data\\D{0,20}from\\D{0,20}\\d+")
+    "(\\d+[,]\\d{3}\\D{0,20}women)" +
+    "|(\\d+\\D{0,20}\\s+women)" +
+    "|(\\d+\\D{0,15}\\s+men)" +
+    "|(\\d+\\D{0,20}persons)" +
+    "|(\\d+\\D{0,20}participants)" +
+    "|(\\d+\\D{0,20}subjects)" +
+    "|(\\d+\\D{0,30}patients)" +
+    "|(\\d+\\D{0,20}adults)" +
+    "|(\\d+\\D{0,20}newborns)" +
+    "|(\\d+\\D{0,20}samples)" +
+    "|(n\\s?=\\d+)" +
+    "|(\\d+\\D{0,20}participants\\D{0,20}were\\D{0,10}included)" +
+    "|(\\d+\\D{0,20}persons\\D{0,20}were\\D{0,10}included)" +
+    "|(\\d+\\D{0,20}subjects\\D{0,20}were\\D{0,10}included)" +
+    "|(\\d+\\D{0,20}patients\\D{0,20}were\\D{0,10}included)" +
+    "|(sample[^...]{0,20}of[^...]{0,20}\\d+)" +
+    "|(\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+)" +
+    "|(\\d+\\D{0,20}were\\D{0,10}recruited)" +
+    "|([Ww]e\\D{0,20}recruited\\D{0,20}\\d+)" +
+    "|(\\d+D{0,20}enrolled)" +
+    "|([Tt]otal\\s?of\\d+\\D+participated)" +
+    "|(\\d+\\D{0,20}took\\s*part)" +
+    "|(\\d+\\D{0,15}consecutive\\s?patient)" +
+    "|(\\d+\\D{0,15}consecutive\\s?participant)" +
+    "|(\\s?data\\D{0,20}from\\D{0,20}\\d+)")
+
+  val groupCount = 25 // number of capturing groups in the RegEx
 
   def extractSampleSizeStated(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {

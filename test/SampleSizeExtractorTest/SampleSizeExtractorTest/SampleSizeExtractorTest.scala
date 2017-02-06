@@ -108,14 +108,39 @@ class SampleSizeExtractorTest extends FunSuite{
 
   test("Regex Matching"){
     val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
-    val regex = new Regex("\\d+\\s+participants|hund|katze")
+    var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
+    val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
+
+    var sampleSizeList = mutable.MutableList[String]()
+
+    for(line <- sampleSizes){
+      sampleSizeList += line.split(":")(1)
+    }
+
+    for (line <- sampleSizes){
+      info("LINE: " + line)
+    }
 
     val matchesInPDF = regex.findAllIn(lines).matchData
 
+    val groupBool = mutable.Map.empty[Int, Boolean]
+
     while (matchesInPDF.hasNext){
-      val currentMatch = matchesInPDF.next()
-      info("current Match: " + currentMatch)
+      info("group: " + matchesInPDF.next().group(1))
     }
+
+//    for(i <- 1 to 3) {
+//      groupBool(i) = false
+//      info("group: " + i)
+//      while (matchesInPDF.hasNext){
+//        val currentMatch = matchesInPDF.next()
+//        //info("current Match: " + currentMatch)
+//        if(currentMatch.group(i) != null){
+//          groupBool(i) = true
+//        }
+//      }
+//    }
+    groupBool foreach(entry => info(entry._1 + " ==> " + entry._2))
   }
 
   test("Read File"){
