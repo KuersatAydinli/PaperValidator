@@ -176,8 +176,8 @@ object Statchecker {
 
   val REGEX_SAMPLE_SIZE = new Regex("" +
     "(\\d+[,]\\d{3}\\D{0,20}women)" +
-    "|(\\d+\\D{0,20}\\s+women)" +
-    "|(\\d+\\D{0,15}\\s+men)" +
+    "|(\\d+\\D{0,20}women)" +
+    "|(\\d+\\D{0,15}men)" +
     "|(\\d+\\D{0,20}persons)" +
     "|(\\d+\\D{0,20}participants)" +
     "|(\\d+\\D{0,20}subjects)" +
@@ -203,6 +203,11 @@ object Statchecker {
 
   val groupCount = 25 // number of capturing groups in the RegEx
 
+  /**
+    * Search for one of the regex alternatives in the PDF
+    * @param textList PDF pages
+    * @return
+    */
   def extractSampleSizeStated(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {
       case (text, page) =>
@@ -212,7 +217,12 @@ object Statchecker {
     }.mkString(",")
   }
 
-  // get relative support for each pattern regarding PDF Library
+
+  /**
+    * This function returns a map [Int, Float] which includes the relative support for each group in the RegEx
+    * expression regarding the PDF library in the test directory
+    * @return Map[Int, Float] --> [group index, relative support in PDF Library]
+    */
   def getRelativeGroupSupport: mutable.Map[Int, Float] = {
     var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
 //    val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
@@ -245,8 +255,32 @@ object Statchecker {
     groupSupportRelative
   }
 
+  /**
+    * Get group index of capturing group in RegEx
+    * @param input matched String
+    * @return index of capturing group from within RegEx Expression
+    */
+  def getGroupIndexPerMatch(input:String) : Int = {
+    val matches = REGEX_SAMPLE_SIZE.findAllIn(input).matchData
+    while (matches.hasNext){
+      val currentMatch = matches.next()
+      for (i <- 1 to groupCount){
+        if(currentMatch.group(i) != null){
+          return i
+        }
+      }
+    }
+    -1
+  }
+
+  /**
+    * Extracts the context for each RegEx Match within the PDF document
+    * @param textList PDF pages
+    * @return Map [String, String] --> [RegEx Match, Context 100 chars before and after the match]
+    */
   def extractSampleSizeContext(textList: List[String]) : mutable.Map[String,String] = {
-    var regexContext = mutable.Map.empty[String, String]
+    val regexContext = mutable.Map.empty[String, String] // context for each regex match in PDF
+    val relativePatternSupport = getRelativeGroupSupport
 
     val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase("") || page.equals("\r\n"))
 

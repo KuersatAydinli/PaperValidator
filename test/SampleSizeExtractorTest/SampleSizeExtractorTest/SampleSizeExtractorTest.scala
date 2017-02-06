@@ -47,7 +47,7 @@ class SampleSizeExtractorTest extends FunSuite{
     val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
     info("PDF Name: " + paperDir)
     info("ContextMapSize : " + sampleSizeContext.size)
-    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + "Support: " + " ===> " +entry._2))
+    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + "Support: " + " ===> " + entry._2))
     info("========================================================================================================================")
     info("========================================================================================================================")
     val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
@@ -108,7 +108,12 @@ class SampleSizeExtractorTest extends FunSuite{
   test("Regex Matching"){
     val statChecker = StatChecker
     val groupSupport = statChecker.getRelativeGroupSupport
+//    mutable.ListMap(groupSupport.toSeq.sortBy(_._1):_*) foreach(entry => info(entry._1 + " ==> " + entry._2))
     groupSupport foreach(entry => info(entry._1 + " ==> " + entry._2))
+
+    info("group index: " + statChecker.getGroupIndexPerMatch("23,948 men"))
+
+
 //    val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
 //    var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
 //    val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
@@ -141,30 +146,6 @@ class SampleSizeExtractorTest extends FunSuite{
 //      groupSupportRelative(j) = groupSupport(j).toFloat/highestSupport
 //    }
 //    groupSupportRelative foreach(entry => info(entry._1 + " ==> " + entry._2))
-
-
-//    for (line <- sampleSizes){
-//      info("LINE: " + line)
-//    }
-
-//    val matchesInPDF = regex.findAllIn(lines).matchData
-//
-//    while (matchesInPDF.hasNext){
-//      info("group: " + matchesInPDF.next().group(1))
-//    }
-
-//    for(i <- 1 to 3) {
-//      groupBool(i) = false
-//      info("group: " + i)
-//      while (matchesInPDF.hasNext){
-//        val currentMatch = matchesInPDF.next()
-//        //info("current Match: " + currentMatch)
-//        if(currentMatch.group(i) != null){
-//          groupBool(i) = true
-//        }
-//      }
-//    }
-
   }
 
   test("Read File"){
