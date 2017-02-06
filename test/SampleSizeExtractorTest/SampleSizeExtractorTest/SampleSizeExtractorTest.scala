@@ -43,16 +43,18 @@ class SampleSizeExtractorTest extends FunSuite{
     val pdfDoc = PDDocument.load(new File(paperDir))
     val pdfText = convertPDFtoText(paperDir)
     val statChecker = StatChecker
+    val relativeSupport = statChecker.getRelativeGroupSupport
 
     val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
     info("PDF Name: " + paperDir)
     info("ContextMapSize : " + sampleSizeContext.size)
-    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + "Support: " + " ===> " + entry._2))
+    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + "Support: " +
+      relativeSupport(entry._1.getOrElse(entry._1.head._1,0)) + " ===> " + entry._2))
     info("========================================================================================================================")
     info("========================================================================================================================")
-    val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
-    info("Size Filtered Context: " + filteredContext.size)
-    filteredContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
+//    val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
+//    info("Size Filtered Context: " + filteredContext.size)
+//    filteredContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
   }
 
   test("Get SampleSize of Library"){
@@ -92,9 +94,11 @@ class SampleSizeExtractorTest extends FunSuite{
 //                  info("TRUEEEEE")
 //                }
 //              }
-              if(entry._1.replaceAll("\\s","").toLowerCase.contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
-                correctFindings(fileString) = true
-              }
+
+
+//              if(entry._1.replaceAll("\\s","").toLowerCase.contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
+//                correctFindings(fileString) = true
+//              }
             }
           }
         }

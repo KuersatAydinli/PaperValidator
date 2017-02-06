@@ -278,8 +278,9 @@ object Statchecker {
     * @param textList PDF pages
     * @return Map [String, String] --> [RegEx Match, Context 100 chars before and after the match]
     */
-  def extractSampleSizeContext(textList: List[String]) : mutable.Map[String,String] = {
+  def extractSampleSizeContext(textList: List[String]) : mutable.Map[Map[String, Int],String] = {
     val regexContext = mutable.Map.empty[String, String] // context for each regex match in PDF
+
     val relativePatternSupport = getRelativeGroupSupport
 
     val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase("") || page.equals("\r\n"))
@@ -342,7 +343,12 @@ object Statchecker {
         }
       }
     }
-    regexContext
+    val regexIndexContext = mutable.Map.empty[Map[String,Int], String] // inner map includes group index of matched string
+    for (entry <- regexContext){
+      regexIndexContext(Map(entry._1 -> getGroupIndexPerMatch(entry._1))) = entry._2
+    }
+//    regexContext
+    regexIndexContext
   }
 
   def filterSampleSizeContext(regexContext: mutable.Map[String, String]) : mutable.Map[String,String] = {
