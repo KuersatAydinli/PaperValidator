@@ -14,6 +14,7 @@ import org.apache.commons.math3.distribution.{ChiSquaredDistribution, TDistribut
 import play.api.Logger
 
 import scala.collection.mutable
+import scala.io.Source
 import scala.util.matching.Regex
 
 /**
@@ -211,6 +212,39 @@ object Statchecker {
     }.mkString(",")
   }
 
+  // get relative support for each pattern regarding PDF Library
+  def getRelativeGroupSupport: mutable.Map[Int, Float] = {
+    var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
+//    val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
+    val regex = REGEX_SAMPLE_SIZE
+    var groupSupport = mutable.Map.empty[Int, Int] // map of occurence of match per group
+    var groupSupportRelative = mutable.Map.empty[Int, Float]
+    var sampleSizeList = mutable.MutableList[String]()
+
+    for(line <- sampleSizes){
+      sampleSizeList += line.split(":")(1)
+    }
+
+    for (i <- 1 to groupCount){
+      groupSupport(i) = 0
+      for (sampleSize <- sampleSizeList){
+        val matches = regex.findAllIn(sampleSize).matchData
+        while (matches.hasNext){
+          val currentMatch = matches.next()
+          if (currentMatch.group(i) != null){
+            groupSupport(i) += 1
+          }
+        }
+      }
+    }
+    val highestSupport = groupSupport.values.max
+
+    for (j <- 1 to groupCount){
+      groupSupportRelative(j) = groupSupport(j).toFloat/highestSupport
+    }
+    groupSupportRelative
+  }
+
   def extractSampleSizeContext(textList: List[String]) : mutable.Map[String,String] = {
     var regexContext = mutable.Map.empty[String, String]
 
@@ -223,10 +257,6 @@ object Statchecker {
     for (i <- slidingPages.indices){
       for(j <- slidingPages(i).indices){
         val matchesInPage = REGEX_SAMPLE_SIZE.findAllIn(slidingPages(i)(j)).matchData
-//        val matchesInPageTrimmed = matchesInPage.filterNot(x => (x.toString().contains("%") || x.toString().contains("years")
-//          ||x.toString().contains("months") || x.toString().contains("hours") || x.toString().contains("days")))
-
-        //val matchesInPageTrimmed = matchesInPage.filterNot(_.toString().contains("%"))
 
         var break = false // to exit while loop
         while(matchesInPage.hasNext && !break){

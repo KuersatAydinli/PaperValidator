@@ -9,7 +9,6 @@ import org.scalatest.FunSuite
 
 import scala.collection.mutable
 import scala.io.Source
-import scala.util.matching.Regex
 
 /**
   * Created by Aydinli on 26.01.2017.
@@ -48,7 +47,7 @@ class SampleSizeExtractorTest extends FunSuite{
     val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
     info("PDF Name: " + paperDir)
     info("ContextMapSize : " + sampleSizeContext.size)
-    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
+    sampleSizeContext foreach((entry) => info(entry._1 + " ===> " + "Support: " + " ===> " +entry._2))
     info("========================================================================================================================")
     info("========================================================================================================================")
     val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
@@ -107,38 +106,41 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Regex Matching"){
-    val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
-    var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
-    val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
-    var groupSupport = mutable.Map.empty[Int, Int] // map of occurence of match per group
-    var groupSupportRelative = mutable.Map.empty[Int, Float]
-    var sampleSizeList = mutable.MutableList[String]()
-
-    for(line <- sampleSizes){
-      sampleSizeList += line.split(":")(1)
-    }
-
-    for (i <- 1 to 3){
-      groupSupport(i) = 0
-      for (sampleSize <- sampleSizeList){
-        val matches = regex.findAllIn(sampleSize).matchData
-        while (matches.hasNext){
-          val currentMatch = matches.next()
-          if (currentMatch.group(i) != null){
-            groupSupport(i) += 1
-          }
-        }
-      }
-    }
-//    mutable.ListMap(groupSupport.toSeq.sortWith(_._2 > _._2):_*) foreach (entry => info(entry._1 + " ==> " + entry._2))
+    val statChecker = StatChecker
+    val groupSupport = statChecker.getRelativeGroupSupport
     groupSupport foreach(entry => info(entry._1 + " ==> " + entry._2))
-    val highestSupport = groupSupport.values.max
-    info("HighestSupport: " + highestSupport)
-    info("========Relative Support=========")
-    for (j <- 1 to 3){
-      groupSupportRelative(j) = groupSupport(j).toFloat/highestSupport
-    }
-    groupSupportRelative foreach(entry => info(entry._1 + " ==> " + entry._2))
+//    val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
+//    var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
+//    val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
+//    var groupSupport = mutable.Map.empty[Int, Int] // map of occurence of match per group
+//    var groupSupportRelative = mutable.Map.empty[Int, Float]
+//    var sampleSizeList = mutable.MutableList[String]()
+//
+//    for(line <- sampleSizes){
+//      sampleSizeList += line.split(":")(1)
+//    }
+//
+//    for (i <- 1 to 3){
+//      groupSupport(i) = 0
+//      for (sampleSize <- sampleSizeList){
+//        val matches = regex.findAllIn(sampleSize).matchData
+//        while (matches.hasNext){
+//          val currentMatch = matches.next()
+//          if (currentMatch.group(i) != null){
+//            groupSupport(i) += 1
+//          }
+//        }
+//      }
+//    }
+//
+//    groupSupport foreach(entry => info(entry._1 + " ==> " + entry._2))
+//    val highestSupport = groupSupport.values.max
+//    info("HighestSupport: " + highestSupport)
+//    info("========Relative Support=========")
+//    for (j <- 1 to 3){
+//      groupSupportRelative(j) = groupSupport(j).toFloat/highestSupport
+//    }
+//    groupSupportRelative foreach(entry => info(entry._1 + " ==> " + entry._2))
 
 
 //    for (line <- sampleSizes){
