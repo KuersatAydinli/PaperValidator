@@ -9,6 +9,7 @@ import org.scalatest.FunSuite
 
 import scala.collection.mutable
 import scala.io.Source
+import scala.util.matching.Regex
 
 /**
   * Created by Aydinli on 26.01.2017.
@@ -103,6 +104,18 @@ class SampleSizeExtractorTest extends FunSuite{
     info("PDF Count: " + countPDFs)
 //    correctFindings foreach(finding => info(finding._1 + "==>" + finding._2.toString))
     correctFindings foreach(finding => info("%-60s ==> %s".format(finding._1,finding._2.toString)))
+  }
+
+  test("Regex Matching"){
+    val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
+    val regex = new Regex("\\d+\\s+participants|hund|katze")
+
+    val matchesInPDF = regex.findAllIn(lines).matchData
+
+    while (matchesInPDF.hasNext){
+      val currentMatch = matchesInPDF.next()
+      info("current Match: " + currentMatch)
+    }
   }
 
   test("Read File"){
