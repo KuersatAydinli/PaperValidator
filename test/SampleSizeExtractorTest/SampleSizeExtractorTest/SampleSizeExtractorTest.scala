@@ -39,7 +39,7 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Get SampleSize Context"){
-    val paperDir = "test/TestPDFs/2004_12404.pdf"
+    val paperDir = "test/TestPDFs/2010_2107.pdf"
     val pdfDoc = PDDocument.load(new File(paperDir))
     val pdfText = convertPDFtoText(paperDir)
     val statChecker = StatChecker
@@ -68,11 +68,13 @@ class SampleSizeExtractorTest extends FunSuite{
 
     val PdfPath = "test/TestPDFs"
     val files = getListOfFiles(PdfPath)
-    var correctFindings = 0 // count of how many PDFs the correct sample size is included in matches
+    var correctFindings = mutable.Map.empty[String, Boolean] // count of how many PDFs the correct sample size is included in matches
+
     var countPDFs = 0
     for (file <- files){
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        correctFindings(fileString) = false
         countPDFs += 1
         for(sampleSize <- sampleSizePerPaper.keys){
           val fileBase = FilenameUtils.getBaseName(fileString)
@@ -83,16 +85,24 @@ class SampleSizeExtractorTest extends FunSuite{
             val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
 
             for(entry <- sampleSizeContext){
+//              if(fileBase.equalsIgnoreCase("2006_1462")){
+//                info(entry._1.replaceAll("\\s","").toLowerCase)
+//                info(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)
+//                if(entry._1.replaceAll("\\s","").toLowerCase.equalsIgnoreCase(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
+//                  info("TRUEEEEE")
+//                }
+//              }
               if(entry._1.replaceAll("\\s","").toLowerCase.contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
-                correctFindings += 1
-                info(fileString + " ==> " + true)
+                correctFindings(fileString) = true
               }
             }
           }
         }
       }
     }
-    assert(correctFindings == countPDFs)
+    info("PDF Count: " + countPDFs)
+//    correctFindings foreach(finding => info(finding._1 + "==>" + finding._2.toString))
+    correctFindings foreach(finding => info("%-60s ==> %s".format(finding._1,finding._2.toString)))
   }
 
   test("Read File"){

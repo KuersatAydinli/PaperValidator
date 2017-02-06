@@ -174,31 +174,31 @@ object Statchecker {
   }
 
   val REGEX_SAMPLE_SIZE = new Regex("" +
-//    "\\s+[^...]+\\d+\\s?consecutive[^...]+[.?!]" +
-    "\\s+\\d+([,]\\d{3}|\\d+)\\s+\\D{0,20}women" +
-    "|\\s+\\d+\\s+\\D{0,15}men" +
-    "|\\s+\\d+\\s+\\D{0,20}persons" +
-    "|\\s+\\d+\\s+\\D{0,20}participants" +
-    "|\\s+\\d+\\s+\\D{0,20}participants\\D{0,10}were\\D{0,10}included" +
-    "|\\s+\\d+\\s+\\D{0,20}persons\\D{0,10}were\\D{0,10}included" +
-    "|\\s+\\d+\\s+\\D{0,20}subjects\\D{0,10}were\\D{0,10}included" +
-    "|\\s+\\d+\\s+\\D{0,20}patients\\D{0,10}were\\D{0,10}included" +
-    "|\\s+\\d+\\s+\\D{0,20}subjects" +
-    "|n\\s?=\\s+\\d+\\s+" +
-    "|\\s+\\d+\\s+\\D{0,30}patients" +
-    "|\\s+\\d+\\s+\\D{0,20}adults" +
-    "|\\s+\\d+\\s+\\D{0,20}newborns" +
-    "|sample[^...]{0,20}of[^...]{0,20}\\s+\\d+\\s+" +
-    "|\\s+\\d+\\s+\\D{0,20}samples" +
-    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\s+\\d+\\s+" +
-    "|\\s+\\d+\\s+\\D{0,20}were\\D{0,10}recruited" +
-    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\s+\\d+\\s+" +
-    "|\\s+\\d+\\s+D{0,20}enrolled" +
-    "|[Tt]otal\\s?of\\s+\\d+\\s+\\D+participated" +
-    "|\\s+\\d+\\s+\\D{0,20}took\\s*part" +
-    "|\\s+\\d+\\s+\\D{0,15}consecutive\\s?patient" +
-    "|\\s+\\d+\\s+\\D{0,15}consecutive\\s?participant" +
-    "|\\s?data\\D{0,20}from\\D{0,20}\\s+\\d+\\s+")
+    "\\d+[,]\\d{3}\\D{0,20}women" +
+    "|\\d+\\D{0,20}\\s+women" +
+    "|\\d+\\D{0,15}\\s+men" +
+    "|\\d+\\D{0,20}persons" +
+    "|\\d+\\D{0,20}participants" +
+    "|\\d+\\D{0,20}subjects" +
+    "|\\d+\\D{0,30}patients" +
+    "|\\d+\\D{0,20}adults" +
+    "|\\d+\\D{0,20}newborns" +
+    "|\\d+\\D{0,20}samples" +
+    "|n\\s?=\\d+" +
+    "|\\d+\\D{0,20}participants\\D{0,20}were\\D{0,10}included" +
+    "|\\d+\\D{0,20}persons\\D{0,20}were\\D{0,10}included" +
+    "|\\d+\\D{0,20}subjects\\D{0,20}were\\D{0,10}included" +
+    "|\\d+\\D{0,20}patients\\D{0,20}were\\D{0,10}included" +
+    "|sample[^...]{0,20}of[^...]{0,20}\\d+" +
+    "|\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+" +
+    "|\\d+\\D{0,20}were\\D{0,10}recruited" +
+    "|[Ww]e\\D{0,20}recruited\\D{0,20}\\d+" +
+    "|\\d+D{0,20}enrolled" +
+    "|[Tt]otal\\s?of\\d+\\D+participated" +
+    "|\\d+\\D{0,20}took\\s*part" +
+    "|\\d+\\D{0,15}consecutive\\s?patient" +
+    "|\\d+\\D{0,15}consecutive\\s?participant" +
+    "|\\s?data\\D{0,20}from\\D{0,20}\\d+")
 
   def extractSampleSizeStated(textList: List[String]): String = {
     textList.zipWithIndex.flatMap {
@@ -212,9 +212,9 @@ object Statchecker {
   def extractSampleSizeContext(textList: List[String]) : mutable.Map[String,String] = {
     var regexContext = mutable.Map.empty[String, String]
 
-    val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase(""))
+    val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase("") || page.equals("\r\n"))
 
-    val newList = filteredTextList map(string => string.substring(string.indexOf(" "),string.length-1)) // Trim page indices
+    val newList = filteredTextList map(string => string.replaceFirst("-\\s\\d+\\s-|\\d+\\s+","")) // Trim page indices
 
     val slidingPages = newList.sliding(3).toList // split list of pages in sliding window of size 3
 
@@ -236,8 +236,19 @@ object Statchecker {
 
               val token = Pattern.quote(currentMatch.toString())
               val splittedContext = context.split(token)
-              contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
-                currentMatch.toString() + splittedContext(1).substring(0,100)
+//              contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+//                currentMatch.toString() + splittedContext(1).substring(0,100)
+//              regexContext(currentMatch.toString()) = contextTrimmed
+              if(splittedContext(0).length >= 100 && splittedContext(1).length >= 100){
+                contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+                  currentMatch.toString() + splittedContext(1).substring(0,100)
+              } else if (splittedContext(0).length < 100){
+                contextTrimmed = splittedContext(0).substring(0,splittedContext(0).length) +
+                  currentMatch.toString() + splittedContext(1).substring(0,100)
+              } else if (splittedContext(1).length < 100){
+                contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
+                  currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
+              }
               regexContext(currentMatch.toString()) = contextTrimmed
             } else {
               break = true
@@ -246,7 +257,10 @@ object Statchecker {
             var contextTrimmed = ""
             val currentMatch = matchesInPage.next()
             val context = slidingPages(i).mkString
-            val splittedContext = context.split(currentMatch.toString)
+//            val splittedContext = context.split(currentMatch.toString)
+            val token = Pattern.quote(currentMatch.toString())
+            val splittedContext = context.split(token)
+
             if(splittedContext(0).length >= 100 && splittedContext(1).length >= 100){
               contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
                 currentMatch.toString() + splittedContext(1).substring(0,100)
@@ -257,8 +271,6 @@ object Statchecker {
               contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
                 currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
             }
-//            val contextTrimmed = splittedContext(0).substring(splittedContext(0).length - 100,splittedContext(0).length) +
-//              currentMatch.toString() + splittedContext(1).substring(0,splittedContext(1).length-1)
             regexContext(currentMatch.toString()) = contextTrimmed
           }
         }
