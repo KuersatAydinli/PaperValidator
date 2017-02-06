@@ -110,8 +110,8 @@ class SampleSizeExtractorTest extends FunSuite{
     val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
     var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
     val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
-    val groupSupport = mutable.Map.empty[Int, Int] // map of occurence of match per group
-
+    var groupSupport = mutable.Map.empty[Int, Int] // map of occurence of match per group
+    var groupSupportRelative = mutable.Map.empty[Int, Float]
     var sampleSizeList = mutable.MutableList[String]()
 
     for(line <- sampleSizes){
@@ -130,7 +130,16 @@ class SampleSizeExtractorTest extends FunSuite{
         }
       }
     }
+//    mutable.ListMap(groupSupport.toSeq.sortWith(_._2 > _._2):_*) foreach (entry => info(entry._1 + " ==> " + entry._2))
     groupSupport foreach(entry => info(entry._1 + " ==> " + entry._2))
+    val highestSupport = groupSupport.values.max
+    info("HighestSupport: " + highestSupport)
+    info("========Relative Support=========")
+    for (j <- 1 to 3){
+      groupSupportRelative(j) = groupSupport(j).toFloat/highestSupport
+    }
+    groupSupportRelative foreach(entry => info(entry._1 + " ==> " + entry._2))
+
 
 //    for (line <- sampleSizes){
 //      info("LINE: " + line)
