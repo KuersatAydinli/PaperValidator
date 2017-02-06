@@ -110,6 +110,7 @@ class SampleSizeExtractorTest extends FunSuite{
     val lines = Source.fromFile("test/TestPDFs/2011_2213.pdf.txt").getLines().mkString
     var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
     val regex = new Regex("(\\d+\\D{0,20}\\s+women)|(\\d+\\D{0,20}participants)|(\\d+\\D{0,30}patients)")
+    val groupSupport = mutable.Map.empty[Int, Int] // map of occurence of match per group
 
     var sampleSizeList = mutable.MutableList[String]()
 
@@ -117,17 +118,29 @@ class SampleSizeExtractorTest extends FunSuite{
       sampleSizeList += line.split(":")(1)
     }
 
-    for (line <- sampleSizes){
-      info("LINE: " + line)
+    for (i <- 1 to 3){
+      groupSupport(i) = 0
+      for (sampleSize <- sampleSizeList){
+        val matches = regex.findAllIn(sampleSize).matchData
+        while (matches.hasNext){
+          val currentMatch = matches.next()
+          if (currentMatch.group(i) != null){
+            groupSupport(i) += 1
+          }
+        }
+      }
     }
+    groupSupport foreach(entry => info(entry._1 + " ==> " + entry._2))
 
-    val matchesInPDF = regex.findAllIn(lines).matchData
+//    for (line <- sampleSizes){
+//      info("LINE: " + line)
+//    }
 
-    val groupBool = mutable.Map.empty[Int, Boolean]
-
-    while (matchesInPDF.hasNext){
-      info("group: " + matchesInPDF.next().group(1))
-    }
+//    val matchesInPDF = regex.findAllIn(lines).matchData
+//
+//    while (matchesInPDF.hasNext){
+//      info("group: " + matchesInPDF.next().group(1))
+//    }
 
 //    for(i <- 1 to 3) {
 //      groupBool(i) = false
@@ -140,7 +153,7 @@ class SampleSizeExtractorTest extends FunSuite{
 //        }
 //      }
 //    }
-    groupBool foreach(entry => info(entry._1 + " ==> " + entry._2))
+
   }
 
   test("Read File"){
