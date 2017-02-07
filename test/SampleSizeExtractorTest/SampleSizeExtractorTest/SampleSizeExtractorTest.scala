@@ -96,9 +96,10 @@ class SampleSizeExtractorTest extends FunSuite{
 //              }
 
 
-//              if(entry._1.replaceAll("\\s","").toLowerCase.contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
-//                correctFindings(fileString) = true
-//              }
+              if(entry._1.head._1.replaceAll("\\s","").toLowerCase.
+                contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
+                correctFindings(fileString) = true
+              }
             }
           }
         }
