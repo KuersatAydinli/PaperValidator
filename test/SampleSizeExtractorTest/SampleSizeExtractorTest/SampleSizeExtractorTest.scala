@@ -1,5 +1,5 @@
 package SampleSizeExtractorTest.SampleSizeExtractorTest
-import java.io.File
+import java.io.{File, PrintWriter}
 
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import helper.statcheck.{Statchecker => StatChecker}
@@ -40,7 +40,7 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Get SampleSize Context"){
-    val paperDir = "test/TestPDFs/2010_2107.pdf"
+    val paperDir = "test/TestPDFs/p1093-kim.pdf"
     val pdfDoc = PDDocument.load(new File(paperDir))
     val pdfText = convertPDFtoText(paperDir)
     val statChecker = StatChecker
@@ -112,11 +112,11 @@ class SampleSizeExtractorTest extends FunSuite{
     correctFindings foreach(finding => info("%-60s ==> %s".format(finding._1,finding._2.toString)))
   }
 
-  test("Regex Stuff"){
+  test("Regex Testings"){
 //    val regex = new Regex("(\\d+\\D{0,30}patients|\\d+[,]\\d{3}\\D{0,20}patients)")
     val regex = new Regex("(\\d+([,\\s*]\\d{3})*\\D{0,20}patients)")
 //      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
-    val string = "434 674 patients"
+    val string = "5754 patients"
     val matches = regex.findAllIn(string).matchData
     while (matches.hasNext){
       val currentMatch = matches.next()
@@ -193,11 +193,11 @@ class SampleSizeExtractorTest extends FunSuite{
   def convertPDFtoText(path: String): List[String] = {
     val paperLink = path
     val text = new PDFTextExtractor(paperLink).pages
-//    if (!new File(paperLink + ".text").exists()) {
-//      val pw = new PrintWriter(new File(paperLink + ".txt"))
-//      pw.write(text.map(_.toLowerCase()).mkString("\n\n"))
-//      pw.close()
-//    }
+    if (!new File(paperLink + ".text").exists()) {
+      val pw = new PrintWriter(new File(paperLink + ".txt"))
+      pw.write(text.map(_.toLowerCase()).mkString("\n\n"))
+      pw.close()
+    }
     text
   }
 }

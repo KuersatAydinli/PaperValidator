@@ -191,50 +191,51 @@ object Statchecker {
     tooPreciseDouble
   }
 
-  val REGEX_SAMPLE_SIZE = new Regex("" +
-    "(\\d+[,]\\d{3}\\D{0,20}women)" +
-    "|(\\d+\\D{0,20}women)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}men|\\d+\\D{0,20}men)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}children|\\d+\\D{0,20}children)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}residents|\\d+\\D{0,20}residents)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}students|\\d+\\D{0,20}students)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}persons|\\d+\\D{0,20}persons)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}participants|\\d+\\D{0,20}participants)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}subjects|\\d+\\D{0,20}subjects)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}patients|\\d+\\D{0,30}patients)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}respondents|\\d+\\D{0,30}respondents)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}adults|\\d+\\D{0,20}adults)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}newborns|\\d+\\D{0,20}newborns)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}samples|\\d+\\D{0,20}samples)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}procedures|\\d+\\D{0,20}procedures)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}people|\\d+\\D{0,20}people)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}vonunteers|\\d+\\D{0,20}volunteers)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}employees|\\d+\\D{0,20}employees)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}users|\\d+\\D{0,20}users)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}programmers|\\d+\\D{0,20}programmers)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}individuals|\\d+\\D{0,20}individuals)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}corporations|\\d+\\D{0,20}corporations)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}managers|\\d+\\D{0,20}managers)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}establishments|\\d+\\D{0,20}establishments)" +
-    "|([Nn]\\s*=\\s*\\d+[,]\\d{3})" +
-    "|([Nn]\\s*=\\d+)" +
+  val REGEX_SAMPLE_SIZE = new Regex(
+//    "(\\d+[,]\\d{3}\\D{0,20}women)" +
+    "(\\d+([,\\s*]\\d{3})*\\D{0,30}women)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}men)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}children)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}residents)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}students)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}persons)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}participants)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}subjects)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}patients)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}respondents)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}adults)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}newborns)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}samples)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}procedures)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}people)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}employees)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}users)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}programmers)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}individuals)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}corporations)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}managers)" +
+     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}firms)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}establishments)" +
+//    "|([Nn]\\s*=\\s*\\d+[,]\\d{3})" +
+    "|([Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*)" +
 //    "|(\\d+\\D{0,20}participants\\D{0,20}were\\D{0,10}included)" +
 //    "|(\\d+\\D{0,20}persons\\D{0,20}were\\D{0,10}included)" +
 //    "|(\\d+\\D{0,20}subjects\\D{0,20}were\\D{0,10}included)" +
 //    "|(\\d+\\D{0,20}patients\\D{0,20}were\\D{0,10}included)" +
-    "|(sample\\s*of\\s*\\d+([,\\s*]\\d{3})*|sample\\s*of\\s*\\d+)" +
+    "|(sample\\s*of\\s*\\D{0,20}\\d+([,\\s*]\\d{3})*)" +
     "|(sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*)" +
     "|(study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*)" +
-    "|(\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+)" +
-    "|(\\d+\\D{0,20}were\\D{0,10}recruited)" +
-    "|([Ww]e\\D{0,20}recruited\\D{0,20}\\d+)" +
-    "|(\\d+D{0,20}enrolled)" +
-    "|([Tt]otal\\s*of\\d+\\D+participated)" +
-    "|([Tt]otal\\s*of\\s*\\d+)" +
-    "|(\\d+\\D{0,20}took\\s*part)" +
-    "|(\\d+\\D{0,15}consecutive\\s?patient)" +
-    "|(\\d+\\D{0,15}consecutive\\s?participant)" +
-    "|(\\s?data\\D{0,20}from\\D{0,20}\\d+)")
+    "|(\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+([,\\s*]\\d{3})*)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}were\\D{0,10}recruited)" +
+    "|([Ww]e\\D{0,20}recruited\\D{0,20}\\d+([,\\s*]\\d{3})*)" +
+    "|(\\d+([,\\s*]\\d{3})*D{0,20}enrolled)" +
+//    "|([Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*\\D+participated)" +
+    "|([Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,20}took\\s*part)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?patient)" +
+    "|(\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?participant)" +
+    "|(\\s*data\\D{0,20}from\\D{0,20}\\d+([,\\s*]\\d{3})*)")
 
   val groupCount = 26 // number of capturing groups in the RegEx
 
