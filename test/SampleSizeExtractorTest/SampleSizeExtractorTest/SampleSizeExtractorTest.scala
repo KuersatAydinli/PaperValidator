@@ -1,5 +1,5 @@
 package SampleSizeExtractorTest.SampleSizeExtractorTest
-import java.io.{File, PrintWriter}
+import java.io.File
 
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import helper.statcheck.{Statchecker => StatChecker}
@@ -9,6 +9,7 @@ import org.scalatest.FunSuite
 
 import scala.collection.mutable
 import scala.io.Source
+import scala.util.matching.Regex
 
 /**
   * Created by Aydinli on 26.01.2017.
@@ -63,6 +64,7 @@ class SampleSizeExtractorTest extends FunSuite{
 
     for(line <- lines){ // build map of paper and sample size from PDF library
       val splittedLine = line.split(":")
+//      info("LINE: " + line)
       sampleSizePerPaper(splittedLine(0)) = splittedLine(1)
     }
 
@@ -108,6 +110,20 @@ class SampleSizeExtractorTest extends FunSuite{
     info("PDF Count: " + countPDFs)
 //    correctFindings foreach(finding => info(finding._1 + "==>" + finding._2.toString))
     correctFindings foreach(finding => info("%-60s ==> %s".format(finding._1,finding._2.toString)))
+  }
+
+  test("Regex Stuff"){
+//    val regex = new Regex("(\\d+\\D{0,30}patients|\\d+[,]\\d{3}\\D{0,20}patients)")
+    val regex = new Regex("(\\d+([,\\s*]\\d{3})*\\D{0,20}patients)")
+//      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
+    val string = "434 674 patients"
+    val matches = regex.findAllIn(string).matchData
+    while (matches.hasNext){
+      val currentMatch = matches.next()
+      info("current match: " + currentMatch)
+      info("group size: " + currentMatch.groupCount)
+    }
+
   }
 
   test("Regex Matching"){
@@ -177,11 +193,11 @@ class SampleSizeExtractorTest extends FunSuite{
   def convertPDFtoText(path: String): List[String] = {
     val paperLink = path
     val text = new PDFTextExtractor(paperLink).pages
-    if (!new File(paperLink + ".text").exists()) {
-      val pw = new PrintWriter(new File(paperLink + ".txt"))
-      pw.write(text.map(_.toLowerCase()).mkString("\n\n"))
-      pw.close()
-    }
+//    if (!new File(paperLink + ".text").exists()) {
+//      val pw = new PrintWriter(new File(paperLink + ".txt"))
+//      pw.write(text.map(_.toLowerCase()).mkString("\n\n"))
+//      pw.close()
+//    }
     text
   }
 }
