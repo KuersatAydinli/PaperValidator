@@ -6,7 +6,6 @@ import java.util.regex.Pattern
 import breeze.linalg.{max, min}
 import breeze.numerics._
 import breeze.stats.distributions.FDistribution
-import controllers.Paper
 import helper.Commons
 import helper.pdfpreprocessing.PreprocessPDF
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
@@ -15,6 +14,7 @@ import org.apache.commons.math3.distribution.{ChiSquaredDistribution, TDistribut
 import play.api.Logger
 
 import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
 import scala.io.Source
 import scala.util.matching.Regex
 
@@ -22,26 +22,81 @@ import scala.util.matching.Regex
   * Created by manuel on 25.04.2016.
   */
 
+/**
+  * This class represents one RegEx Pattern structure
+  * @param regex: RegEx pattern to match
+  * @param synonyms: possible synonyms for some pattern
+  */
 case class SampleSizePattern(regex: Regex, synonyms:List[SampleSizePattern] = List.empty) {
-  def matchPattern(paper:Paper) : List[PatternMatches] = {
+  /**
+    * Applies RegEx to PDF Text and return matches
+    * @param paperText PDF Text of paper
+    * @return PatternMatches object including all matches for some RegEx Pattern in PDF Text
+    */
+  def matchPattern(paperText:String) : PatternMatches = {
     // apply Regex (e.g "n\s*=\d+") to paper text and return list of PatternMatches objects
-    val paperText = paper.convertPDFtoText(paper).mkString
-    val matches = regex.findAllIn(paperText)
+    val matches = regex.findAllIn(paperText).matchData
+    var patternMatchList = new ListBuffer[PatternMatch]()
+
     while (matches.hasNext){
       val currentMatch = matches.next()
-      val patternMatch = PatternMatch(paper,)
+      val index = paperText.indexOf(currentMatch.toString())
+      val patternMatch = PatternMatch(paperText,this,index)
+      patternMatchList += patternMatch
     }
+    val patternMatches = PatternMatches(regex,patternMatchList)
+    patternMatches
   }
 }
 
-case class PatternMatches(matches:List[PatternMatch]) {
+/**
+  * This class is a container for the matches of a RegEx pattern in the PDF Text
+  * @param regex RegEx pattern to match
+  * @param matches list of matches for one pattern
+  */
+case class PatternMatches(regex: Regex, matches:ListBuffer[PatternMatch]) {
+
+  /**
+    * Illustrates by how many sampleSizes in the PDF bib the RegEx was supported
+    * E.g ''X patiens'' would have support of 30, if 30 sample Sizes in PDF Bib are of this pattern
+    */
   lazy val support = {
-    //calc support here
+    var support = 0
+
+    var sampleSizes = Source.fromFile("test/TestPDFs/sampleSizesExtracted.txt").getLines().toList
+    var sampleSizeList = mutable.MutableList[String]()
+    for(line <- sampleSizes){
+      sampleSizeList += line.split(":")(1)
+    }
+
+    for (sampleSize <- sampleSizeList){
+      val matches = regex.findAllIn(sampleSize).matchData
+      while (matches.hasNext){
+        val currentMatch = matches.next()
+        support += 1
+        }
+      }
+    support
+    }
+
+  def getMatches(matches: List[PatternMatch]) : List[PatternMatch] = {
+    matches
   }
 }
 
-case class PatternMatch(paper:Paper, pattern:SampleSizePattern, index:Int) {
-  def context = paper.convertPDFtoText(paper).mkString.substring(index,2000)
+case class PatternMatch(paperText:String, pattern:SampleSizePattern, index:Int) {
+  var context:String = {
+    if (paperText.length >= index + 350 && index >= 300){
+      context = paperText.substring(index-300,index+300)
+    } else if(paperText.length >= index + 350 && index < 300) {
+      context = paperText.substring(0,index+300)
+    } else if (paperText.length < index + 350 && index >= 300){
+      context = paperText.substring(index-300,paperText.length-1)
+    } else if (paperText.length < index + 350 && index < 300){
+      context = paperText.substring(0,paperText.length-1)
+    }
+    context
+  }
 }
 
 object Statchecker {
@@ -198,6 +253,9 @@ object Statchecker {
     tooPreciseDouble
   }
 
+  /**
+    * List of different RegEx patterns to match possible sample sizes
+    */
   val testListRegex = mutable.MutableList(
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
@@ -211,7 +269,31 @@ object Statchecker {
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}newborns"),
-  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}samples"))
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}samples"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}procedures"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}employees"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}users"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}programmers"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}corporations"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}managers"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}firms"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}establishments"),
+  new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+  new Regex("sample\\s*of\\s*\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+  new Regex("sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*"),
+  new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+  new Regex("\\s?cohort[^...]{0,15}study[^...]{0,15}of\\D{0,15}\\d+([,\\s*]\\d{3})*"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}were\\D{0,10}recruited"),
+  new Regex("[Ww]e\\D{0,20}recruited\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+  new Regex("\\d+([,\\s*]\\d{3})*D{0,20}enrolled"),
+  new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}took\\s*part"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?patient"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?participant"),
+  new Regex("\\s*data\\D{0,20}from\\D{0,20}\\d+([,\\s*]\\d{3})*"))
 
   val REGEX_SAMPLE_SIZE = new Regex(
 //    "(\\d+[,]\\d{3}\\D{0,20}women)" +
@@ -228,7 +310,8 @@ object Statchecker {
     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}adults)" +
     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}newborns)" +
     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}samples)" +
-    "|(\\d+([,\\s*]\\d{3})*\\D{0,30}procedures)" +
+
+      "|(\\d+([,\\s*]\\d{3})*\\D{0,30}procedures)" +
     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}people)" +
     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers)" +
     "|(\\d+([,\\s*]\\d{3})*\\D{0,30}employees)" +
@@ -334,15 +417,26 @@ object Statchecker {
     -1
   }
 
+  /**
+    * This Method is the new main method for extracting the sample size
+    * @param textList Paper Text from PDF
+    * @return A Map[SampleSizePattern -> PatternMatches]
+    *         For each Pattern in the RegEx List get all Matches which were found in the paper along with its context and the
+    *         particular support for the pattern regarding the PDF Library consisting of 100 PDFs
+    *
+    * */
   def extractSampleSizeFromPaper(textList: List[String]) : mutable.Map[SampleSizePattern,PatternMatches] = {
 //  def extractSampleSizeFromPaper(textList: List[String]): Iterable[Serializable] with PartialFunction[Int with SampleSizePattern, Serializable] = {
     val sampleSizeMap = mutable.Map.empty[SampleSizePattern,PatternMatches]
     val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase("") || page.equals("\r\n"))
     val newList = filteredTextList map(string => string.replaceFirst("-\\s\\d+\\s-|\\d+\\s+","")) // Trim page indices
+    val paperText = newList.mkString
     val totalMatches = REGEX_SAMPLE_SIZE.findAllIn(newList.mkString)
 
     for(regex <- testListRegex){
       val sampleSizePattern = SampleSizePattern(regex)
+      val patternMatches = sampleSizePattern.matchPattern(paperText)
+      sampleSizeMap(sampleSizePattern) = patternMatches
     }
 
     /*For each pattern, make a SampleSizePattern object

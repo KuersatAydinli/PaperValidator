@@ -159,16 +159,4 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
     }
   }
 
-  def convertPDFtoText(paper: Paper): List[String] = {
-    val paperLink = PreprocessPDF.INPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/" + paper.name
-    val text = new PDFTextExtractor(paperLink).pages
-    //val text = contents.mkString(" ").replaceAll("\u0000"," ")
-    if (!new File(paperLink + ".text").exists()) {
-      val pw = new PrintWriter(new File(paperLink + ".txt"))
-      pw.write(text.map(_.toLowerCase()).mkString("\n\n"))
-      pw.close()
-    }
-    text
-  }
-
 }
