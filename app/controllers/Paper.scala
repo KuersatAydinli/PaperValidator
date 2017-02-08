@@ -1,9 +1,12 @@
 package controllers
 
+import java.io.{File, PrintWriter}
 import javax.inject.Inject
 
 import ch.uzh.ifi.pdeboer.pplib.hcomp.ballot.integrationtest.console.Constants
 import helper._
+import helper.pdfpreprocessing.PreprocessPDF
+import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import models._
 import play.api.db.Database
 import play.api.mvc.{Action, Controller}
@@ -154,6 +157,18 @@ class Paper @Inject()(database: Database, configuration: Configuration, papersSe
       Logger.info("File does not exist")
       Unauthorized(views.html.error.unauthorized())
     }
+  }
+
+  def convertPDFtoText(paper: Paper): List[String] = {
+    val paperLink = PreprocessPDF.INPUT_DIR + "/" + Commons.getSecretHash(paper.secret) + "/" + paper.name
+    val text = new PDFTextExtractor(paperLink).pages
+    //val text = contents.mkString(" ").replaceAll("\u0000"," ")
+    if (!new File(paperLink + ".text").exists()) {
+      val pw = new PrintWriter(new File(paperLink + ".txt"))
+      pw.write(text.map(_.toLowerCase()).mkString("\n\n"))
+      pw.close()
+    }
+    text
   }
 
 }

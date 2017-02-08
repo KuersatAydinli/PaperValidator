@@ -6,6 +6,7 @@ import java.util.regex.Pattern
 import breeze.linalg.{max, min}
 import breeze.numerics._
 import breeze.stats.distributions.FDistribution
+import controllers.Paper
 import helper.Commons
 import helper.pdfpreprocessing.PreprocessPDF
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
@@ -21,21 +22,27 @@ import scala.util.matching.Regex
   * Created by manuel on 25.04.2016.
   */
 
-//case class SampleSizePattern(regex: Regex, synonyms:List.empty[SampleSizePattern]) {
-//  def matchPattern(paper:Paper) : List[PatternMatches] = {
-//    // apply Regex (e.g "n\s*=\d+") to paper text and return list of PatternMatches objects
-//  }
-//}
-//
-//case class PatternMatches(matches:List[PatternMatch]) {
-//  lazy val support = {
-//    //calc support here
-//  }
-//}
-//
-//case class PatternMatch(paper:Paper, pattern:SampleSizePattern, index:Int) {
-//  def context = paper.text.substring(index,2000)
-//}
+case class SampleSizePattern(regex: Regex, synonyms:List[SampleSizePattern] = List.empty) {
+  def matchPattern(paper:Paper) : List[PatternMatches] = {
+    // apply Regex (e.g "n\s*=\d+") to paper text and return list of PatternMatches objects
+    val paperText = paper.convertPDFtoText(paper).mkString
+    val matches = regex.findAllIn(paperText)
+    while (matches.hasNext){
+      val currentMatch = matches.next()
+      val patternMatch = PatternMatch(paper,)
+    }
+  }
+}
+
+case class PatternMatches(matches:List[PatternMatch]) {
+  lazy val support = {
+    //calc support here
+  }
+}
+
+case class PatternMatch(paper:Paper, pattern:SampleSizePattern, index:Int) {
+  def context = paper.convertPDFtoText(paper).mkString.substring(index,2000)
+}
 
 object Statchecker {
   //### Logical. Do we assume that all reported tests are one tailed (TRUE) or two tailed (FALSE, default)?
@@ -191,6 +198,21 @@ object Statchecker {
     tooPreciseDouble
   }
 
+  val testListRegex = mutable.MutableList(
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}childre"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}students"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}newborns"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}samples"))
+
   val REGEX_SAMPLE_SIZE = new Regex(
 //    "(\\d+[,]\\d{3}\\D{0,20}women)" +
     "(\\d+([,\\s*]\\d{3})*\\D{0,30}women)" +
@@ -312,15 +334,23 @@ object Statchecker {
     -1
   }
 
-//  def extractSampleSizeFromPaper(textList: List[String]) : mutable.Map[SampleSizePattern,PatternMatches] = {
-//    val sampleSizeMap = mutable.Map.empty[SampleSizePattern,PatternMatches]
-//
-//    /*For each pattern, make a SampleSizePattern object
-//    * return map to application
-//    */
-//
-//    sampleSizeMap
-//  }
+  def extractSampleSizeFromPaper(textList: List[String]) : mutable.Map[SampleSizePattern,PatternMatches] = {
+//  def extractSampleSizeFromPaper(textList: List[String]): Iterable[Serializable] with PartialFunction[Int with SampleSizePattern, Serializable] = {
+    val sampleSizeMap = mutable.Map.empty[SampleSizePattern,PatternMatches]
+    val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase("") || page.equals("\r\n"))
+    val newList = filteredTextList map(string => string.replaceFirst("-\\s\\d+\\s-|\\d+\\s+","")) // Trim page indices
+    val totalMatches = REGEX_SAMPLE_SIZE.findAllIn(newList.mkString)
+
+    for(regex <- testListRegex){
+      val sampleSizePattern = SampleSizePattern(regex)
+    }
+
+    /*For each pattern, make a SampleSizePattern object
+    * return map to application
+    */
+
+    sampleSizeMap
+  }
 
   /**
     * Extracts the context for each RegEx Match within the PDF document

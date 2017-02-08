@@ -40,7 +40,7 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Get SampleSize Context"){
-    val paperDir = "test/TestPDFs/p1093-kim.pdf"
+    val paperDir = "test/TestPDFs/2004_12404.pdf"
     val pdfDoc = PDDocument.load(new File(paperDir))
     val pdfText = convertPDFtoText(paperDir)
     val statChecker = StatChecker
@@ -56,6 +56,20 @@ class SampleSizeExtractorTest extends FunSuite{
 //    val filteredContext = statChecker.filterSampleSizeContext(sampleSizeContext)
 //    info("Size Filtered Context: " + filteredContext.size)
 //    filteredContext foreach((entry) => info(entry._1 + " ===> " + entry._2))
+  }
+
+  test("Test new Map Structure"){
+    val paperDir = "test/TestPDFs/2004_12404.pdf"
+    val pdfDoc = PDDocument.load(new File(paperDir))
+    val pdfText = convertPDFtoText(paperDir)
+    val statChecker = StatChecker
+
+    val patternMap = statChecker.extractSampleSizeFromPaper(pdfText)
+    info("patternMap" + patternMap)
+    for (pattern <- patternMap){
+      info("pattern: " + pattern.toString)
+    }
+
   }
 
   test("Get SampleSize of Library"){
