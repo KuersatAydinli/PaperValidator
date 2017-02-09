@@ -8,6 +8,7 @@ import org.apache.pdfbox.pdmodel.PDDocument
 import org.scalatest.FunSuite
 
 import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
 import scala.io.Source
 import scala.util.matching.Regex
 
@@ -76,10 +77,12 @@ class SampleSizeExtractorTest extends FunSuite{
     info("Running...")
     val paperDir = "test/TestPDFs/2004_12404.pdf"
     val pdfDoc = PDDocument.load(new File(paperDir))
-    val pdfText = convertPDFtoText(paperDir)
+//    val pdfText = convertPDFtoText(paperDir)
     val statChecker = StatChecker
 
-    val patternMap = statChecker.extractSampleSizeFromPaper(pdfText)
+    val pdfText = new ListBuffer[String]()
+    pdfText += "hundred women"
+    val patternMap = statChecker.extractSampleSizeFromPaper(pdfText.toList)
     info("PatternMap size: " + patternMap.size)
 //    val confidenceMap = statChecker.getCondifence(patternMap)
 //    info("Confidence Map Size: " + confidenceMap.size)
@@ -146,14 +149,23 @@ class SampleSizeExtractorTest extends FunSuite{
 
   test("Regex Testings"){
 //    val regex = new Regex("(\\d+\\D{0,30}patients|\\d+[,]\\d{3}\\D{0,20}patients)")
-    val regex = new Regex("(\\d+([,\\s*]\\d{3})*\\D{0,20}patients)")
-//      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
-    val string = "5754 patients"
+//    val regex = new Regex("(\\d+([,\\s*]\\d{3})*\\D{0,20}patients)")
+////      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
+//    val string = "5754 patients"
+//    val matches = regex.findAllIn(string).matchData
+//    while (matches.hasNext){
+//      val currentMatch = matches.next()
+//      info("current match: " + currentMatch)
+//      info("group size: " + currentMatch.groupCount)
+//    }
+    val statChecker = StatChecker
+    val regex = new Regex(".{0,50}women")
+    //      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
+    val string = "jasdfie asdfk asdife women"
     val matches = regex.findAllIn(string).matchData
     while (matches.hasNext){
       val currentMatch = matches.next()
-      info("current match: " + currentMatch)
-      info("group size: " + currentMatch.groupCount)
+      info("current match: " + currentMatch.toString())
     }
 
   }

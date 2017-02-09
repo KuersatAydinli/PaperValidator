@@ -16,8 +16,8 @@ import play.api.Logger
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
+import scala.util.control._
 import scala.util.matching.Regex
-import scala.util.control.Breaks
 /**
   * Created by manuel on 25.04.2016.
   */
@@ -34,15 +34,30 @@ case class SampleSizePattern(regex: Regex, synonyms:List[SampleSizePattern] = Li
     * @return PatternMatches object including all matches for some RegEx Pattern in PDF Text
     */
   def matchPattern(paperText:String) : PatternMatches = {
-    // apply Regex (e.g "n\s*=\d+") to paper text and return list of PatternMatches objects
+    val statChecker = Statchecker
     val matches = regex.findAllIn(paperText).matchData
     var patternMatchList = new ListBuffer[PatternMatch]()
 
+    val whileLoop = new Breaks
+
     while (matches.hasNext){
-      val currentMatch = matches.next()
-      val index = paperText.indexOf(currentMatch.toString())
-      val patternMatch = PatternMatch(paperText,this,index,currentMatch.toString())
-      patternMatchList += patternMatch
+      whileLoop.breakable{
+        val currentMatch = matches.next()
+        //work so far to integrate recognizeDitig() into RegEx search
+//        if(regex.toString().contains(".{0,20}")){
+//          val stringToCheck = currentMatch.toString().substring(0,currentMatch.toString().indexOf("woman"))
+//          val recognizeIfDigit = statChecker.recognizeDigit(stringToCheck)
+//          if(recognizeIfDigit == -1){
+//            whileLoop.break
+//          }
+//          val index = paperText.indexOf(currentMatch.toString())
+//          val patternMatch = PatternMatch(paperText,this,index,recognizeIfDigit + " women")
+//          patternMatchList += patternMatch
+//        }
+        val index = paperText.indexOf(currentMatch.toString())
+        val patternMatch = PatternMatch(paperText,this,index,currentMatch.toString())
+        patternMatchList += patternMatch
+      }
     }
     val patternMatches = PatternMatches(regex,patternMatchList)
     patternMatches
@@ -258,8 +273,9 @@ object Statchecker {
     */
   val testListRegex = mutable.MutableList(
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+//  new Regex(".{0,20}women"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
-  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}childre"),
+  new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}children"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}students"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
@@ -417,6 +433,11 @@ object Statchecker {
     -1
   }
 
+  /**
+    * This method is repsonsible for converting words into numbers if posible
+    * @param input Input word which should be checked if it represents a number, e.g eighty-four
+    * @return Integer representation of the input word if word is valid, return -1 otherwhise
+    */
   def recognizeDigit(input:String) : Int = {
     val dictNumbers = mutable.Map.empty[String,Int]
     dictNumbers("zero") = 0
@@ -463,7 +484,8 @@ object Statchecker {
     val inputTrimmed = input.replaceAll("-"," ").toLowerCase().replaceAll(" and"," ")
     val splittedParts = inputTrimmed.trim().split("\\s+")
 
-    var innerLoop = new Breaks
+    val innerLoop = new Breaks
+
     var isValidInput = true
 
     for (str <- splittedParts){
