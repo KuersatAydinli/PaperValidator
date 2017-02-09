@@ -68,8 +68,26 @@ class SampleSizeExtractorTest extends FunSuite{
     val patternMap = statChecker.extractSampleSizeFromPaper(pdfText)
     info("patternMapSize : " + patternMap.size)
     for(pattern <- patternMap){
-      info("Pattern: " + pattern._1.toString + " ===> Support:" + pattern._2.support)
+      info("Pattern: " + pattern._1.toString + " ===> Support: " + pattern._2.support)
     }
+  }
+
+  test("GetConfidencePerPattern"){
+    info("Running...")
+    val paperDir = "test/TestPDFs/2004_12404.pdf"
+    val pdfDoc = PDDocument.load(new File(paperDir))
+    val pdfText = convertPDFtoText(paperDir)
+    val statChecker = StatChecker
+
+    val patternMap = statChecker.extractSampleSizeFromPaper(pdfText)
+    info("PatternMap size: " + patternMap.size)
+//    val confidenceMap = statChecker.getCondifence(patternMap)
+//    info("Confidence Map Size: " + confidenceMap.size)
+  }
+
+  test("Recognize Number from String"){
+    val statChecker = StatChecker
+    info("Result: " + statChecker.recognizeDigit("eighty-four"))
   }
 
   test("Get SampleSize of Library"){

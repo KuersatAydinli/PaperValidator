@@ -17,7 +17,7 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
 import scala.util.matching.Regex
-
+import scala.util.control.Breaks
 /**
   * Created by manuel on 25.04.2016.
   */
@@ -41,7 +41,7 @@ case class SampleSizePattern(regex: Regex, synonyms:List[SampleSizePattern] = Li
     while (matches.hasNext){
       val currentMatch = matches.next()
       val index = paperText.indexOf(currentMatch.toString())
-      val patternMatch = PatternMatch(paperText,this,index)
+      val patternMatch = PatternMatch(paperText,this,index,currentMatch.toString())
       patternMatchList += patternMatch
     }
     val patternMatches = PatternMatches(regex,patternMatchList)
@@ -84,7 +84,7 @@ case class PatternMatches(regex: Regex, matches:ListBuffer[PatternMatch]) {
   }
 }
 
-case class PatternMatch(paperText:String, pattern:SampleSizePattern, index:Int) {
+case class PatternMatch(paperText:String, pattern:SampleSizePattern, index:Int, matchInstance:String) {
   var context:String = {
     if (paperText.length >= index + 350 && index >= 300){
       context = paperText.substring(index-300,index+300)
@@ -417,6 +417,96 @@ object Statchecker {
     -1
   }
 
+  def recognizeDigit(input:String) : Int = {
+    val dictNumbers = mutable.Map.empty[String,Int]
+    dictNumbers("zero") = 0
+    dictNumbers("one") = 1
+    dictNumbers("two") = 2
+    dictNumbers("three") = 3
+    dictNumbers("four") = 4
+    dictNumbers("five") = 5
+    dictNumbers("six") = 6
+    dictNumbers("seven") = 7
+    dictNumbers("eight") = 8
+    dictNumbers("nine") = 9
+    dictNumbers("ten") = 10
+    dictNumbers("eleven") = 11
+    dictNumbers("twelve") = 12
+    dictNumbers("thirteen") = 13
+    dictNumbers("fourteen") = 14
+    dictNumbers("fifteen") = 15
+    dictNumbers("sixteen") = 16
+    dictNumbers("seventeen") = 17
+    dictNumbers("eighteen") = 18
+    dictNumbers("nineteen") = 19
+    dictNumbers("twenty") = 20
+    dictNumbers("thirty") = 30
+    dictNumbers("forty") = 40
+    dictNumbers("fifty") = 50
+    dictNumbers("sixty") = 60
+    dictNumbers("seventy") = 70
+    dictNumbers("eighty") = 80
+    dictNumbers("ninety") = 90
+    dictNumbers("hundred") = 100
+    dictNumbers("thousand") = 1000
+    dictNumbers("million") = 1000000
+    dictNumbers("billion") = 1000000000
+
+    var allowedStrings = new ListBuffer[String]()
+    for(entry <- dictNumbers){
+      allowedStrings += entry._1
+    }
+
+    var result = 0
+    var finalResult = 0
+    val inputCleared = input.replaceAll("\\s","").replaceAll("-","").toLowerCase
+    val inputTrimmed = input.replaceAll("-"," ").toLowerCase().replaceAll(" and"," ")
+    val splittedParts = inputTrimmed.trim().split("\\s+")
+
+    var innerLoop = new Breaks
+    var isValidInput = true
+
+    for (str <- splittedParts){
+      if(!allowedStrings.contains(str)){
+        isValidInput = false
+      }
+    }
+    if(isValidInput){
+      for (str <- splittedParts){
+        innerLoop.breakable{
+          for (entry <- dictNumbers){
+            if(str.equalsIgnoreCase("hundred")){
+              result *= 100
+              innerLoop.break
+            } else if(str.equalsIgnoreCase("thousand")){
+              result *= 1000
+              finalResult += result
+              result = 0
+              innerLoop.break
+            } else if(str.equalsIgnoreCase("million")){
+              result *= 1000000
+              finalResult += result
+              result = 0
+              innerLoop.break
+            } else if(str.equalsIgnoreCase("billion")){
+              result *= 1000000000
+              finalResult += result
+              result = 0
+              innerLoop.break
+            } else if (str.equalsIgnoreCase(entry._1)){
+              result += entry._2
+              innerLoop.break
+            }
+          }
+        }
+      }
+      finalResult += result
+      return finalResult
+    }
+    -1
+  }
+
+
   /**
     * This Method is the new main method for extracting the sample size
     * @param textList Paper Text from PDF
@@ -426,7 +516,6 @@ object Statchecker {
     *
     * */
   def extractSampleSizeFromPaper(textList: List[String]) : mutable.Map[SampleSizePattern,PatternMatches] = {
-//  def extractSampleSizeFromPaper(textList: List[String]): Iterable[Serializable] with PartialFunction[Int with SampleSizePattern, Serializable] = {
     val sampleSizeMap = mutable.Map.empty[SampleSizePattern,PatternMatches]
     val filteredTextList = textList.filterNot(page => page.equalsIgnoreCase("") || page.equals("\r\n"))
     val newList = filteredTextList map(string => string.replaceFirst("-\\s\\d+\\s-|\\d+\\s+","")) // Trim page indices
@@ -438,13 +527,19 @@ object Statchecker {
       val patternMatches = sampleSizePattern.matchPattern(paperText)
       sampleSizeMap(sampleSizePattern) = patternMatches
     }
-
-    /*For each pattern, make a SampleSizePattern object
-    * return map to application
-    */
-
     sampleSizeMap
   }
+
+//  def getCondifence(sampleSizeMap: mutable.Map[SampleSizePattern,PatternMatches])
+//  : mutable.Map[SampleSizePattern,Float] = {
+//    var (support_1, support_2, support_3) = (0, 0, 0)
+//
+//    for(entry <- sampleSizeMap){
+//      support_1 = entry._2.matches.size // # matches of a pattern in the PDF
+//      support_2 = entry._2.support // absolute support of pattern within the PDF Bib
+//      support_3 =
+//    }
+//  }
 
   /**
     * Extracts the context for each RegEx Match within the PDF document
