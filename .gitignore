@@ -20,3 +20,5 @@ conf/application.conf
 conf/application.local.conf
 **.scala.save
 /test/TestPDFs/
+!/test/TestPDFs/sampleSizesExtracted.txt
+!/test/TestPDFs/PDFLibrary_SampleSizes.csv
