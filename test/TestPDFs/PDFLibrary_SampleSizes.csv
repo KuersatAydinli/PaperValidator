@@ -177,35 +177,60 @@ PDF_Name,ID,Index,part_of,N,comment
 2011_2213.txt,176,93:763,162,12, depressive symptoms
 2011_2213.txt,177,93:817,161,191, disability in daily living
 2011_2213.txt,178,93:842,162,92, disability in daily living
-2001_9739.txt,179,9:306,null,18, data ... from 18 countries
-2001_9739.txt,180,9:585,179,18, data from 18 countries
-2001_9739.txt,181,9:629,null,89.037, n=89.037
-2001_9739.txt,182,9:828,179,10, in the 10 high income countries
-2001_9739.txt,183,9:869,179,8, in the 8 low-middle income countries
-2001_9739.txt,184,15:286,179,18 18 countries
-2001_9739.txt,185,15:1414,179,18, 18 countries participating ...
-2001_9739.txt,186,18:677,null,14, across 14 different countries
-2001_9739.txt,187,21:737,181,2.372, ranged from 2.372
-2001_9739.txt,188,21:764,181,12.790, to 12.790
-2001_9739.txt,189,21:801,181,89.037, a total of 89.037
-2001_9739.txt,190,30:1511,179,10, in 10 countries
-2001_9739.txt,191,39:603,179,15, 15 of the 18 countries
-2001_9739.txt,192,39:643,179,3, and even in the 3 exceptions
-2001_9739.txt,193,39:1197,182,2, in 2 high income ... countries
-2001_9739.txt,194,39:1216,183,5, 5 low-middle income countries
-2001_9739.txt,195,
-2001_9739.txt,196,
-2001_9739.txt,197,
-2001_9739.txt,198,
-2001_9739.txt,199,
-2001_9739.txt,200,
-2001_9739.txt,201,
-2001_9739.txt,202,
-2001_9739.txt,203,
-2001_9739.txt,204,
-2001_9739.txt,205,
-2001_9739.txt,206,
-2001_9739.txt,207,
+2011_9739.txt,179,9:306,null,18, data ... from 18 countries
+2011_9739.txt,180,9:585,179,18, data from 18 countries
+2011_9739.txt,181,9:629,null,89.037, n=89.037
+2011_9739.txt,182,9:828,179,10, in the 10 high income countries
+2011_9739.txt,183,9:869,179,8, in the 8 low-middle income countries
+2011_9739.txt,184,15:286,179,18 18 countries
+2011_9739.txt,185,15:1414,179,18, 18 countries participating ...
+2011_9739.txt,186,18:677,null,14, across 14 different countries
+2011_9739.txt,187,21:737,181,2.372, ranged from 2.372
+2011_9739.txt,188,21:764,181,12.790, to 12.790
+2011_9739.txt,189,21:801,181,89.037, a total of 89.037
+2011_9739.txt,190,30:1511,179,10, in 10 countries
+2011_9739.txt,191,39:603,179,15, 15 of the 18 countries
+2011_9739.txt,192,39:643,179,3, and even in the 3 exceptions
+2011_9739.txt,193,39:1197,182,2, in 2 high income ... countries
+2011_9739.txt,194,39:1216,183,5, 5 low-middle income countries
+2011_9739.txt,195,39:1290,182,6, in 6 high income countries
+2011_9739.txt,196,42:316,197,7, in 7 countries
+2011_9739.txt,197,42:325,null,10, 10 developed countries
+2011_9739.txt,198,42:342,199,4, 4 countries
+2011_9739.txt,199,42:351,null,8, 8 countries
+2011_9739.txt,200,84:619,null,2419, 2419
+2011_9739.txt,201,84:627,null,1043, 1043
+2011_9739.txt,202,84:635,null,486, 486
+2011_9739.txt,203,
+2011_9739.txt,204,
+2011_9739.txt,205,
+2011_9739.txt,206,
+2011_9739.txt,207,
+2011_9739.txt,208,
+2011_9739.txt,209,
+2011_9739.txt,210,
+2011_9739.txt,211,
+2011_9739.txt,212,
+2011_9739.txt,213,
+2011_9739.txt,214,
+2011_9739.txt,215,
+2011_9739.txt,216,
+2011_9739.txt,217,
+2011_9739.txt,218,
+2011_9739.txt,219,
+2011_9739.txt,220,
+2011_9739.txt,221,
+2011_9739.txt,222,
+2011_9739.txt,223,
+2011_9739.txt,224,
+2011_9739.txt,225,
+2011_9739.txt,226,
+2011_9739.txt,227,
+2011_9739.txt,228,
+2011_9739.txt,229,
+
+
+
 
 
 
