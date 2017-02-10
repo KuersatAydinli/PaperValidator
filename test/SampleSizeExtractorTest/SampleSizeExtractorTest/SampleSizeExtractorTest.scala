@@ -1,5 +1,5 @@
 package SampleSizeExtractorTest.SampleSizeExtractorTest
-import java.io.{File, PrintWriter}
+import java.io._
 
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import helper.statcheck.{Statchecker => StatChecker}
@@ -86,6 +86,31 @@ class SampleSizeExtractorTest extends FunSuite{
     info("PatternMap size: " + patternMap.size)
 //    val confidenceMap = statChecker.getCondifence(patternMap)
 //    info("Confidence Map Size: " + confidenceMap.size)
+  }
+
+  test("SampleSize CSV Writer"){
+    info("PDF_Name, ID, Index, part_of, N, Comment")
+    val bufferedSource = Source.fromFile("test/TestPDFs/PDFLibrary_SampleSizes.csv")
+    for (line <- bufferedSource.getLines) {
+      val cols = line.split(",").map(_.trim)
+      // do whatever you want with the columns here
+      info(s"${cols(0)}|${cols(1)}|${cols(2)}|${cols(3)}|${cols(4)}|${cols(5)}")
+    }
+    bufferedSource.close
+  }
+
+  test("Get Index of Sample Size"){
+    var file = new File("test/TestPDFs/2010_2107.pdf")
+    var fileString = file.toString
+    val pdfText = convertPDFtoText(fileString)
+
+    val input = "362  patients"
+
+    for(page <- pdfText.indices){
+      if(pdfText(page).toLowerCase.contains(input.toLowerCase)){
+        info("Index: " + page + " : " + pdfText(page).toLowerCase.indexOf(input.toLowerCase))
+      }
+    }
   }
 
   test("Recognize Number from String"){
