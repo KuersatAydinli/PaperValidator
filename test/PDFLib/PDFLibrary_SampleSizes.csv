@@ -436,7 +436,7 @@ PDF_Name,ID,Index,part_of,N,comment
 2012_8584.txt,435,54:275,408,115172, 115172 total patients
 2012_92548_manuscript.txt,436,6:1290,440,100, in total 100 were included in the study
 2012_92548_manuscript.txt,437,6:1339,436,87, data on 87 patients
-2012_92548_manuscript.txt,438,6:1368436,,96, 96 patients
+2012_92548_manuscript.txt,438,6:1368,436,96, 96 patients
 2012_92548_manuscript.txt,439,48:1716,null,557, in total 557 patients were screened
 2012_92548_manuscript.txt,440,51:25,439,244, of those 244 had ...
 2012_92548_manuscript.txt,441,51:130,439,244, of the 244 patients
@@ -615,7 +615,7 @@ PDF_Name,ID,Index,part_of,N,comment
 2013_1429.txt,614,21:96,608,79, 79 were ...
 2013_1429.txt,615,21:140,608,23, 23 with ...
 2013_1429.txt,616,21:176,608,7, 7 with ...
-2013_1429.txt,617,21:843,,608,64, there were 64 patients
+2013_1429.txt,617,21:843,608,64, there were 64 patients
 2013_1429.txt,618,21:893,608,45, 45 negative
 2013_1429.txt,619,24:354,608,109, in this sample of 109
 2013_1429.txt,620,42:285,608,64, n=64
