@@ -24,12 +24,14 @@ import scala.util.matching.Regex
 
 /**
   * This class represents one RegEx Pattern structure
+  *
   * @param regex: RegEx pattern to match
   * @param synonyms: possible synonyms for some pattern
   */
 case class SampleSizePattern(regex: Regex, synonyms:List[SampleSizePattern] = List.empty) {
   /**
     * Applies RegEx to PDF Text and return matches
+    *
     * @param paperText PDF Text of paper
     * @return PatternMatches object including all matches for some RegEx Pattern in PDF Text
     */
@@ -66,6 +68,7 @@ case class SampleSizePattern(regex: Regex, synonyms:List[SampleSizePattern] = Li
 
 /**
   * This class is a container for the matches of a RegEx pattern in the PDF Text
+  *
   * @param regex RegEx pattern to match
   * @param matches list of matches for one pattern
   */
@@ -268,12 +271,13 @@ object Statchecker {
     tooPreciseDouble
   }
 
+  val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
+
   /**
     * List of different RegEx patterns to match possible sample sizes
     */
   val testListRegex = mutable.MutableList(
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
-//  new Regex(".{0,20}women"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}children"),
   new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
@@ -435,6 +439,7 @@ object Statchecker {
 
   /**
     * This method is repsonsible for converting words into numbers if posible
+    *
     * @param input Input word which should be checked if it represents a number, e.g eighty-four
     * @return Integer representation of the input word if word is valid, return -1 otherwhise
     */
@@ -531,6 +536,7 @@ object Statchecker {
 
   /**
     * This Method is the new main method for extracting the sample size
+    *
     * @param textList Paper Text from PDF
     * @return A Map[SampleSizePattern -> PatternMatches]
     *         For each Pattern in the RegEx List get all Matches which were found in the paper along with its context and the

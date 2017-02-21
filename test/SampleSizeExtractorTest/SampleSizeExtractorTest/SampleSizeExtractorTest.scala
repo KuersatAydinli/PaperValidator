@@ -73,6 +73,60 @@ class SampleSizeExtractorTest extends FunSuite{
     }
   }
 
+  test("test test"){
+    info("test...")
+  }
+
+  test("Test Regex Precision 2"){
+    info("Test Regex Precision...")
+    val PdfPath = "test/TestPDFs"
+    val files = getListOfFiles(PdfPath)
+
+    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
+    var countMatches = 0
+    for (file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfDoc = PDDocument.load(new File(fileString))
+        val pdfText = convertPDFtoText(fileString)
+        val statChecker = StatChecker
+        val totalMatches = testRegex.findAllIn(pdfText.mkString)
+        countMatches += totalMatches.length
+
+        while(totalMatches.hasNext){
+          val currentMatch = totalMatches.next()
+          info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
+        }
+      }
+    }
+    info("TOTAL MATCHES - " + countMatches)
+  }
+
+  test("Test Regex Precision"){
+    info("Test Regex Precision...")
+    val PdfPath = "test/TestPDFs"
+    val files = getListOfFiles(PdfPath)
+
+    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
+    var countMatches = 0
+    for (file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfDoc = PDDocument.load(new File(fileString))
+        val pdfText = convertPDFtoText(fileString)
+        val statChecker = StatChecker
+        val totalMatches = testRegex.findAllIn(pdfText.mkString)
+        countMatches += totalMatches.length
+
+        while(totalMatches.hasNext){
+          val currentMatch = totalMatches.next()
+          info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
+        }
+      }
+    }
+    info("TOTAL MATCHES - " + countMatches)
+  }
+
   test("GetConfidencePerPattern"){
     info("Running...")
     val paperDir = "test/TestPDFs/2004_12404.pdf"
@@ -135,38 +189,7 @@ class SampleSizeExtractorTest extends FunSuite{
     var correctFindings = mutable.Map.empty[String, Boolean] // count of how many PDFs the correct sample size is included in matches
 
     var countPDFs = 0
-    for (file <- files){
-      val fileString = file.toString
-      if(FilenameUtils.getExtension(fileString).equals("pdf")){
-        correctFindings(fileString) = false
-        countPDFs += 1
-        for(sampleSize <- sampleSizePerPaper.keys){
-          val fileBase = FilenameUtils.getBaseName(fileString)
-          if(fileBase.equalsIgnoreCase(sampleSize)){
-            val pdfDoc = PDDocument.load(new File(fileString))
-            val pdfText = convertPDFtoText(fileString)
-            val statChecker = StatChecker
-            val sampleSizeContext = statChecker.extractSampleSizeContext(pdfText)
-
-            for(entry <- sampleSizeContext){
-//              if(fileBase.equalsIgnoreCase("2006_1462")){
-//                info(entry._1.replaceAll("\\s","").toLowerCase)
-//                info(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)
-//                if(entry._1.replaceAll("\\s","").toLowerCase.equalsIgnoreCase(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
-//                  info("TRUEEEEE")
-//                }
-//              }
-
-
-              if(entry._1.head._1.replaceAll("\\s","").toLowerCase.
-                contains(sampleSizePerPaper(sampleSize).replaceAll("\\s","").toLowerCase)){
-                correctFindings(fileString) = true
-              }
-            }
-          }
-        }
-      }
-    }
+    preci
     info("PDF Count: " + countPDFs)
 //    correctFindings foreach(finding => info(finding._1 + "==>" + finding._2.toString))
     correctFindings foreach(finding => info("%-60s ==> %s".format(finding._1,finding._2.toString)))
