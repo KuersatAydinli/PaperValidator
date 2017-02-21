@@ -88,7 +88,7 @@ class SampleSizeExtractorTest extends FunSuite{
 //    info("Confidence Map Size: " + confidenceMap.size)
   }
 
-  test("SampleSize CSV Writer"){
+  test("SampleSize CSV Reader"){
     info("PDF_Name, ID, Index, part_of, N, Comment")
     val bufferedSource = Source.fromFile("test/TestPDFs/PDFLibrary_SampleSizes.csv")
     for (line <- bufferedSource.getLines) {
