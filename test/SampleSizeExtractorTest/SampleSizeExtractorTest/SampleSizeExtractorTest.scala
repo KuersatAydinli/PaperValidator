@@ -76,9 +76,7 @@ class SampleSizeExtractorTest extends FunSuite{
   test("Test Regex Precision"){
     info("Test Regex Precision...")
     val PdfPath = "test/TestPDFs"
-    val files = getListOfFiles(PdfPath)
 
-    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
     val testListRegex = mutable.MutableList(
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
@@ -91,66 +89,110 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}newborns"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}samples"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}procedures"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}employees"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}users"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}programmers"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}corporations"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}managers"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}firms"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}establishments"),
       new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("sample\\s*of\\s*\\D{0,20}\\d+([,\\s*]\\d{3})*"),
-      new Regex("sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*"),
+//      new Regex("sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s?cohort\\D{0,20}of\\D{0,15}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
-//      new Regex("[Ww]e\\D{0,20}recruited\\D{0,20}\\d+([,\\s*]\\d{3})*"),
-      new Regex("\\d+([,\\s*]\\d{3})*D{0,20}enrolled"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
       new Regex("enrolled\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}took\\s*part"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?patient"),
-//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?participant"),
       new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
-
-    var matchesInPDFLib = 0
+    val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
     val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
-    for (line <- bufferedSource.getLines) {
+
+    for(regex <- testListRegex){
+      patternMatchesInGT(regex) = 0
+    }
+
+    for(line <- bufferedSource.getLines()){
       val cols = line.split(",").map(_.trim)
-      if(testRegex.findAllIn(cols(5)).nonEmpty){
-        matchesInPDFLib += 1
+      for(regex <- testListRegex){
+        if(regex.findAllIn(cols(5)).nonEmpty){
+          patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
+        }
       }
     }
     bufferedSource.close
 
+//    for(regex <- testListRegex){
+//      var totalMatches = 0
+//      for (line <- bufferedSource.getLines) {
+//        val cols = line.split(",").map(_.trim)
+//          if(regex.findAllIn(cols(5)).nonEmpty){
+//            totalMatches += 1
+////            patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
+//          }
+//      }
+//      patternMatchesInGT(regex) = totalMatches
+//    }
+//    bufferedSource.close
+
+
+    var matchesInPDFLib = 0
+
+    val files = getListOfFiles(PdfPath)
+    val patternMatchesTotal = mutable.Map.empty[Regex, Int]
+    for(regex <- testListRegex){
+      patternMatchesTotal(regex) = 0
+    }
     for (file <- files){
       val precision = 0
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
-        info("PDF File: " + fileString)
         val pdfDoc = PDDocument.load(new File(fileString))
         val pdfText = convertPDFtoText(fileString)
-        val statChecker = StatChecker
-        val totalMatches = testRegex.findAllIn(pdfText.mkString)
-        var countTotalMatches = 0
-        while(totalMatches.hasNext){
-          val currentMatch = totalMatches.next()
-          //info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
-          countTotalMatches += 1
+//        val statChecker = StatChecker
+        for(regex <- testListRegex){
+          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
+//            patternMatchesTotal.mapValues(_ + regex.findAllIn(pdfText.mkString).length)
+          }
         }
+//        val totalMatches = testRegex.findAllIn(pdfText.mkString)
+//        var countTotalMatches = 0
+//        while(totalMatches.hasNext){
+//          val currentMatch = totalMatches.next()
+//          //info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
+//          countTotalMatches += 1
+//        }
       }
     }
-//    info("TOTAL MATCHES - " + countTotalMatches)
+    info("Pattern Matches in GT")
+    for(entry <- patternMatchesInGT){
+      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+    }
+    info("===============================================================================")
+    info("Pattern Matches Total")
+    for(entry <- patternMatchesTotal){
+      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+    }
 
+    val patternPrecision = mutable.Map.empty[Regex,Float]
+    for(regex <- testListRegex){
+      patternPrecision(regex) = patternMatchesInGT(regex).toFloat / patternMatchesTotal(regex)
+    }
 
-    info("MatchesInPDFLib: " + matchesInPDFLib)
-    info("Precision: " + matchesInPDFLib.toFloat/countTotalMatches)
+    info("===============================================================================")
+    info("Pattern Precision")
+
+    val pw = new PrintWriter(new File("test/PDFLib/Pattern_Precision.txt"))
+    for(entry <- patternPrecision){
+      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+      pw.write("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+      pw.write("\n")
+    }
+    pw.close()
   }
 
   test("SampleSize CSV Reader"){
