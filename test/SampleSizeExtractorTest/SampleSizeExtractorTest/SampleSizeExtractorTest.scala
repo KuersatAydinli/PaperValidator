@@ -73,58 +73,95 @@ class SampleSizeExtractorTest extends FunSuite{
     }
   }
 
-  test("test test"){
-    info("test...")
-  }
-
-  test("Test Regex Precision 2"){
-    info("Test Regex Precision...")
-    val PdfPath = "test/TestPDFs"
-    val files = getListOfFiles(PdfPath)
-
-    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
-    var countMatches = 0
-    for (file <- files){
-      val fileString = file.toString
-      if(FilenameUtils.getExtension(fileString).equals("pdf")){
-        val pdfDoc = PDDocument.load(new File(fileString))
-        val pdfText = convertPDFtoText(fileString)
-        val statChecker = StatChecker
-        val totalMatches = testRegex.findAllIn(pdfText.mkString)
-        countMatches += totalMatches.length
-
-        while(totalMatches.hasNext){
-          val currentMatch = totalMatches.next()
-          info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
-        }
-      }
-    }
-    info("TOTAL MATCHES - " + countMatches)
-  }
-
   test("Test Regex Precision"){
     info("Test Regex Precision...")
     val PdfPath = "test/TestPDFs"
     val files = getListOfFiles(PdfPath)
 
     val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
-    var countMatches = 0
+    val testListRegex = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}children"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}students"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}newborns"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}samples"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}procedures"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}employees"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}users"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}programmers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}corporations"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}managers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}firms"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}establishments"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("sample\\s*of\\s*\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s?cohort\\D{0,20}of\\D{0,15}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
+//      new Regex("[Ww]e\\D{0,20}recruited\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*D{0,20}enrolled"),
+      new Regex("enrolled\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}took\\s*part"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?patient"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,15}consecutive\\s?participant"),
+      new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
+
+    var matchesInPDFLib = 0
+    val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
+    for (line <- bufferedSource.getLines) {
+      val cols = line.split(",").map(_.trim)
+      if(testRegex.findAllIn(cols(5)).nonEmpty){
+        matchesInPDFLib += 1
+      }
+    }
+    bufferedSource.close
+
     for (file <- files){
+      val precision = 0
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        info("PDF File: " + fileString)
         val pdfDoc = PDDocument.load(new File(fileString))
         val pdfText = convertPDFtoText(fileString)
         val statChecker = StatChecker
         val totalMatches = testRegex.findAllIn(pdfText.mkString)
-        countMatches += totalMatches.length
-
+        var countTotalMatches = 0
         while(totalMatches.hasNext){
           val currentMatch = totalMatches.next()
-          info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
+          //info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
+          countTotalMatches += 1
         }
       }
     }
-    info("TOTAL MATCHES - " + countMatches)
+//    info("TOTAL MATCHES - " + countTotalMatches)
+
+
+    info("MatchesInPDFLib: " + matchesInPDFLib)
+    info("Precision: " + matchesInPDFLib.toFloat/countTotalMatches)
+  }
+
+  test("SampleSize CSV Reader"){
+    info("PDF_Name, ID, Index, part_of, N, Comment")
+    val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
+    for (line <- bufferedSource.getLines) {
+      val cols = line.split(",").map(_.trim)
+      // do whatever you want with the columns here
+      info(s"${cols(0)}|${cols(1)}|${cols(2)}|${cols(3)}|${cols(4)}|${cols(5)}")
+    }
+    bufferedSource.close
   }
 
   test("GetConfidencePerPattern"){
@@ -140,17 +177,6 @@ class SampleSizeExtractorTest extends FunSuite{
     info("PatternMap size: " + patternMap.size)
 //    val confidenceMap = statChecker.getCondifence(patternMap)
 //    info("Confidence Map Size: " + confidenceMap.size)
-  }
-
-  test("SampleSize CSV Reader"){
-    info("PDF_Name, ID, Index, part_of, N, Comment")
-    val bufferedSource = Source.fromFile("test/TestPDFs/PDFLibrary_SampleSizes.csv")
-    for (line <- bufferedSource.getLines) {
-      val cols = line.split(",").map(_.trim)
-      // do whatever you want with the columns here
-      info(s"${cols(0)}|${cols(1)}|${cols(2)}|${cols(3)}|${cols(4)}|${cols(5)}")
-    }
-    bufferedSource.close
   }
 
   test("Get Index of Sample Size"){
@@ -189,7 +215,6 @@ class SampleSizeExtractorTest extends FunSuite{
     var correctFindings = mutable.Map.empty[String, Boolean] // count of how many PDFs the correct sample size is included in matches
 
     var countPDFs = 0
-    preci
     info("PDF Count: " + countPDFs)
 //    correctFindings foreach(finding => info(finding._1 + "==>" + finding._2.toString))
     correctFindings foreach(finding => info("%-60s ==> %s".format(finding._1,finding._2.toString)))
