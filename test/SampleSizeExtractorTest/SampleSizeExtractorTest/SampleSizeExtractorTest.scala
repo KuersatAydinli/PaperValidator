@@ -156,19 +156,6 @@ class SampleSizeExtractorTest extends FunSuite{
     }
     bufferedSource.close
 
-//    for(regex <- testListRegex){
-//      var totalMatches = 0
-//      for (line <- bufferedSource.getLines) {
-//        val cols = line.split(",").map(_.trim)
-//          if(regex.findAllIn(cols(5)).nonEmpty){
-//            totalMatches += 1
-////            patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
-//          }
-//      }
-//      patternMatchesInGT(regex) = totalMatches
-//    }
-//    bufferedSource.close
-
 
     var matchesInPDFLib = 0
 
@@ -178,7 +165,6 @@ class SampleSizeExtractorTest extends FunSuite{
       patternMatchesTotal(regex) = 0
     }
     for (file <- files){
-      val precision = 0
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
         val pdfDoc = PDDocument.load(new File(fileString))
@@ -190,13 +176,6 @@ class SampleSizeExtractorTest extends FunSuite{
 //            patternMatchesTotal.mapValues(_ + regex.findAllIn(pdfText.mkString).length)
           }
         }
-//        val totalMatches = testRegex.findAllIn(pdfText.mkString)
-//        var countTotalMatches = 0
-//        while(totalMatches.hasNext){
-//          val currentMatch = totalMatches.next()
-//          //info("PDF File: "+fileString+" === Current Match: " + currentMatch.toString)
-//          countTotalMatches += 1
-//        }
       }
     }
     info("Pattern Matches in GT")
@@ -227,7 +206,8 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Pattern Analysis"){
-    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
+//    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients")
+    val testRegex = new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*")
     val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
 
     var totalMatchesGT = 0
@@ -240,16 +220,23 @@ class SampleSizeExtractorTest extends FunSuite{
     info("Matches in GT: " + totalMatchesGT)
 
     bufferedSource.close
-    val pdfDoc = PDDocument.load(new File("test/TestPDFs/2004_12404.pdf"))
-    val pdfText = convertPDFtoText("test/TestPDFs/2004_12404.pdf")
-    val totalMatchesLenght = testRegex.findAllIn(pdfText.mkString).length
-    val totalMatchesInPDF = testRegex.findAllIn(pdfText.mkString).matchData
-    while(totalMatchesInPDF.hasNext){
-      val currentMatch = totalMatchesInPDF.next()
-      info("Current Match: " + currentMatch.toString())
+    var totalMatchesCount = 0
+    val PdfPath = "test/TestPDFs"
+    val files = getListOfFiles(PdfPath)
+    for (file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfDoc = PDDocument.load(new File(fileString))
+        val pdfText = convertPDFtoText(fileString)
+        val totalMatchesInPDF = testRegex.findAllIn(pdfText.mkString).matchData
+        totalMatchesCount += testRegex.findAllIn(pdfText.mkString).length
+        while(totalMatchesInPDF.hasNext){
+          val currentMatch = totalMatchesInPDF.next()
+          info("Current Match: " + currentMatch.toString())
+        }
+      }
     }
-    info("Precision: " + totalMatchesGT.toFloat/totalMatchesLenght)
-
+    info("Precision: " + totalMatchesGT.toFloat/totalMatchesCount)
   }
 
   test("SampleSize CSV Reader"){
