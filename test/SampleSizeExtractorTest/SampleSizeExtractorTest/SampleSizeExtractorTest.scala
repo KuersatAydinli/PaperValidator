@@ -108,6 +108,37 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("enrolled\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
+    val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}children"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}students"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}procedures"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}employees"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}users"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}managers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}firms"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}establishments"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("sample\\s*of\\s*\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      //      new Regex("sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s?cohort\\D{0,20}of\\D{0,15}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("enrolled\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
     val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
     val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
 
@@ -193,6 +224,32 @@ class SampleSizeExtractorTest extends FunSuite{
       pw.write("\n")
     }
     pw.close()
+  }
+
+  test("Pattern Analysis"){
+    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants")
+    val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
+
+    var totalMatchesGT = 0
+    for(line <- bufferedSource.getLines()){
+      val cols = line.split(",").map(_.trim)
+      if(testRegex.findAllIn(cols(5)).nonEmpty){
+        totalMatchesGT += 1
+      }
+    }
+    info("Matches in GT: " + totalMatchesGT)
+
+    bufferedSource.close
+    val pdfDoc = PDDocument.load(new File("test/TestPDFs/2004_12404.pdf"))
+    val pdfText = convertPDFtoText("test/TestPDFs/2004_12404.pdf")
+    val totalMatchesLenght = testRegex.findAllIn(pdfText.mkString).length
+    val totalMatchesInPDF = testRegex.findAllIn(pdfText.mkString).matchData
+    while(totalMatchesInPDF.hasNext){
+      val currentMatch = totalMatchesInPDF.next()
+      info("Current Match: " + currentMatch.toString())
+    }
+    info("Precision: " + totalMatchesGT.toFloat/totalMatchesLenght)
+
   }
 
   test("SampleSize CSV Reader"){
