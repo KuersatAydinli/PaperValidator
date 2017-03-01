@@ -73,7 +73,7 @@ class SampleSizeExtractorTest extends FunSuite{
     }
   }
 
-  test("Test Regex Precision"){
+  test("Kuersat_Classifier"){
     info("Test Regex Precision...")
     val PdfPath = "test/TestPDFs"
 
@@ -111,6 +111,112 @@ class SampleSizeExtractorTest extends FunSuite{
     val testListRegexNonOverfitted = mutable.MutableList(
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
+    val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
+    val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
+
+    testListRegexNonOverfitted.par.foreach(r => patternMatchesInGT(r) = 0)
+//    for(regex <- testListRegexNonOverfitted){
+//      patternMatchesInGT(regex) = 0
+//    }
+
+    for(line <- bufferedSource.getLines()){
+      val cols = line.split(",").map(_.trim)
+      testListRegexNonOverfitted.par.foreach(r =>
+        if(r.findAllIn(cols(5)).matchData.nonEmpty){
+          patternMatchesInGT.update(r,patternMatchesInGT(r)+1)
+        })
+//      for(regex <- testListRegexNonOverfitted){
+//        if(regex.findAllIn(cols(5)).matchData.nonEmpty){
+//          patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
+//        }
+//      }
+    }
+    bufferedSource.close
+
+
+    var matchesInPDFLib = 0
+
+    val files = getListOfFiles(PdfPath)
+    val patternMatchesTotal = mutable.Map.empty[Regex, Int]
+    val patternMatchesFiltered = mutable.Map.empty[Regex, Int]
+    for(regex <- testListRegexNonOverfitted){
+      patternMatchesTotal(regex) = 0
+      patternMatchesFiltered(regex) = 0
+    }
+    for (file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfDoc = PDDocument.load(new File(fileString))
+        val pdfText = convertPDFtoText(fileString)
+        for(regex <- testListRegexNonOverfitted){
+          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
+            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
+            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+            while(totalMatches.hasNext){
+              val currentMatch = totalMatches.next().toString()
+              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              } else if(currentMatch.contains("%")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              } else if(currentMatch.matches("\\d+[/)\\]]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              }
+            }
+          }
+        }
+      }
+    }
+    info("Pattern Matches in GT")
+    for(entry <- patternMatchesInGT){
+      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+    }
+    info("===============================================================================")
+    info("Pattern Matches Total")
+    for(entry <- patternMatchesTotal){
+      info("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternMatchesFiltered(entry._1)).toString)
+    }
+
+    val patternPrecision = mutable.Map.empty[Regex,Float]
+    val patternPrecisionFiltered = mutable.Map.empty[Regex,Float]
+    for(regex <- testListRegexNonOverfitted){
+      patternPrecision(regex) = patternMatchesInGT(regex).toFloat / patternMatchesTotal(regex)
+      patternPrecisionFiltered(regex) = patternMatchesInGT(regex).toFloat / patternMatchesFiltered(regex)
+    }
+
+    info("===============================================================================")
+    info("Pattern Precision")
+
+//    val pw = new PrintWriter(new File("test/PDFLib/Pattern_Precision_Filtering.txt"))
+    for(entry <- patternPrecision){
+      info("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternPrecisionFiltered(entry._1)).toString)
+//      pw.write("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternPrecisionFiltered(entry._1)).toString)
+//      pw.write("\n")
+    }
+//    pw.close()
+  }
+
+  test("Test Regex Precision old"){
+    info("Test Regex Precision...")
+    val PdfPath = "test/TestPDFs"
+
+    val testListRegex = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}children"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}students"),
@@ -139,17 +245,30 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("enrolled\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
+    val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
     val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
     val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
 
-    for(regex <- testListRegex){
+    for(regex <- testListRegexNonOverfitted){
       patternMatchesInGT(regex) = 0
     }
 
     for(line <- bufferedSource.getLines()){
       val cols = line.split(",").map(_.trim)
-      for(regex <- testListRegex){
-        if(regex.findAllIn(cols(5)).nonEmpty){
+      for(regex <- testListRegexNonOverfitted){
+        if(regex.findAllIn(cols(5)).matchData.nonEmpty){
           patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
         }
       }
@@ -161,19 +280,35 @@ class SampleSizeExtractorTest extends FunSuite{
 
     val files = getListOfFiles(PdfPath)
     val patternMatchesTotal = mutable.Map.empty[Regex, Int]
-    for(regex <- testListRegex){
+    val patternMatchesFiltered = mutable.Map.empty[Regex, Int]
+    for(regex <- testListRegexNonOverfitted){
       patternMatchesTotal(regex) = 0
+      patternMatchesFiltered(regex) = 0
     }
     for (file <- files){
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
         val pdfDoc = PDDocument.load(new File(fileString))
         val pdfText = convertPDFtoText(fileString)
-//        val statChecker = StatChecker
-        for(regex <- testListRegex){
+        for(regex <- testListRegexNonOverfitted){
           if(regex.findAllIn(pdfText.mkString).nonEmpty){
             patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
-//            patternMatchesTotal.mapValues(_ + regex.findAllIn(pdfText.mkString).length)
+            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
+            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+            while(totalMatches.hasNext){
+              val currentMatch = totalMatches.next().toString()
+              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              } else if(currentMatch.contains("%")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              } else if(currentMatch.matches("\\d+[/)\\]]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+              }
+            }
           }
         }
       }
@@ -185,29 +320,32 @@ class SampleSizeExtractorTest extends FunSuite{
     info("===============================================================================")
     info("Pattern Matches Total")
     for(entry <- patternMatchesTotal){
-      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+      info("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternMatchesFiltered(entry._1)).toString)
     }
 
     val patternPrecision = mutable.Map.empty[Regex,Float]
-    for(regex <- testListRegex){
+    val patternPrecisionFiltered = mutable.Map.empty[Regex,Float]
+    for(regex <- testListRegexNonOverfitted){
       patternPrecision(regex) = patternMatchesInGT(regex).toFloat / patternMatchesTotal(regex)
+      patternPrecisionFiltered(regex) = patternMatchesInGT(regex).toFloat / patternMatchesFiltered(regex)
     }
 
     info("===============================================================================")
     info("Pattern Precision")
 
-    val pw = new PrintWriter(new File("test/PDFLib/Pattern_Precision.txt"))
+    //    val pw = new PrintWriter(new File("test/PDFLib/Pattern_Precision_Filtering.txt"))
     for(entry <- patternPrecision){
-      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
-      pw.write("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
-      pw.write("\n")
+      info("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternPrecisionFiltered(entry._1)).toString)
+      //      pw.write("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternPrecisionFiltered(entry._1)).toString)
+      //      pw.write("\n")
     }
-    pw.close()
+    //    pw.close()
   }
 
   test("Pattern Analysis"){
 //    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients")
-    val testRegex = new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*")
+//    val testRegex = new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*")
+    val testRegex = new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled")
     val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
 
     var totalMatchesGT = 0
@@ -231,12 +369,38 @@ class SampleSizeExtractorTest extends FunSuite{
         val totalMatchesInPDF = testRegex.findAllIn(pdfText.mkString).matchData
         totalMatchesCount += testRegex.findAllIn(pdfText.mkString).length
         while(totalMatchesInPDF.hasNext){
-          val currentMatch = totalMatchesInPDF.next()
-          info("Current Match: " + currentMatch.toString())
+          val currentMatch = totalMatchesInPDF.next().toString()
+//          info("Current Match: " + currentMatch.toString())
+          info("CurrentMatch: " + currentMatch)
         }
       }
     }
     info("Precision: " + totalMatchesGT.toFloat/totalMatchesCount)
+  }
+
+  test("Mismatch Filter"){
+    val bufferedSource = Source.fromFile("test/PDFLib/PatternMismatches.txt")
+    for(line <- bufferedSource.getLines()){
+      val mismatch = line.split(":\\s+")(1)
+//      info("Mismatch: " + mismatch)
+      if(mismatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+        "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+        "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
+        info("With years etc. " + mismatch)
+      }
+      if(mismatch.contains("%")){
+        info("With percentage: " + mismatch)
+      }
+      if(mismatch.matches("\\d+\\D*[.]\\D*")){
+        info("With sentence: " + mismatch)
+      }
+      if(mismatch.matches("\\d+[/)\\]]\\D*")){
+        info("With brackets: " + mismatch)
+      }
+    }
+    if("Hallo . Hihi".matches("\\D*[.]\\D*")){
+      info("Sentence Excape")
+    }
   }
 
   test("SampleSize CSV Reader"){
