@@ -1,10 +1,11 @@
 package helper.pdfpreprocessing.pdf
 
-import java.io.{File, FileInputStream}
+import java.awt.geom.Rectangle2D
+import java.io.File
 
 import com.typesafe.scalalogging.LazyLogging
-import org.apache.pdfbox.pdfparser.PDFParser
-import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.pdmodel.{PDDocument, PDPage}
+import org.apache.pdfbox.text.PDFTextStripperByArea
 
 /**
   * Created by pdeboer on 16/10/15.
@@ -18,7 +19,20 @@ class PDFTextExtractor(pdfPath: String) extends LazyLogging {
       pdfHighlight.setLineSeparator(" ")
       pdfHighlight.initialize(pdDoc)
 
-      val txt: List[String] = (0 to pdDoc.getNumberOfPages).map(pdfHighlight.textCache.getText(_)).toList
+      var txt = List[String]()
+      var pdfText = new StringBuilder
+      for (i <- 0 to pdDoc.getNumberOfPages){
+        val page: PDPage = pdDoc.getDocumentCatalog.getPages.get(i)
+        val region: Rectangle2D = new Rectangle2D.Double(0,20,page.getMediaBox.getWidth,page.getMediaBox.getHeight-80)
+        val regionName: String = "content"
+        val stripper: PDFTextStripperByArea = new PDFTextStripperByArea()
+        stripper.addRegion(regionName,region)
+        stripper.extractRegions(page)
+        val currentPage = stripper.getTextForRegion("content")
+        pdfText ++= currentPage
+      }
+
+//      val txt: List[String] = (0 to pdDoc.getNumberOfPages).map(pdfHighlight.textCache.getText(_)).toList
       pdDoc.close()
       txt
     } catch {
