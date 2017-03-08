@@ -1,6 +1,8 @@
 package SampleSizeExtractorTest.SampleSizeExtractorTest
 import java.io._
 
+import au.com.bytecode.opencsv.CSVReader
+import com.github.tototoshi.csv.CSVWriter
 import helper.pdfpreprocessing.pdf.PDFTextExtractor
 import helper.statcheck.{Statchecker => StatChecker}
 import org.apache.commons.io.FilenameUtils
@@ -10,6 +12,7 @@ import org.scalatest.FunSuite
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
+import scala.util.control.Breaks
 import scala.util.matching.Regex
 
 /**
@@ -318,6 +321,50 @@ class SampleSizeExtractorTest extends FunSuite{
       if(mismatch.matches("\\d+\\s*[,]\\D*")){
         info("With Comma: " + mismatch)
       }
+    }
+  }
+
+  test("AddPatternToGroundTruth"){
+    val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      //      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
+//    val bufferedSourceSecond = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes_WithPatterns.csv")
+    val reader = new CSVReader(new FileReader("test/PDFLib/PDFLibrary_SampleSizes_WithPatterns.csv"))
+    val writer = new CSVWriter(new FileWriter("test/PDFLib/PDFLibrary_SampleSizes_WithPatterns_output.csv"))
+    while (reader.readNext() != null){
+      var list = scala.collection.mutable.ArrayBuffer.empty[String]
+      for(element <- reader.readNext()){
+        list += element
+      }
+      if(list(0).equals("PDF_Name")){
+        list += "MatchingPattern"
+      } else {
+        val forLoop = new Breaks
+        forLoop.breakable{
+          for(regex <- testListRegexNonOverfitted){
+            if(list(5).matches(regex.toString())){
+              list += regex.toString()
+              forLoop.break()
+            }
+          }
+        }
+        if(list.length == 6){
+          list += "null"
+        }
+      }
+
+      writer.writeRow(list)
     }
   }
 
