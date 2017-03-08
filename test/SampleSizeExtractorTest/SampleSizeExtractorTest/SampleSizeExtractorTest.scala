@@ -12,7 +12,6 @@ import org.scalatest.FunSuite
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
-import scala.util.control.Breaks
 import scala.util.matching.Regex
 
 /**
@@ -342,28 +341,34 @@ class SampleSizeExtractorTest extends FunSuite{
 //    val bufferedSourceSecond = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes_WithPatterns.csv")
     val reader = new CSVReader(new FileReader("test/PDFLib/PDFLibrary_SampleSizes_WithPatterns.csv"))
     val writer = new CSVWriter(new FileWriter("test/PDFLib/PDFLibrary_SampleSizes_WithPatterns_output.csv"))
-    while (reader.readNext() != null){
+    var entries = new Array[String](6)
+    while ((entries = reader.readNext()) != null){
       var list = scala.collection.mutable.ArrayBuffer.empty[String]
-      for(element <- reader.readNext()){
+      for(element <- entries){
         list += element
       }
       if(list(0).equals("PDF_Name")){
         list += "MatchingPattern"
       } else {
-        val forLoop = new Breaks
-        forLoop.breakable{
-          for(regex <- testListRegexNonOverfitted){
-            if(list(5).matches(regex.toString())){
-              list += regex.toString()
-              forLoop.break()
-            }
+        for(regex <- testListRegexNonOverfitted){
+          if(list(5).matches(regex.toString())){
+            list += regex.toString()
           }
         }
+//        val forLoop = new Breaks
+//        forLoop.breakable{
+//          for(regex <- testListRegexNonOverfitted){
+//            if(list(5).matches(regex.toString())){
+//              list += regex.toString()
+//              forLoop.break()
+//            }
+//          }
+//        }
         if(list.length == 6){
-          list += "null"
+          list += "noPattern"
         }
       }
-
+      info("ID: " + list(1))
       writer.writeRow(list)
     }
   }
