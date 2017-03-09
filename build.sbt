@@ -27,7 +27,6 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= Seq( jdbc , cache , ws , evolutions )
-
 libraryDependencies ~= { _.map(_.exclude("org.slf4j", "slf4j-log4j12")) }
 
 resolvers += Resolver.file("Local repo", file("custom_lib"))(Resolver.ivyStylePatterns)

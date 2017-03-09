@@ -552,10 +552,8 @@ Current Match: total of 254
 Current Match: 24 participants
 Current Match: 20 trial participants
 Current Match: 33 participants
-Current Match: 20 a method that
-encourages participants
-Current Match: 20
-trial participants
+Current Match: 20 a method that encourages participants
+Current Match: 20 trial participants
 Current Match: 2 Qualitative study participants
 Current Match: 4 Details of interview participants
 Current Match: 26 and was a benefit participants
@@ -579,8 +577,7 @@ Current Match: 2 Treatment characteristics of patients
 Current Match: 29 it was found that patients
 Current Match: 33 found no dif-ference in patients
 Current Match: 560 patients
-Current Match: 39 Our study
-also showed that patients
+Current Match: 39 Our study also showed that patients
 Current Match: 9461 patients
 Current Match: 634 consecutive patients
 Current Match: 11,483 patients
