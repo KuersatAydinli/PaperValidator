@@ -282,7 +282,7 @@ class SampleSizeExtractorTest extends FunSuite{
             val minDistance = distances.min
             var minDistancePermutation = "foo"
             for(entry <- testPositionMap){
-              if(entry._2 == minDistance){
+              if(Math.abs(pdfText.mkString.indexOf(matches) - entry._2) == minDistance){
                 minDistancePermutation = entry._1
               }
             }

@@ -20,41 +20,41 @@ PDF_Name,Match,T-Test Permutation,Distance
 2004_12404,total of 62,null,-1
 2004_12404,total   of 40,null,-1
 2004_12404,total of 13,null,-1
-2010_2107,177   participants,foo,764
-2010_2107,185 participants,foo,847
-2010_2107,362   patients,foo,16168
-2010_2107,185   patients,foo,16080
-2010_2107,177 patients,foo,16032
-2010_2107,2 patients,foo,15038
-2010_2107,5 patients,foo,14953
-2010_2107,755 general medical and surgical patients,foo,11174
-2010_2107,316 patients,foo,10179
-2010_2107,"1,954 patients",foo,245
-2010_2107,362 patients,foo,695
-2010_2107,n=47,foo,11793
-2010_2107,n= 378,foo,7572
-2010_2107,n=606,foo,7492
-2010_2107,n=282,foo,7333
-2010_2107,n=177,foo,762
-2010_2107,n=185,foo,845
-2010_2107,n=251,foo,3390
-2010_2107,"n=3,455",foo,7649
-2010_2107,n=323,foo,20672
-2010_2107,n=280,foo,20729
-2010_2107,n=1954,foo,23442
-2010_2107,n=1592,foo,23486
-2010_2107,n=1166,foo,23527
-2010_2107,n=788,foo,23560
-2010_2107,n=69,foo,23592
-2010_2107,n=200,foo,23621
-2010_2107,n=67,foo,23647
-2010_2107,n=90,foo,23675
-2010_2107,n=362,foo,23696
-2010_2107,"n=280,100",foo,23803
-2010_2107,n=0,foo,23837
-2010_2107,n= 72,foo,23953
-2010_2107,total of 22,foo,4873
-2010_2107,total of 82,foo,5005
+2010_2107,177   participants, t-test ,764
+2010_2107,185 participants, t-test ,847
+2010_2107,362   patients, t-test ,16168
+2010_2107,185   patients, t-test ,16080
+2010_2107,177 patients, t-test ,16032
+2010_2107,2 patients, t-test ,15038
+2010_2107,5 patients, t-test ,14953
+2010_2107,755 general medical and surgical patients, t-test ,11174
+2010_2107,316 patients, t-test ,10179
+2010_2107,"1,954 patients", t-test ,245
+2010_2107,362 patients, t-test ,695
+2010_2107,n=47, t-test ,11793
+2010_2107,n= 378, t-test ,7572
+2010_2107,n=606, t-test ,7492
+2010_2107,n=282, t-test ,7333
+2010_2107,n=177, t-test ,762
+2010_2107,n=185, t-test ,845
+2010_2107,n=251, t-test ,3390
+2010_2107,"n=3,455", t-test ,7649
+2010_2107,n=323, t-test ,20672
+2010_2107,n=280, t-test ,20729
+2010_2107,n=1954, t-test ,23442
+2010_2107,n=1592, t-test ,23486
+2010_2107,n=1166, t-test ,23527
+2010_2107,n=788, t-test ,23560
+2010_2107,n=69, t-test ,23592
+2010_2107,n=200, t-test ,23621
+2010_2107,n=67, t-test ,23647
+2010_2107,n=90, t-test ,23675
+2010_2107,n=362, t-test ,23696
+2010_2107,"n=280,100", t-test ,23803
+2010_2107,n=0, t-test ,23837
+2010_2107,n= 72, t-test ,23953
+2010_2107,total of 22, t-test ,4873
+2010_2107,total of 82, t-test ,5005
 2010_2145,5754 patients,null,-1
 2010_2145,100 patients,null,-1
 2010_2145,3369 patients,null,-1
@@ -90,15 +90,15 @@ PDF_Name,Match,T-Test Permutation,Distance
 2011_9739,"n = 89,037",null,-1
 2011_9739,"total of 89,037",null,-1
 2011_9739, data on MDE from 10,null,-1
-2012_4548,4493 adult patients,foo,10917
-2012_4548,2007 data on nearly all psoriasis patients,foo,4441
-2012_4548,9      patients,foo,314
-2012_4548,1912 RA patients,foo,502
-2012_4548,131 patients,foo,3022
-2012_4548,2450 patients,foo,4504
-2012_4548,589   patients,foo,4589
-2012_4548,600 patients,foo,4822
-2012_4548,2450 patients were enrolled,foo,4504
+2012_4548,4493 adult patients, t test ,10917
+2012_4548,2007 data on nearly all psoriasis patients, t test ,4441
+2012_4548,9      patients, t test ,314
+2012_4548,1912 RA patients, t test ,502
+2012_4548,131 patients, t test ,3022
+2012_4548,2450 patients, t test ,4504
+2012_4548,589   patients, t test ,4589
+2012_4548,600 patients, t test ,4822
+2012_4548,2450 patients were enrolled, t test ,4504
 2012_7461,4000   participants,null,-1
 2012_7461,"1,441   participants",null,-1
 2012_7461,815 participants,null,-1
@@ -236,21 +236,21 @@ PDF_Name,Match,T-Test Permutation,Distance
 2013_1911,n=  3,null,-1
 2013_1911,n=  1,null,-1
 2013_1911, data from 12,null,-1
-2013_1921,"16,781 participants",foo,2072
-2013_1921,"16,781 subjects",foo,2342
-2013_1921,4047 adult patients,foo,3836
-2013_1921,404 people,foo,2456
-2013_1921,"n=16,781",foo,10598
-2013_1921,n=4047,foo,10297
-2013_1921,n=37,foo,2885
-2013_1921,n=3,foo,2893
-2013_1921,n=28,foo,2840
-2013_1921,n=30,foo,2816
-2013_1921,n=91,foo,2788
-2013_1921,n=406,foo,1270
-2013_1921,n=949,foo,1325
-2013_1921,n=468,foo,33113
-2013_1921,n=3579,foo,33122
+2013_1921,"16,781 participants", t-test ,2072
+2013_1921,"16,781 subjects", t-test ,2342
+2013_1921,4047 adult patients, t-test ,3836
+2013_1921,404 people, t-test ,2456
+2013_1921,"n=16,781", Student t-test ,10598
+2013_1921,n=4047, Student t-test ,10297
+2013_1921,n=37, Student t-test ,2885
+2013_1921,n=3, Student t-test ,2885
+2013_1921,n=28, Student t-test ,2840
+2013_1921,n=30, Student t-test ,2816
+2013_1921,n=91, Student t-test ,2788
+2013_1921,n=406, t-test ,1270
+2013_1921,n=949, t-test ,1325
+2013_1921,n=468, t-test ,33105
+2013_1921,n=3579, t-test ,33122
 2013_1942,835 participants,null,-1
 2013_1942,n=223,null,-1
 2013_1942,n=435,null,-1
@@ -269,12 +269,12 @@ PDF_Name,Match,T-Test Permutation,Distance
 2013_1942,n=  41,null,-1
 2013_1942,n=  42,null,-1
 2013_1942,"total of 16,224",null,-1
-2013_1984,252 patients,foo,22231
-2013_1984,n=3,foo,7126
-2013_1984,n=31,foo,1218
-2013_1984,n=73,foo,1227
-2013_1984,n=7,foo,1227
-2013_1984,n=10,foo,38609
+2013_1984,252 patients, t-test ,22231
+2013_1984,n=3, t-test ,7126
+2013_1984,n=31, t-test ,1218
+2013_1984,n=73, t-test ,1227
+2013_1984,n=7, t-test ,1227
+2013_1984,n=10, t-test ,38609
 2013_2378,1307 persons,null,-1
 2013_2378,6696 participants,null,-1
 2013_2378,3496 participants,null,-1
@@ -318,24 +318,24 @@ PDF_Name,Match,T-Test Permutation,Distance
 2013_8087,491 residents enrolled,null,-1
 2013_8087,119 residents enrolled,null,-1
 2013_8087,372 residents enrolled,null,-1
-2013_8200,67 women,foo,3170
-2013_8200,3681 women,foo,2249
-2013_8200,2211 women,foo,2291
-2013_8200,85 women,foo,2653
-2013_8200,"400,000 women",foo,15834
-2013_8200,n=3681,foo,15753
-2013_8200,N=532,foo,18693
-2013_8200,N= 922,foo,18714
-2013_8200,total of 3681,foo,2240
-2013_8200,total   of 85,foo,2642
-2013_8892,22 participants,foo,86931
-2013_8892,09 participants,foo,81645
-2013_8892,09 all subjects,foo,79000
-2013_8892,09 and all subjects,foo,45961
-2013_8892,22 subjects,foo,38684
-2013_8892,n=22,foo,79574
-2013_8892,n=12,foo,69323
-2013_8892,n=40,foo,52028
+2013_8200,67 women, t-test ,3170
+2013_8200,3681 women, t-test ,2249
+2013_8200,2211 women, t-test ,2291
+2013_8200,85 women, t-test ,2653
+2013_8200,"400,000 women", t-test ,15834
+2013_8200,n=3681, t-test ,15753
+2013_8200,N=532, t-test ,18693
+2013_8200,N= 922, t-test ,18714
+2013_8200,total of 3681, t-test ,2240
+2013_8200,total   of 85, t-test ,2642
+2013_8892,22 participants, t-test ,86931
+2013_8892,09 participants, t-test ,81645
+2013_8892,09 all subjects, t-test ,79000
+2013_8892,09 and all subjects, t-test ,45961
+2013_8892,22 subjects, t-test ,38684
+2013_8892,n=22, t-test ,79574
+2013_8892,n=12, t-test ,69323
+2013_8892,n=40, t-test ,52028
 bmj4_1_e003440.full,40 participants,null,-1
 bmj4_1_e003440.full,41 participants,null,-1
 bmj4_1_e003440.full,9 participants,null,-1
@@ -657,19 +657,19 @@ bmj4_7_e004481.full,n=230,null,-1
 bmj4_7_e004481.full,n=51,null,-1
 bmj4_7_e004481.full,n=123,null,-1
 bmj4_7_e004481.full,total of 1093,null,-1
-bmj4_7_e004576.full,1049 participants,foo,9493
-bmj4_7_e004576.full,1 Baseline characteristics of participants,foo,4357
-bmj4_7_e004576.full,1130 patients,foo,9625
-bmj4_7_e004576.full,20 955 patients,foo,648
-bmj4_7_e004576.full,713  patients,foo,457
-bmj4_7_e004576.full,1800 patients,foo,383
-bmj4_7_e004576.full,n=544,foo,9581
-bmj4_7_e004576.full,n=586,foo,9551
-bmj4_7_e004576.full,n=61,foo,5664
-bmj4_7_e004576.full,n=45,foo,5634
-bmj4_7_e004576.full,n=504,foo,8491
-bmj4_7_e004576.full,n=565,foo,8520
-bmj4_7_e004576.full,total  of 2400,foo,402
+bmj4_7_e004576.full,1049 participants, Student t test ,9493
+bmj4_7_e004576.full,1 Baseline characteristics of participants, t test ,4357
+bmj4_7_e004576.full,1130 patients, Student t test ,9625
+bmj4_7_e004576.full,20 955 patients, Student t test ,648
+bmj4_7_e004576.full,713  patients, t test ,465
+bmj4_7_e004576.full,1800 patients, Student t test ,383
+bmj4_7_e004576.full,n=544, Student t test ,9581
+bmj4_7_e004576.full,n=586, Student t test ,9551
+bmj4_7_e004576.full,n=61, Student t test ,5664
+bmj4_7_e004576.full,n=45, Student t test ,5634
+bmj4_7_e004576.full,n=504, t test ,8491
+bmj4_7_e004576.full,n=565, t test ,8520
+bmj4_7_e004576.full,total  of 2400, Student t test ,402
 bmj4_7_e004581.full,631  patients,null,-1
 bmj4_7_e004581.full,631 patients,null,-1
 bmj4_7_e004581.full,36 among  patients,null,-1
@@ -689,21 +689,21 @@ bmj4_7_e004607.full,416 participants,null,-1
 bmj4_7_e004607.full,n=42,null,-1
 bmj4_7_e004607.full,n=416,null,-1
 bmj4_7_e004607.full,total of 597,null,-1
-bmj4_7_e004782.full,163 participants,foo,30710
-bmj4_7_e004782.full,50 patients,foo,30627
-bmj4_7_e004782.full,50  patients,foo,25044
-bmj4_7_e004782.full,n=10,foo,23824
-bmj4_7_e004782.full,N=163,foo,18879
-bmj4_7_e004782.full,N=60,foo,18848
-bmj4_7_e004782.full,N=53,foo,18821
-bmj4_7_e004782.full,N=50,foo,18809
-bmj4_7_e004782.full,n=50,foo,14130
-bmj4_7_e004782.full,n=113,foo,14112
-bmj4_7_e004782.full,n=99,foo,14086
-bmj4_7_e004782.full,n=64,foo,14065
-bmj4_7_e004782.full,n=103,foo,5922
-bmj4_7_e004782.full,n=60,foo,5900
-bmj4_7_e004782.full,total of 163,foo,22016
+bmj4_7_e004782.full,163 participants, t test ,30710
+bmj4_7_e004782.full,50 patients, t test ,30627
+bmj4_7_e004782.full,50  patients, t test ,25044
+bmj4_7_e004782.full,n=10, t test ,23824
+bmj4_7_e004782.full,N=163, t test ,18879
+bmj4_7_e004782.full,N=60, t test ,18848
+bmj4_7_e004782.full,N=53, t test ,18821
+bmj4_7_e004782.full,N=50, t test ,18809
+bmj4_7_e004782.full,n=50, t test ,14130
+bmj4_7_e004782.full,n=113, t test ,14112
+bmj4_7_e004782.full,n=99, t test ,14086
+bmj4_7_e004782.full,n=64, t test ,14065
+bmj4_7_e004782.full,n=103, t test ,5922
+bmj4_7_e004782.full,n=60, t test ,5900
+bmj4_7_e004782.full,total of 163, t test ,22016
 bmj4_7_e004875.full,525 women,null,-1
 bmj4_7_e004875.full,73 114 women,null,-1
 bmj4_7_e004875.full,10 000 per family per year for women,null,-1
@@ -858,29 +858,29 @@ Doc7,1145  all the participants,null,-1
 Doc7,N = 82,null,-1
 Doc7,N = 225,null,-1
 Doc7,total of 125,null,-1
-manuscript4,77 women,foo,1668
-manuscript4,129 consecutive adult   patients,foo,13030
-manuscript4,31 additional   patients,foo,12355
-manuscript4,2009 all consecutive patients,foo,7831
-manuscript4,2013 all consecutive obese   patients,foo,7565
-manuscript4,31 additional patients,foo,6405
-manuscript4,129 patients,foo,3806
-manuscript4,31 additional adult patients,foo,6614
-manuscript4,97 obese patients,foo,8184
-manuscript4,30 patients,foo,8475
-manuscript4,129 adult patients,foo,9536
-manuscript4,32 were non-  obese patients,foo,14259
-manuscript4,18 adult patients,foo,16168
-manuscript4,n=1,foo,2153
-manuscript4,n=32,foo,1888
-manuscript4,n=97,foo,1929
-manuscript4,n=11,foo,8233
-manuscript4,n=56,foo,8309
-manuscript4,n=40,foo,15970
-manuscript4,n=10,foo,15991
-manuscript4,n =129,foo,30606
-manuscript4,n=129,foo,34470
-manuscript4, data from   129,foo,9523
+manuscript4,77 women, t test ,1668
+manuscript4,129 consecutive adult   patients, Student t test ,13030
+manuscript4,31 additional   patients, Student t test ,12355
+manuscript4,2009 all consecutive patients, Student t test ,7831
+manuscript4,2013 all consecutive obese   patients, Student t test ,7565
+manuscript4,31 additional patients, Student t test ,6405
+manuscript4,129 patients, t test ,3798
+manuscript4,31 additional adult patients, t test ,6614
+manuscript4,97 obese patients, Student t test ,8192
+manuscript4,30 patients, t test ,8475
+manuscript4,129 adult patients, t test ,9536
+manuscript4,32 were non-  obese patients, t test ,14259
+manuscript4,18 adult patients, t test ,16168
+manuscript4,n=1, Student t test ,2153
+manuscript4,n=32, t test ,1888
+manuscript4,n=97, t test ,1929
+manuscript4,n=11, t test ,8233
+manuscript4,n=56, t test ,8309
+manuscript4,n=40, t test ,15970
+manuscript4,n=10, t test ,15991
+manuscript4,n =129, t test ,30606
+manuscript4,n=129, t test ,34470
+manuscript4, data from   129, t test ,9523
 p1-zhao,13 participants,null,-1
 p1-zhao,13 people,null,-1
 p1-zhao,total of 13,null,-1
