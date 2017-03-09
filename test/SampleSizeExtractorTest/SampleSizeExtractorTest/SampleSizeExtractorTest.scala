@@ -332,7 +332,7 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
-      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("[a]*[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
@@ -351,7 +351,7 @@ class SampleSizeExtractorTest extends FunSuite{
         list += "MatchingPattern"
       } else {
         for(regex <- testListRegexNonOverfitted){
-          if(list(5).matches(regex.toString())){
+          if(regex.findAllIn(list(5)).matchData.nonEmpty){
             list += regex.toString()
           }
         }
