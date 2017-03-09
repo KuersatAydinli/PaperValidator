@@ -160,9 +160,9 @@ class SampleSizeExtractorTest extends FunSuite{
 //    val KuersatClassifierMap = mutable.Map.empty[String,String]
 
     val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
-    val writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_Matches.csv"))
-    val CsvHeader = List[String]("PDF_Name","Match")
-    writer.writeRow(CsvHeader)
+//    val writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_Matches.csv"))
+//    val CsvHeader = List[String]("PDF_Name","Match")
+//    writer.writeRow(CsvHeader)
     for (file <- files){
       val matchesInFile = new ListBuffer[String]()
       val fileString = file.toString
@@ -238,10 +238,10 @@ class SampleSizeExtractorTest extends FunSuite{
       }
       for(matches <- matchesInFile.distinct){
         val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches)
-        writer.writeRow(csvEntry)
+//        writer.writeRow(csvEntry)
       }
     }
-    writer.close()
+//    writer.close()
 
     info("Pattern Matches in GT")
     for(entry <- patternMatchesInGT){
