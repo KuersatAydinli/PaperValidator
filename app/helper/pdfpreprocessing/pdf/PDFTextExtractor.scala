@@ -16,7 +16,7 @@ class PDFTextExtractor(pdfPath: String) extends LazyLogging {
       pdfHighlight.setLineSeparator(" ")
       pdfHighlight.initialize(pdDoc)
 
-//      var tempList = scala.collection.mutable.ListBuffer.empty[String]
+      var tempList = scala.collection.mutable.ListBuffer.empty[String]
 //      for (i <- 0 to pdDoc.getNumberOfPages+1){
 //        val page: PDPage = pdDoc.getDocumentCatalog.getPages.get(i)
 //        val region: Rectangle2D = new Rectangle2D.Double(0,20,page.getMediaBox.getWidth,page.getMediaBox.getHeight-80)
@@ -29,7 +29,6 @@ class PDFTextExtractor(pdfPath: String) extends LazyLogging {
 //      }
 //      pdDoc.close()
 //      tempList.toList
-
 
       val txt: List[String] = (0 to pdDoc.getNumberOfPages).map(pdfHighlight.textCache.getText(_)).toList
       pdDoc.close()

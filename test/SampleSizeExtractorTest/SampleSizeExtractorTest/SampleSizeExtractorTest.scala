@@ -3,14 +3,14 @@ import java.io._
 
 import au.com.bytecode.opencsv.CSVReader
 import com.github.tototoshi.csv.CSVWriter
-import helper.pdfpreprocessing.pdf.PDFTextExtractor
+import helper.pdfpreprocessing.pdf.{PDFLoader, PDFTextExtractor}
 import helper.statcheck.{Statchecker => StatChecker}
 import org.apache.commons.io.FilenameUtils
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.scalatest.FunSuite
 
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.io.Source
 import scala.util.control.Breaks
 import scala.util.matching.Regex
@@ -157,8 +157,14 @@ class SampleSizeExtractorTest extends FunSuite{
       patternMatchesFiltered(regex) = 0
     }
     val matchesKuersatClassifier = new ListBuffer[String]()
+//    val KuersatClassifierMap = mutable.Map.empty[String,String]
+
     val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
+    val writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_Matches.csv"))
+    val CsvHeader = List[String]("PDF_Name","Match")
+    writer.writeRow(CsvHeader)
     for (file <- files){
+      val matchesInFile = new ListBuffer[String]()
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
         val pdfDoc = PDDocument.load(new File(fileString))
@@ -196,6 +202,7 @@ class SampleSizeExtractorTest extends FunSuite{
             while(totalMatches.hasNext){
               val currentMatch = totalMatches.next().toString()
               matchesKuersatClassifier += currentMatch
+              matchesInFile += currentMatch
               if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
                 "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
                 "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
@@ -203,27 +210,39 @@ class SampleSizeExtractorTest extends FunSuite{
                 "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
                 patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
                 matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
               } else if(currentMatch.contains("%")){
                 patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
                 matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
               } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
                 patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
                 matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
               } else if(bracketList.exists(currentMatch.contains(_))){
                 patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
                 matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
               } else if(currentMatch.matches("\\d+\\s*[-]\\D*")){
                 patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
                 matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
               } else if(currentMatch.matches("\\d+\\s*[,]\\D*")){
                 patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
                 matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
               }
             }
           }
         }
       }
+      for(matches <- matchesInFile.distinct){
+        val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches)
+        writer.writeRow(csvEntry)
+      }
     }
+    writer.close()
+
     info("Pattern Matches in GT")
     for(entry <- patternMatchesInGT){
       info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
@@ -381,6 +400,40 @@ class SampleSizeExtractorTest extends FunSuite{
       info("ID: " + list(1))
       writer.writeRow(list)
     }
+  }
+
+  test("t-test analysis"){
+    val PdfPath = "test/TestPDFs"
+    val methodsPath = "statterms/templates/followup/methods.csv"
+    val files = getListOfFiles(PdfPath)
+    val allPaper = new PDFLoader(new File(PdfPath)).papers
+//    val searcher = mock[StatTermSearcher]
+//    info("searcher: " + searcher.terms)
+
+//    val matcher = new StatTermSearcher()
+    val bufferedSource = Source.fromFile("statterms/templates/followup/methods.csv")
+    val testPermutations : ArrayBuffer[String] = new ArrayBuffer[String]()
+    for (line <- bufferedSource.getLines()){
+      if(line.split(";")(0).contains("test")){
+        testPermutations += line.split(";")(0).replaceAll("\\s+","").toLowerCase()
+        (line.split(";")(1).split(",")).foreach(perm => {
+          testPermutations += perm.replaceAll("\\s+","").toLowerCase()
+        })
+      }
+    }
+    for(file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")) {
+        val pdfDoc = PDDocument.load(new File(fileString))
+        val pdfText = convertPDFtoText(fileString).mkString.replaceAll("\\s+","").toLowerCase()
+        for(test <- testPermutations){
+          if(pdfText.contains(test)){
+            info("Found Paper: " + fileString)
+          }
+        }
+      }
+    }
+
   }
 
   test("Test Regex Precision old"){
