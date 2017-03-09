@@ -274,7 +274,7 @@ class SampleSizeExtractorTest extends FunSuite{
 //    matchesKuersatClassifier.par.foreach(m => info("Match: " + m))
     info("KuersatClassifier distincst: " + matchesKuersatClassifier.distinct.length)
     for(matches <- matchesKuersatClassifier.distinct){
-      info("Current Match: " + matches)
+      info("Current Match: " + matches.replaceAll("\\n|\\r"," "))
     }
 
     info("Recall Calculation")
