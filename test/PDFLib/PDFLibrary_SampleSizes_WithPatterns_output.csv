@@ -1,13 +1,13 @@
 PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2004_12404.txt,1,6:615,null,312,312 native american women,"\d+([,\s*]\d{3})*\D{0,30}women"
-2004_12404.txt,2,6:1258,1,273,a total of 273 women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2004_12404.txt,2,6:1258,1,273,a total of 273 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2004_12404.txt,3,12:297,null,8000, survey of 8000 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2004_12404.txt,4,15:1791,null,300, sample sizes over 300,noPattern
-2004_12404.txt,5,21:1962,1,312, a total of 312 women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2004_12404.txt,5,21:1962,1,312, a total of 312 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2004_12404.txt,6,33:1422,1,273, there were 273 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2004_12404.txt,7,33:1862,1,9, n=9,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 2004_12404.txt,8,36:208,null,140, 140 answered survey questions,noPattern
-2004_12404.txt,9,36:282,8,13, a total of 13 of these women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2004_12404.txt,9,36:282,8,13, a total of 13 of these women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2004_12404.txt,10,36:475,9,4, 4 reported,noPattern
 2004_12404.txt,11,48:1297,null,3130, 3130 Georgia women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2004_12404.txt,12,48:1452,null,1600, study of over 1600 women,"\d+([,\s*]\d{3})*\D{0,30}women"
@@ -36,8 +36,8 @@ PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2010_2107.txt,35,33:1198,null,1954, 1954 patients were screened,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2010_2107.txt,36,33:1254,35,788, 788 were eligible,noPattern
 2010_2107.txt,37,33:1278,36,362, with 362 recruited,noPattern
-2010_2107.txt,38,33:1710,37,177, n=177 participants,"\d+([,\s*]\d{3})*\D{0,30}participants","[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
-2010_2107.txt,39,33:1792,37,185, n=185 participants,"\d+([,\s*]\d{3})*\D{0,30}participants","[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
+2010_2107.txt,38,33:1710,37,177, n=177 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
+2010_2107.txt,39,33:1792,37,185, n=185 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 2010_2107.txt,40,36:1030,39,76, 76/185,noPattern
 2010_2107.txt,41,36:1072,38,64, 64/177,noPattern
 2010_2107.txt,42,66:116,37,177, n=177,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
@@ -72,7 +72,7 @@ PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2010_2107.txt,71,87:226,68,67, n=67 - language barrier,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 2010_2107.txt,72,87:253,68,90, n=90 - too ill to approach,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 2010_2145.txt,73,6:931,null,37, 37 trials ... met the inclusion criteria,noPattern
-2010_2145.txt,74,6:957,null,5754, a total of 5754 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2010_2145.txt,74,6:957,null,5754, a total of 5754 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2010_2145.txt,75,6:1151,73,32, 32 trials,noPattern
 2010_2145.txt,76,18;56,null,234, a total of 234 trials,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
 2010_2145.txt,77,30:91,null,1854, total of 1854 references,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
@@ -80,7 +80,7 @@ PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2010_2145.txt,79,30:257,77,75, remaining 75 references,noPattern
 2010_2145.txt,80,30:321,73,37, a total of 37 studies,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
 2010_2145.txt,81,30:1329,73,37, the 37 eligible trials,noPattern
-2010_2145.txt,82,30:1368,74,5754, a total of 5754 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2010_2145.txt,82,30:1368,74,5754, a total of 5754 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2010_2145.txt,83,30:1421,73,14, 14 trials,noPattern
 2010_2145.txt,84,30:1438,74,3369, 3369 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2010_2145.txt,85,30:1532,73,8, 8 were short-term trials,noPattern
@@ -254,7 +254,7 @@ PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2012_4548.txt,253,27:228,252,402, 402 were men,noPattern
 2012_4548.txt,254,27:251,252,1510, 1510 were women,"\d+([,\s*]\d{3})*\D{0,30}women"
 2012_4548.txt,255,30:687,251,131, 131 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
-2012_4548.txt,256,33:27,251,2450, in total 2450 patients were enrolled,"\d+([,\s*]\d{3})*\D{0,30}patients","\d+([,\s*]\d{3})*\D{0,20}enrolled"
+2012_4548.txt,256,33:27,251,2450, in total 2450 patients were enrolled,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2012_4548.txt,257,33:112,256,589, 589 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2012_4548.txt,258,33:342,256,600, 600 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 2012_4548.txt,259,33:400,256,800, 800,noPattern
@@ -733,7 +733,7 @@ PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2013_2378.txt,732,33:53,717,244, n=244,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 2013_2378.txt,733,33:90,717,127, n=127,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 2013_2378.txt,734,33:132,717,378, n=378,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
-2013_2378.txt,735,36:1890,717,3496, a total of 3496 participants,"\d+([,\s*]\d{3})*\D{0,30}participants","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2013_2378.txt,735,36:1890,717,3496, a total of 3496 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 2013_2378.txt,736,36:1986,717,773, 773 reported,noPattern
 2013_2378.txt,737,36:2078,717,1040, 1040 were,noPattern
 2013_2378.txt,738,72:145,717,5242, n=5242,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
@@ -809,7 +809,7 @@ PDF_Name,ID,Index,part_of,N,comment,MatchingPattern
 2013_8087.txt,808,108:587,807,15, 15 cases had,noPattern
 2013_8087.txt,809,108:657,807,161, 161 descendants selected for analyses,noPattern
 2013_8200.txt,810,9:492,null,3681, n=3681,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
-2013_8200.txt,811,42:1084,810,3681, a total of 3681 women were recruited,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+2013_8200.txt,811,42:1084,810,3681, a total of 3681 women were recruited,"\d+([,\s*]\d{3})*\D{0,30}women"
 2013_8200.txt,812,42:1116,810,1470, 1470 in group A,noPattern
 2013_8200.txt,813,42:1125,810,2211, 2211 in group B,noPattern
 2013_8200.txt,814,75:143,null,532, n=532,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
@@ -927,7 +927,7 @@ bmj4_1_e003460.full.txt,925,9:1402,920,4715, n=4715,"[a]*[Nn]\s*=\s*\d+([,\s*]\d
 bmj4_1_e003460.full.txt,926,9:1426,920,9162, n=9162,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_1_e003460.full.txt,927,9:1455,920,5188, n=5188,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_1_e003460.full.txt,928,12:2008,923,19340, 19340 women,"\d+([,\s*]\d{3})*\D{0,30}women"
-bmj4_1_e003460.full.txt,929,12:2134,920,19065, 19065 participants were enrolled in the study,"\d+([,\s*]\d{3})*\D{0,30}participants","\d+([,\s*]\d{3})*\D{0,20}enrolled"
+bmj4_1_e003460.full.txt,929,12:2134,920,19065, 19065 participants were enrolled in the study,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_1_e003460.full.txt,930,21:3185,920,1675, 1675 asc-us,noPattern
 bmj4_1_e003460.full.txt,931,21:3190,920,2151, 2151 asc-us,noPattern
 bmj4_1_e003460.full.txt,932,21:3195,920,1566, 1566 asc-us,noPattern
@@ -1031,7 +1031,7 @@ bmj4_1_e004046.full.txt,1029,9:3730,1008,590, 590 tobacco,noPattern
 bmj4_1_e004046.full.txt,1030,9:3740,1011,224, 224 tobacco,noPattern
 bmj4_1_e004205.full.txt,1031,3:1344,null,100, 100 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_1_e004205.full.txt,1032,3:1543,null,137, 137 controls,noPattern
-bmj4_1_e004205.full.txt,1033,6:1867,null,607, a total of 607 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_1_e004205.full.txt,1033,6:1867,null,607, a total of 607 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_1_e004205.full.txt,1034,6:1921,1033,250, among whom 250 provided,noPattern
 bmj4_1_e004205.full.txt,1035,6:2123,1031,100, 100 patients completed,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_1_e004205.full.txt,1036,6:5255,1031,100, 100 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
@@ -1068,13 +1068,13 @@ bmj4_2_e003642.full.txt,1066,3:1504,null,575, 575 incidents,noPattern
 bmj4_2_e003642.full.txt,1067,6:2301,1066,575, a total of 575 incidents,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
 bmj4_2_e003642.full.txt,1068,6:4358,1066,518, 518 male,noPattern
 bmj4_2_e003642.full.txt,1069,6:4371,1066,57, 57 female,noPattern
-bmj4_2_e004051.full.txt,1070,3:1733,null,2151, a total of 2151 women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004051.full.txt,1070,3:1733,null,2151, a total of 2151 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004051.full.txt,1071,3:1794,1070,496, of these 496 were,noPattern
 bmj4_2_e004051.full.txt,1072,3:1880,1071,129, 129 also,noPattern
 bmj4_2_e004051.full.txt,1073,3:1894,1071,215, 215 also,noPattern
 bmj4_2_e004051.full.txt,1074,3:2044,1070,182, 182 redeemed,noPattern
 bmj4_2_e004051.full.txt,1075,3:2060,1070,235, 235 redeemed,noPattern
-bmj4_2_e004051.full.txt,1076,9:3588,1070,2151, a total of 2151 women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004051.full.txt,1076,9:3588,1070,2151, a total of 2151 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004051.full.txt,1077,9:3684,1070,2073, 2073 had,noPattern
 bmj4_2_e004051.full.txt,1078,9:3720,1070,78, 78 had,noPattern
 bmj4_2_e004051.full.txt,1079,9:2781,1070,2151, of the 2151 women,"\d+([,\s*]\d{3})*\D{0,30}women"
@@ -1127,7 +1127,7 @@ bmj4_2_e004051.full.txt,1125,15:4616,1081,252, 252 middle income,noPattern
 bmj4_2_e004051.full.txt,1126,15:4627,1080,825, 825 middle income,noPattern
 bmj4_2_e004051.full.txt,1127,15:4658,1081,92, 92 high income,noPattern
 bmj4_2_e004051.full.txt,1128,15:4668,1080,445, 445 high income,noPattern
-bmj4_2_e004226.full.txt,1129,3:1804,1142,296, a total of 296 women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004226.full.txt,1129,3:1804,1142,296, a total of 296 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004226.full.txt,1130,3:1829,1129,12, 12 hip,noPattern
 bmj4_2_e004226.full.txt,1131,3:1837,1129,48, 48 vertebral,noPattern
 bmj4_2_e004226.full.txt,1132,3:1851,1129,91, 91 forearm,noPattern
@@ -1138,7 +1138,7 @@ bmj4_2_e004226.full.txt,1136,3:1901,1129,62, 62 lower leg,noPattern
 bmj4_2_e004226.full.txt,1137,3:1918,1129,48, 48 other fractures,noPattern
 bmj4_2_e004226.full.txt,1138,3:1942,1146,590, 590 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004226.full.txt,1139,6:1485,null,1397, n=1397,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
-bmj4_2_e004226.full.txt,1140,6:1740,1139,1082, a total of 1082 women were eligible for participation,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004226.full.txt,1140,6:1740,1139,1082, a total of 1082 women were eligible for participation,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004226.full.txt,1141,6:1826,1140,832, n=832,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_2_e004226.full.txt,1142,6:1882,1141,439, n=439,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_2_e004226.full.txt,1143,6:1943,1142,296, a total of 296,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
@@ -1146,7 +1146,7 @@ bmj4_2_e004226.full.txt,1144,6:2219,null,1494, 1494 women,"\d+([,\s*]\d{3})*\D{0
 bmj4_2_e004226.full.txt,1145,6:2365,1144,1275, n=1275,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_2_e004226.full.txt,1146,6:2427,1145,758, total of 758,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
 bmj4_2_e004226.full.txt,1147,6:2471,1146,590, 590 women,"\d+([,\s*]\d{3})*\D{0,30}women"
-bmj4_2_e004226.full.txt,1148,6:4801,1142,296, a total of 296 women,"\d+([,\s*]\d{3})*\D{0,30}women","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004226.full.txt,1148,6:4801,1142,296, a total of 296 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004226.full.txt,1149,6:4939,1146,590, 590 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_2_e004226.full.txt,1150,9:3857,1129,170, n=170,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_2_e004226.full.txt,1151,9:3863,1138,382, n=382,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
@@ -1170,9 +1170,9 @@ bmj4_2_e004226.full.txt,1168,9:4567,1160,3, 3 smoking,noPattern
 bmj4_2_e004226.full.txt,1169,9:4576,1161,3, 3 smoking,noPattern
 bmj4_2_e004226.full.txt,1170,9:52,null,552, n=552,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_2_e004226.full.txt,1171,9:747,null,334, n=334,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
-bmj4_2_e004418.full.txt,1172,3:1879,1174,347, a total of 347 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004418.full.txt,1172,3:1879,1174,347, a total of 347 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_2_e004418.full.txt,1173,3:1915,1174,335, 335 controls,noPattern
-bmj4_2_e004418.full.txt,1174,9:767,null,682, total of 682 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_2_e004418.full.txt,1174,9:767,null,682, total of 682 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_2_e004418.full.txt,1175,9:831,1174,1172, of which 347,noPattern
 bmj4_3_e004007.full.txt,1176,3:1379,1177,869, 869 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_3_e004007.full.txt,1177,6:3430,null,963, the cohort consists of 963 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
@@ -1276,7 +1276,7 @@ bmj4_4_e004666.full.txt,1274,12:3213,1253,11, 11 OST in prison,noPattern
 bmj4_4_e004666.full.txt,1275,12:3249,1253,11, 11 natural death,noPattern
 bmj4_4_e004666.full.txt,1276,12:3275,1253,32, 32 unnatural death,noPattern
 bmj4_4_e004675.full.txt,1277,3:1289,1279,594, 594 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
-bmj4_4_e004675.full.txt,1278,6:407,null,6162, screened a total of 6162 participants,"\d+([,\s*]\d{3})*\D{0,30}participants","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_4_e004675.full.txt,1278,6:407,null,6162, screened a total of 6162 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_4_e004675.full.txt,1279,6:745,1278,3960, 3960 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_4_e004675.full.txt,1280,6:817,1279,782, 782 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_4_e004675.full.txt,1281,6:942,1279,1062, 1062 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
@@ -1552,7 +1552,7 @@ bmj4_6_e005053.full.txt,1550,12:2407,1490,2418, 2418 42-48 weeks,noPattern
 bmj4_6_e005053.full.txt,1551,12:2418,1490,63202, 63202 42-48 weeks,noPattern
 bmj4_6_e005053.full.txt,1552,12:2439,1490,157, 157 missing,noPattern
 bmj4_6_e005053.full.txt,1553,12:2449,1490,5680, 5680 missing,noPattern
-bmj4_6_e005097.full.txt,1554,3:1661,null,7510, a total of 7510 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_6_e005097.full.txt,1554,3:1661,null,7510, a total of 7510 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1555,3:2051,1554,6591, of 6591 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1556,3:2068,1555,4182, 4182 patients had,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1557,3:2107,1555,2187, 2187 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
@@ -1560,7 +1560,7 @@ bmj4_6_e005097.full.txt,1558,3:2156,1555,222, 222 patients,"\d+([,\s*]\d{3})*\D{
 bmj4_6_e005097.full.txt,1559,6:1974,1554,7510, 7510 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1560,6:2559,1554,7510, of the 7510 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1561,6:2574,1554,123, 123 patients were excluded,"\d+([,\s*]\d{3})*\D{0,30}patients"
-bmj4_6_e005097.full.txt,1562,6:2653,1554,796, a total of 796 patients were excluded,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_6_e005097.full.txt,1562,6:2653,1554,796, a total of 796 patients were excluded,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1563,6:2835,1554,6591, the remaining 6591 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1564,9:2004,1555,6591, of the 6591 patients included in this study,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_6_e005097.full.txt,1565,9:2043,1564,4696, 4696 were men,noPattern
@@ -1627,11 +1627,11 @@ bmj4_6_e005476.full.txt,1625,6:4320,1624,12, 12 women,"\d+([,\s*]\d{3})*\D{0,30}
 bmj4_6_e005476.full.txt,1626,6:4817,1624,12, 12 women,"\d+([,\s*]\d{3})*\D{0,30}women"
 bmj4_6_e005757.full.txt,1627,3:1765,null,300, study of 300 residents,noPattern
 bmj4_7_e004419.full.txt,1628,3:1455,null,9028, this study enrolled 9028 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
-bmj4_7_e004419.full.txt,1629,3:1499,1628,7568, data of 7568 participants,"\d+([,\s*]\d{3})*\D{0,30}participants","\s*data\D{0,10}of\D{0,5}\d+([,\s*]\d{3})*"
+bmj4_7_e004419.full.txt,1629,3:1499,1628,7568, data of 7568 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004419.full.txt,1630,3:2051,1629,3060, 3060 male,noPattern
 bmj4_7_e004419.full.txt,1631,3:2067,1629,4508, 4508 female,noPattern
-bmj4_7_e004419.full.txt,1632,6:1853,1628,9028, a total of 9028 participants,"\d+([,\s*]\d{3})*\D{0,30}participants","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
-bmj4_7_e004419.full.txt,1633,6:1975,1629,7568, the data of 7568 participants who met the inclusion criteria,"\d+([,\s*]\d{3})*\D{0,30}participants","\s*data\D{0,10}of\D{0,5}\d+([,\s*]\d{3})*"
+bmj4_7_e004419.full.txt,1632,6:1853,1628,9028, a total of 9028 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
+bmj4_7_e004419.full.txt,1633,6:1975,1629,7568, the data of 7568 participants who met the inclusion criteria,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004419.full.txt,1634,6:2102,1628,1460, the remaining 1460 patients were excluded,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_7_e004419.full.txt,1635,6:2822,1629,7568, 7568 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004419.full.txt,1636,9:1528,1629,7568, of the 7568 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
@@ -1764,7 +1764,7 @@ bmj4_7_e004576.full.txt,1762,12:1452,1743,267, 267 alcohol intake,noPattern
 bmj4_7_e004576.full.txt,1763,12:1482,1742,84, 84 current smoker,noPattern
 bmj4_7_e004576.full.txt,1764,12:1492,1743,86, 86 current smoker,noPattern
 bmj4_7_e004581.full.txt,1765,3:1671,null,9, 9 eligible trials,noPattern
-bmj4_7_e004581.full.txt,1766,3:1708,null,631, total of 631 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_7_e004581.full.txt,1766,3:1708,null,631, total of 631 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_7_e004581.full.txt,1767,6:4901,null,606, a total of 606 reports were retrieved,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
 bmj4_7_e004581.full.txt,1768,6:4984,1767,597, 597 were excluded,noPattern
 bmj4_7_e004592.full.txt,1769,3:1089,null,15476, 15476 women,"\d+([,\s*]\d{3})*\D{0,30}women"
@@ -1812,7 +1812,7 @@ bmj4_7_e004782.full.txt,1810,3:1591,1807,50, 50 patients,"\d+([,\s*]\d{3})*\D{0,
 bmj4_7_e004782.full.txt,1811,6:2747,1808,60, 60 non-smokers,noPattern
 bmj4_7_e004782.full.txt,1812,6:2763,1809,53, 53 smokers,noPattern
 bmj4_7_e004782.full.txt,1813,6:2778,1810,50, 50 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
-bmj4_7_e004782.full.txt,1814,9:1053,1807,163, a total of 163 participants ... were included,"\d+([,\s*]\d{3})*\D{0,30}participants","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_7_e004782.full.txt,1814,9:1053,1807,163, a total of 163 participants ... were included,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004782.full.txt,1815,9:1128,1808,60, with 60 non-smokers,noPattern
 bmj4_7_e004782.full.txt,1816,9:1200,1809,53, 53 smokers,noPattern
 bmj4_7_e004782.full.txt,1817,9:1271,1810,50, 50 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
@@ -1842,9 +1842,9 @@ bmj4_7_e004782.full.txt,1840,9:4541,1809,5, 5 black,noPattern
 bmj4_7_e004782.full.txt,1841,9:4548,1810,4, 4 black,noPattern
 bmj4_7_e004782.full.txt,1842,9:4561,1807,3, 3 mixed,noPattern
 bmj4_7_e004782.full.txt,1843,9:4568,1808,3, 3 mixed,noPattern
-bmj4_7_e004875.full.txt,1844,3:1448,null,61491, study population included 61491 male participants,"\d+([,\s*]\d{3})*\D{0,30}participants","study\s*population\s*include[sd]\D{0,20}\d+([,\s*]\d{3})*"
+bmj4_7_e004875.full.txt,1844,3:1448,null,61491, study population included 61491 male participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004875.full.txt,1845,3:1504,null,74941, 74941 female participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
-bmj4_7_e004875.full.txt,1846,6:818,1844,61491, study population included 61491 male participants,"\d+([,\s*]\d{3})*\D{0,30}participants","study\s*population\s*include[sd]\D{0,20}\d+([,\s*]\d{3})*"
+bmj4_7_e004875.full.txt,1846,6:818,1844,61491, study population included 61491 male participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004875.full.txt,1847,6:855,1845,74941, 74941 female participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e004875.full.txt,1848,6:2508,1844,59910, after exclusion a total of 59910 men,"[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
 bmj4_7_e004875.full.txt,1849,6:2523,1845,73114, 73114 women,"\d+([,\s*]\d{3})*\D{0,30}women"
@@ -1893,7 +1893,7 @@ bmj4_7_e004919.full.txt,1891,12:2871,1871,733, 733 family affluence missing,noPa
 bmj4_7_e004919.full.txt,1892,12:2881,1872,210, 210 family affluence missing,noPattern
 bmj4_7_e004919.full.txt,1893,12:2891,1873,239, 239 family affluence missing,noPattern
 bmj4_7_e004919.full.txt,1894,12:2901,1874,284, 284 family affluence missing,noPattern
-bmj4_7_e005142.full.txt,1895,3:1551,null,15140, a total of 15140 eligible people were included,"\d+([,\s*]\d{3})*\D{0,30}people","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_7_e005142.full.txt,1895,3:1551,null,15140, a total of 15140 eligible people were included,"\d+([,\s*]\d{3})*\D{0,30}people"
 bmj4_7_e005142.full.txt,1896,15:2525,1895,15140, n=15140,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_7_e005142.full.txt,1897,15:2534,1895,14016, n=14016,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 bmj4_7_e005142.full.txt,1898,15:2543,1895,12807, n=12807,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
@@ -1940,7 +1940,7 @@ bmj4_7_e005361.full.txt,1938,3:2152,1942,177, of the 177 patients included,"\d+(
 bmj4_7_e005361.full.txt,1939,3:2175,1938,101, 101 men,noPattern
 bmj4_7_e005361.full.txt,1940,3:2312,1938,110, 110 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e005361.full.txt,1941,3:2358,1938,67, ... was found in 67,noPattern
-bmj4_7_e005361.full.txt,1942,9:3050,null,189, a total of 189 patients were invited,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_7_e005361.full.txt,1942,9:3050,null,189, a total of 189 patients were invited,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_7_e005361.full.txt,1943,9:3127,1942,10, 10 had ...,noPattern
 bmj4_7_e005361.full.txt,1944,9:3257,1938,177, of the 177 participants included,"\d+([,\s*]\d{3})*\D{0,30}participants"
 bmj4_7_e005361.full.txt,1945,9:3284,1938,101, 101 were men,noPattern
@@ -1955,9 +1955,9 @@ bmj4_7_e005361.full.txt,1953,9:4820,1938,110, 110 any respiratory symptoms,noPat
 bmj4_7_e005361.full.txt,1954,9:4837,1938,87, 87 cough,noPattern
 bmj4_7_e005361.full.txt,1955,9:4861,1938,62, 62 expectoration,noPattern
 bmj4_7_e005361.full.txt,1956,9:4880,1938,99, 99 dyspnoea,noPattern
-bmj4_7_e005381.full.txt,1957,3:1580,1958,219, a total of 219 patients,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
-bmj4_7_e005381.full.txt,1958,6:2923,null,309, a total of 309 patients subscribed,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
-bmj4_7_e005381.full.txt,1959,9:238,1958,309, a total of 309 patients were identified,"\d+([,\s*]\d{3})*\D{0,30}patients","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+bmj4_7_e005381.full.txt,1957,3:1580,1958,219, a total of 219 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
+bmj4_7_e005381.full.txt,1958,6:2923,null,309, a total of 309 patients subscribed,"\d+([,\s*]\d{3})*\D{0,30}patients"
+bmj4_7_e005381.full.txt,1959,9:238,1958,309, a total of 309 patients were identified,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_7_e005381.full.txt,1960,9:319,1958,286, 286 medical reports were retrieved,noPattern
 bmj4_7_e005381.full.txt,1961,9:554,1958,219, 219 patients were included,"\d+([,\s*]\d{3})*\D{0,30}patients"
 bmj4_7_e005381.full.txt,1962,9:1987,1961,216, 216 malaysian,noPattern
@@ -2088,7 +2088,7 @@ bmj4_7_e005429.full.txt,2086,18:1728,2052,2950, 2950 men,noPattern
 bmj4_7_e005429.full.txt,2087,18:1738,2057,1565, 1565 men,noPattern
 bmj4_7_e005429.full.txt,2088,18:1748,2058,883, 883 men,noPattern
 bmj4_7_e005866.full.txt,2089,9:1537,null,412, recruit 412 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
-bmj4_7_e005866.full.txt,2090,24:840,2089,412, 412 patients have been enrolled,"\d+([,\s*]\d{3})*\D{0,30}patients","\d+([,\s*]\d{3})*\D{0,20}enrolled"
+bmj4_7_e005866.full.txt,2090,24:840,2089,412, 412 patients have been enrolled,"\d+([,\s*]\d{3})*\D{0,30}patients"
 Doc2.txt,2091,18:3072,null,20, we selected the following 20 journals,noPattern
 Doc2.txt,2092,54:3131,null,600, sample of CEOs of more than 600,noPattern
 Doc3.txt,2093,6:2917,2093,1000, over 1000 top managers,noPattern
@@ -2118,7 +2118,7 @@ manuscript4.txt,2116,15:2109,null,31, validation group with 31 patients,"\d+([,\
 manuscript4.txt,2117,30:150,2113,129, 129 patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 manuscript4.txt,2118,33:184,2116,31, 31 additional patients,"\d+([,\s*]\d{3})*\D{0,30}patients"
 p1-zhao.txt,2119,3:651,null,13, study of 13 participants,"\d+([,\s*]\d{3})*\D{0,30}participants"
-p1-zhao.txt,2120,9:3117,2119,13, a total of 13 people,"\d+([,\s*]\d{3})*\D{0,30}people","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+p1-zhao.txt,2120,9:3117,2119,13, a total of 13 people,"\d+([,\s*]\d{3})*\D{0,30}people"
 p1-zhao.txt,2121,9:3128,2120,9, 9 female,noPattern
 p1-zhao.txt,2122,9:3138,2120,4, 4 male,noPattern
 p1-zhao.txt,2123,9:3146,2120,8, 8 white,noPattern
@@ -2126,11 +2126,11 @@ p1-zhao.txt,2124,9:3166,2120,2, 2 asian,noPattern
 p1-zhao.txt,2125,9:3175,2120,2, 2 hispanic,noPattern
 p9-balakrishnan.txt,2126,12:4452,null,12, 12 right-handed volunteers,noPattern
 p9-balakrishnan.txt,2127,18:231,2126,12, 12 subjects,"\d+([,\s*]\d{3})*\D{0,30}subjects"
-p9-balakrishnan.txt,2128,18:1283,2126,12, data from all 12 subjects,"\d+([,\s*]\d{3})*\D{0,30}subjects","\s*data\D{0,10}from\D{0,5}\d+([,\s*]\d{3})*"
+p9-balakrishnan.txt,2128,18:1283,2126,12, data from all 12 subjects,"\d+([,\s*]\d{3})*\D{0,30}subjects"
 p11-jung.txt,2129,3:1017,null,98, n=98,"[a]*[Nn]\s*=\s*\d+([,\s*]\d{3})*"
 p11-jung.txt,2130,12:697,null,3150, of the 3150 staff members invited,noPattern
 p11-jung.txt,2131,12:745,1230,666, 666 participated,noPattern
-p11-jung.txt,2132,12:2720,2131,98, a total of 98 lab participants completed this task,"\d+([,\s*]\d{3})*\D{0,30}participants","[Tt]otal\s*of\s*\d+([,\s*]\d{3})*"
+p11-jung.txt,2132,12:2720,2131,98, a total of 98 lab participants completed this task,"\d+([,\s*]\d{3})*\D{0,30}participants"
 p21-bernstein.txt,2133,9:2735,null,542, 542 respondents general audience,noPattern
 p21-bernstein.txt,2134,9:2788,null,589, 589 respondents specific audience,noPattern
 p25-isokoski.txt,2135,12:1577,null,6, 6 people ... volunteered,"\d+([,\s*]\d{3})*\D{0,30}people"

@@ -12,6 +12,7 @@ import org.scalatest.FunSuite
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
+import scala.util.control.Breaks
 import scala.util.matching.Regex
 
 /**
@@ -350,9 +351,18 @@ class SampleSizeExtractorTest extends FunSuite{
       if(list(0).equals("PDF_Name")){
         list += "MatchingPattern"
       } else {
-        for(regex <- testListRegexNonOverfitted){
-          if(regex.findAllIn(list(5)).matchData.nonEmpty){
-            list += regex.toString()
+//        for(regex <- testListRegexNonOverfitted){
+//          if(regex.findAllIn(list(5)).matchData.nonEmpty){
+//            list += regex.toString()
+//          }
+//        }
+        val forLoop = new Breaks
+        forLoop.breakable{
+          for(regex <- testListRegexNonOverfitted){
+            if(regex.findAllIn(list(5)).matchData.nonEmpty){
+              list += regex.toString()
+              forLoop.break()
+            }
           }
         }
 //        val forLoop = new Breaks
