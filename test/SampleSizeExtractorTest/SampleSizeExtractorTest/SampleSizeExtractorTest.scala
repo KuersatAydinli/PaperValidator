@@ -367,6 +367,305 @@ class SampleSizeExtractorTest extends FunSuite{
 //    info("TotalPaperMatches: " + papermatch)
   }
 
+  test("Kuersat_Classifier_Full_Corpus"){
+    info("Test Kuersat Classifier Full Corpus...")
+    val PdfPath = "test/TestPDFs"
+
+    val JournalPath = "F:\\Dropbox\\Dropbox\\all papers"
+
+    val testListRegex = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}children"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}residents"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}students"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}procedures"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}volunteers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}employees"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}users"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}managers"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}firms"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}establishments"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("sample\\s*of\\s*\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      //      new Regex("sample\\D{0,10}included\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s?cohort\\D{0,20}of\\D{0,15}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("enrolled\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
+    val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      //      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
+    val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
+    val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
+
+    //    testListRegexNonOverfitted.par.foreach(r => patternMatchesInGT(r) = 0)
+    for(regex <- testListRegexNonOverfitted){
+      patternMatchesInGT(regex) = 0
+    }
+
+    for(line <- bufferedSource.getLines()){
+      val cols = line.split(",").map(_.trim)
+      //      testListRegexNonOverfitted.par.foreach(r =>
+      //        if(r.findAllIn(cols(5)).matchData.nonEmpty){
+      //          patternMatchesInGT.update(r,patternMatchesInGT(r)+1)
+      //        })
+      for(regex <- testListRegexNonOverfitted){
+        if(regex.findAllIn(cols(5)).matchData.nonEmpty){
+          patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
+        }
+      }
+    }
+    bufferedSource.close
+
+    val files = getListOfFiles(PdfPath)
+    val allFiles = listFilesAndFilesSubDirectories(JournalPath)
+    val patternMatchesTotal = mutable.Map.empty[Regex, Int]
+    val patternMatchesFiltered = mutable.Map.empty[Regex, Int]
+    //    testListRegexNonOverfitted.par.foreach(r => patternMatchesTotal(r) = 0)
+    //    testListRegexNonOverfitted.par.foreach(r => patternMatchesFiltered(r) = 0)
+    for(regex <- testListRegexNonOverfitted){
+      patternMatchesTotal(regex) = 0
+      patternMatchesFiltered(regex) = 0
+    }
+    val matchesKuersatClassifier = new ListBuffer[String]()
+    //    val KuersatClassifierMap = mutable.Map.empty[String,String]
+
+    val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
+    val csv_writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_full_corpus.csv"))
+    val CsvHeader = List[String]("PDF_Name","Match","T-Test Permutation","Distance")
+    csv_writer.writeRow(CsvHeader)
+//    val writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_Matches_new.csv"))
+//    val csv_writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_full.csv"))
+//    //    val CsvHeader = List[String]("PDF_Name","Match")
+//    //    writer.writeRow(CsvHeader)
+//    val CsvHeader = List[String]("PDF_Name","Match","T-Test Permutation","Distance")
+//    csv_writer.writeRow(CsvHeader)
+
+    val methodSource = Source.fromFile("statterms/templates/followup/methods.csv")
+    val testPermutations : ArrayBuffer[String] = new ArrayBuffer[String]()
+    for (line <- methodSource.getLines()){
+      if(line.split(";")(0).contains("test")){
+        testPermutations += line.split(";")(0)
+        line.split(";")(1).split(",").foreach(perm => {
+          //          testPermutations += perm.replaceAll("\\s+","").toLowerCase()
+          testPermutations += perm
+        })
+      }
+    }
+
+    for (file <- allFiles){
+      val matchesInFile = new ListBuffer[String]()
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfDoc = PDDocument.load(new File(fileString))
+        val pdfText = convertPDFtoText(fileString)
+        //        testListRegexNonOverfitted.par.foreach(regex =>
+        //          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+        //            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
+        //            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
+        //            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+        //            while(totalMatches.hasNext){
+        //              val currentMatch = totalMatches.next().toString()
+        //              matchesKuersatClassifier += currentMatch
+        //              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+        //                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+        //                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              } else if(currentMatch.contains("%")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              } else if(currentMatch.matches("\\d+[/)\\]]\\D*")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              }
+        //            }
+        //        })
+        for(regex <- testListRegexNonOverfitted){
+          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
+            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
+            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+            while(totalMatches.hasNext){
+              val currentMatch = totalMatches.next().toString()
+              matchesKuersatClassifier += currentMatch
+              matchesInFile += currentMatch
+              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}cm\\D*|\\d+([,\\s*]\\d{3})*\\D*[,]\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}year[-\\s]old\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.contains("%")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(bracketList.exists(currentMatch.contains(_))){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\s*[-]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\s*[,]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*\\s+for\\s+\\D*|\\d\\D*+\\s+and\\s+\\D*|\\d+\\D*\\s+by\\s+\\D*" +
+                "|\\d+\\D*\\s+our\\s+\\D*|\\d+\\D*\\s+between\\s+\\D*|\\d+\\D*\\s+in\\s+\\D*|\\d+\\D*\\s+from\\s+\\D*" +
+                "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
+                "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              }
+            }
+          }
+        }
+        var testPositionMap = mutable.Map.empty[String,Int]
+        var containsTest = false
+        for(perm <- testPermutations){
+          if(pdfText.mkString.contains(" " + perm + " ")){
+            containsTest = true
+            val position = pdfText.mkString.indexOf(" " + perm + " ")
+            testPositionMap += " "+perm+" " -> position
+          }
+        }
+        for(matches <- matchesInFile.distinct){
+          if(!containsTest){
+            val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),"null",
+              "-1")
+            csv_writer.writeRow(csvEntry)
+          } else {
+            var distances = mutable.ListBuffer.empty[Int]
+            testPositionMap.values.par.foreach(pos => {
+              val currentDistance = Math.abs(pdfText.mkString.indexOf(matches) - pos)
+              distances += currentDistance
+            })
+            val minDistance = distances.min
+            var minDistancePermutation = "foo"
+            for(entry <- testPositionMap){
+              if(Math.abs(pdfText.mkString.indexOf(matches) - entry._2) == minDistance){
+                minDistancePermutation = entry._1
+              }
+            }
+            //        val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "))
+
+            val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),
+              minDistancePermutation,minDistance.toString)
+            csv_writer.writeRow(csvEntry)
+
+            //        writer.writeRow(csvEntry)
+          }
+        }
+      }
+    }
+    csv_writer.close()
+    //    writer.close()
+
+
+
+//    info("Pattern Matches in GT")
+//    for(entry <- patternMatchesInGT){
+//      info("%-60s ==> %s".format(entry._1.toString(),entry._2).toString)
+//    }
+//    info("===============================================================================")
+//    info("Pattern Matches Total")
+//    for(entry <- patternMatchesTotal){
+//      info("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternMatchesFiltered(entry._1)).toString)
+//    }
+//
+//    val patternPrecision = mutable.Map.empty[Regex,Float]
+//    val patternPrecisionFiltered = mutable.Map.empty[Regex,Float]
+//    for(regex <- testListRegexNonOverfitted){
+//      patternPrecision(regex) = patternMatchesInGT(regex).toFloat / patternMatchesTotal(regex)
+//      patternPrecisionFiltered(regex) = patternMatchesInGT(regex).toFloat / patternMatchesFiltered(regex)
+//    }
+//
+//    info("===============================================================================")
+//    info("Pattern Precision")
+//
+////    val pw = new PrintWriter(new File("test/PDFLib/Pattern_Precision_Filtering.txt"))
+//    for(entry <- patternPrecision){
+//      info("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternPrecisionFiltered(entry._1)).toString)
+////      pw.write("%-60s ==> %s // %s".format(entry._1.toString(),entry._2,patternPrecisionFiltered(entry._1)).toString)
+////      pw.write("\n")
+//    }
+////    pw.close()
+//    info("KuersatClassifier # Matches: " + matchesKuersatClassifier.length)
+////    matchesKuersatClassifier.par.foreach(m => info("Match: " + m))
+//    info("KuersatClassifier distincst: " + matchesKuersatClassifier.distinct.length)
+//    for(matches <- matchesKuersatClassifier.distinct){
+//      info("Current Match: " + matches.replaceAll("\\n|\\r"," "))
+//    }
+//
+//    info("Recall Calculation")
+//    val paperMatch = mutable.Map.empty[String,Boolean]
+//    for(file <- files){
+//      val fileString = file.toString
+//      if(FilenameUtils.getExtension(fileString).equals("txt") && FilenameUtils.getName(fileString) != "sampleSizesExtracted"){
+//        paperMatch(FilenameUtils.getName(fileString).replace(".pdf.txt",".txt")) = false
+//      }
+//    }
+//
+//    val foundMatchesInGT = new ListBuffer[String]()
+//    val bufferedSourceSecond = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
+//    for(line <- bufferedSourceSecond.getLines()){
+//      val cols = line.split(",").map(_.trim)
+//      for(matches <- matchesKuersatClassifier.distinct){
+//        if(cols(5).toLowerCase.replaceAll("\\s","").contains(matches.toLowerCase.replaceAll("\\s",""))){
+//          info("Found: " + cols(5))
+//          paperMatch(cols(0)) = true
+//          foundMatchesInGT += cols(5)
+//        }
+//      }
+//    }
+//    bufferedSourceSecond.close
+//    var papermatch = 0
+//    for(papermatches <- paperMatch){
+//      if(papermatches._2){
+//        papermatch += 1
+//        info("Matched Paper: " + papermatches._1)
+//      }
+//    }
+//    info("TotalFound: " + foundMatchesInGT.distinct.length)
+//    info("TotalPaperMatches: " + papermatch)
+  }
+
   test("Mismatch Filter"){
     val bufferedSource = Source.fromFile("test/PDFLib/PatternMismatches_3rd.txt")
     val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
@@ -826,6 +1125,20 @@ class SampleSizeExtractorTest extends FunSuite{
       info("Dir does not exist")
       List[File]()
     }
+  }
+
+  def listFilesAndFilesSubDirectories(dir: String):List[File] = {
+    val directory = new File(dir)
+    val fList = directory.listFiles()
+    val fListToReturn = mutable.ListBuffer.empty[File]
+    for(file <- fList){
+      if(file.isFile){
+        fListToReturn += file
+      } else if(file.isDirectory){
+        listFilesAndFilesSubDirectories(file.getAbsolutePath)
+      }
+    }
+    fListToReturn.toList
   }
 
   def deleteFile(filename: String) = { new File(filename).delete() }
