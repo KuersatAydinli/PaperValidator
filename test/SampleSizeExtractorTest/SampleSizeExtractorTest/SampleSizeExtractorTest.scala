@@ -3,6 +3,7 @@ import java.io._
 
 import au.com.bytecode.opencsv.CSVReader
 import com.github.tototoshi.csv.CSVWriter
+import com.google.common.base.CharMatcher
 import helper.pdfpreprocessing.pdf.{PDFLoader, PDFTextExtractor}
 import helper.statcheck.{Statchecker => StatChecker}
 import org.apache.commons.io.FilenameUtils
@@ -371,7 +372,8 @@ class SampleSizeExtractorTest extends FunSuite{
     info("Test Kuersat Classifier Full Corpus...")
     val PdfPath = "test/TestPDFs"
 
-    val JournalPath = "F:\\Dropbox\\Dropbox\\all papers"
+//    val JournalPath = "F:\\Dropbox\\Dropbox\\all papers\\nejm_2col"
+    val JournalPath = "F:\\Wifo_5_Semester\\CrowdSourcing\\ClinicalData\\Clinical_Data_Downloaded-20161116173143\\Clinical Data_Zurampic_Initial marketing authorisation\\Clinical study reports"
 
     val testListRegex = mutable.MutableList(
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
@@ -412,6 +414,9 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
       new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
@@ -441,7 +446,8 @@ class SampleSizeExtractorTest extends FunSuite{
     bufferedSource.close
 
     val files = getListOfFiles(PdfPath)
-    val allFiles = listFilesAndFilesSubDirectories(JournalPath)
+    val baseDirectory = new File(JournalPath)
+    val allFiles = recursiveListFiles(baseDirectory)
     val patternMatchesTotal = mutable.Map.empty[Regex, Int]
     val patternMatchesFiltered = mutable.Map.empty[Regex, Int]
     //    testListRegexNonOverfitted.par.foreach(r => patternMatchesTotal(r) = 0)
@@ -454,7 +460,7 @@ class SampleSizeExtractorTest extends FunSuite{
     //    val KuersatClassifierMap = mutable.Map.empty[String,String]
 
     val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
-    val csv_writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_full_corpus.csv"))
+    val csv_writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_clinical_2.csv"))
     val CsvHeader = List[String]("PDF_Name","Match","T-Test Permutation","Distance")
     csv_writer.writeRow(CsvHeader)
 //    val writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_Matches_new.csv"))
@@ -480,7 +486,8 @@ class SampleSizeExtractorTest extends FunSuite{
       val matchesInFile = new ListBuffer[String]()
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
-        val pdfDoc = PDDocument.load(new File(fileString))
+//      if(FilenameUtils.getBaseName(fileString).equalsIgnoreCase("NEJMp1401124")){
+//        val pdfDoc = PDDocument.load(new File(fileString))
         val pdfText = convertPDFtoText(fileString)
         //        testListRegexNonOverfitted.par.foreach(regex =>
         //          if(regex.findAllIn(pdfText.mkString).nonEmpty){
@@ -667,10 +674,11 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Mismatch Filter"){
-    val bufferedSource = Source.fromFile("test/PDFLib/PatternMismatches_3rd.txt")
+    val bufferedSource = Source.fromFile("test/PDFLib/KuersatClassifier_fullMismatches.txt")
     val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
     for(line <- bufferedSource.getLines()){
-      val mismatch = line.split("Match:\\s+")(1)
+//      val mismatch = line.split("Match:\\s+")(1)
+      val mismatch = line
       if(mismatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
         "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
         "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
@@ -702,6 +710,18 @@ class SampleSizeExtractorTest extends FunSuite{
         "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
         "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*")){
         info("With connection: " + mismatch)
+      }
+      if(mismatch.matches("\\d+\\D*\\s+[Hh]ow\\s+\\D*|\\d\\D*s+[Aa]lthough\\D*|\\d+\\D*\\s+[Tt]he\\s+\\D*" +
+        "|\\d+\\D*\\s+[Mm]any\\s+\\D*|\\d+\\D*\\s+[Oo]ften\\s+\\D*|\\d+\\D*\\s+found\\s+\\D*|\\d+\\D*\\s+[Oo]n\\s+\\D*" +
+        "|\\d+\\D*[Aa]mong\\D*|\\d+\\D*[Ss]how\\D*|\\d+\\D*[Tt]han\\D*|\\d+\\D*[Pp]ercent\\D*|\\d+\\D*[Ww]hich\\D*" +
+        "|\\d+\\D*[Dd]uring\\D*|\\d+\\D*as\\s*well\\s*as\\D*|\\d+\\D*[Aa]nother\\D*|\\d+\\D*[Cc]haracteristics\\D*" +
+        "|\\d+\\D*[Aa]ttribute\\D*|\\d+\\D*[Mm]ost\\D*|\\d+\\D*\\s+[Bb]ut\\s+\\D*|\\d+\\D*[Aa]bout\\D*" +
+        "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
+       !mismatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")){
+        info("With connection SECOND: " + mismatch)
+      }
+      if(!CharMatcher.ASCII.matchesAllOf(mismatch)){
+        info("with asciii: " + mismatch)
       }
     }
   }
@@ -1139,6 +1159,11 @@ class SampleSizeExtractorTest extends FunSuite{
       }
     }
     fListToReturn.toList
+  }
+
+  def recursiveListFiles(f: File): Array[File] = {
+    val these = f.listFiles
+    these ++ these.filter(_.isDirectory).flatMap(recursiveListFiles)
   }
 
   def deleteFile(filename: String) = { new File(filename).delete() }
