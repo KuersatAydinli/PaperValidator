@@ -1,11 +1,9 @@
 package helper.pdfpreprocessing.pdf
 
-import java.awt.geom.Rectangle2D
 import java.io.File
 
 import com.typesafe.scalalogging.LazyLogging
-import org.apache.pdfbox.pdmodel.{PDDocument, PDPage}
-import org.apache.pdfbox.text.PDFTextStripperByArea
+import org.apache.pdfbox.pdmodel.PDDocument
 
 /**
   * Created by pdeboer on 16/10/15.
@@ -18,25 +16,25 @@ class PDFTextExtractor(pdfPath: String) extends LazyLogging {
       pdfHighlight.setLineSeparator(" ")
       pdfHighlight.initialize(pdDoc)
 
-      var tempList = scala.collection.mutable.ListBuffer.empty[String]
-      for (i <- 0 until pdDoc.getNumberOfPages){
-        val page: PDPage = pdDoc.getDocumentCatalog.getPages.get(i)
-        val region: Rectangle2D = new Rectangle2D.Double(0,40,page.getMediaBox.getWidth,page.getMediaBox.getHeight-100)
-        val regionName: String = "content"
-        val stripper: PDFTextStripperByArea = new PDFTextStripperByArea()
-        stripper.addRegion(regionName,region)
-        stripper.extractRegions(page)
-        val currentPage = stripper.getTextForRegion("content")
-        tempList += currentPage
-      }
+//      var tempList = scala.collection.mutable.ListBuffer.empty[String]
+//      for (i <- 0 until pdDoc.getNumberOfPages){
+//        val page: PDPage = pdDoc.getDocumentCatalog.getPages.get(i)
+//        val region: Rectangle2D = new Rectangle2D.Double(0,40,page.getMediaBox.getWidth,page.getMediaBox.getHeight-100)
+//        val regionName: String = "content"
+//        val stripper: PDFTextStripperByArea = new PDFTextStripperByArea()
+//        stripper.addRegion(regionName,region)
+//        stripper.extractRegions(page)
+//        val currentPage = stripper.getTextForRegion("content")
+//        tempList += currentPage
+//      }
+////      pdDoc.close()
+////      tempList.toList
 //      pdDoc.close()
-//      tempList.toList
-      pdDoc.close()
-      val txt: List[String] = tempList.toList
-      txt
-//      val txt: List[String] = (0 to pdDoc.getNumberOfPages).map(pdfHighlight.textCache.getText(_)).toList
-//      pdDoc.close()
+//      val txt: List[String] = tempList.toList
 //      txt
+      val txt: List[String] = (0 to pdDoc.getNumberOfPages).map(pdfHighlight.textCache.getText(_)).toList
+      pdDoc.close()
+      txt
 
 //      val txt: List[String] = (0 to pdDoc.getNumberOfPages).map(pdfHighlight.textCache.getText(_)).toList
 //      val txt: List[String] = (0 to pdDoc.getNumberOfPages+1).map(x => {
