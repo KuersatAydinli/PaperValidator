@@ -422,7 +422,7 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
-      new Regex("\\b(\\D{0,15})\\b(enrolled)*\\d+([,\\s*]\\d{3})*(enrolled)*\\D{0,20}"),
+      new Regex("\\b(\\D{0,15})\\b(enrolled)\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
     val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
@@ -433,7 +433,9 @@ class SampleSizeExtractorTest extends FunSuite{
       patternMatchesInGT(regex) = 0
     }
 
+//    var counter = 2
     for(line <- bufferedSource.getLines()){
+//      info("counter: " + counter.toString)
       val cols = line.split(",").map(_.trim)
       //      testListRegexNonOverfitted.par.foreach(r =>
       //        if(r.findAllIn(cols(5)).matchData.nonEmpty){
@@ -444,6 +446,7 @@ class SampleSizeExtractorTest extends FunSuite{
           patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
         }
       }
+//      counter += 1
     }
     bufferedSource.close
 
@@ -462,7 +465,7 @@ class SampleSizeExtractorTest extends FunSuite{
     //    val KuersatClassifierMap = mutable.Map.empty[String,String]
 
     val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
-    val csv_writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_groundTruth.csv"))
+    val csv_writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_groundTruth_extended.csv"))
     val CsvHeader = List[String]("PDF_Name","Match","Sample Size","Distance T-Test")
     csv_writer.writeRow(CsvHeader)
 //    val writer = new CSVWriter(new FileWriter("test/PDFLib/KuersatClassifier_Matches_new.csv"))
@@ -1116,17 +1119,20 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
-      new Regex("\\b(\\D{0,15})\\b(enrolled)*\\d+([,\\s*]\\d{3})*(enrolled)*\\D{0,20}"),
+      new Regex("\\b(\\D{0,15})\\b(enrolled)\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
 
-    val string = "345 idiots were enrolled"
+    val string = "enrolled 345,345 idiots"
+    var index = 1
     for(regex <- testListRegexNonOverfitted){
+      info("index: " + index)
       val matches = regex.findAllIn(string).matchData
       while (matches.hasNext){
         val currentMatch = matches.next()
         info("current match: " + currentMatch.toString())
       }
+      index += 1
     }
   }
 
