@@ -407,8 +407,9 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,20}\\d+([,\\s*]\\d{3})*"))
     val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
-      //      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}men"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
@@ -421,6 +422,7 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\b(\\D{0,15})\\b(enrolled)*\\d+([,\\s*]\\d{3})*(enrolled)*\\D{0,20}"),
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
     val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
@@ -476,7 +478,6 @@ class SampleSizeExtractorTest extends FunSuite{
       if(line.split(";")(0).contains("test")){
         testPermutations += line.split(";")(0)
         line.split(";")(1).split(",").foreach(perm => {
-          //          testPermutations += perm.replaceAll("\\s+","").toLowerCase()
           testPermutations += perm
         })
       }
@@ -1099,13 +1100,34 @@ class SampleSizeExtractorTest extends FunSuite{
     val statChecker = StatChecker
     val regex = new Regex(".{0,50}women")
     //      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
-    val string = "jasdfie asdfk asdife women"
-    val matches = regex.findAllIn(string).matchData
-    while (matches.hasNext){
-      val currentMatch = matches.next()
-      info("current match: " + currentMatch.toString())
-    }
+    val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\b(\\D{0,15})\\b(enrolled)*\\d+([,\\s*]\\d{3})*(enrolled)*\\D{0,20}"),
+      new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
 
+    val string = "345 idiots were enrolled"
+    for(regex <- testListRegexNonOverfitted){
+      val matches = regex.findAllIn(string).matchData
+      while (matches.hasNext){
+        val currentMatch = matches.next()
+        info("current match: " + currentMatch.toString())
+      }
+    }
   }
 
   test("Regex Matching"){
