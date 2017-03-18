@@ -474,7 +474,6 @@ class SampleSizeExtractorTest extends FunSuite{
 //    //    writer.writeRow(CsvHeader)
 //    val CsvHeader = List[String]("PDF_Name","Match","T-Test Permutation","Distance")
 //    csv_writer.writeRow(CsvHeader)
-
     val methodSource = Source.fromFile("statterms/templates/followup/methods.csv")
     val testPermutations : ArrayBuffer[String] = new ArrayBuffer[String]()
     for (line <- methodSource.getLines()){
@@ -609,7 +608,6 @@ class SampleSizeExtractorTest extends FunSuite{
               }
             }
             //        val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "))
-
             val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),
               matches.replaceAll("\\n|\\r"," ").replaceAll("\\D+",""),minDistance.toString)
             csv_writer.writeRow(csvEntry)
