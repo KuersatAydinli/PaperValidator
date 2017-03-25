@@ -810,8 +810,8 @@ PDF_Name,ID,Index,part_of,N,comment,Boolean T-Test
 2013_8087.txt,809,108:657,807,161, 161 descendants selected for analyses,false
 2013_8200.txt,810,9:492,null,3681, n=3681,true
 2013_8200.txt,811,42:1084,810,3681, 3681 women,true
-2013_8200.txt,812,42:1116,810,1470, 1470 in group A,true
-2013_8200.txt,813,42:1125,810,2211, 2211 in group B,true
+2013_8200.txt,812,42:1116,810,1470, 1470 in group A,false
+2013_8200.txt,813,42:1125,810,2211, 2211 in group B,false
 2013_8200.txt,814,75:143,null,532, n=532,false
 2013_8200.txt,815,75:162,null,922, n=922,false
 2013_8200.txt,816,75:306,814,475, 475 white ethnic,false
