@@ -536,202 +536,202 @@ class SampleSizeExtractorTest extends FunSuite{
       }
     }
 
-//    val papersWithRightMatch = mutable.Map.empty[String,Boolean] // Map <<t-test paper - Bool right sample size found>>
-//    for(paper <- listTTestPapers.distinct){
-//      papersWithRightMatch += paper -> false
-//    }
-//    val papersMatchesMap = mutable.Map.empty[String,List[String]] // Map <<Paper - Matches in Paper from KC>>
-//    for (file <- files){
-//      val matchesInFile = new ListBuffer[String]()
-//      val fileString = file.toString
-//      if(FilenameUtils.getExtension(fileString).equals("pdf") &&
-//        listTTestPapers.distinct.contains(FilenameUtils.getBaseName(fileString))){
-//        val pdfText = convertPDFtoText(fileString)
-//        //        testListRegexNonOverfitted.par.foreach(regex =>
-//        //          if(regex.findAllIn(pdfText.mkString).nonEmpty){
-//        //            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
-//        //            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
-//        //            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
-//        //            while(totalMatches.hasNext){
-//        //              val currentMatch = totalMatches.next().toString()
-//        //              matchesKuersatClassifier += currentMatch
-//        //              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
-//        //                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
-//        //                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
-//        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//        //                matchesKuersatClassifier -= currentMatch
-//        //              } else if(currentMatch.contains("%")){
-//        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//        //                matchesKuersatClassifier -= currentMatch
-//        //              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
-//        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//        //                matchesKuersatClassifier -= currentMatch
-//        //              } else if(currentMatch.matches("\\d+[/)\\]]\\D*")){
-//        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//        //                matchesKuersatClassifier -= currentMatch
-//        //              }
-//        //            }
-//        //        })
-//        for(regex <- testListRegexNonOverfitted){
-//          if(regex.findAllIn(pdfText.mkString).nonEmpty){
-//            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
-//            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
-//            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
-//            while(totalMatches.hasNext){
-//              val currentMatch = totalMatches.next().toString()
-//              matchesKuersatClassifier += currentMatch
-//              matchesInFile += currentMatch
-//              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
-//                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
-//                "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
-//                "|\\d+([,\\s*]\\d{3})*\\D{0,10}cm\\D*|\\d+([,\\s*]\\d{3})*\\D*[,]\\D*" +
-//                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*" +
-//                "|\\d+([,\\s*]\\d{3})*\\D{0,10}year[-\\s]old\\D*")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(currentMatch.contains("%")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(bracketList.exists(currentMatch.contains(_))){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(currentMatch.matches("\\d+\\s*[-]\\D*")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(currentMatch.matches("\\d+\\s*[,]\\D*")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(currentMatch.matches("\\d+\\D*\\s+for\\s+\\D*|\\d\\D*+\\s+and\\s+\\D*|\\d+\\D*\\s+by\\s+\\D*" +
-//                "|\\d+\\D*\\s+our\\s+\\D*|\\d+\\D*\\s+between\\s+\\D*|\\d+\\D*\\s+in\\s+\\D*|\\d+\\D*\\s+from\\s+\\D*" +
-//                "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
-//                "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(currentMatch.matches("\\d+\\D*\\s+[Hh]ow\\s+\\D*|\\d\\D*s+[Aa]lthough\\D*|\\d+\\D*\\s+[Tt]he\\s+\\D*" +
-//                "|\\d+\\D*\\s+[Mm]any\\s+\\D*|\\d+\\D*\\s+[Oo]ften\\s+\\D*|\\d+\\D*\\s+found\\s+\\D*|\\d+\\D*\\s+[Oo]n\\s+\\D*" +
-//                "|\\d+\\D*[Aa]mong\\D*|\\d+\\D*[Ss]how\\D*|\\d+\\D*[Tt]han\\D*|\\d+\\D*[Pp]ercent\\D*|\\d+\\D*[Ww]hich\\D*" +
-//                "|\\d+\\D*[Dd]uring\\D*|\\d+\\D*as\\s*well\\s*as\\D*|\\d+\\D*[Aa]nother\\D*|\\d+\\D*[Cc]haracteristics\\D*" +
-//                "|\\d+\\D*[Aa]ttribute\\D*|\\d+\\D*[Mm]ost\\D*|\\d+\\D*\\s+[Bb]ut\\s+\\D*|\\d+\\D*[Aa]bout\\D*" +
-//                "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
-//                !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              } else if(!CharMatcher.ASCII.matchesAllOf(currentMatch)){
-//                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
-//                matchesKuersatClassifier -= currentMatch
-//                matchesInFile -= currentMatch
-//              }
-//            }
-//          }
-//        }
-//        //        var testPositionMap = mutable.Map.empty[String,Int]
-//        //        var containsTest = false
-//        //        for(perm <- testPermutations){
-//        //          if(pdfText.mkString.contains(" " + perm + " ")){
-//        //            containsTest = true
-//        //            val position = pdfText.mkString.indexOf(" " + perm + " ")
-//        //            testPositionMap += " "+perm+" " -> position
-//        //          }
-//        //        }
-//        //        for(matches <- matchesInFile.distinct){
-//        //          if(!containsTest){
-//        //            val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),
-//        //              matches.replaceAll("\\n|\\r"," ").replaceAll("\\D+",""),"-1")
-//        //            csv_writer.writeRow(csvEntry)
-//        //          } else {
-//        //            var distances = mutable.ListBuffer.empty[Int]
-//        //            testPositionMap.values.par.foreach(pos => {
-//        //              val currentDistance = Math.abs(pdfText.mkString.indexOf(matches) - pos)
-//        //              distances += currentDistance
-//        //            })
-//        //            val minDistance = distances.min
-//        //            var minDistancePermutation = "foo"
-//        //            for(entry <- testPositionMap){
-//        //              if(Math.abs(pdfText.mkString.indexOf(matches) - entry._2) == minDistance){
-//        //                minDistancePermutation = entry._1
-//        //              }
-//        //            }
-//        //            //        val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "))
-//        //            val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),
-//        //              matches.replaceAll("\\n|\\r"," ").replaceAll("\\D+",""),minDistance.toString)
-//        //            csv_writer.writeRow(csvEntry)
-//        //            //        writer.writeRow(csvEntry)     .replaceAll("\\D+",""))
-//        //          }
-//        //        }
-//        val mostCommonSS = matchesInFile.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList.groupBy(identity).maxBy(_._2.length)._1
-//        foundSS_list += mostCommonSS
-//        for(matchInFile <- matchesInFile.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList){
-//          for(correctSS <- pdf_correctSS_distinct){
-//            if(FilenameUtils.getBaseName(fileString).equalsIgnoreCase(correctSS._1) && matchInFile == correctSS._2){
-//              papersWithRightMatch(FilenameUtils.getBaseName(fileString)) = true
-//            }
-//          }
-//        }
-////        papersMatchesMap += FilenameUtils.getBaseName(fileString) -> matchesInFile.par.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList
-//        papersMatchesMap += FilenameUtils.getBaseName(fileString) -> matchesInFile.distinct.toList
-//      }
-////      val matchesInFile_list = matchesInFile.par.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList
-//    }
-//
-//    info("======================Precision/Recall======================")
-//    info("============================================================")
-//    val intersect_ss = correctSS_list.intersect(foundSS_list.distinct)
-////    var counter_mapped_ss = 0
-////    for(matchesKC <- matchesKuersatClassifier.distinct){
-////      for(matches_mapped <- listMappedSS.distinct){
-////        if(matchesKC.trim().equalsIgnoreCase(matches_mapped.trim())){
-////          counter_mapped_ss += 1
-////        }
-////      }
-////    }
-////    info("Recall: " + counter_mapped_ss/listMappedSS.length.toFloat
-//    val precision_most_frequent = intersect_ss.length.toFloat/foundSS_list.length
-//    val correctSS_in_Matches = papersWithRightMatch.count(_._2.equals(true))
-//    val mappedSS_boolean = mutable.Map.empty[String,Boolean]
-//    val mappedSS_boolean_exact = mutable.Map.empty[String,Boolean]
-//    val KC_SS_boolean = mutable.Map.empty[String,Boolean]
-//    val KC_SS_boolean_exact = mutable.Map.empty[String,Boolean]
-//
-//    for(matches_mapped <- listMappedSS){
-//      mappedSS_boolean += matches_mapped -> false
-//    }
-//    for(matches_mapped <- listMappedSS_exact){
-//      mappedSS_boolean_exact += matches_mapped -> false
-//    }
-//
-//    for(matchesKC <- matchesKuersatClassifier){
-//      KC_SS_boolean += matchesKC -> false
-//      KC_SS_boolean_exact += matchesKC -> false
-//    }
-//
-//    for(matchesKC <- matchesKuersatClassifier){
-//      for(matches_mapped <- listMappedSS){
+    val papersWithRightMatch = mutable.Map.empty[String,Boolean] // Map <<t-test paper - Bool right sample size found>>
+    for(paper <- listTTestPapers.distinct){
+      papersWithRightMatch += paper -> false
+    }
+    val papersMatchesMap = mutable.Map.empty[String,List[String]] // Map <<Paper - Matches in Paper from KC>>
+    for (file <- files){
+      val matchesInFile = new ListBuffer[String]()
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf") &&
+        listTTestPapers.distinct.contains(FilenameUtils.getBaseName(fileString))){
+        val pdfText = convertPDFtoText(fileString)
+        //        testListRegexNonOverfitted.par.foreach(regex =>
+        //          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+        //            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
+        //            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
+        //            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+        //            while(totalMatches.hasNext){
+        //              val currentMatch = totalMatches.next().toString()
+        //              matchesKuersatClassifier += currentMatch
+        //              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+        //                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+        //                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              } else if(currentMatch.contains("%")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              } else if(currentMatch.matches("\\d+[/)\\]]\\D*")){
+        //                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+        //                matchesKuersatClassifier -= currentMatch
+        //              }
+        //            }
+        //        })
+        for(regex <- testListRegexNonOverfitted){
+          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+            patternMatchesTotal.update(regex,patternMatchesTotal(regex)+regex.findAllIn(pdfText.mkString).length)
+            patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)+regex.findAllIn(pdfText.mkString).length)
+            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+            while(totalMatches.hasNext){
+              val currentMatch = totalMatches.next().toString()
+              matchesKuersatClassifier += currentMatch
+              matchesInFile += currentMatch
+              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}cm\\D*|\\d+([,\\s*]\\d{3})*\\D*[,]\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}year[-\\s]old\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.contains("%")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(bracketList.exists(currentMatch.contains(_))){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\s*[-]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\s*[,]\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*\\s+for\\s+\\D*|\\d\\D*+\\s+and\\s+\\D*|\\d+\\D*\\s+by\\s+\\D*" +
+                "|\\d+\\D*\\s+our\\s+\\D*|\\d+\\D*\\s+between\\s+\\D*|\\d+\\D*\\s+in\\s+\\D*|\\d+\\D*\\s+from\\s+\\D*" +
+                "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
+                "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*\\s+[Hh]ow\\s+\\D*|\\d\\D*s+[Aa]lthough\\D*|\\d+\\D*\\s+[Tt]he\\s+\\D*" +
+                "|\\d+\\D*\\s+[Mm]any\\s+\\D*|\\d+\\D*\\s+[Oo]ften\\s+\\D*|\\d+\\D*\\s+found\\s+\\D*|\\d+\\D*\\s+[Oo]n\\s+\\D*" +
+                "|\\d+\\D*[Aa]mong\\D*|\\d+\\D*[Ss]how\\D*|\\d+\\D*[Tt]han\\D*|\\d+\\D*[Pp]ercent\\D*|\\d+\\D*[Ww]hich\\D*" +
+                "|\\d+\\D*[Dd]uring\\D*|\\d+\\D*as\\s*well\\s*as\\D*|\\d+\\D*[Aa]nother\\D*|\\d+\\D*[Cc]haracteristics\\D*" +
+                "|\\d+\\D*[Aa]ttribute\\D*|\\d+\\D*[Mm]ost\\D*|\\d+\\D*\\s+[Bb]ut\\s+\\D*|\\d+\\D*[Aa]bout\\D*" +
+                "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
+                !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(!CharMatcher.ASCII.matchesAllOf(currentMatch)){
+                patternMatchesFiltered.update(regex,patternMatchesFiltered(regex)-1)
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              }
+            }
+          }
+        }
+        //        var testPositionMap = mutable.Map.empty[String,Int]
+        //        var containsTest = false
+        //        for(perm <- testPermutations){
+        //          if(pdfText.mkString.contains(" " + perm + " ")){
+        //            containsTest = true
+        //            val position = pdfText.mkString.indexOf(" " + perm + " ")
+        //            testPositionMap += " "+perm+" " -> position
+        //          }
+        //        }
+        //        for(matches <- matchesInFile.distinct){
+        //          if(!containsTest){
+        //            val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),
+        //              matches.replaceAll("\\n|\\r"," ").replaceAll("\\D+",""),"-1")
+        //            csv_writer.writeRow(csvEntry)
+        //          } else {
+        //            var distances = mutable.ListBuffer.empty[Int]
+        //            testPositionMap.values.par.foreach(pos => {
+        //              val currentDistance = Math.abs(pdfText.mkString.indexOf(matches) - pos)
+        //              distances += currentDistance
+        //            })
+        //            val minDistance = distances.min
+        //            var minDistancePermutation = "foo"
+        //            for(entry <- testPositionMap){
+        //              if(Math.abs(pdfText.mkString.indexOf(matches) - entry._2) == minDistance){
+        //                minDistancePermutation = entry._1
+        //              }
+        //            }
+        //            //        val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "))
+        //            val csvEntry = List[String](FilenameUtils.getBaseName(fileString),matches.replaceAll("\\n|\\r"," "),
+        //              matches.replaceAll("\\n|\\r"," ").replaceAll("\\D+",""),minDistance.toString)
+        //            csv_writer.writeRow(csvEntry)
+        //            //        writer.writeRow(csvEntry)     .replaceAll("\\D+",""))
+        //          }
+        //        }
+        val mostCommonSS = matchesInFile.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList.groupBy(identity).maxBy(_._2.length)._1
+        foundSS_list += mostCommonSS
+        for(matchInFile <- matchesInFile.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList){
+          for(correctSS <- pdf_correctSS_distinct){
+            if(FilenameUtils.getBaseName(fileString).equalsIgnoreCase(correctSS._1) && matchInFile == correctSS._2){
+              papersWithRightMatch(FilenameUtils.getBaseName(fileString)) = true
+            }
+          }
+        }
+//        papersMatchesMap += FilenameUtils.getBaseName(fileString) -> matchesInFile.par.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList
+        papersMatchesMap += FilenameUtils.getBaseName(fileString) -> matchesInFile.distinct.toList
+      }
+//      val matchesInFile_list = matchesInFile.par.map(ss => ss.replaceAll("\\D+","").toInt).distinct.toList
+    }
+
+    info("======================Precision/Recall======================")
+    info("============================================================")
+    val intersect_ss = correctSS_list.intersect(foundSS_list.distinct)
+//    var counter_mapped_ss = 0
+//    for(matchesKC <- matchesKuersatClassifier.distinct){
+//      for(matches_mapped <- listMappedSS.distinct){
 //        if(matchesKC.trim().equalsIgnoreCase(matches_mapped.trim())){
-//          mappedSS_boolean(matches_mapped) = true
-//          KC_SS_boolean(matchesKC) = true
+//          counter_mapped_ss += 1
 //        }
 //      }
 //    }
-//
-//    for(matchesKC <- matchesKuersatClassifier){
-//      for(matches_mapped <- listMappedSS_exact){
-//        if(matchesKC.trim().equalsIgnoreCase(matches_mapped.trim())){
-//          mappedSS_boolean_exact(matches_mapped) = true
-//          KC_SS_boolean_exact(matchesKC) = true
-//        }
-//      }
-//    }
+//    info("Recall: " + counter_mapped_ss/listMappedSS.length.toFloat
+    val precision_most_frequent = intersect_ss.length.toFloat/foundSS_list.length
+    val correctSS_in_Matches = papersWithRightMatch.count(_._2.equals(true))
+    val mappedSS_boolean = mutable.Map.empty[String,Boolean]
+    val mappedSS_boolean_exact = mutable.Map.empty[String,Boolean]
+    val KC_SS_boolean = mutable.Map.empty[String,Boolean]
+    val KC_SS_boolean_exact = mutable.Map.empty[String,Boolean]
+
+    for(matches_mapped <- listMappedSS){
+      mappedSS_boolean += matches_mapped -> false
+    }
+    for(matches_mapped <- listMappedSS_exact){
+      mappedSS_boolean_exact += matches_mapped -> false
+    }
+
+    for(matchesKC <- matchesKuersatClassifier){
+      KC_SS_boolean += matchesKC -> false
+      KC_SS_boolean_exact += matchesKC -> false
+    }
+
+    for(matchesKC <- matchesKuersatClassifier){
+      for(matches_mapped <- listMappedSS){
+        if(matchesKC.trim().equalsIgnoreCase(matches_mapped.trim())){
+          mappedSS_boolean(matches_mapped) = true
+          KC_SS_boolean(matchesKC) = true
+        }
+      }
+    }
+
+    for(matchesKC <- matchesKuersatClassifier){
+      for(matches_mapped <- listMappedSS_exact){
+        if(matchesKC.trim().equalsIgnoreCase(matches_mapped.trim())){
+          mappedSS_boolean_exact(matches_mapped) = true
+          KC_SS_boolean_exact(matchesKC) = true
+        }
+      }
+    }
 
 
 //    info("gemappte KC sample sizes: " + KC_SS_boolean_exact.values.count(_.equals(true))
@@ -810,6 +810,115 @@ class SampleSizeExtractorTest extends FunSuite{
 //    }
 //    info("TotalFound: " + foundMatchesInGT.distinct.length)
 //    info("TotalPaperMatches: " + papermatch)
+
+  }
+
+  test("Random t-test for rule building"){
+    val PdfPath = "test/RandomTTestPapers"
+    val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
+      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
+      new Regex("\\b(\\D{0,15})\\b(enrolled)\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
+      new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
+
+    val files = getListOfFiles(PdfPath)
+    val matchesKuersatClassifier = new ListBuffer[String]()
+    val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
+    val papersMatchesMap = mutable.Map.empty[String,List[String]] // Map <<Paper - Matches in Paper from KC>>
+    for (file <- files){
+      val matchesInFile = new ListBuffer[String]()
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfText = convertPDFtoText(fileString)
+
+        for(regex <- testListRegexNonOverfitted){
+          if(regex.findAllIn(pdfText.mkString).nonEmpty){
+            val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+            while(totalMatches.hasNext){
+              val currentMatch = totalMatches.next().toString()
+              matchesKuersatClassifier += currentMatch
+              matchesInFile += currentMatch
+              if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}cm\\D*|\\d+([,\\s*]\\d{3})*\\D*[,]\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*" +
+                "|\\d+([,\\s*]\\d{3})*\\D{0,10}year[-\\s]old\\D*")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.contains("%")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(bracketList.exists(currentMatch.contains(_))){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\s*[-]\\D*")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\s*[,]\\D*")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*\\s+for\\s+\\D*|\\d\\D*+\\s+and\\s+\\D*|\\d+\\D*\\s+by\\s+\\D*" +
+                "|\\d+\\D*\\s+our\\s+\\D*|\\d+\\D*\\s+between\\s+\\D*|\\d+\\D*\\s+in\\s+\\D*|\\d+\\D*\\s+from\\s+\\D*" +
+                "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
+                "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(currentMatch.matches("\\d+\\D*\\s+[Hh]ow\\s+\\D*|\\d\\D*s+[Aa]lthough\\D*|\\d+\\D*\\s+[Tt]he\\s+\\D*" +
+                "|\\d+\\D*\\s+[Mm]any\\s+\\D*|\\d+\\D*\\s+[Oo]ften\\s+\\D*|\\d+\\D*\\s+found\\s+\\D*|\\d+\\D*\\s+[Oo]n\\s+\\D*" +
+                "|\\d+\\D*[Aa]mong\\D*|\\d+\\D*[Ss]how\\D*|\\d+\\D*[Tt]han\\D*|\\d+\\D*[Pp]ercent\\D*|\\d+\\D*[Ww]hich\\D*" +
+                "|\\d+\\D*[Dd]uring\\D*|\\d+\\D*as\\s*well\\s*as\\D*|\\d+\\D*[Aa]nother\\D*|\\d+\\D*[Cc]haracteristics\\D*" +
+                "|\\d+\\D*[Aa]ttribute\\D*|\\d+\\D*[Mm]ost\\D*|\\d+\\D*\\s+[Bb]ut\\s+\\D*|\\d+\\D*[Aa]bout\\D*" +
+                "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
+                !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              } else if(!CharMatcher.ASCII.matchesAllOf(currentMatch)){
+                matchesKuersatClassifier -= currentMatch
+                matchesInFile -= currentMatch
+              }
+            }
+          }
+        }
+        papersMatchesMap += FilenameUtils.getBaseName(fileString) -> matchesInFile.distinct.toList
+      }
+    }
+    papersMatchesMap.foreach(paper => paper._2.foreach(matches => info(paper._1 + " ==== " + matches)))
+  }
+
+  test("Extract t-test papers from whole corpus"){
+    val methodSource = Source.fromFile("statterms/templates/followup/methods.csv")
+    val testPermutations : ArrayBuffer[String] = new ArrayBuffer[String]()
+    for (line <- methodSource.getLines()){
+      if(line.split(";")(0).contains("test")){
+        testPermutations += line.split(";")(0)
+        line.split(";")(1).split(",").foreach(perm => {
+          testPermutations += perm
+        })
+      }
+    }
+
+    val JournalPath = "F:\\Dropbox\\Dropbox\\all papers"
+    val baseDirectory = new File(JournalPath)
+    val allFiles = recursiveListFiles(baseDirectory)
+
     val csv_writer_corpus = new CSVWriter(new FileWriter("test/PDFLib/ttestPapersWholeCorpus.txt"))
     val csv_entry = List[String]("PDF_Name","Match")
     try {
@@ -817,10 +926,10 @@ class SampleSizeExtractorTest extends FunSuite{
       val forLoop = new Breaks
       for(file <- allFiles){
         forLoop.breakable{
-//          if(FilenameUtils.getExtension(file.toString).equals("pdf") &&
-//            listTTestPapers.count(pap => {
-//              pap.contains(FilenameUtils.getBaseName(file.toString).substring(0,pap.length-2))}
-//            ) == 0){
+          //          if(FilenameUtils.getExtension(file.toString).equals("pdf") &&
+          //            listTTestPapers.count(pap => {
+          //              pap.contains(FilenameUtils.getBaseName(file.toString).substring(0,pap.length-2))}
+          //            ) == 0){
           if(FilenameUtils.getExtension(file.toString).equals("pdf")){
             val pdfText = convertPDFtoText(file.toString)
             for(perm <- testPermutations){
