@@ -1,0 +1,873 @@
+PDF_Name,Match
+F:\Dropbox\Dropbox\all papers\American Journal of Sociology\January\Doc4.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\American Journal of Sociology\May\Doc6.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\american_journal_of_sociology_1col\whole_year\Doc4 5.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\american_journal_of_sociology_1col\whole_year\Doc6 3.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2004_1636264872342359_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2004_1679402705491088_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2004_1924062381437026_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2004_2000556821316480_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2004_6457917963361349_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2004_6497233172874328_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2005_1308358959585487_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2005_1924556243667757_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2006_1425000112102594_manuscript.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2006_1478970554101845_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2006_1632194749107220_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2006_1831561735107128_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2006_2017874261106548_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2006_2678182811003311_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2007_1929649261151453_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2008_1070938692203135_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2008_1197357751241433_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2008_1559645878224483_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2008_1778887901196715_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2008_7055635152144161_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2009_1905462595300340_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2009_4462684903391320_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2009_4968950692847959_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2009_5314890003318130_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2009_9870918153116753_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_1528687410476664_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_1537428253379036_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_1715229527465619_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_2099259381350773_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_2107505164424858_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_2577079424869693_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_5297164947340872_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_6095268844394017_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_9185573394818021_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2010_9360998904960249_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1058506343561862_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1445387870508044_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1525943131524961_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1618676916459119_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1715105952536720_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1799826755537063_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1972659029608078_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1980438095518953_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_1986823473554649_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_2129763049527409_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_5222227475157965_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2011_7422344526223783_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1001499325856017_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1044933637230104_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1173488141754412_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1188078910659340_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1358087974848130_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1398825556666863_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1455019915788183_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1515107698524935_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1601979844712271_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1624597712681754_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1758203110793054_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_1949506648705369_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_3777607008730945_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_4235968167487789_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_4548777477398210_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_4943319047463225_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_5893531067469282_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_6605521318230832_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_6847781157699184_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_8015756757511636_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_8781542338771614_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2012_9254872176585161_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_1100249201114788_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_1647844203109843_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_1876502742996670_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_1921712640938380_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_1984335693937198_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_2036752537995913_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_2066340164955159_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_2527281481127819_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_2779580071009883_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_3091146941103400_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_3405449578837590_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_3896415751047979_manuscript.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_8002437321148335_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_8200422931065119_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_8892888972000397_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2013_9299586741078930_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1180692969126439_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1194026025120427_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1236453591140770_manuscript.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1305615660152398_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1380328414135991_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1497363434125178_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1726642341140994_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1727337713453178_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1736239302152501_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1772116883139519_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1899643538141030_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1926227847138205_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_1983866476129914_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_2000393905123160_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_2137088001371897_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_2186451301488541_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_3740325231240393_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_4968149821413695_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_5642592151248965_manuscript.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_7468167691525095_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_7822102761258448_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_8132473101472212_manuscript.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_8405791871329523_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_9444004221218029_manuscript.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\bmc_1col\whole_year\2014_9522499101476999_manuscript.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e004641.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e005182.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e005413.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e005536.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e005781.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e005947.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e005950.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006012.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006025.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006067.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006142.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006242.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006344.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006359.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_10_e006571.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e005205.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e005602.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006058.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006098.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006112.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006177.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006476.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006551.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_11_e006753.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e004983.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e005820.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e005887.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006144.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006236.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006250.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006378.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006423.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006447.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006542.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006657.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e006671.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_12_e007065.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003440.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003536.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003656.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003706.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003720.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003954.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e003980.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004001.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004137.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004158.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004205.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004268.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004295.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004313.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_1_e004465.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e003481.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e003505.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e003768.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e003843.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e003947.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e003968.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004013.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004131.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004148.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004203.full.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004226.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004242.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004250.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004258.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004324.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004369.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004427.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004523.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_2_e004605.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e003208.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e003921.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004096.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004173.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004177.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004183.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004399.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004449.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_3_e004495.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004194.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004362.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004376.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004405.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004409.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004626.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004703.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004743.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e004921.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e005091.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e005112.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_4_e005190.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004357.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004358.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004401.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004538.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004598.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004700.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004738.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004848.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004878.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004885.full.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004966.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004975.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e004990.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e005078.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_5_e005268.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e004753.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e004773.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e004813.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e004814.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e004897.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005026.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005126.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005156.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005374.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005379.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005476.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_6_e005788.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e004576.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e004782.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e004909.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e004948.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005005.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005069.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005165.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005246.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005248.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005269.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005290.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005328.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005361.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005613.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005623.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_7_e005689.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e004721.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e004751.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e004930.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005051.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005175.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005178.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005317.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005332.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005461.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005593.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005598.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005615.full.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005643.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005715.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005900.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005906.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e005953.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e006004.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e006116.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_8_e006175.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e005124.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e005359.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e005635.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e005687.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e005801.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e005923.full.pdf,t tests
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e006047.full.pdf,t-test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e006096.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e006143.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\bmj_2col\whole_year\bmj4_9_e006204.full.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1989\p331-roberts.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1992\p295-teal.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1992\p37-fish.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1993\p222-brewster.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1993\p236-alm.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1993\p61-stasko.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1994\p159-chase.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1995\p218-johnson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1996\p197-pane.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1996\p228-hartson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1996\p236-virzi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1996\p300-mithal.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1997\p258-wilcox.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1997\p407-golovchinsky.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1998\p480-rowe.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1998\p511-gutwin.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1998\p87-boyarski.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-1999\p576-oviatt.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p145-chen.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p201-hassenzahl.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p241-maglio.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p305-lee.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p400-taylor.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p423-dennerlein.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p478-patrick.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p49-rickenberg.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p540-poupyrev.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2000\p57-isbister.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2001\p158-gong.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2001\p166-baldis.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2001\p277-dumais.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2001\p293-hornbak.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2001\p53-ivory.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2001\p9-mackenzie.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2002\p407-mcgee.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2002\p41-fukayama.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2003\p161-ho-ching.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2003\p201-gutwin.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2003\p561-mueller.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p255-baudisch.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p271-adamczyk.pdf,t tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p359-po.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p527-whittaker.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p607-mizobuchi.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p631-ludford.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2004\p655-nakanishi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p101-patil.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p141-sadasivan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p241-oviatt.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p261-gnanayutham.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p31-blackmon.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p311-iqbal.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p441-aragon.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p541-kelleher.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p681-lam.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p731-lee.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2005\p909-ho.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1037-cosley.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1057-bonhard.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1133-petrie.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1173-bhatia.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1191-kirk.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1243-tohidi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p1263-benko.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p131-zheng.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p241-prabaker.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p271-bergman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p299-irani.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p359-marentakis.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p467-proschowsky.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p475-wilson.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p841-hamzah.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2006\p969-shklovski.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1039-kirk.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1097-kam.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1167-girgensohn.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1177-ranjan.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1187-schrammel.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1235-ludford.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1351-kientz.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p1465-nguyen.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p167-hachet.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p171-byrne.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p201-chapuis.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p211-hutchings.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p397-petrie.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p41-gluck.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p587-wang.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p677-iqbal.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p697-iqbal.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p81-sellen.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p867-song.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2007\p91-birnholtz.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p121-guo.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p1227-balakrishnan.pdf,t tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p1473-reeder.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p155-ogan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p1555-salminen.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p1817-morris.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p247-karrer.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p265-perer.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p29-fogarty.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p295-olwal.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p413-davis.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p477-mamykina.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p563-farzan.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p583-martin.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p657-kapoor.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p667-patel.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p685-hayes.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p725-simon.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p735-akiyama.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p753-derenzi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p83-su.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2008\p883-everett.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1217-hansen.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1227-piper.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1275-kassil.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1327-hudson.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1341-mentis.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1411-raiha.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1415-blanch.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1477-vankleek.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1513-garzonis.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1599-sauro.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1629-brumby.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1849-hoffmann.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1869-zimmerman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p1923-baudisch.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p2023-teevan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p2037-schrammel.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p2139-tuddenham.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p2157-moraveji.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p221-rao.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p269-bergman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p299-harrison.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p319-egelman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p415-gonzales.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p481-weiss.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p659-akers.pdf,t tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p669-wang.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2009\p975-horn.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1089-bianchi.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1125-moffatt.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1175-faridani.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1343-kapoor.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1381-stavness.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1549-harrison.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1553-stutzman.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1573-kelley.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1695-weaver.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1725-pan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1749-toma.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1889-ramachandran.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p1909-burke.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2045-kalnikaite.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2159-ashbrook.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2183-liu.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2193-liao.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2223-tuddenham.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2267-jacucci.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2391-kaptein.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p243-berkovsky.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2451-song.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p253-el-nasr.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2573-bateman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p2625-chan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p393-kang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p45-kelly.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p581-holz.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p791-huang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p93-parnin.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2010\p971-bernstein.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1091-kwak.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p11-raij.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1245-schwarz.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1293-dijkstra.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1353-valkov.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1461-hullman.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1471-veas.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1531-kelly.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1541-yatani.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1591-chiu.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1601-kaser.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1611-sun.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1639-wobbrock.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1835-latulipe.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p187-bragdon.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p1959-toups.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2029-srikulwong.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p21-das.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2215-sauro.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2285-lelis.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2345-laviola.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2449-kelley.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2453-findlater.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2501-holz.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2541-bakke.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2555-wilson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2789-mcpherson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2887-laqua.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p2967-disalvo.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p3169-edge.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p3179-trusty.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p3401-sukumaran.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p3449-whittaker.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p383-solovey.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p463-iqbal.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p473-brumby.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p637-yoshizaki.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p735-lewis.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p773-yee.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p781-marathe.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p811-holz.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2011\p863-hollinworth.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1-kulesza.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1027-kong.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1037-cheema.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1105-kaptein.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1149-kumar.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1159-kodagoda.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1253-ghomi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1263-mcgookin.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1307-lichtschlag.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1341-huang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1421-doherty.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1441-song.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1501-powell.pdf,t tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1607-white.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1737-fothergill.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1747-kratz.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1785-bateman.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p179-sodhi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1795-yuan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1863-gao.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p1997-judge.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2025-coyle.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2117-bruun.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2221-jain.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2243-nowak.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2297-flatla.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2317-wagner.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2397-kano.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p247-fisher.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2589-escobedo.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2609-hourcade.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2659-henze.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2683-nicolau.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2935-hu.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2953-jianu.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2977-bergman.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2981-stellmach.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p2991-vitak.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p3101-voida.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p3111-tang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p3157-gajos.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p39-ogan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p415-yatani.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p453-park.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p493-vi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p513-mustafa.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p555-mark.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p565-topkara.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p579-malheiros.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2012\p829-jung.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1071-isaacs.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1081-rice.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1119-annett.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1129-oh.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1159-matejka.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1169-nguyen.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1373-banovic.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1387-fares.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1569-brown.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1709-alt.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1759-pang.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1779-lafreniere.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p1921-rae.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2069-flatla.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2195-mcpherson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2243-lanir.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2359-liao.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2403-wiseman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p247-sun.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2497-lawson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2697-correll.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2717-wang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2775-yin.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p285-stellmach.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2931-moller.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2941-mcdonald.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2949-harrison.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p2959-ankolekar.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p3037-cheng.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p3073-kramer.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p3101-lin.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p3197-hourcade.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p3217-perin.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p323-nicholson.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p351-huisman.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p361-nov.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p439-green.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p459-tausczik.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p503-muller.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p543-bi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p621-huang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p69-ban.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p735-sutcliffe.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p745-voelker.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2013\p831-nancel.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p11-reinecke.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1275-seckler.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1285-chiravirakul.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1365-de-choudhury.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p139-andre.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1397-pan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1571-trinh.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p169-oakley.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1705-nicolau.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1709-leiva.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p1807-tewari.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2017-gupta.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2037-broy.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2075-jiang.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2085-may.pdf,t tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2201-gerling.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2221-meng.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2327-lee.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p247-muller.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2589-dimitriadis.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2617-gutwin.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p267-marentakis.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2803-singh.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p2985-eveleigh.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3025-mark.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3045-bohmer.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3403-hsu.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3413-gerling.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3443-schwarz.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3563-de-choudhury.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3607-moller.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p361-kriglstein.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3787-vi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3865-bailly.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p3923-norval.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p4007-lafreniere.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p4147-liu.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p551-albers.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p571-ferreira.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p61-sun.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p639-robinson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p833-hale.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p853-kovacs.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p863-li.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2014\p887-perin.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1015-yannier.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1163-miniukovich.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1229-lee.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1237-oakley.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p135-ivkovic.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1403-von-zezschwitz.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1583-zhao.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p183-hale.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1855-nebeling.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p1955-otterbacher.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2053-obrist.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2235-harteveld.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2315-al-ameen.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2339-von-zezschwitz.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2383-higuchi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2487-alvina.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2497-roumen.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2623-kim.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2643-hollis.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2693-wacharamanotham.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2739-carrascal.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2769-lischke.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2777-guillon.pdf,t tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2883-anderson.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2943-tajadura-jamenez.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p2967-lottridge.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p299-perrault.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3187-tsugawa.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3247-stusak.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3375-putze.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3543-flatla.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3553-oskamp.pdf,t test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p357-cockburn.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3573-lobo.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3623-walther-franks.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3657-song.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3661-withana.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3671-kardan.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3701-cai.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3829-konrad.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3839-you.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p3933-grubert.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p4019-renaud.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p4133-tetteroo.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p4179-turner.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p4199-nancel.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p43-cartwright.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p467-ismail.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p555-nguyen.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p595-tanahashi.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p669-leiva.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p727-hiniker.pdf,t-test
+F:\Dropbox\Dropbox\all papers\chi_1col\CHI-2015\p857-lyu.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\march 2014\Number-skills-are-maintained-in-healthy-ageing_2014_Cognitive-Psychology.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\may 2014\How-lexical-is-the-lexicon-Evidence-for-integrated-auditory-memory-representations_2014_Cognitive-Psychology.pdf,t-test
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\may 2014\Singing-with-yourself-Evidence-for-an-inverse-modeling-account-of-poor-pitch-singing_2014_Cognitive-Psychology.pdf,t-test
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\nov 2014\Developmental-origins-of-recoding-and-decoding-in-memory_2014_Cognitive-Psychology.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\nov 2014\Inferring-word-meanings-by-assuming-that-speakers-are-informative_2014_Cognitive-Psychology.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\nov 2014\The-inherence-heuristic-across-development-Systematic-differences-between-children-s-and-adults-explanations-for-everyday-facts_2014_Cognitive-Psychol.pdf,t test
+F:\Dropbox\Dropbox\all papers\cognitive_psychology_1col\sept 2014\Talking-while-looking-On-the-encapsulation-of-output-system-representations_2014_Cognitive-Psychology.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\eujoupract_2col\whole_year\13814788%2E2013%2E819849.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Journal of Management\March\Doc7.pdf,t test
+F:\Dropbox\Dropbox\all papers\Journal of Management\March\Doc8.pdf,t test
+F:\Dropbox\Dropbox\all papers\Journal of Management\May\Doc3.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Journal of Management\May\Doc4.pdf,t test
+F:\Dropbox\Dropbox\all papers\Journal of Management\May\Doc5.pdf,t test
+F:\Dropbox\Dropbox\all papers\Journal of Management\May\Doc8.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Journal of Management\November\Doc6.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Journal of Management\November\Doc7.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Journal of Management\September\Doc2.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Journal of Management\September\Doc5.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 101 may 2014\Allocating-a-voluntarily-provided-common-property-resource-An-experimental-examination_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 103 july 2014\A-comparison-of-performance-of-Islamic-and-conventional-banks-2004-2009_2014_Journal-of-Economic-Behavior-Organization.pdf,t test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 104 aug 2014\-Unfinished-business-Historic-complementarities-political-competition-and-ethnic-violence-in-Gujarat_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 105 sept 2014\Trading-partner-choice-and-bargaining-culture-in-negotiations_2014_Journal-of-Economic-Behavior-Organization.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 106 okt 2014\Doing-wrong-to-do-right-Social-preferences-and-dishonest-behavior_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 A nov 2014\Behavioral-responses-to-Daylight-Savings-Time_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 A nov 2014\Everyone-believes-in-redemption-Nudges-and-overoptimism-in-costly-task-completion_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 A nov 2014\Goal-setting-and-energy-conservation_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 A nov 2014\Moral-hypocrisy-power-and-social-preferences_2014_Journal-of-Economic-Behavior-Organization.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 A nov 2014\Savings-and-prize-linked-savings-accounts_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 B nov 2014\An-empirical-examination-of-heterogeneity-and-switching-in-foreign-exchange-markets_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 B nov 2014\Gender-differences-in-optimism-and-asset-allocation_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 B nov 2014\Keeping-your-gains-close-but-your-money-closer-The-prepayment-effect-in-riskless-choices_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 B nov 2014\Technical-analysis-and-individual-investors_2014_Journal-of-Economic-Behavior-Organization.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 107 B nov 2014\The-meerkat-effect-Personality-and-market-returns-affect-investors-portfolio-monitoring-behaviour_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 108 dec 2014\1-s2.0-S0167268114002492-main.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 97 january 2014\Misery-Loves-Company-Exogenous-shocks-in-retirement-expectations-and-social-comparison-effects-on-subjective-well-being_2014_Journal-of-Economic-Behav.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_eco_behavior_1col\volume 97 january 2014\The-costs-of-conflict_2014_Journal-of-Economic-Behavior-Organization.pdf,t-test
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc2 2.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc3 5.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc4 4.pdf,t test
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc5 4.pdf,t test
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc5 5.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc6 3.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc7 2.pdf,t test
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc7.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc8 3.pdf,t tests
+F:\Dropbox\Dropbox\all papers\journal_of_management_1col\whole_year\Doc8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(13)61746-8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(13)61902-9.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(13)61914-5.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(13)62037-1.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(13)62246-1.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(13)62709-9.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60197-5.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60382-2.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60416-5.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60457-8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60524-9.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60614-0.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)60924-7.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S0140-6736(14)61185-5.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1470-2045(13)70551-5.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1470-2045(14)70036-1.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1470-2045(14)70154-8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1470-2045(14)70455-3.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1470-2045(14)71017-4.pdf,t-test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1470-2045(14)71035-6.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1473-3099(14)70730-3.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1473-3099(14)70736-4.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1473-3099(14)70741-8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1473-3099(14)70841-2.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1473-3099(14)70920-X.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1473-3099(14)70952-1.pdf,t-test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1474-4422(13)70265-5.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1474-4422(14)70027-4.pdf,t-test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1474-4422(14)70031-6.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1474-4422(14)70054-7.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S1474-4422(14)70084-5.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(13)70248-0.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70001-3.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70013-X.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70019-0.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70100-6.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70132-8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70135-3.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70144-4.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70165-1.pdf,t-test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70185-7.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70186-9.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70195-X.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-2600(14)70226-7.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(13)70155-4.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(13)70156-6.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(13)70214-6.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70030-0.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70062-2.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70088-9.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70111-1.pdf,t-test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70114-7.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70137-8.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2213-8587(14)70156-1.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2214-109X(13)70160-8.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2214-109X(14)70002-6.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2214-109X(14)70032-4.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2214-109X(14)70201-3.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2214-109X(14)70237-2.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2214-109X(14)70314-6.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2215-0366(14)70235-4.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2215-0366(14)70248-2.pdf,t tests
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2215-0366(14)70305-0.pdf,t test
+F:\Dropbox\Dropbox\all papers\lancet_2col\whole_year\S2215-0366(14)70361-X.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Management of Science\April\Doc12.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\April\Doc2.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\August\Doc14.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\Management of Science\August\Doc7.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\Management of Science\December\Doc14.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\February\Doc14.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\Management of Science\February\Doc2.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\Management of Science\February\Doc3.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\Management of Science\February\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\July\Doc14.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\July\Doc4.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\July\Doc9.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\June\Doc4.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\June\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\March\Doc9.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\May\Doc12.pdf,t tests
+F:\Dropbox\Dropbox\all papers\Management of Science\May\Doc2.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\Management of Science\May\Doc5.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\May\Doc6.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\November\Doc3.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\November\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\October\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\Management of Science\September\Doc10.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\April\Doc12.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\April\Doc2.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\August\Doc14.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\August\Doc7.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\December\Doc14.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\February\Doc14.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\February\Doc2.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\February\Doc3.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\February\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\July\Doc14.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\July\Doc4.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\July\Doc9.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\June\Doc4.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\June\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\March\Doc9.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\May\Doc12.pdf,t tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\May\Doc2.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\management_science_2col\May\Doc5.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\May\Doc6.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\November\Doc3.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\November\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\October\Doc8.pdf,t-test
+F:\Dropbox\Dropbox\all papers\management_science_2col\September\Doc10.pdf,t-test
+F:\Dropbox\Dropbox\all papers\mja_3col\whole_year\-1158774783_eve11311.pdf,t test
+F:\Dropbox\Dropbox\all papers\mja_3col\whole_year\-1550627073_sul00106.pdf,t test
+F:\Dropbox\Dropbox\all papers\mja_3col\whole_year\-1707868329_luk00046.pdf,t test
+F:\Dropbox\Dropbox\all papers\mja_3col\whole_year\1430491667_bac00104.pdf,t tests
+F:\Dropbox\Dropbox\all papers\mja_3col\whole_year\2105200761_gar10049_fm.pdf,t tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1114576.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1211161.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1214901.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1215246.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1303224.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1304839.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1304923.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1308659.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1310460.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1310799.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1311274.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1312173.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1312808.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1400590.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1400697.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1401480.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1402584.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1403285.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1404231.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1404380.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1404731.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1405707.pdf,t-test
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1407154.pdf,t-tests
+F:\Dropbox\Dropbox\all papers\nejm_2col\whole_year\NEJMoa1409860.pdf,t-tests

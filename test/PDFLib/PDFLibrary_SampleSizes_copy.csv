@@ -434,43 +434,43 @@ PDF_Name,ID,Index,part_of,N,comment,Boolean T-Test
 2012_8584.txt,433,54:261,412,20574, 20574 total CD,false
 2012_8584.txt,434,54:268,413,23892, 23892 total UC,false
 2012_8584.txt,435,54:275,408,115172, 115172 total patients,false
-2012_92548_manuscript.txt,436,6:1290,440,100, in total 100 were included in the study,true
-2012_92548_manuscript.txt,437,6:1339,436,87, data on 87 patients,false
-2012_92548_manuscript.txt,438,6:1368,436,96, 96 patients,false
-2012_92548_manuscript.txt,439,48:1716,null,557, in total 557 patients were screened,false
-2012_92548_manuscript.txt,440,51:25,439,244, of those 244 had ...,false
-2012_92548_manuscript.txt,441,51:130,439,244, of the 244 patients,false
-2012_92548_manuscript.txt,442,51:186,440,100, 100 were included,true
-2012_92548_manuscript.txt,443,51:230,440,144, 144 did not meet inclusion criteria,false
-2012_92548_manuscript.txt,444,51:287,436,87, data on 87 patients,false
-2012_92548_manuscript.txt,445,51:319,436,96, 96 patients,false
-2012_92548_manuscript.txt,446,51:459,436,78, 78 patients,false
-2012_92548_manuscript.txt,447,51:648,436,78, 78 patients,false
-2012_92548_manuscript.txt,448,51:680,436,76, 76 patients,false
-2012_92548_manuscript.txt,449,96:151,436,49, 49 in rest group,false
-2012_92548_manuscript.txt,450,96:154,436,51, 51 in exercise group,false
-2012_92548_manuscript.txt,451,96:157,436,100, 100 all patients,true
-2012_92548_manuscript.txt,452,96:214,449,33, 33 female,false
-2012_92548_manuscript.txt,453,96:222,450,35, 35 female,false
-2012_92548_manuscript.txt,454,96:230,436,68, 68 female,false
-2012_92548_manuscript.txt,455,96:451,449,8, 8 obese patients,false
-2012_92548_manuscript.txt,456,96:458,450,10, 10 obese patients,false
-2012_92548_manuscript.txt,457,96:466,436,18, 18 obese patients,false
-2012_92548_manuscript.txt,458,96:493,449,23, 23 smoking patients,false
-2012_92548_manuscript.txt,459,96:501,450,18, 18 smoking patients,false
-2012_92548_manuscript.txt,460,96:509,436,41, 41 smoking patients,false
-2012_92548_manuscript.txt,461,96:605,449,34, 34 employed patients,false
-2012_92548_manuscript.txt,462,96:613,450,39, 39 employed patients,false
-2012_92548_manuscript.txt,463,96:621,436,73, 73 employed patients,false
-2012_92548_manuscript.txt,464,96:817,449,11, 11 sitting patients,false
-2012_92548_manuscript.txt,465,96:825,450,6, 6 sitting patients,false
-2012_92548_manuscript.txt,466,96:832,436,17, 17 sitting patients,false
-2012_92548_manuscript.txt,467,96:856,449,17, 17 mostly walking patients,false
-2012_92548_manuscript.txt,468,96:864,450,23, 23 mostly walking patients,false
-2012_92548_manuscript.txt,469,96:872,436,40, 40 mostly walking patients,false
-2012_92548_manuscript.txt,470,96:950,449,10, 10 hard physical work,false
-2012_92548_manuscript.txt,471,96:958,450,10, 10 hard physical work,false
-2012_92548_manuscript.txt,472,96:966,436,20, 20 hard physical work,false
+2012_9254.txt,436,6:1290,440,100, in total 100 were included in the study,true
+2012_9254.txt,437,6:1339,436,87, data on 87 patients,false
+2012_9254.txt,438,6:1368,436,96, 96 patients,false
+2012_9254.txt,439,48:1716,null,557, in total 557 patients were screened,false
+2012_9254.txt,440,51:25,439,244, of those 244 had ...,false
+2012_9254.txt,441,51:130,439,244, of the 244 patients,false
+2012_9254.txt,442,51:186,440,100, 100 were included,true
+2012_9254.txt,443,51:230,440,144, 144 did not meet inclusion criteria,false
+2012_9254.txt,444,51:287,436,87, data on 87 patients,false
+2012_9254.txt,445,51:319,436,96, 96 patients,false
+2012_9254.txt,446,51:459,436,78, 78 patients,false
+2012_9254.txt,447,51:648,436,78, 78 patients,false
+2012_9254.txt,448,51:680,436,76, 76 patients,false
+2012_9254.txt,449,96:151,436,49, 49 in rest group,false
+2012_9254.txt,450,96:154,436,51, 51 in exercise group,false
+2012_9254.txt,451,96:157,436,100, 100 all patients,true
+2012_9254.txt,452,96:214,449,33, 33 female,false
+2012_9254.txt,453,96:222,450,35, 35 female,false
+2012_9254.txt,454,96:230,436,68, 68 female,false
+2012_9254.txt,455,96:451,449,8, 8 obese patients,false
+2012_9254.txt,456,96:458,450,10, 10 obese patients,false
+2012_9254.txt,457,96:466,436,18, 18 obese patients,false
+2012_9254.txt,458,96:493,449,23, 23 smoking patients,false
+2012_9254.txt,459,96:501,450,18, 18 smoking patients,false
+2012_9254.txt,460,96:509,436,41, 41 smoking patients,false
+2012_9254.txt,461,96:605,449,34, 34 employed patients,false
+2012_9254.txt,462,96:613,450,39, 39 employed patients,false
+2012_9254.txt,463,96:621,436,73, 73 employed patients,false
+2012_9254.txt,464,96:817,449,11, 11 sitting patients,false
+2012_9254.txt,465,96:825,450,6, 6 sitting patients,false
+2012_9254.txt,466,96:832,436,17, 17 sitting patients,false
+2012_9254.txt,467,96:856,449,17, 17 mostly walking patients,false
+2012_9254.txt,468,96:864,450,23, 23 mostly walking patients,false
+2012_9254.txt,469,96:872,436,40, 40 mostly walking patients,false
+2012_9254.txt,470,96:950,449,10, 10 hard physical work,false
+2012_9254.txt,471,96:958,450,10, 10 hard physical work,false
+2012_9254.txt,472,96:966,436,20, 20 hard physical work,false
 2013_1130.txt,473,6:536,null,14772, 14772 adult patients,false
 2013_1130.txt,474,6:1160,null,9379, n=9379,false
 2013_1130.txt,475,18:247,473,14772, collection of 14772 individuals,false
@@ -1030,12 +1030,12 @@ bmj4_1_e004046.full.txt,1028,9:3719,1007,814, 814 tobacco,false
 bmj4_1_e004046.full.txt,1029,9:3730,1008,590, 590 tobacco,false
 bmj4_1_e004046.full.txt,1030,9:3740,1011,224, 224 tobacco,false
 bmj4_1_e004205.full.txt,1031,3:1344,null,100, 100 patients,true
-bmj4_1_e004205.full.txt,1032,3:1543,null,137, 137 controls,true
+bmj4_1_e004205.full.txt,1032,3:1543,null,137, 137 controls,false
 bmj4_1_e004205.full.txt,1033,6:1867,null,607, a total of 607 patients,false
 bmj4_1_e004205.full.txt,1034,6:1921,1033,250, among whom 250 provided,false
 bmj4_1_e004205.full.txt,1035,6:2123,1031,100, 100 patients,true
 bmj4_1_e004205.full.txt,1036,6:5255,1031,100, 100 patients,true
-bmj4_1_e004205.full.txt,1037,6:5286,1032,137, 137 controls,true
+bmj4_1_e004205.full.txt,1037,6:5286,1032,137, 137 controls,false
 bmj4_1_e004205.full.txt,1038,9:2529,1031,35, 35 male,false
 bmj4_1_e004205.full.txt,1039,9:2532,1031,65, 65 female,false
 bmj4_1_e004205.full.txt,1040,9:2591,1031,82, 82 non-smoker,false
@@ -1047,7 +1047,7 @@ bmj4_1_e004205.full.txt,1045,9:2661,1031,75, 75 headache,false
 bmj4_1_e004205.full.txt,1046,9:2691,1031,51, 51 no depression,false
 bmj4_1_e004205.full.txt,1047,9:2695,1031,49, 49 depression,false
 bmj4_1_e004205.full.txt,1048,9:3241,1031,100, 100 sample size,true
-bmj4_1_e004205.full.txt,1049,9:3245,1032,137, 137 sample size,true
+bmj4_1_e004205.full.txt,1049,9:3245,1032,137, 137 sample size,false
 bmj4_1_e004205.full.txt,1050,9:3296,1031,35, 35 male,false
 bmj4_1_e004205.full.txt,1051,9:3299,1031,65, 65 female,false
 bmj4_1_e004205.full.txt,1052,9:3302,1032,47, 47 male,false
