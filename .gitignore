@@ -21,3 +21,4 @@ conf/application.local.conf
 **.scala.save
 /test/TestPDFs/
 /test/RandomTTestPapers/
+/test/TestImages/

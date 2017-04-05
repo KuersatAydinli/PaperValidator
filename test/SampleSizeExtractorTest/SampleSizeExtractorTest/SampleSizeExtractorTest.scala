@@ -1,15 +1,22 @@
 package SampleSizeExtractorTest.SampleSizeExtractorTest
 import java.io._
+import java.util
 
 import au.com.bytecode.opencsv.CSVReader
 import com.github.tototoshi.csv.CSVWriter
 import com.google.common.base.CharMatcher
-import helper.pdfpreprocessing.pdf.{PDFLoader, PDFTextExtractor}
+import helper.pdfpreprocessing.pdf.PDFTableExtractor.TextPositionExtractor
+import helper.pdfpreprocessing.pdf.entity.Table
+import helper.pdfpreprocessing.pdf.{PDFLoader, PDFTableExtractor, PDFTextExtractor}
 import helper.statcheck.{Statchecker => StatChecker}
 import org.apache.commons.io.FilenameUtils
 import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.text.TextPosition
 import org.scalatest.FunSuite
+import technology.tabula.{ObjectExtractor, Page, Table}
+import technology.tabula.extractors.BasicExtractionAlgorithm
 
+import scala.collection.JavaConversions._
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.io.Source
@@ -816,9 +823,12 @@ class SampleSizeExtractorTest extends FunSuite{
   test("Random t-test for rule building"){
     val PdfPath = "test/RandomTTestPapers"
     val testListRegexNonOverfitted = mutable.MutableList(
-      new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
+      new Regex("(study|sample)\\s+of\\D{0,15}\\d+\\D{0,15}"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}members"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}cases"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}controls"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
@@ -844,7 +854,11 @@ class SampleSizeExtractorTest extends FunSuite{
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
         val pdfText = convertPDFtoText(fileString)
-
+//        if (!new File("test/RandomTTestPapers/"+ FilenameUtils.getBaseName(fileString) + ".txt").exists()) {
+//          val pw = new PrintWriter(new File("test/RandomTTestPapers/"+ FilenameUtils.getBaseName(fileString) + ".txt"))
+//          pw.write(pdfText.map(_.toLowerCase()).mkString("\n\n"))
+//          pw.close()
+//        }
         for(regex <- testListRegexNonOverfitted){
           if(regex.findAllIn(pdfText.mkString).nonEmpty){
             val totalMatches = regex.findAllIn(pdfText.mkString).matchData
@@ -902,6 +916,98 @@ class SampleSizeExtractorTest extends FunSuite{
     }
     papersMatchesMap.foreach(paper => paper._2.foreach(matches => info(paper._1 + " ==== " + matches)))
   }
+
+//  test("Test Table Extractor"){
+//    val pdDoc: PDDocument = PDDocument.load(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
+//    info("=======Metadata=======")
+//
+//    val textPositionExtractor = new TextPositionExtractor(pdDoc,3)
+//    val textPositions: util.List[TextPosition] = textPositionExtractor.extract()
+////    textPositions.foreach(pos => info("TextPos: " + pos))
+//    for(i <- 1 until 5){
+//      info("TextPos: " + textPositions(i))
+//      info("X: " + textPositions(i).getX)
+//      info("X: " + textPositions(i).getY)
+//      info("X: " + textPositions(i).getWidth)
+//      info("X: " + textPositions(i).getHeight)
+//    }
+//
+//    val pdfTableExtractor = new PDFTableExtractor
+//    pdfTableExtractor.setSource(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
+//    pdfTableExtractor.addPage(3)
+//
+//    val exceptedLines = List[Int](0,1,2,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60)
+//    val columnRanges = pdfTableExtractor.getColumnRanges(textPositions)
+//    columnRanges.foreach(range => info("Range: " + range))
+//
+//    pdfTableExtractor.exceptLine(exceptedLines.toArray)
+//    val tables: util.List[Table]= pdfTableExtractor.extract()
+//    tables.foreach(table => info("column count: " + table.getColumnsCount))
+//    tables.foreach(table => {
+//      table.getRows.foreach(row => info("Row String: " + row.toString))
+//    })
+////    info("============Cells==========")
+////    tables.foreach(table => {
+////      table.getRows.foreach(row => {
+////        row.getCells.foreach(cell => info("Cell: " + cell.getContent))
+////      })
+////    })
+//    info("To HTML")
+//    tables.foreach(table =>{
+//      info(table.toHtml)
+//    })
+//  } /
+
+  test("Test Tabula"){
+    val bae: BasicExtractionAlgorithm = new BasicExtractionAlgorithm()
+    val pdDoc: PDDocument = PDDocument.load(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
+    val objectExtractor: ObjectExtractor = new ObjectExtractor(pdDoc)
+    val page: Page = objectExtractor.extract(3)
+    val tables: util.List[technology.tabula.Table] = bae.extract(page)
+    tables.foreach(table => {
+      info("Row: " + table.getRows.get(0).get(0).getText)
+    })
+  }
+
+  test("Get pages containing a table"){
+    val PdfPath = "test/RandomTTestPapers"
+    val paperTablePages = mutable.Map.empty[String,List[Int]]
+
+    val testListRegexTable = mutable.MutableList(
+      new Regex("[Tt]able.{0,60}([Cc]haracteristic|[Bb]aseline|[Pp]atient|[Pp]articipant|[Ss]ubject" +
+        "|[Dd]emographic|[Ss]tudy\\s*population)"),
+      new Regex("[Tt]able.{0,60}[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"))
+    val files = getListOfFiles(PdfPath)
+    for(file <- files){
+      val pageIndices = mutable.ListBuffer.empty[Int]
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        val pdfText = convertPDFtoText(fileString)
+        for(index <- 0 to pdfText.length-1){
+          for(regex <- testListRegexTable){
+            if(regex.findAllIn(pdfText(index)).nonEmpty){
+              pageIndices += index
+            }
+          }
+        }
+        paperTablePages += fileString -> pageIndices.toList
+      }
+    }
+    paperTablePages.foreach(entry => info("Paper: " + entry._1 + "========> Indices: " + entry._2))
+  }
+//  test("Tesseract OCR Test"){
+//    val image = new File("test/TestImages/testSampleSizeSummary.tif")
+//    val tesseract = new Tesseract()
+//    try {
+//      val output = tesseract.doOCR(image)
+//      info("Tesseract output: " + output)
+//
+//    } catch {
+//      case e: IOException => e.printStackTrace()
+//      case b: TesseractException => b.printStackTrace()
+//    }
+//
+//  }
 
   test("Extract t-test papers from whole corpus"){
     val methodSource = Source.fromFile("statterms/templates/followup/methods.csv")
