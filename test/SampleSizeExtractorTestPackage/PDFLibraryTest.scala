@@ -1,4 +1,4 @@
-package SampleSizeExtractorTest.SampleSizeExtractorTest
+package SampleSizeExtractorTestPackage
 
 import java.io.File
 

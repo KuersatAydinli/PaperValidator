@@ -43,6 +43,7 @@ public class PDFTableExtractor {
     //if this multimap contains only one element and key of this element equals -1
     //then all lines in extracted pages contains in multi-map value will be avoided
     private final Multimap<Integer, Integer> pageNExceptedLinesMap = HashMultimap.create();
+    private final Multimap<Integer, Integer> pageNIncludedLinesMap = HashMultimap.create();
 
     private InputStream inputStream;
     private PDDocument document;
@@ -120,6 +121,13 @@ public class PDFTableExtractor {
         return this;
     }
 
+    public PDFTableExtractor includeLine(int pageIdx, int[] lineIdxs) {
+        for (int lineIdx : lineIdxs) {
+            pageNIncludedLinesMap.put(pageIdx, lineIdx);
+        }
+        return this;
+    }
+
     /**
      * Avoid this line in all extracted pages. LineIdx can be negative number,
      * -1 is the last line
@@ -131,6 +139,13 @@ public class PDFTableExtractor {
         this.exceptLine(-1, lineIdxs);
         return this;
     }
+
+    public PDFTableExtractor includeLine(int[] lineIdxs) {
+        this.includeLine(-1, lineIdxs);
+        return this;
+    }
+
+
 
     public List<Table> extract() {
         List<Table> retVal = new ArrayList<>();
@@ -301,6 +316,12 @@ public class PDFTableExtractor {
         return retVal;
     }
 
+    private boolean isIncludedLine(int pageIdx, int lineIdx) {
+        boolean retVal = this.pageNIncludedLinesMap.containsEntry(pageIdx, lineIdx)
+                || this.pageNIncludedLinesMap.containsEntry(-1, lineIdx);
+        return retVal;
+    }
+
     /**
      *
      * Remove all texts in excepted lines
@@ -359,12 +380,38 @@ public class PDFTableExtractor {
         return retVal;
     }
 
+    private List<Range<Integer>> getLineRangesWithIncluding(int pageId, List<TextPosition> pageContent) {
+        TrapRangeBuilder lineTrapRangeBuilder = new TrapRangeBuilder();
+        for (TextPosition textPosition : pageContent) {
+            Range<Integer> lineRange = Range.closed((int) textPosition.getY(),
+                    (int) (textPosition.getY() + textPosition.getHeight()));
+            //add to builder
+            lineTrapRangeBuilder.addRange(lineRange);
+        }
+        List<Range<Integer>> lineTrapRanges = lineTrapRangeBuilder.build();
+        List<Range<Integer>> retVal = includeIncludedLines(pageId, lineTrapRanges);
+        return retVal;
+    }
+
     private List<Range<Integer>> removeExceptedLines(int pageIdx, List<Range<Integer>> lineTrapRanges) {
         List<Range<Integer>> retVal = new ArrayList<>();
         for (int lineIdx = 0; lineIdx < lineTrapRanges.size(); lineIdx++) {
             boolean isExceptedLine = isExceptedLine(pageIdx, lineIdx)
                     || isExceptedLine(pageIdx, lineIdx - lineTrapRanges.size());
             if (!isExceptedLine) {
+                retVal.add(lineTrapRanges.get(lineIdx));
+            }
+        }
+        //return
+        return retVal;
+    }
+
+    private List<Range<Integer>> includeIncludedLines(int pageIdx, List<Range<Integer>> lineTrapRanges) {
+        List<Range<Integer>> retVal = new ArrayList<>();
+        for (int lineIdx = 0; lineIdx < lineTrapRanges.size(); lineIdx++) {
+            boolean isIncludedLine = isIncludedLine(pageIdx, lineIdx)
+                    || isIncludedLine(pageIdx, lineIdx - lineTrapRanges.size());
+            if (!isIncludedLine) {
                 retVal.add(lineTrapRanges.get(lineIdx));
             }
         }

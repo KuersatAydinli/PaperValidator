@@ -1,0 +1,90 @@
+bmc_1col:
+- sample size
+- participants
+- subjects
+- patients
+- ... assessed
+- newborns
+- sample of ...
+- samples
+- n=...
+- cohort study of ...
+- ... recruited
+
+
+American Journal of Sociology:
+- ... counties
+- constructed from over
+- participant sample
+- individuals
+- ... households
+- sample of
+- coalition of ...
+- data (as chapter)
+- sampling (as chapter)
+- combined sample
+- ... coommunities
+
+
+bmj_2col (check):
+- of ... enrolled
+- data were analyzed from ...
+- consisting of ... men/women
+- ... patients aged ...
+- comprising ... individuals
+- ... articles were collected
+
+
+chi_1col:
+- we asked ...
+- total of ... users
+- ... people
+- we used ... users
+- sample population of ...
+- of the ... who used the systems
+- ... people were recruited
+- ... subjects participated
+- we recruited ...
+- we identified ...
+- A total of ... respondents completed the survey
+
+
+cognitive psychology:
+- ... participants
+- N= ...
+- ... participated
+- ... students took part
+
+
+eurojoupart_2col:
+- ... consecutive partients
+- N= ...
+- questionnaires were sent to ...
+- we collected ...
+
+
+Journal of Management:
+- of ... firms
+- the data set includes ...
+- data from ...
+- sample includes ...
+- we obtained data from ...
+- we identified ...
+- using a sample of ...
+
+
+Management of Science:
+- ... companies
+- sample includes ... firms
+- sample consists of ... firms
+- our subjects were ...
+- is tested using ...
+
+
+
+
+
+
+
+
+

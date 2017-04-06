@@ -1,4 +1,5 @@
-package SampleSizeExtractorTest.SampleSizeExtractorTest
+package SampleSizeExtractorTestPackage
+
 import org.scalatest.FunSuite
 /**
   * Created by Aydinli on 26.01.2017.

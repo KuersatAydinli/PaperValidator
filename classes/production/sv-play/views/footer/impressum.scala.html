@@ -1,0 +1,35 @@
+@import play.Configuration
+
+@urlPrefix = {@Configuration.root().getString("url.prefix")}
+@mainFrame("Impressum") {
+
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8 text-center">
+			<h1>Impressum</h1>
+			PaperValidator was part of a project at the University of Zurich.<br>
+			<br>
+			<b>Manuel Rösch</b><br>
+			manuel.roesch@@uzh.ch<br>
+			Master Student<br>
+			<br>
+			<b>Patrick M. de Boer</b><br>
+			pdeboer@@ifi.uzh.ch<br>
+			Research Assistant / PhD Student<br>
+			<br>
+			<b>Professor Abraham Bernstein, Ph.D.</b><br>
+			bernstein@@ifi.uzh.ch<br>
+			Head, Dynamic and Distributed Information Systems Group<br>
+			Chair, Department of Informatics<br>
+			<br>
+			<img src="@{urlPrefix + routes.Assets.at("images/ddis.gif").url}" alt="DDIS Logo">
+			<br>
+			<b>Dynamic and Distributed Information Systems Group</b><br>
+			Department of Informatics<br>
+			University of Zurich<br>
+			Binzmühlestrasse 14<br>
+			CH-8050 Zürich<br>
+		</div>
+	</div>
+
+}

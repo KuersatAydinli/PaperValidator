@@ -1,0 +1,124 @@
+@import play.Configuration
+
+@(conferences: List[models.Conference])
+
+@urlPrefix = {@Configuration.root().getString("url.prefix")}
+@mainFrame("Upload File") {
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<h1>Upload Papers</h1>
+			<form onsubmit="return submitForm()">
+				<div class="file_button_container">
+					<input type="file" name="paper" id="fileSelect">
+				</div><br>
+				<a href="#" onclick="selectFile()">Click here to upload PDF/ZIP.</a><br>
+				<div class="data-input">
+					<label for="emailIn">Your Email address</label>
+					<input type="email" class="form-control" id="emailIn" name="Email" placeholder="Email">
+					<input type="password" class="form-control" id="passwordIn" name="Password" placeholder="Password">
+					<select class="form-control" id="conference">
+						<option value="">Select Conference</option>
+						@for(conference <- conferences) {
+							<option value="@conference.id">@conference.name</option>
+						}
+					</select>
+				</div>
+				<div id="upload-progress">
+					<input id="upload-start" class="btn btn-primary" type="submit" value="Submit"><br>
+					<div id="upload-upload">
+						<img src="@{urlPrefix + routes.Assets.at("images/loader2.gif").url}"><br><br>
+						Upload... Please wait... This may take a couple of minutes.
+					</div><br>
+					<div id="upload-success">
+						Upload successful. <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span><br>
+						Your file is in the queue to be processed!
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		function selectFile() {
+			$("#fileSelect").get(0).click();
+		}
+
+		function submitForm() {
+			showUploadProgress("upload");
+			var data = new FormData();
+			var fileData = $('input[name="paper"]')[0].files[0];
+			var email = $('#emailIn').val()
+			var password = $('#passwordIn').val()
+			var conference = $('#conference').val()
+			data.append("paper", fileData);
+			data.append("conference", conference);
+			data.append("email", email);
+			data.append("password", password);
+			$.ajax({
+				url: '@{urlPrefix + routes.Upload.uploaded.url}',
+				type: 'POST',
+				data: data,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(data){
+					console.log(data);
+					if(data == "Ok") {
+						showUploadProgress("success");
+					} else if(data == "PasswordError"){
+						alert("Error, Wrong Password! " + data);
+						showUploadProgress("start");
+					}
+					else {
+						alert("Error, sorry! " + data);
+						showUploadProgress("start");
+					}
+				}
+			});
+			return false;
+		}
+
+		function showUploadProgress(progress) {
+			$("#upload-start").css({"display":"none"});
+			$("#upload-upload").css({"display":"none"});
+			$("#upload-success").css({"display":"none"});
+			$("#upload-"+progress).css({"display":"inline-block"});
+		}
+	</script>
+	<style>
+		.file_button_container,
+		.file_button_container #fileSelect {
+			height: 135px;
+			width: 130px;
+			cursor:pointer ;
+		}
+
+		.file_button_container {
+			display:inline-block;
+			margin-top : 50px;
+			background: transparent url('@{urlPrefix + routes.Assets.at("images/pdf.png").url}') left top no-repeat;
+		}
+
+		.file_button_container #fileSelect {
+			opacity: 0;
+		}
+
+		#upload-upload, #upload-success {
+			display:none;
+		}
+
+		#upload-upload img {
+			width: 35px;
+		}
+
+		.data-input {
+			display:inline-block;
+			width: 100%;
+			max-width: 300px;
+			margin:20px;
+		}
+
+		.data-input select {
+			margin-top: 5px
+		}
+	</style>
+}

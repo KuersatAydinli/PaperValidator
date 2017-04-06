@@ -1,0 +1,185 @@
+@import play.Configuration
+
+@(email: String, papers: List[PapersWithStats], conferences: List[models.Conference])
+
+@baseUrl = {@Configuration.root().getString("hcomp.ballot.baseURL")}
+@urlPrefix = {@Configuration.root().getString("url.prefix")}
+@mainFrame("Account Overview") {
+    <div class="row text-center">
+        <h1>My Account</h1>
+        <h4>@email</h4>
+        @if(papers.isEmpty && conferences.isEmpty) {
+            You haven't uploaded anything yet!
+        }
+        @if(papers.nonEmpty){
+            <h3>Papers</h3>
+        }
+        @for(paper <- papers) {
+            <div class="row paper">
+                <div class="col-xs-3 text-right">
+                    <!--<span class="glyphicon glyphicon-file"></span>-->
+                    <img class="pdf-icon" src="@{urlPrefix + routes.Assets.at("images/pdf-small.png").url}">
+                </div>
+                <div class="col-xs-7">
+                    <div class="row">
+                        <div class="col-sm-12 text-left paper-name">
+                            <b>@paper.name</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-left">
+                            <a href="@{urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}">
+                            <span class="glyphicon glyphicon-share"></span>
+                            @{baseUrl.toString() + urlPrefix + routes.Paper.show(paper.id.get,paper.secret).url}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row paper-stat">
+                        <div class="col-md-5">
+                            <div class="paper-stats text-left">
+                                <span class="glyphicon glyphicon-ok text-success"></span>
+                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_OK,0)</div>
+                                <span class="glyphicon glyphicon-warning-sign text-warning"></span>
+                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_WARNING,0)</div>
+                                <span class="glyphicon glyphicon-ban-circle text-danger"></span>
+                                <div class="statItem">@paper.statsTotal.getOrElse(PaperResult.SYMBOL_ERROR,0)</div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 text-right">
+                            @paper.status match {
+                                case Papers.STATUS_NEW => {
+                                    <span class="text-muted">
+                                        Analysis in progress...
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </span>
+                                }
+                                case Papers.STATUS_AWAIT_CONFIRMATION => {
+                                    @paper.permutations permutation(s) found.
+                                    <a href="@{baseUrl + routes.Paper.skipPaper(paper.id.get, paper.secret).url}" class="text-muted">
+                                        Skip <span class="glyphicon glyphicon-step-forward"></span>
+                                    </a>
+                                     or
+                                    <a href="@{baseUrl + routes.Paper.confirmPaper(paper.id.get, paper.secret).url}" class="text-info">
+                                        Confirm <span class="glyphicon glyphicon-ok"></span>
+                                    </a>
+                                }
+                                case Papers.STATUS_SNIPPETS_EXTRACTED => {
+                                    <span class="text-muted">
+                                        Cloud work in progress...
+                                        <span class="glyphicon glyphicon-refresh"></span>
+                                    </span>
+                                }
+                                case Papers.STATUS_COMPLETED => {
+                                    <span class="text-success">
+                                        Finished
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </span>
+                                }
+                                case Papers.STATUS_ERROR => {
+                                    <span class="text-danger">
+                                        Error
+                                        <span class="glyphicon glyphicon glyphicon-ban-circle"></span>
+                                    </span>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @if(conferences.nonEmpty){
+            <br><h3>Conferences</h3>
+        }
+        @for(conference <- conferences) {
+            <div class="row conference">
+                <div class="col-xs-3 text-right">
+                    <img class="conf-icon" src="@{urlPrefix + routes.Assets.at("images/conference-small.jpg").url}">
+                </div>
+                <div class="col-xs-7">
+                    <div class="row">
+                        <div class="col-sm-10 text-left paper-name">
+                            <b>@conference.name</b>
+                        </div>
+                        <div class="col-sm-2 text-right">
+                            <a target="_blank" href="@{urlPrefix +
+                                    routes.Conference.conferenceEditor(conference.id.get,conference.secret).url}">
+                                <span class="glyphicon glyphicon-stats"></span>
+                            </a>
+                            <a target="_blank" href="@{urlPrefix +
+                                    routes.Conference.flagEditor(conference.id.get,conference.secret).url}">
+                                <span class="glyphicon glyphicon-flag"></span>
+                            </a>
+                            <a target="_blank" href="@{urlPrefix +
+                                    routes.StatTerms.showStatTerms(conference.id.get,conference.secret).url}">
+                                <span class="glyphicon glyphicon-list"></span>
+                            </a>
+                            <a target="_blank" href="@{urlPrefix +
+                                    routes.StatTerms.method2assumptions(conference.id.get,conference.secret).url}">
+                                <span class="glyphicon glyphicon-link"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-left">
+                            <a href="@{urlPrefix + routes.Conference.conferenceEditor(conference.id.get,conference.secret).url}">
+                                <span class="glyphicon glyphicon-share"></span>
+                                @{baseUrl.toString() + urlPrefix + routes.Conference.conferenceEditor(conference.id.get,conference.secret).url}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <style>
+        .paper, .conference {
+            margin-top:12px;
+        }
+
+        .pdf-icon {
+            height: 36px;
+            position: relative;
+            left: 12px;
+            top: 12px;
+            padding: 2px;
+        }
+        .paper-stat {
+            border-top:1px solid #e7e7e7;
+        }
+
+        .conf-icon {
+        height: 40px;
+        position: relative;
+        left: 15px;
+        }
+        .glyphicon-file {
+            font-size: 2em;
+            padding:5px;
+            position:relative;
+            left: 15px;
+        }
+        .statItem {
+            display:inline-block ;
+            width: 30px ;
+            text-align: center;
+            padding-right:5px ;
+        }
+
+        .glyphicon-refresh {
+            -webkit-animation: spin 1s infinite linear;
+            animation: spin 1s infinite linear;
+        }
+        @@-moz-keyframes spin {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+        }
+        @@-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+        }
+        @@keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+        }
+    </style>
+}

@@ -1,0 +1,25 @@
+@import play.Configuration
+
+@urlPrefix = {@Configuration.root().getString("url.prefix")}
+@mainFrame("About PaperValidator") {
+
+
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<h1>About PaperValidator</h1>
+
+			<p>The validity of statistics in scientific publications is crucial for accurate and reliable results. However, there are many publications, that are not acceptable in this regard. The PaperValidator tool confronts this problem by allowing for the automated validation of statistics in publications, focusing mainly on statistical methods and their assumptions. The validation process is rule-based using partially crowd-sourced workers hired from the Amazon Mechanical Turk (MTurk) platform. The tool and the validation process, were successfully tested on 100 papers from the ACM Conference on Human Factors in Computing Systems (CHI).</p>
+
+			<p>Click on the following movie clip to see PaperValidator in action:</p>
+
+			<p><a href="http://www.youtube.com/watch?v=fCDdrjJxUV4" target="_blank"><img src="https://raw.githubusercontent.com/manuelroesch/PaperValidator/master/public/images/movie-mock.jpg" alt="Watch Video" style="max-width:100%;"></a></p>
+
+			<hr>
+
+			<p><em>Text and images are partially taken from Rösch, M. (2016, September). PaperValidator - Towards the Automated Validation of Statistics in Publications. Master Thesis, University of Zurich.</em></p>
+			
+		</div>
+	</div>
+
+}
