@@ -6,15 +6,16 @@ import au.com.bytecode.opencsv.CSVReader
 import com.github.tototoshi.csv.CSVWriter
 import com.google.common.base.CharMatcher
 import helper.pdfpreprocessing.pdf.PDFTableExtractor.TextPositionExtractor
-import helper.pdfpreprocessing.pdf.entity.Table
+import helper.pdfpreprocessing.pdf.entity.{Table => trapRangeTable}
 import helper.pdfpreprocessing.pdf.{PDFLoader, PDFTableExtractor, PDFTextExtractor}
 import helper.statcheck.{Statchecker => StatChecker}
 import org.apache.commons.io.FilenameUtils
 import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.text.TextPosition
+import org.apache.pdfbox.text.{PDFTextStripper, TextPosition}
 import org.scalatest.FunSuite
-import technology.tabula.{ObjectExtractor, Page, Table}
 import technology.tabula.extractors.BasicExtractionAlgorithm
+import technology.tabula.{ObjectExtractor, Page}
+import technology.tabula.{Table => tabulaTable}
 
 import scala.collection.JavaConversions._
 import scala.collection.mutable
@@ -917,10 +918,14 @@ class SampleSizeExtractorTest extends FunSuite{
     papersMatchesMap.foreach(paper => paper._2.foreach(matches => info(paper._1 + " ==== " + matches)))
   }
 
-//  test("Test Table Extractor"){
-//    val pdDoc: PDDocument = PDDocument.load(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
-//    info("=======Metadata=======")
-//
+  test("Test Table Extractor"){
+    val pdDoc: PDDocument = PDDocument.load(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
+    val samplePage = pdDoc.getPage(3)
+    val testTextStripper = new PDFTextStripper
+    testTextStripper.setStartPage(3)
+    testTextStripper.setEndPage(3)
+    info("=======Metadata=======")
+
 //    val textPositionExtractor = new TextPositionExtractor(pdDoc,3)
 //    val textPositions: util.List[TextPosition] = textPositionExtractor.extract()
 ////    textPositions.foreach(pos => info("TextPos: " + pos))
@@ -931,42 +936,43 @@ class SampleSizeExtractorTest extends FunSuite{
 //      info("X: " + textPositions(i).getWidth)
 //      info("X: " + textPositions(i).getHeight)
 //    }
-//
-//    val pdfTableExtractor = new PDFTableExtractor
-//    pdfTableExtractor.setSource(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
-//    pdfTableExtractor.addPage(3)
-//
-//    val exceptedLines = List[Int](0,1,2,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60)
+
+    val pdfTableExtractor = new PDFTableExtractor
+    pdfTableExtractor.setSource(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
+    pdfTableExtractor.addPage(3)
+
+    val exceptedLines = List[Int](0,1,2,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60)
 //    val columnRanges = pdfTableExtractor.getColumnRanges(textPositions)
 //    columnRanges.foreach(range => info("Range: " + range))
-//
-//    pdfTableExtractor.exceptLine(exceptedLines.toArray)
-//    val tables: util.List[Table]= pdfTableExtractor.extract()
-//    tables.foreach(table => info("column count: " + table.getColumnsCount))
+
+    pdfTableExtractor.exceptLine(exceptedLines.toArray)
+    val tables: util.List[trapRangeTable]= pdfTableExtractor.extract()
+    tables.foreach(table => info("column count: " + table.getColumnsCount))
+    tables.foreach(table => {
+      table.getRows.foreach(row => info("Row String: " + row.toString))
+    })
+//    info("============Cells==========")
 //    tables.foreach(table => {
-//      table.getRows.foreach(row => info("Row String: " + row.toString))
+//      table.getRows.foreach(row => {
+//        row.getCells.foreach(cell => info("Cell: " + cell.getContent))
+//      })
 //    })
-////    info("============Cells==========")
-////    tables.foreach(table => {
-////      table.getRows.foreach(row => {
-////        row.getCells.foreach(cell => info("Cell: " + cell.getContent))
-////      })
-////    })
-//    info("To HTML")
-//    tables.foreach(table =>{
-//      info(table.toHtml)
-//    })
-//  } /
+    info("To HTML")
+    tables.foreach(table =>{
+      info(table.toHtml)
+    })
+  }
 
   test("Test Tabula"){
     val bae: BasicExtractionAlgorithm = new BasicExtractionAlgorithm()
     val pdDoc: PDDocument = PDDocument.load(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
     val objectExtractor: ObjectExtractor = new ObjectExtractor(pdDoc)
     val page: Page = objectExtractor.extract(3)
-    val tables: util.List[technology.tabula.Table] = bae.extract(page)
+    val tables: util.List[tabulaTable] = bae.extract(page)
     tables.foreach(table => {
       info("Row: " + table.getRows.get(0).get(0).getText)
     })
+    info("Fuck this shit")
   }
 
   test("Get pages containing a table"){
