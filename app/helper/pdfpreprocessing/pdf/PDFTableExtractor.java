@@ -190,6 +190,15 @@ public class PDFTableExtractor {
         return retVal;
     }
 
+    // Make sure tables have same columnCount
+    public static Table mergeTablesAndFilter(List<Table> tables){
+        Table retTable = new Table(tables.get(0).getColumnsCount());
+        for(Table table : tables){
+            retTable.addRows(table.getRows());
+        }
+        return retTable.filterDuplicateRows(retTable);
+    }
+
     //--------------------------------------------------------------------------
     //  Implement N Override
     //--------------------------------------------------------------------------

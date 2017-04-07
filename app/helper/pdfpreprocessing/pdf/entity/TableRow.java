@@ -28,6 +28,26 @@ public class TableRow {
         return cells;
     }
 
+    public boolean equals(TableRow r2){
+//        Boolean equal = true;
+//        for(int i=0; i<this.getCells().size();i++){
+//            if(!this.getCells().get(i).getContent().equalsIgnoreCase(r2.getCells().get(i).getContent())){
+//                equal = false;
+//            }
+//        }
+//        return equal;
+        StringBuilder sb1 = new StringBuilder();
+        for(TableCell cellFirst : this.getCells()){
+            sb1.append(cellFirst.getContent());
+        }
+
+        StringBuilder sb2 = new StringBuilder();
+        for(TableCell cellSecond : r2.getCells()){
+            sb2.append(cellSecond.getContent());
+        }
+        return sb1.toString().toLowerCase().replaceAll("\\s","").equalsIgnoreCase(sb2.toString().toLowerCase().replaceAll("\\s",""));
+    }
+
     //--------------------------------------------------------------------------
     //  Method binding
     //--------------------------------------------------------------------------

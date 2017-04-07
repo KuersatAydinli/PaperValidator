@@ -21,6 +21,11 @@ public class Table {
         this.columnsCount = columnsCount;
     }
 
+    public Table(int columnsCount){
+        this.columnsCount = columnsCount;
+        this.pageIdx = 0;
+    }
+
     //--------------------------------------------------------------------------
     //  Getter N Setter
     public int getPageIdx() {
@@ -33,6 +38,36 @@ public class Table {
 
     public List<TableRow> getRows() {
         return rows;
+    }
+
+    public void addRows(List<TableRow> rows){
+        this.rows.addAll(rows);
+    }
+
+    public void addRow(TableRow row){
+        this.rows.add(row);
+    }
+
+    // filter duplicate rows in table
+    public Table filterDuplicateRows(Table table){
+        Table retTable = new Table(table.getColumnsCount());
+        for(TableRow row : table.getRows()){
+            if(!retTable.containsRow(retTable,row)){
+                retTable.addRow(row);
+            }
+        }
+        return retTable;
+    }
+
+    public boolean containsRow(Table table, TableRow row){
+        Boolean contains = false;
+        for(TableRow currRow : table.getRows()){
+            if(currRow.equals(row)){
+                contains = true;
+                break;
+            }
+        }
+        return contains;
     }
 
     public String toHtml() {

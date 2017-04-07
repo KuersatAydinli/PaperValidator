@@ -934,6 +934,13 @@ class SampleSizeExtractorTest extends FunSuite{
 //      info("X: " + textPositions(i).getHeight)
 //    }
 
+//    val extractorForLines = new PDFTableExtractor
+//    extractorForLines.setSource(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
+//    extractorForLines.addPage(3)
+//    info("LineCount:===")
+//    val tables: util.List[trapRangeTable]= extractorForLines.extract()
+//    tables.foreach(table => info(table.getRows.length.toString))
+    var listTableColumnCount = mutable.Map.empty[trapRangeTable, Int]
 
     for(i <- 0 until lineCount){
       val pdfTableExtractor = new PDFTableExtractor
@@ -946,7 +953,14 @@ class SampleSizeExtractorTest extends FunSuite{
       val tables: util.List[trapRangeTable]= pdfTableExtractor.extract()
       info("Window Index: " + i + " <======> Column Count " + tables(0).getColumnsCount)
       tables.foreach(table => info(table.toHtml))
+      tables.foreach(table => listTableColumnCount += table -> table.getColumnsCount)
     }
+    val listFinalTables = listTableColumnCount.filter(_._2 == 4).keySet.toList
+    val finalTable = PDFTableExtractor.mergeTablesAndFilter(listFinalTables)
+    info("====FinalTable====")
+    info(finalTable.toHtml)
+
+    info("For Debugging")
 //    val textStripper = new PDFTextStripper
 //    textStripper.setStartPage(4)
 //    textStripper.setEndPage(4)
