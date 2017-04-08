@@ -6,13 +6,13 @@ import java.util
 import au.com.bytecode.opencsv.CSVReader
 import com.github.tototoshi.csv.CSVWriter
 import com.google.common.base.CharMatcher
-import helper.pdfpreprocessing.pdf.PDFTableExtractor.TextPositionExtractor
 import helper.pdfpreprocessing.pdf.entity.{Table => trapRangeTable}
 import helper.pdfpreprocessing.pdf.{PDFLoader, PDFTableExtractor, PDFTextExtractor}
 import helper.statcheck.{Statchecker => StatChecker}
 import org.apache.commons.io.FilenameUtils
 import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.text.TextPosition
+//import org.python.core.PyInteger
+//import org.python.util.PythonInterpreter
 import org.scalatest.FunSuite
 
 import scala.collection.JavaConversions._
@@ -916,14 +916,73 @@ class SampleSizeExtractorTest extends FunSuite{
     papersMatchesMap.foreach(paper => paper._2.foreach(matches => info(paper._1 + " ==== " + matches)))
   }
 
+//  test("Test embedding Jython in Java/Scala"){
+//    val pythonInterpreter = new PythonInterpreter()
+//    pythonInterpreter.exec("import sys")
+//    pythonInterpreter.exec("print sys")
+//    pythonInterpreter.set("a", new PyInteger(42))
+//    pythonInterpreter.exec("print a")
+//    pythonInterpreter.exec("x = 2+2")
+//    val x = pythonInterpreter.get("x")
+//    info(x.toString)
+//  }
+
   test("Test Table Extractor"){
-    val lineCount = 61
-    val pdDoc: PDDocument = PDDocument.load(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
-    val textPositionExtractor = new TextPositionExtractor(pdDoc,3)
-    val textPositions: util.List[TextPosition] = textPositionExtractor.extract()
-    val listYPositions = mutable.ListBuffer.empty[Float]
-    textPositions.foreach(pos => listYPositions += pos.getY)
-    info("Distinct Y values: " + listYPositions.distinct.length)
+    val TARGET_PDF = new File("test/RandomTTestPapers/bmj4_10_e005182.full.pdf")
+
+    val tableRegex = new Regex("[Tt]able\\s*\\D+")
+    val pagesIdx = mutable.ListBuffer.empty[Int] // Page Indices of pages containing a table
+    val fileString = TARGET_PDF.toString
+    val pdfText = convertPDFtoText(fileString)
+    for(index <- 0 until pdfText.length){
+      if(tableRegex.findAllIn(pdfText(index)).nonEmpty){
+        pagesIdx += index
+      }
+    }
+    val listTablesAll = mutable.ListBuffer.empty[trapRangeTable]
+
+    for(index <- pagesIdx){
+      val extractorCountLines = new PDFTableExtractor
+      extractorCountLines.setSource(TARGET_PDF)
+      extractorCountLines.addPage(index)
+      val tables: util.List[trapRangeTable]= extractorCountLines.extract()
+      val lineCount = tables.get(0).getRows.length
+
+      var listTableColumnCount = mutable.Map.empty[trapRangeTable, Int]
+
+      for(i <- 0 until lineCount){
+        val pdfTableExtractor = new PDFTableExtractor
+        pdfTableExtractor.setSource(TARGET_PDF)
+        pdfTableExtractor.addPage(index)
+        val exceptedLinesBefore = 0 until i toList
+        val exceptedLinesAfter = i + 5 until lineCount toList
+        val exceptedLinesTotal = List.concat(exceptedLinesBefore,exceptedLinesAfter)
+        pdfTableExtractor.exceptLine(exceptedLinesTotal.toArray)
+        val tables: util.List[trapRangeTable]= pdfTableExtractor.extract()
+//        info("Window Index: " + i + " <======> Column Count " + tables(0).getColumnsCount)
+//        tables.foreach(table => info(table.toHtml))
+        tables.foreach(table => listTableColumnCount += table -> table.getColumnsCount)
+      }
+      val MapColumnCountTables = mutable.Map.empty[Int,List[trapRangeTable]]
+      listTableColumnCount.values.toList.distinct.foreach(columnCount => {
+        MapColumnCountTables += columnCount -> listTableColumnCount.filter(_._2 == columnCount).keySet.toList
+      })
+
+      var listFinalTables = mutable.ListBuffer.empty[trapRangeTable]
+      MapColumnCountTables.values.foreach(tableList => {
+        val tableMerged = PDFTableExtractor.mergeTablesAndFilter(tableList)
+        listFinalTables += tableMerged
+      })
+      info("Page Inx: " + index)
+      info("==== TABLES ====")
+      listFinalTables.foreach(table => info(table.toHtml))
+      listTablesAll ++= listFinalTables
+    }
+//    val textPositionExtractor = new TextPositionExtractor(pdDoc,3)
+//    val textPositions: util.List[TextPosition] = textPositionExtractor.extract()
+//    val listYPositions = mutable.ListBuffer.empty[Float]
+//    textPositions.foreach(pos => listYPositions += pos.getY)
+//    info("Distinct Y values: " + listYPositions.distinct.length)
 
 ////    textPositions.foreach(pos => info("TextPos: " + pos))
 //    for(i <- 1 until 5){
@@ -934,32 +993,7 @@ class SampleSizeExtractorTest extends FunSuite{
 //      info("X: " + textPositions(i).getHeight)
 //    }
 
-//    val extractorForLines = new PDFTableExtractor
-//    extractorForLines.setSource(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
-//    extractorForLines.addPage(3)
-//    info("LineCount:===")
-//    val tables: util.List[trapRangeTable]= extractorForLines.extract()
-//    tables.foreach(table => info(table.getRows.length.toString))
-    var listTableColumnCount = mutable.Map.empty[trapRangeTable, Int]
-
-    for(i <- 0 until lineCount){
-      val pdfTableExtractor = new PDFTableExtractor
-      pdfTableExtractor.setSource(new File("test/RandomTTestPapers/bmj4_10_e005413.full.pdf"))
-      pdfTableExtractor.addPage(3)
-      val exceptedLinesBefore = 0 until i toList
-      val exceptedLinesAfter = i + 5 until lineCount toList
-      val exceptedLinesTotal = List.concat(exceptedLinesBefore,exceptedLinesAfter)
-      pdfTableExtractor.exceptLine(exceptedLinesTotal.toArray)
-      val tables: util.List[trapRangeTable]= pdfTableExtractor.extract()
-      info("Window Index: " + i + " <======> Column Count " + tables(0).getColumnsCount)
-      tables.foreach(table => info(table.toHtml))
-      tables.foreach(table => listTableColumnCount += table -> table.getColumnsCount)
-    }
-    val listFinalTables = listTableColumnCount.filter(_._2 == 4).keySet.toList
-    val finalTable = PDFTableExtractor.mergeTablesAndFilter(listFinalTables)
-    info("====FinalTable====")
-    info(finalTable.toHtml)
-
+//    val listFinalTables = listTableColumnCount.filter(_._2 == listTableColumnCount.values.groupBy(identity).maxBy(_._2.size)._1).keySet.toList
     info("For Debugging")
 //    val textStripper = new PDFTextStripper
 //    textStripper.setStartPage(4)
@@ -991,10 +1025,6 @@ class SampleSizeExtractorTest extends FunSuite{
 //    tables.foreach(table =>{
 //      info(table.toHtml)
 //    })
-  }
-
-  test("Fuck this shit"){
-    info("sonen crap alte")
   }
 
 //  test("Test Tabula"){

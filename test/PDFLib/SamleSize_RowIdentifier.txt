@@ -1,0 +1,31 @@
+Total Number
+Male / Men
+Female / Women
+Whole group
+N
+total
+Sex;Gender - women/men or female/male
+[Gg]roup X
+
+Heuristics:
+- Try to get Male/Female count
+- Exclude cells from p-value column: p[-][Vv]alue;P[-][Vv]alue
+- Exclude cells from columns indicating "mean" value of the variables // containing "±"->should exclude many cells
+- Exclude cells from columns indicating "ratio"
+- Look for sample size in same sentence as Table Header - e.g Table 2 ...... X [Pp]atients;X [Pp]articipants; [Nn]=x
+    Table 2....characteristics of X ...
+- From the table collect all [Nn]=X. Check wheter their sum is equlivalent to one of the matches of the KC. Check whether
+    the collection has a count which is the sum of other counts
+- If rowIdentifier has "percent" -> than extrapolate corresponding number according to percentage value and
+    check if KC has this number X +- 1
+- If a column has Male/Female, then sample size likely be a rowIdentifier
+- If a rowIdentifier has Male/Female, then sample size likely be a columnIdentifier
+
+Tasks to do:
+- For each <TableCell> implement following methods:
+    String getContentAbove()
+    String getContentLeft()
+    String getContentRight()
+    String getContentBelow()
+    String getRowIdentifier() // first cell of corresponding row
+    String getColumnIdentifier() // first cell of corresponding column
