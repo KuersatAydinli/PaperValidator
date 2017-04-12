@@ -1030,12 +1030,12 @@ bmj4_1_e004046.full.txt,1028,9:3719,1007,814, 814 tobacco,false
 bmj4_1_e004046.full.txt,1029,9:3730,1008,590, 590 tobacco,false
 bmj4_1_e004046.full.txt,1030,9:3740,1011,224, 224 tobacco,false
 bmj4_1_e004205.full.txt,1031,3:1344,null,100, 100 patients,true
-bmj4_1_e004205.full.txt,1032,3:1543,null,137, 137 controls,false
+bmj4_1_e004205.full.txt,1032,3:1543,null,137, 137 controls,true
 bmj4_1_e004205.full.txt,1033,6:1867,null,607, a total of 607 patients,false
 bmj4_1_e004205.full.txt,1034,6:1921,1033,250, among whom 250 provided,false
 bmj4_1_e004205.full.txt,1035,6:2123,1031,100, 100 patients,true
 bmj4_1_e004205.full.txt,1036,6:5255,1031,100, 100 patients,true
-bmj4_1_e004205.full.txt,1037,6:5286,1032,137, 137 controls,false
+bmj4_1_e004205.full.txt,1037,6:5286,1032,137, 137 controls,true
 bmj4_1_e004205.full.txt,1038,9:2529,1031,35, 35 male,false
 bmj4_1_e004205.full.txt,1039,9:2532,1031,65, 65 female,false
 bmj4_1_e004205.full.txt,1040,9:2591,1031,82, 82 non-smoker,false
@@ -1047,7 +1047,7 @@ bmj4_1_e004205.full.txt,1045,9:2661,1031,75, 75 headache,false
 bmj4_1_e004205.full.txt,1046,9:2691,1031,51, 51 no depression,false
 bmj4_1_e004205.full.txt,1047,9:2695,1031,49, 49 depression,false
 bmj4_1_e004205.full.txt,1048,9:3241,1031,100, 100 sample size,true
-bmj4_1_e004205.full.txt,1049,9:3245,1032,137, 137 sample size,false
+bmj4_1_e004205.full.txt,1049,9:3245,1032,137, 137 sample size,true
 bmj4_1_e004205.full.txt,1050,9:3296,1031,35, 35 male,false
 bmj4_1_e004205.full.txt,1051,9:3299,1031,65, 65 female,false
 bmj4_1_e004205.full.txt,1052,9:3302,1032,47, 47 male,false
@@ -2662,17 +2662,17 @@ NEJMoa1400697.txt,2660,21:690,2636,436, n=436,false
 NEJMoa1400697.txt,2661,21:720,2658,65, 65 female,false
 NEJMoa1400697.txt,2662,21:730,2659,54, 54 female,false
 NEJMoa1400697.txt,2663,21:740,2660,209, 209 female,false
-NEJMoa1402584.txt,2664,3:2442,null,1066, 1066 patientsf,false
+NEJMoa1402584.txt,2664,3:2442,null,1066, 1066 patients,false
 NEJMoa1402584.txt,2665,6:1197,2664,432, 432 patients,false
-NEJMoa1402584.txt,2666,12:3091,null,194, 194 patients,true
-NEJMoa1402584.txt,2667,12:3130,null,291, 291 patients,true
+NEJMoa1402584.txt,2666,12:3091,null,194, 194 patients,false
+NEJMoa1402584.txt,2667,12:3130,null,291, 291 patients,false
 NEJMoa1402584.txt,2668,12:3567,2664,1066, 1066 patients,false
 NEJMoa1402584.txt,2669,12:3607,2668,515, 515 patients,false
 NEJMoa1402584.txt,2670,12:3638,2668,551, 551 patients,false
-NEJMoa1402584.txt,2671,12:2726,2668,513, 513 patients,false
+NEJMoa1402584.txt,2671,12:2726,2668,513, 513 patients,true
 NEJMoa1402584.txt,2672,12:3867,2668,78, 78 patients,false
 NEJMoa1402584.txt,2673,12:3916,2668,36, 36 patients,false
-NEJMoa1402584.txt,2674,12:4356,2668,548, 548 patients,false
+NEJMoa1402584.txt,2674,12:4356,2668,548, 548 patients,true
 NEJMoa1402584.txt,2675,12:4424,2674,329, 329 received ...,false
 NEJMoa1402584.txt,2676,12:4452,2674,219, 219 received ...,false
 NEJMoa1402584.txt,2677,12:4487,2668,78, 78 patients,false

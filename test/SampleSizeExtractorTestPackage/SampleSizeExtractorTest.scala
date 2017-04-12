@@ -379,7 +379,6 @@ class SampleSizeExtractorTest extends FunSuite{
     val PdfPath = "test/TestPDFs"
 
     val JournalPath = "F:\\Dropbox\\Dropbox\\all papers"
-//    val JournalPath = "F:\\Wifo_5_Semester\\CrowdSourcing\\ClinicalData\\Clinical_Data_Downloaded-20161116173143\\Clinical Data_Zurampic_Initial marketing authorisation\\Clinical study reports"
 
     val testListRegex = mutable.MutableList(
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
@@ -431,25 +430,7 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\b(\\D{0,15})\\b(enrolled)\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
-//    val testListRegexNonOverfitted = mutable.MutableList(
-//  new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}patients"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}people"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
-//  new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
-//  new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
-//  new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
-//  new Regex("\\s*\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
-//  new Regex("\\b(\\D{0,15})\\b(enrolled)\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
-//  new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
-//  new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
+
     val patternMatchesInGT = mutable.Map.empty[Regex, Int] // #Matches per Pattern in the Ground Truth
     val bufferedSource = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes.csv")
     val listMappedSS = mutable.ListBuffer.empty[String] // list of all SS which are mapped to a t-test in the ground truth
@@ -490,9 +471,7 @@ class SampleSizeExtractorTest extends FunSuite{
       patternMatchesInGT(regex) = 0
     }
 
-//    var counter = 2
     for(line <- bufferedSource.getLines()){
-//      info("counter: " + counter.toString)
       val cols = line.split(",").map(_.trim)
       //      testListRegexNonOverfitted.par.foreach(r =>
       //        if(r.findAllIn(cols(5)).matchData.nonEmpty){
@@ -503,7 +482,6 @@ class SampleSizeExtractorTest extends FunSuite{
           patternMatchesInGT.update(regex,patternMatchesInGT(regex)+1)
         }
       }
-//      counter += 1
     }
     bufferedSource.close
 
@@ -913,7 +891,7 @@ class SampleSizeExtractorTest extends FunSuite{
         papersMatchesMap += FilenameUtils.getBaseName(fileString) -> matchesInFile.distinct.toList
       }
     }
-    papersMatchesMap.foreach(paper => paper._2.foreach(matches => info(paper._1 + " ==== " + matches)))
+    papersMatchesMap.foreach(paper => paper._2.foreach(matches => info(paper._1 + " ====>> " + matches)))
   }
 
 //  test("Test embedding Jython in Java/Scala"){
