@@ -800,12 +800,17 @@ class SampleSizeExtractorTest extends FunSuite{
   test("Random t-test for rule building"){
     val PdfPath = "test/RandomTTestPapers"
     val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\d+\\s*\\/\\s*\\d+"),
+      new Regex("\\d+\\s*of\\s*\\d+"),
+      new Regex("\\d+\\s*in\\s*the\\s*group"),
+      new Regex("\\d+\\s*\\D{0,20}\\s*to\\s*\\D{0,40}\\s*and\\s*\\d+\\s*\\D{0,20}\\s*to"),
       new Regex("(study|sample)\\s+of\\D{0,15}\\d+\\D{0,15}"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}members"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}cases"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}controls"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
@@ -1812,6 +1817,10 @@ class SampleSizeExtractorTest extends FunSuite{
     val regex = new Regex(".{0,50}women")
     //      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
     val testListRegexNonOverfitted = mutable.MutableList(
+      new Regex("\\d+\\s*\\/\\s*\\d+"),
+      new Regex("\\d+\\s*\\D{0,15}of\\s*\\D{0,15}\\d+"),
+      new Regex("\\d+\\s*in\\s*the\\s*group"),
+      new Regex("\\d+\\s*\\D{0,20}\\s*to\\s*\\D{0,40}\\s*and\\s*\\d+\\s*\\D{0,20}\\s*to"),
       new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
@@ -1831,16 +1840,14 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
 
-    val string = "enrolled 345,345 idiots"
-    var index = 1
+    val string = "10 were allocated to group of iditots and 50 were allocated to"
     for(regex <- testListRegexNonOverfitted){
-      info("index: " + index)
       val matches = regex.findAllIn(string).matchData
       while (matches.hasNext){
         val currentMatch = matches.next()
-        info("current match: " + currentMatch.toString())
+        info("current match: " + currentMatch.toString() + " ===> " + regex)
       }
-      index += 1
+
     }
   }
 
