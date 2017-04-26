@@ -1938,14 +1938,15 @@ bmj4_7_e005330.full.txt,1936,15:2042,1912,2, 2 urinary creatinine high,false
 bmj4_7_e005330.full.txt,1937,15:2048,1913,9, 9 urinary creatinine high,false
 bmj4_7_e005361.full.txt,1938,3:2152,1942,177, 177 patients,NL1
 bmj4_7_e005361.full.txt,1939,3:2175,1938,101, 101 men,false
-bmj4_7_e005361.full.txt,1940,3:2312,1938,110, 110 participants,L2
+bmj4_7_e005361.full.txt,1940,3:2312,1938,110, 110 participants,false
 bmj4_7_e005361.full.txt,1941,3:2358,1938,67, ... was found in 67,L2
 bmj4_7_e005361.full.txt,1942,9:3050,null,189, 189 patients,OL1
 bmj4_7_e005361.full.txt,1943,9:3127,1942,10, 10 had ...,false
 bmj4_7_e005361.full.txt,1944,9:3257,1938,177, 177 participants,false
 bmj4_7_e005361.full.txt,1945,9:3284,1938,101, 101 were men,false
-bmj4_7_e005361.full.txt,1946,9:3423,1938,23, 23 had ...,false
-bmj4_7_e005361.full.txt,1947,9:3482,1938,47, 47 had ...,false
+bmj4_7_e005361.full.txt,1946,9:3423,1938,75, n=75,L2
+bmj4_7_e005361.full.txt,1947,9:3482,1938,35, n=35,L2
+bmj4_7_e005361.full.txt,1947,9:3482,1938,35, n=35,L2
 bmj4_7_e005361.full.txt,1948,9:4351,1938,177, n=177,false
 bmj4_7_e005361.full.txt,1949,9:4404,1938,101, 101 male sex,false
 bmj4_7_e005361.full.txt,1950,9:4556,1938,35, 35 current or past smoking,false
@@ -2275,7 +2276,7 @@ p1739-morris.txt,2171,30:297,2167,624, 624 people,false
 2014_496814.txt,2274,96:246,2261,2771, 2771 male,false
 2014_564259.txt,2275,12:644,null,7447, 7447-participant,OL1
 2014_564259.txt,2276,12:1290,2275,327, 327 deaths,false
-2014_564259.txt,2277,12:659,2275,7447, eligible participants were 7447
+2014_564259.txt,2277,12:659,2275,7447, eligible participants were 7447,false
 2014_564259.txt,2278,27:1763,2275,7172, 7172 participants,NL1
 2014_564259.txt,2279,33:1010,2276,327, observed deaths was 327,false
 2014_564259.txt,2280,33:1025,2279,131, 131 were due to cancer,false

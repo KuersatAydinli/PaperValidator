@@ -1803,27 +1803,58 @@ class SampleSizeExtractorTest extends FunSuite{
   }
 
   test("Regex Testings"){
-//    val regex = new Regex("(\\d+\\D{0,30}patients|\\d+[,]\\d{3}\\D{0,20}patients)")
-//    val regex = new Regex("(\\d+([,\\s*]\\d{3})*\\D{0,20}patients)")
-////      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
-//    val string = "5754 patients"
-//    val matches = regex.findAllIn(string).matchData
-//    while (matches.hasNext){
-//      val currentMatch = matches.next()
-//      info("current match: " + currentMatch)
-//      info("group size: " + currentMatch.groupCount)
-//    }
-    val statChecker = StatChecker
-    val regex = new Regex(".{0,50}women")
-    //      + "|(\\d+[,]\\d{3}\\D{0,20}women)")
-    val testListRegexNonOverfitted = mutable.MutableList(
-      new Regex("\\d+\\s*\\/\\s*\\d+"),
-      new Regex("\\d+\\s*\\D{0,15}of\\s*\\D{0,15}\\d+"),
-      new Regex("\\d+\\s*in\\s*the\\s*group"),
-      new Regex("\\d+\\s*\\D{0,20}\\s*to\\s*\\D{0,40}\\s*and\\s*\\d+\\s*\\D{0,20}\\s*to"),
-      new Regex("\\b(study|sample)\\b\\D{0,15}\\d+\\D{0,15}"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
+    val Label_Source = Source.fromFile("test/PDFLib/PDFLibrary_SampleSizes_copy_full_labels.csv")
+
+    /*These Lists represent the different Patterns to match the corresponding sample size types*/
+    val patternsInitialSampleSize = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,40}\\s*invited"),
+      new Regex("invited\\s*\\d+([,\\s*]\\d{3})*\\D{0,20}"),
+      new Regex("reviewed\\s*\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
+        "persons)"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
+        "persons)\\s*reviewed"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,40}\\s*screened"),
+      new Regex("screened\\s*\\d+([,\\s*]\\d{3})*\\D{0,20}"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}\\s*assessed\\s*for\\s*eligibility"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}\\s*met\\s*\\D{0,20}\\s*criteria")
+    )
+    val patternsActualSampleSize = mutable.MutableList(
+      new Regex("[Oo]f\\s*the\\s*\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,25}(recruited|included)"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,20}\\s*recruited"),
+      new Regex("recruited\\s*\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,25}were\\s*randomized"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,25}randomly\\s*(allocated|assigned)\\s*to"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,35}underwent\\s*randomization"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,20}\\s*were\\s*included\\s*\\D{0,20}\\s*analysis"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
+        "persons)\\s*\\D{0,20}\\s*included"),
+      new Regex("included\\s*\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
+        "persons)\\s*\\D{0,20}")
+    )
+    val patternsActualSampleSizeNegative = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,40}\\s*not\\D{0,15}\\s*eligible"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,40}\\s*(did\\s*not|didn't)\\s*meet\\D{0,15}\\s*(criteria|criterion)"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)\\D{0,20}\\s*were\\s*excluded"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,20}\\s*were\\s*excluded")
+    )
+    val patternsGroupSampleSize = mutable.MutableList(
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)\\s*in\\s*the\\s*\\D{0,20}\\s*group"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)\\s*received"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,40}\\s*(allocated|assigned)\\s*to"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,10}\\s*controls"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*of\\s*\\d+([,\\s*]\\d{3})*")
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,50}\\s*and\\s*\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?")
+    )
+    val patternsUsualKC = mutable.MutableList(
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*were\\s*assigned\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}women"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}members"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}cases"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}controls"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}respondents"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}persons"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}participants"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}subjects"),
@@ -1832,22 +1863,245 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}individuals"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}adults"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,25}recruited"),
-      new Regex("[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
+      new Regex("\\s*[Nn]\\s*=\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("[Tt]otal\\s*of\\s*\\d+([,\\s*]\\d{3})*"),
       new Regex("study\\s*population\\s*include[sd]\\D{0,20}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,20}enrolled"),
-      new Regex("\\b(\\D{0,15})\\b(enrolled)\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}"),
+      new Regex("enrolled\\s*\\d+([,\\s*]\\d{3})*\\D{0,15}\\s*(people|patients|participants|subjects|cases|persons)?"),
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
 
-    val string = "10 were allocated to group of iditots and 50 were allocated to"
-    for(regex <- testListRegexNonOverfitted){
-      val matches = regex.findAllIn(string).matchData
-      while (matches.hasNext){
-        val currentMatch = matches.next()
-        info("current match: " + currentMatch.toString() + " ===> " + regex)
-      }
+    val SS_Pos_Map = mutable.Map.empty[String,Int]
+    var position = 0
 
+    val list_tTestPapers = mutable.MutableList.empty[String]
+    for(line <- Label_Source.getLines()){
+//      index += 1
+      val cols = line.split(",").map(_.trim)
+      if(cols(6).contains("OL1") || cols(6).contains("NL1") || cols(6).contains("L2")){
+        if(!list_tTestPapers.contains(cols(0))){
+          list_tTestPapers += cols(0)
+        }
+      }
+    }
+
+    val PdfPath = "test/TestPDFs"
+    val bracketList: List[String] = List("(",")","[","]",":","/","+",";","*")
+    val bracketList_NL1: List[String] = List("[","]",":","/","+","-",";","*")
+    val bracketList_L2: List[String] = List("[","]",":","+","-",";","*")
+//    val bracketList_OL1: List[String] = List("(",")","[","]",":","/","+",";","*")
+    val files = getListOfFiles(PdfPath)
+    var filesCount = 0
+
+    for(file <- files){
+      val fileString = file.toString
+      if(FilenameUtils.getExtension(fileString).equals("pdf")){
+        for(ttestPaper <- list_tTestPapers){
+          if(FilenameUtils.getBaseName(fileString).contains(ttestPaper.replace(".txt",""))){
+            filesCount += 1
+            val pdfText = convertPDFtoText(fileString)
+
+            /*These lists represent the different sample size matches including their integer pools*/
+            val matchesInitialSS = mutable.ListBuffer.empty[String]
+            val poolInitialSS = mutable.ListBuffer.empty[Int]
+            val matchesActualSS = mutable.ListBuffer.empty[String]
+            val poolActualSS = mutable.ListBuffer.empty[Int]
+            val matchesActualSSNegative = mutable.ListBuffer.empty[String]
+            val poolActualSSNegative = mutable.ListBuffer.empty[Int]
+            val matchesGroupSS = mutable.ListBuffer.empty[String]
+            val poolGroupSS = mutable.ListBuffer.empty[String]
+            val matchesUsualKC = mutable.ListBuffer.empty[String]
+            val poolUsualKC = mutable.ListBuffer.empty[Int]
+
+            for(regex <- patternsInitialSampleSize){
+              if(regex.findAllIn(pdfText.mkString).nonEmpty){
+                val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+                while(totalMatches.hasNext){
+                  val currentMatch = totalMatches.next().toString()
+                  if(!(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*"))){
+                    matchesInitialSS += currentMatch
+                  }
+                }
+              }
+            }
+            for(regex <- patternsActualSampleSize){
+              if(regex.findAllIn(pdfText.mkString).nonEmpty){
+                val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+                while(totalMatches.hasNext){
+                  val currentMatch = totalMatches.next().toString()
+                  if(!(bracketList_NL1.exists(currentMatch.contains(_)) || currentMatch.contains("not") || currentMatch.matches("\\d+\\D{0,3}[,.]\\D*"))){
+                    matchesActualSS += currentMatch
+                  }
+                }
+              }
+            }
+            for(regex <- patternsActualSampleSizeNegative){
+              if(regex.findAllIn(pdfText.mkString).nonEmpty){
+                val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+                while(totalMatches.hasNext){
+                  val currentMatch = totalMatches.next().toString()
+                  if(!(currentMatch.contains("%") && currentMatch.matches("\\d+\\s*%\\s*\\D{0,60}"))){
+                    matchesActualSSNegative += currentMatch
+                  }
+                }
+              }
+            }
+            for(regex <- patternsGroupSampleSize){
+              if(regex.findAllIn(pdfText.mkString).nonEmpty){
+                val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+                val whileLoop = new Breaks
+                while(totalMatches.hasNext){
+                  whileLoop.breakable{
+                    val currentMatch = totalMatches.next().toString()
+                    if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*") && currentMatch.split("\\/")(1).length > 6){
+                      whileLoop.break()
+                    }
+                    if(!(bracketList_L2.exists(currentMatch.contains(_)) || (currentMatch.matches("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*")
+                      && currentMatch.split("\\/")(0).replaceAll("\\D+","").toInt >
+                      currentMatch.split("\\/")(1).replaceAll("\\D+","").toInt) || (currentMatch.matches("\\d+([,\\s*]\\d{3})*\\s*of\\s*\\d+([,\\s*]\\d{3})*")
+                      && currentMatch.split("of")(0).replaceAll("\\D+","").toInt >
+                      currentMatch.split("of")(1).replaceAll("\\D+","").toInt) || currentMatch.matches("\\d+\\D{0,3}[,.]\\D*"))){
+                      matchesGroupSS += currentMatch
+                    }
+                  }
+                }
+
+              }
+            }
+            for(regex <- patternsUsualKC){
+              if(regex.findAllIn(pdfText.mkString).nonEmpty){
+                val totalMatches = regex.findAllIn(pdfText.mkString).matchData
+                while(totalMatches.hasNext){
+                  val currentMatch = totalMatches.next().toString()
+                  if(!(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
+                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}cm\\D*|\\d+([,\\s*]\\d{3})*\\D*[,]\\D*" +
+                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*" +
+                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}year[-\\s]old\\D*") || currentMatch.contains("%") ||
+                    currentMatch.matches("\\d+\\D*[.]\\D*") || bracketList.exists(currentMatch.contains(_)) ||
+                    currentMatch.matches("\\d+\\s*[-]\\D*") || currentMatch.matches("\\d+\\s*[,]\\D*") ||
+                    currentMatch.matches("\\d+\\D*\\s+for\\s+\\D*|\\d\\D*+\\s+and\\s+\\D*|\\d+\\D*\\s+by\\s+\\D*" +
+                      "|\\d+\\D*\\s+our\\s+\\D*|\\d+\\D*\\s+between\\s+\\D*|\\d+\\D*\\s+in\\s+\\D*|\\d+\\D*\\s+from\\s+\\D*" +
+                      "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
+                      "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*") || (currentMatch.matches("\\d+\\D*\\s+[Hh]ow\\s+\\D*|\\d\\D*s+[Aa]lthough\\D*|\\d+\\D*\\s+[Tt]he\\s+\\D*" +
+                    "|\\d+\\D*\\s+[Mm]any\\s+\\D*|\\d+\\D*\\s+[Oo]ften\\s+\\D*|\\d+\\D*\\s+found\\s+\\D*|\\d+\\D*\\s+[Oo]n\\s+\\D*" +
+                    "|\\d+\\D*[Aa]mong\\D*|\\d+\\D*[Ss]how\\D*|\\d+\\D*[Tt]han\\D*|\\d+\\D*[Pp]ercent\\D*|\\d+\\D*[Ww]hich\\D*" +
+                    "|\\d+\\D*[Dd]uring\\D*|\\d+\\D*as\\s*well\\s*as\\D*|\\d+\\D*[Aa]nother\\D*|\\d+\\D*[Cc]haracteristics\\D*" +
+                    "|\\d+\\D*[Aa]ttribute\\D*|\\d+\\D*[Mm]ost\\D*|\\d+\\D*\\s+[Bb]ut\\s+\\D*|\\d+\\D*[Aa]bout\\D*" +
+                    "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
+                    !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")) || (!CharMatcher.ASCII.matchesAllOf(currentMatch)))){
+                    matchesUsualKC += currentMatch
+                    SS_Pos_Map += currentMatch -> position
+                    position += 1
+                  }
+//                  if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
+//                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
+//                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}weeks\\D*|\\d+([,\\s*]\\d{3})*\\s*[h]\\D*" +
+//                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}cm\\D*|\\d+([,\\s*]\\d{3})*\\D*[,]\\D*" +
+//                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}km\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}kg\\D*" +
+//                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}year[-\\s]old\\D*")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(currentMatch.contains("%")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(currentMatch.matches("\\d+\\D*[.]\\D*")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(bracketList.exists(currentMatch.contains(_))){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(currentMatch.matches("\\d+\\s*[-]\\D*")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(currentMatch.matches("\\d+\\s*[,]\\D*")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(currentMatch.matches("\\d+\\D*\\s+for\\s+\\D*|\\d\\D*+\\s+and\\s+\\D*|\\d+\\D*\\s+by\\s+\\D*" +
+//                    "|\\d+\\D*\\s+our\\s+\\D*|\\d+\\D*\\s+between\\s+\\D*|\\d+\\D*\\s+in\\s+\\D*|\\d+\\D*\\s+from\\s+\\D*" +
+//                    "|\\d+\\D*\\s+to\\s+\\D*|\\d+\\D*\\s+that\\s+\\D*|\\d+\\D*\\s+times\\s+\\D*|\\d+\\D*\\s+with\\s+\\D*" +
+//                    "|\\d+\\D*\\s+when\\s+\\D*|\\d+\\D*\\s+or\\s+\\D*|\\d+\\D*\\s+while\\s+\\D*")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(currentMatch.matches("\\d+\\D*\\s+[Hh]ow\\s+\\D*|\\d\\D*s+[Aa]lthough\\D*|\\d+\\D*\\s+[Tt]he\\s+\\D*" +
+//                    "|\\d+\\D*\\s+[Mm]any\\s+\\D*|\\d+\\D*\\s+[Oo]ften\\s+\\D*|\\d+\\D*\\s+found\\s+\\D*|\\d+\\D*\\s+[Oo]n\\s+\\D*" +
+//                    "|\\d+\\D*[Aa]mong\\D*|\\d+\\D*[Ss]how\\D*|\\d+\\D*[Tt]han\\D*|\\d+\\D*[Pp]ercent\\D*|\\d+\\D*[Ww]hich\\D*" +
+//                    "|\\d+\\D*[Dd]uring\\D*|\\d+\\D*as\\s*well\\s*as\\D*|\\d+\\D*[Aa]nother\\D*|\\d+\\D*[Cc]haracteristics\\D*" +
+//                    "|\\d+\\D*[Aa]ttribute\\D*|\\d+\\D*[Mm]ost\\D*|\\d+\\D*\\s+[Bb]ut\\s+\\D*|\\d+\\D*[Aa]bout\\D*" +
+//                    "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
+//                    !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")){
+//                    matchesUsualKC -= currentMatch
+//                  } else if(!CharMatcher.ASCII.matchesAllOf(currentMatch)){
+//                    matchesUsualKC -= currentMatch
+//                  } else {
+//                    SS_Pos_Map += currentMatch -> position
+//                    position += 1
+//                  }
+                }
+              }
+            }
+
+            /*Populate sample size Pools with Integer Values*/
+            matchesInitialSS.foreach(initialSS => poolInitialSS += initialSS.replaceAll("\\D+","").toInt)
+            matchesUsualKC.foreach(usualSS => poolUsualKC += usualSS.replaceAll("\\D+","").toInt)
+            matchesActualSS.foreach(actualSS => {
+              if(actualSS.contains("%)")){
+                poolActualSS += actualSS.split("\\(\\s*\\d+\\s*%")(0).replaceAll("\\D+","").toInt
+              } else {
+                poolActualSS += actualSS.replaceAll("\\D+","").toInt
+              }
+            })
+            matchesActualSSNegative.foreach(actualSSNeg => {
+              if(actualSSNeg.contains("%)")){
+                poolActualSSNegative += actualSSNeg.split("\\(\\s*\\d+\\s*%")(0).replaceAll("\\D+","").toInt
+              } else {
+                poolActualSSNegative += actualSSNeg.replaceAll("\\D+","").toInt
+              }
+            })
+            matchesGroupSS.foreach(groupSS => {
+              if(groupSS.contains("%)")){
+                poolGroupSS += groupSS.split("\\(\\s*\\d+\\s*%")(0).replaceAll("\\D+","")
+              } else if(groupSS.contains("/")){
+                poolGroupSS += groupSS.split("\\/")(0).replaceAll("\\D+","")+","+groupSS.split("\\/")(1).replaceAll("\\D+","")
+              } else if(groupSS.contains("of")){
+                poolGroupSS += groupSS.split("of")(0).replaceAll("\\D+","")+","+groupSS.split("of")(1).replaceAll("\\D+","")
+              } else {
+                poolGroupSS += groupSS.replaceAll("\\D+","")
+              }
+            })
+
+            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
+            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
+            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
+            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
+            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
+            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
+            matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
+            poolGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
+//            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
+//            info("SS_POS_Map: FILE: " + FilenameUtils.getBaseName(fileString))
+//            val sorted_Map = mutable.ListMap(SS_Pos_Map.toSeq.sortWith(_._2 < _._2):_*)
+//            sorted_Map.foreach(entry => info("Match: " + entry._1 + " ==> " + entry._2))
+          }
+        }
+      }
+    }
+    info("FilesCount: " + filesCount)
+//    val string = "145 people were excluded"
+//    for(regex <- patternsGroupSampleSize){
+//      val matches = regex.findAllIn(string).matchData
+//      while (matches.hasNext){
+//        val currentMatch = matches.next()
+//        info("current match: " + currentMatch.toString() + " ===> " + regex)
+//      }
+//    }
+  }
+
+  test("Other Regex Testing"){
+//    val testOther = new Regex("\\d+\\s*(\\(\\d+\\s*%\\))?\\s*received")
+    val testOther = new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)?\\s*received")
+//    val testOther = new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,20}\\s*were\\s*included\\s*\\D{0,20}\\s*analysis")
+//    val testOther = new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|persons)?\\s*in\\s*the\\s*group")
+    val string = "43 persons received"
+
+    val matches = testOther.findAllIn(string)
+    while (matches.hasNext){
+      val currentMatch = matches.next()
+      info("Match: " + currentMatch)
     }
   }
 
