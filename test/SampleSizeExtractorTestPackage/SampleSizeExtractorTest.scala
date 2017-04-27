@@ -1838,12 +1838,12 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,20}\\s*were\\s*excluded")
     )
     val patternsGroupSampleSize = mutable.MutableList(
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)\\s*in\\s*the\\s*\\D{0,20}\\s*group"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)\\s*received"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)?\\s*in\\s*the\\s*\\D{0,20}\\s*group"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)?\\s*received"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,40}\\s*(allocated|assigned)\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,10}\\s*controls"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*of\\s*\\d+([,\\s*]\\d{3})*")
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*")
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|persons)?\\s*of\\s*\\d+([,\\s*]\\d{3})*")
 //      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,50}\\s*and\\s*\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?")
     )
     val patternsUsualKC = mutable.MutableList(
@@ -1871,9 +1871,6 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\s*data\\D{0,10}of\\D{0,5}\\d+([,\\s*]\\d{3})*"),
       new Regex("\\s*data\\D{0,10}from\\D{0,5}\\d+([,\\s*]\\d{3})*"))
 
-    val SS_Pos_Map = mutable.Map.empty[String,Int]
-    var position = 0
-
     val list_tTestPapers = mutable.MutableList.empty[String]
     for(line <- Label_Source.getLines()){
 //      index += 1
@@ -1894,12 +1891,19 @@ class SampleSizeExtractorTest extends FunSuite{
     var filesCount = 0
 
     for(file <- files){
+      val SS_Pos_Map = mutable.ArrayBuffer.empty[Int]
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
         for(ttestPaper <- list_tTestPapers){
           if(FilenameUtils.getBaseName(fileString).contains(ttestPaper.replace(".txt",""))){
             filesCount += 1
             val pdfText = convertPDFtoText(fileString)
+
+            /*These lists represent the final sample size values to be returned for a paper*/
+            val OL1_SS = mutable.ListBuffer.empty[Int] // initial sample size before any exclusions or allocations to study arms
+            val NL1_SS = mutable.ListBuffer.empty[Int] // actual sample size on which the study was made (sum of study arm sample sizes)
+            val L2_SS = mutable.ListBuffer.empty[Int] // group sample sizes of study arms/treatment groups if present
+
 
             /*These lists represent the different sample size matches including their integer pools*/
             val matchesInitialSS = mutable.ListBuffer.empty[String]
@@ -1909,7 +1913,7 @@ class SampleSizeExtractorTest extends FunSuite{
             val matchesActualSSNegative = mutable.ListBuffer.empty[String]
             val poolActualSSNegative = mutable.ListBuffer.empty[Int]
             val matchesGroupSS = mutable.ListBuffer.empty[String]
-            val poolGroupSS = mutable.ListBuffer.empty[String]
+            var poolGroupSS = mutable.ListBuffer.empty[String]
             val matchesUsualKC = mutable.ListBuffer.empty[String]
             val poolUsualKC = mutable.ListBuffer.empty[Int]
 
@@ -1992,8 +1996,7 @@ class SampleSizeExtractorTest extends FunSuite{
                     "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
                     !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")) || (!CharMatcher.ASCII.matchesAllOf(currentMatch)))){
                     matchesUsualKC += currentMatch
-                    SS_Pos_Map += currentMatch -> position
-                    position += 1
+                    SS_Pos_Map += currentMatch.replaceAll("\\D+","").toInt
                   }
 //                  if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
 //                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
@@ -2040,42 +2043,75 @@ class SampleSizeExtractorTest extends FunSuite{
             matchesUsualKC.foreach(usualSS => poolUsualKC += usualSS.replaceAll("\\D+","").toInt)
             matchesActualSS.foreach(actualSS => {
               if(actualSS.contains("%)")){
-                poolActualSS += actualSS.split("\\(\\s*\\d+\\s*%")(0).replaceAll("\\D+","").toInt
+                poolActualSS += actualSS.split("\\(\\s*\\d+")(0).replaceAll("\\D+","").toInt
               } else {
                 poolActualSS += actualSS.replaceAll("\\D+","").toInt
               }
             })
             matchesActualSSNegative.foreach(actualSSNeg => {
               if(actualSSNeg.contains("%)")){
-                poolActualSSNegative += actualSSNeg.split("\\(\\s*\\d+\\s*%")(0).replaceAll("\\D+","").toInt
+                poolActualSSNegative += actualSSNeg.split("\\(\\s*\\d+")(0).replaceAll("\\D+","").toInt
               } else {
                 poolActualSSNegative += actualSSNeg.replaceAll("\\D+","").toInt
               }
             })
             matchesGroupSS.foreach(groupSS => {
               if(groupSS.contains("%)")){
-                poolGroupSS += groupSS.split("\\(\\s*\\d+\\s*%")(0).replaceAll("\\D+","")
+                poolGroupSS += groupSS.split("\\(\\s*\\d+")(0).replaceAll("\\D+","")
               } else if(groupSS.contains("/")){
                 poolGroupSS += groupSS.split("\\/")(0).replaceAll("\\D+","")+","+groupSS.split("\\/")(1).replaceAll("\\D+","")
               } else if(groupSS.contains("of")){
-                poolGroupSS += groupSS.split("of")(0).replaceAll("\\D+","")+","+groupSS.split("of")(1).replaceAll("\\D+","")
+                poolGroupSS += groupSS.split("of")(0).replaceAll("\\D+","")+":"+groupSS.split("of")(1).replaceAll("\\D+","")
               } else {
                 poolGroupSS += groupSS.replaceAll("\\D+","")
               }
             })
 
-            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
-            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
-            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
-            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
-            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
-            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
+            /*================== HEURISTICS ==================*/
+            /*================== LET'S GO.. ==================*/
+
+            /*L2-Pool: Filter Matches of the form 'X/Y' or 'X of Y'*/
+            for(groupSS <- poolGroupSS){
+              if(groupSS.contains(",") && groupSS.split(",").length == 2){
+                val potentialSS = groupSS.split(",")(1).toInt // E.g 155/510 -> 510. Check for other subgroups (LHS) summing up to 510
+                val subgroupSS = {
+                  poolGroupSS.filter(ss => ss.contains(",") && ss.split(",")(1).equalsIgnoreCase(potentialSS.toString))
+                }.toList.map(_.split(",")(0).toInt)
+                if(subgroupSS.sum == potentialSS && !poolGroupSS.find(_.equalsIgnoreCase(potentialSS.toString)).isDefined && subgroupSS.length > 1){
+                  poolGroupSS += potentialSS.toString
+                }
+                if(poolGroupSS.filter(ss => ss.contains(",")).map(ss => ss.split(",")(1)).toList.count(_.equalsIgnoreCase(potentialSS.toString)) >=2
+                  && !poolGroupSS.find(_.equalsIgnoreCase(potentialSS.toString)).isDefined){
+                  poolGroupSS += potentialSS.toString
+                }
+              }
+//              else if(groupSS.contains(":") && groupSS.split(":").length > 1){
+//                val potentialSS = groupSS.split(":")(1).toInt // E.g 155/510 -> 510. Check for other subgroups (LHS) summing up to 510
+//                val subgroupSS = {
+//                    poolGroupSS.filter(ss => ss.contains(":") && ss.split(":")(1).equalsIgnoreCase(potentialSS.toString))
+//                  }.toList.map(_.split(":")(0).toInt)
+//                if(subgroupSS.sum == potentialSS){
+//                  L2_SS += potentialSS
+//                }
+//              }
+            }
+            poolGroupSS = poolGroupSS.filterNot(ss => ss.contains(",") || ss.contains(":"))
+
+
+//            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
+//            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
+//            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
+//            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
+//            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
+//            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
             matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
             poolGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
 //            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
 //            info("SS_POS_Map: FILE: " + FilenameUtils.getBaseName(fileString))
-//            val sorted_Map = mutable.ListMap(SS_Pos_Map.toSeq.sortWith(_._2 < _._2):_*)
-//            sorted_Map.foreach(entry => info("Match: " + entry._1 + " ==> " + entry._2))
+//            for(i <- 0 to SS_Pos_Map.size-1){
+//              info("Match: " + SS_Pos_Map(i) + " ==> "+i)
+//            }
+//            L2_SS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "L2_SS" + " ==> " + ss))
           }
         }
       }
