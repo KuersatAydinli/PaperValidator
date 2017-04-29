@@ -130,6 +130,22 @@ class SampleSizeExtractorTest extends FunSuite{
     val files = getListOfFiles(PdfPath)
     var filesCount = 0
     val finalEvaluationList = mutable.Map.empty[String,mutable.Map[String,List[Int]]]
+    var case1=0
+    var case2=0
+    var case3=0
+    var case4=0
+    var case5=0
+    var case6=0
+    var case7=0
+    var case8=0
+    var case9=0
+    var case10=0
+    var case11=0
+    var case12=0
+    var case13=0
+    var case14=0
+    var case15=0
+    var case16=0
 
     for(file <- files){
       val SS_POS_Arr = mutable.ArrayBuffer.empty[Int]
@@ -311,9 +327,9 @@ class SampleSizeExtractorTest extends FunSuite{
             /*================== HEURISTICS ==================*/
             /*================== LET'S GO.. ==================*/
 
-            /*Heuristic: SubSet DP Approach on KC-Matches (poolUsualKC)*/
+            /*Heuristic: SubSet/SubArray DP Approach on KC-Matches (poolUsualKC)*/
             val subsetMap = mutable.Map.empty[Int,List[Int]] // Map for all usualKC entries with subsetList as values
-            val subArrayMap = mutable.Map.empty[Int,List[Int]]
+            val subArrayMap = mutable.Map.empty[Int,List[Int]] // Map for all usualKC entries with subArrayList as values
             for(usualKC <- poolUsualKC.distinct){
               val potentialSubSets = findSubsetSum(poolUsualKC.distinct.filterNot(_ == usualKC).toList,usualKC)
               val potentialSubArrays = subArraySum(SS_POS_Arr.filterNot(_ == usualKC).toArray,SS_POS_Arr.filterNot(_ == usualKC).length,usualKC)
@@ -382,6 +398,9 @@ class SampleSizeExtractorTest extends FunSuite{
 //                  OL1_SS += initialSS
 //                }
 //              }
+              /*======================================== Case 1 ========================================*/
+              case1 += 1
+
               /*Case: There is a NL1(i) which is result of OL1(i) - !NL1(i)*/
               for(initialSS <- poolInitialSS){
                 for(actNegSS <- poolActualSSNegative){
@@ -421,6 +440,8 @@ class SampleSizeExtractorTest extends FunSuite{
 //                  L2_SS ++= potentialSubSet.toList
 //                }
 //              }
+              /*======================================== Case 2 ========================================*/
+              case2 += 1
               /*Case: There is subset of L2 which count to a NL1(i)*/
               for(actualSS <- poolActualSS){
                 val potentialSubset = findSubsetSum(poolGroupSSVal.distinct.filterNot(_ == actualSS).toList,actualSS)
@@ -438,6 +459,8 @@ class SampleSizeExtractorTest extends FunSuite{
                 }
               }
             } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 3 ========================================*/
+              case3 += 1
               for(initialSS <- poolInitialSS){
                 for(actNegSS <- poolActualSSNegative){
                   val difference = initialSS - actNegSS
@@ -461,6 +484,8 @@ class SampleSizeExtractorTest extends FunSuite{
               }
               OL1_SS += poolInitialSS.max
             } else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 4 ========================================*/
+              case4 += 1
               /*Case: There is subset of L2 which count to a NL1(i)*/
               for(actualSS <- poolActualSS){
                 val potentialSubset = findSubsetSum(poolGroupSSVal.distinct.filterNot(_ == actualSS).toList,actualSS)
@@ -479,6 +504,8 @@ class SampleSizeExtractorTest extends FunSuite{
               }
               OL1_SS += poolInitialSS.max
             } else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 5 ========================================*/
+              case5 += 1
               /*Case: There is a NL1(i) which is result of OL1(i) - !NL1(i)*/
               for(initialSS <- poolInitialSS){
                 for(actNegSS <- poolActualSSNegative){
@@ -501,6 +528,8 @@ class SampleSizeExtractorTest extends FunSuite{
               }
               OL1_SS += poolInitialSS.max
             } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 6 ========================================*/
+              case6 += 1
               /*Case: There is subset of L2 which count to a match of usualKC(i)*/
               for(usualKC <- poolUsualKC){
                 val potentialSubset = findSubsetSum(poolUsualKC.distinct.filterNot(_ == usualKC).toList,usualKC)
@@ -509,7 +538,66 @@ class SampleSizeExtractorTest extends FunSuite{
                   L2_SS ++= potentialSubset
                 }
               }
-            } else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
+            } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 7 ========================================*/
+              case7 += 1
+              /*Case: There is subset of L2 which count to a NL1(i)*/
+              for(actualSS <- poolActualSS){
+                val potentialSubset = findSubsetSum(poolGroupSSVal.distinct.filterNot(_ == actualSS).toList,actualSS)
+                if(potentialSubset != null && potentialSubset.size > 1){
+                  NL1_SS += actualSS
+                  L2_SS ++= potentialSubset
+                }
+              }
+              if(NL1_SS.isEmpty && L2_SS.isEmpty){
+                /*Case: Take largest NL1(i)*/
+                val greatestActualSS = poolActualSS.max
+                if(subsetMap.keySet.contains(greatestActualSS)){
+                  NL1_SS += subsetMap.keySet.find(value => value == greatestActualSS).get
+                  L2_SS ++= subsetMap(greatestActualSS)
+                }
+              }
+            } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 8 ========================================*/
+              case8 += 1
+              /*Case: There is a NL1(i) which is result of KC(i) - !NL1(i)*/
+              for(usualKC <- poolUsualKC){
+                for(actNegSS <- poolActualSSNegative){
+                  val difference = usualKC - actNegSS
+                  if(poolActualSS.contains(difference)){
+                    if(subsetMap.keySet.contains(difference)){
+                      NL1_SS += subsetMap.keySet.find(value => value == difference).get
+                      L2_SS ++= subsetMap(difference)
+                    }
+                  }
+                }
+              }
+              if(NL1_SS.isEmpty && L2_SS.isEmpty){
+                /*Case: Take largest NL1(i)*/
+                val greatestActualSS = poolActualSS.max
+                if(subsetMap.keySet.contains(greatestActualSS)){
+                  NL1_SS += subsetMap.keySet.find(value => value == greatestActualSS).get
+                  L2_SS ++= subsetMap(greatestActualSS)
+                }
+              }
+            } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 9 ========================================*/
+              case9 += 1
+              /*Case: There is subset of L2 which count to a match of usualKC(i)*/
+              for(usualKC <- poolUsualKC){
+                val potentialSubset = findSubsetSum(poolUsualKC.distinct.filterNot(_ == usualKC).toList,usualKC)
+                if(potentialSubset != null && potentialSubset.size > 1){
+                  NL1_SS += usualKC
+                  L2_SS ++= potentialSubset
+                }
+              }
+              OL1_SS += poolInitialSS.max
+            } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 10 ========================================*/
+              case10 += 1
+            }else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 11 ========================================*/
+              case11 += 1
               /*Case: There is a NL1(i) which is result of OL1(i) - KC(i)*/
               for(initialSS <- poolInitialSS){
                 for(usualKC <- poolUsualKC){
@@ -531,38 +619,9 @@ class SampleSizeExtractorTest extends FunSuite{
                 }
               }
               OL1_SS += poolInitialSS.max
-            } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
-              /*Case: There is subset of L2 which count to a match of usualKC(i)*/
-              for(usualKC <- poolUsualKC){
-                val potentialSubset = findSubsetSum(poolUsualKC.distinct.filterNot(_ == usualKC).toList,usualKC)
-                if(potentialSubset != null && potentialSubset.size > 1){
-                  NL1_SS += usualKC
-                  L2_SS ++= potentialSubset
-                }
-              }
-              OL1_SS += poolInitialSS.max
-            } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
-              /*Case: There is a NL1(i) which is result of KC(i) - !NL1(i)*/
-              for(usualKC <- poolUsualKC){
-                for(actNegSS <- poolActualSSNegative){
-                  val difference = usualKC - actNegSS
-                  if(poolActualSS.contains(difference)){
-                    if(subsetMap.keySet.contains(difference)){
-                      NL1_SS += subsetMap.keySet.find(value => value == difference).get
-                      L2_SS ++= subsetMap(difference)
-                    }
-                  }
-                }
-              }
-              if(NL1_SS.isEmpty && L2_SS.isEmpty){
-                /*Case: Take largest NL1(i)*/
-                val greatestActualSS = poolActualSS.max
-                if(subsetMap.keySet.contains(greatestActualSS)){
-                  NL1_SS += subsetMap.keySet.find(value => value == greatestActualSS).get
-                  L2_SS ++= subsetMap(greatestActualSS)
-                }
-              }
             } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
+              /*======================================== Case 12 ========================================*/
+              case12 += 1
               /*Case: There is subset of L2 which count to a match of usualKC(i)*/
               for(usualKC <- poolUsualKC){
                 val potentialSubset = findSubsetSum(poolUsualKC.distinct.filterNot(_ == usualKC).toList,usualKC)
@@ -571,32 +630,27 @@ class SampleSizeExtractorTest extends FunSuite{
                   L2_SS ++= potentialSubset
                 }
               }
+            } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 13 ========================================*/
+              case13 += 1
             } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 14 ========================================*/
+              case14 += 1
               /*Case: Take largest NL1(i)*/
               val greatestActualSS = poolActualSS.max
               if(subsetMap.keySet.contains(greatestActualSS)){
                 NL1_SS += subsetMap.keySet.find(value => value == greatestActualSS).get
                 L2_SS ++= subsetMap(greatestActualSS)
               }
-            } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
-              /*Case: There is subset of L2 which count to a NL1(i)*/
-              for(actualSS <- poolActualSS){
-                val potentialSubset = findSubsetSum(poolGroupSSVal.distinct.filterNot(_ == actualSS).toList,actualSS)
-                if(potentialSubset != null && potentialSubset.size > 1){
-                  NL1_SS += actualSS
-                  L2_SS ++= potentialSubset
-                }
-              }
-              if(NL1_SS.isEmpty && L2_SS.isEmpty){
-                /*Case: Take largest NL1(i)*/
-                val greatestActualSS = poolActualSS.max
-                if(subsetMap.keySet.contains(greatestActualSS)){
-                  NL1_SS += subsetMap.keySet.find(value => value == greatestActualSS).get
-                  L2_SS ++= subsetMap(greatestActualSS)
-                }
-              }
-//            } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
+            } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 15 ========================================*/
+              case15 += 1
+            } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
+              /*======================================== Case 16 ========================================*/
+              case16 += 1
             } else {
+              /*======================================== Case ELSE ========================================*/
+              case13 += 1
               /*Apply Calculations to the pool of usualKC Matches*/
               if(subArrayMap.nonEmpty){
                 val largestArrayKey = subArrayMap.keySet.max
@@ -627,20 +681,18 @@ class SampleSizeExtractorTest extends FunSuite{
             innerFinalMap += "initialSampleSize" -> OL1_SS.toList
             innerFinalMap += "actualSampleSize" -> NL1_SS.toList
             innerFinalMap += "groupSampleSizes" -> L2_SS.toList
-//            val outerFinalMap = mutable.Map.empty[String,mutable.Map[String,List[Int]]]
-//            outerFinalMap += FilenameUtils.getBaseName(fileString) -> innerFinalMap
 
             finalEvaluationList += FilenameUtils.getBaseName(fileString) -> innerFinalMap
-            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
-            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
-            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
-            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
-            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
-            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
-            matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
-            poolGroupSSVal.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
-            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
-            poolUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolKC" + " ==> " + ss))
+//            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
+//            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
+//            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
+//            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
+//            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
+//            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
+//            matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
+//            poolGroupSSVal.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
+//            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
+//            poolUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolKC" + " ==> " + ss))
 //            info("SS_POS_Map: FILE: " + FilenameUtils.getBaseName(fileString))
 //            for(i <- 0 to SS_Pos_Map.size-1){
 //              info("Match: " + SS_Pos_Map(i) + " ==> "+i)
@@ -652,6 +704,22 @@ class SampleSizeExtractorTest extends FunSuite{
         }
       }
     }
+    info("Case1: " + case1)
+    info("Case2: " + case2)
+    info("Case3: " + case3)
+    info("Case4: " + case4)
+    info("Case5: " + case5)
+    info("Case6: " + case6)
+    info("Case7: " + case7)
+    info("Case8: " + case8)
+    info("Case9: " + case9)
+    info("Case10: " + case10)
+    info("Case11: " + case11)
+    info("Case12: " + case12)
+    info("Case13: " + case13)
+    info("Case13: " + case14)
+    info("Case13: " + case15)
+    info("Case13: " + case16)
     /*EVALUATION ON GROUND TRUTH*/
     info("===== EVALUATION ON GROUND TRUTH =====")
     /*OL1 Sample Sizes*/
@@ -683,14 +751,15 @@ class SampleSizeExtractorTest extends FunSuite{
     info("===== Prec/Rec L2 - Exact Matches =====")
     val heuristic_l2 = mutable.ListBuffer.empty[List[Int]]
     for(key <- finalEvaluationList.keys){
-      if(!finalEvaluationList.get(key).get("actualSampleSize").isEmpty){
-        heuristic_l2 += finalEvaluationList.get(key).get("actualSampleSize")
+      if(!finalEvaluationList.get(key).get("groupSampleSizes").isEmpty){
+        heuristic_l2 += finalEvaluationList.get(key).get("groupSampleSizes")
       }
     }
     val precision_l2_exact = (heuristic_l2.intersect(gt_l2).length)/(heuristic_l2.length).toFloat
     info("Precision: " + precision_l2_exact)
     val recall_l2_exact = (heuristic_l2.intersect(gt_l2).length)/(gt_l2.length).toFloat
     info("Recall: " + recall_l2_exact)
+
     info("===== Prec/Rec L2 - Partial Matches =====")
     var partial_matches = 0
     val for_loop = new Breaks
