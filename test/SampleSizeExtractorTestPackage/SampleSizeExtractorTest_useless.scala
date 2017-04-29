@@ -2301,8 +2301,77 @@ class SampleSizeExtractorTest_useless extends FunSuite{
   }
 
   test("Find Subset DP Problem"){
-    var myList = Array(400,30,5,7,85)
-    info(findSubsetSum(myList.toList,485).toString())
+    var myList = mutable.ArrayBuffer.empty[Int]
+    myList += 400
+    myList += 700
+    myList += -200
+//    info(findSubsetSum(myList.toList,200).toString())
+    val subarray = subArraySum(myList.toArray,myList.size, 200)
+    if(subarray != null){
+      info("SubArray size: " + subarray.length)
+      info(subarray.mkString(","))
+    } else {
+      info("SubArray: NULL")
+    }
+  }
+
+  def subArraySum(arr:Array[Int], n:Int, sum:Int): Array[Int] =
+  {
+    var curr_sum = arr(0)
+    var start = 0
+
+    // Pick a starting point
+    for (i <- 1 to n)
+    {
+      // If curr_sum exceeds the sum, then remove the starting elements
+      while (curr_sum > sum && start < i-1)
+      {
+        curr_sum = curr_sum - arr(start)
+        start+=1
+      }
+
+      // If curr_sum becomes equal to sum, then return true
+      if (curr_sum == sum)
+      {
+        var p = i-1
+        info("Sum found between indexes " + start
+          + " and " + p)
+        return arr.slice(start,p+1)
+      }
+
+      // Add this element to curr_sum
+      if (i < n)
+        curr_sum = curr_sum + arr(i)
+
+    }
+
+    info("No subarray found")
+    null
+  }
+
+  def subSetDP(A: Array[Int], sum: Int): Boolean = {
+    val solution = Array.ofDim[Boolean](A.length + 1, sum + 1)
+    // if sum is not zero and subset is 0, we can't make it
+    for(i <- 1 until sum){
+      solution(0)(i)=false
+    }
+    // if sum is 0 the we can make the empty subset to make sum 0
+    for(i <- 0 until A.length){
+      solution(i)(0)=true
+    }
+    //
+    for(i <- 1 until A.length){
+      for(j <- 1 until sum){
+        //first copy the data from the top
+        solution(i)(j) = solution(i-1)(j)
+
+        //If solution[i][j]==false check if can be made
+        if(!solution(i)(j) && j>=A(i-1)){
+          solution(i)(j) = solution(i)(j) || solution(i-1)(j-A(i-1))
+        }
+      }
+    }
+    solution(A.length)(sum)
   }
 
   def findSubsetSum(numbers: List[Int], sum: Int):ArrayBuffer[Int] = {

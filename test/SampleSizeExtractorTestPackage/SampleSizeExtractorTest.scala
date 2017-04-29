@@ -36,8 +36,8 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("invited\\s*\\d+([,\\s*]\\d{3})*\\D{0,20}"),
       new Regex("reviewed\\s*\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
         "persons)"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
-        "persons)\\s*reviewed"),
+      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,20}\\s*(people|patients|participants|subjects|cases|" +
+        "persons)?\\s*reviewed\\s*(people|patients|participants|subjects|cases|persons)?"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,40}\\s*screened"),
       new Regex("screened\\s*\\d+([,\\s*]\\d{3})*\\D{0,20}"),
       new Regex("\\d+([,\\s*]\\d{3})*\\D{0,30}\\s*assessed\\s*for\\s*eligibility"),
@@ -48,7 +48,7 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,20}\\s*recruited"),
       new Regex("recruited\\s*\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,25}were\\s*randomized"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,25}randomly\\s*(allocated|assigned)\\s*to"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,25}randomly\\s*(allocated|assigned)\\s*to"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,35}underwent\\s*randomization"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,20}\\s*were\\s*included\\s*\\D{0,20}\\s*analysis"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|" +
@@ -66,7 +66,7 @@ class SampleSizeExtractorTest extends FunSuite{
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)?\\s*in\\s*the\\s*\\D{0,20}\\s*group"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*(people|patients|participants|subjects|cases|persons)?\\s*received"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,40}\\s*(allocated|assigned)\\s*to"),
-      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,10}\\s*controls"),
+//      new Regex("\\d+([,\\s*]\\d{3})*\\s*\\D{0,10}\\s*controls"),
       new Regex("\\d+([,\\s*]\\d{3})*\\s*\\/\\s*\\d+([,\\s*]\\d{3})*")
 //      new Regex("\\d+([,\\s*]\\d{3})*\\s*(people|patients|participants|subjects|cases|persons)?\\s*of\\s*\\d+([,\\s*]\\d{3})*")
 //      new Regex("\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?\\s*\\D{0,50}\\s*and\\s*\\d+([,\\s*]\\d{3})*\\s*(\\(\\s*\\d+([,.]\\d+)?\\s*%\\))?")
@@ -132,7 +132,7 @@ class SampleSizeExtractorTest extends FunSuite{
     val finalEvaluationList = mutable.Map.empty[String,mutable.Map[String,List[Int]]]
 
     for(file <- files){
-      val SS_Pos_Map = mutable.ArrayBuffer.empty[Int]
+      val SS_POS_Arr = mutable.ArrayBuffer.empty[Int]
       val fileString = file.toString
       if(FilenameUtils.getExtension(fileString).equals("pdf")){
         for(ttestPaper <- list_tTestPapers){
@@ -237,7 +237,7 @@ class SampleSizeExtractorTest extends FunSuite{
                     "|\\d+\\D*[Ww]hether\\D*|\\d+\\D*Number\\D*") &&
                     !currentMatch.matches("\\d+\\D*\\s+[Oo]f\\s*the\\s+\\D*")) || (!CharMatcher.ASCII.matchesAllOf(currentMatch)))){
                     matchesUsualKC += currentMatch
-                    SS_Pos_Map += currentMatch.replaceAll("\\D+","").toInt
+                    SS_POS_Arr += currentMatch.replaceAll("\\D+","").toInt
                   }
 //                  if(currentMatch.matches("\\d+([,\\s*]\\d{3})*\\D{0,10}years\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}months\\D*" +
 //                    "|\\d+([,\\s*]\\d{3})*\\D{0,10}days\\D*|\\d+([,\\s*]\\d{3})*\\D{0,10}hours\\D*" +
@@ -313,10 +313,15 @@ class SampleSizeExtractorTest extends FunSuite{
 
             /*Heuristic: SubSet DP Approach on KC-Matches (poolUsualKC)*/
             val subsetMap = mutable.Map.empty[Int,List[Int]] // Map for all usualKC entries with subsetList as values
+            val subArrayMap = mutable.Map.empty[Int,List[Int]]
             for(usualKC <- poolUsualKC.distinct){
               val potentialSubSets = findSubsetSum(poolUsualKC.distinct.filterNot(_ == usualKC).toList,usualKC)
+              val potentialSubArrays = subArraySum(SS_POS_Arr.filterNot(_ == usualKC).toArray,SS_POS_Arr.filterNot(_ == usualKC).length,usualKC)
               if(potentialSubSets != null && potentialSubSets.size > 1){
                 subsetMap += usualKC -> potentialSubSets.toList
+              }
+              if(potentialSubArrays != null && potentialSubArrays.length > 1){
+                subArrayMap += usualKC -> potentialSubArrays.toList
               }
             }
 
@@ -355,7 +360,7 @@ class SampleSizeExtractorTest extends FunSuite{
 //              }
 //            }
 
-            /*Apply Calculations to the pools of OL1, NL1, NL1Neg and L2 depending on the empty-ness of the single pools*/
+            /*Apply Calculations to the pools of OL1, NL1, NL1Neg and L2 depending on the emptyness of the single pools*/
             if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.nonEmpty){
 //              for(initialSS <- poolInitialSS){
 //                for(actNegSS <- poolActualSSNegative){
@@ -590,11 +595,33 @@ class SampleSizeExtractorTest extends FunSuite{
                   L2_SS ++= subsetMap(greatestActualSS)
                 }
               }
-            } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
-
+//            } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
             } else {
-              //Only Handle KC-Matches...
+              /*Apply Calculations to the pool of usualKC Matches*/
+              if(subArrayMap.nonEmpty){
+                val largestArrayKey = subArrayMap.keySet.max
+                for(value <- subArrayMap(largestArrayKey)){
+                  if(subArrayMap.keySet.contains(value)){
+                    OL1_SS += largestArrayKey
+                    NL1_SS += value
+                    L2_SS ++= subArrayMap(value)
+                  }
+                }
+              }
+              if(OL1_SS.isEmpty && NL1_SS.isEmpty && L2_SS.isEmpty){
+                var largestKey = 0
+                if(subsetMap.nonEmpty){
+                  largestKey = subsetMap.keySet.max
+                }
+                OL1_SS += largestKey
+                val sortedKeySet = subsetMap.keySet.toList.sortWith(_ > _)
+                if(sortedKeySet.length>=2){
+                  NL1_SS += sortedKeySet(sortedKeySet.length-2)
+                  L2_SS ++= subsetMap(sortedKeySet(sortedKeySet.length-2))
+                }
+              }
             }
+
 
             val innerFinalMap = mutable.Map.empty[String,List[Int]]
             innerFinalMap += "initialSampleSize" -> OL1_SS.toList
@@ -604,15 +631,16 @@ class SampleSizeExtractorTest extends FunSuite{
 //            outerFinalMap += FilenameUtils.getBaseName(fileString) -> innerFinalMap
 
             finalEvaluationList += FilenameUtils.getBaseName(fileString) -> innerFinalMap
-//            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
-//            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
-//            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
-//            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
-//            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
-//            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
-//            matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
-//            poolGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
-//            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
+            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
+            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
+            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
+            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
+            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
+            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
+            matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
+            poolGroupSSVal.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
+            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
+            poolUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolKC" + " ==> " + ss))
 //            info("SS_POS_Map: FILE: " + FilenameUtils.getBaseName(fileString))
 //            for(i <- 0 to SS_Pos_Map.size-1){
 //              info("Match: " + SS_Pos_Map(i) + " ==> "+i)
@@ -780,5 +808,35 @@ class SampleSizeExtractorTest extends FunSuite{
 //      pw.close()
 //    }
     text
+  }
+
+  def subArraySum(arr:Array[Int], n:Int, sum:Int): Array[Int] =
+  {
+    var curr_sum = arr(0)
+    var start = 0
+
+    // Pick a starting point
+    for (i <- 1 to n)
+    {
+      // If curr_sum exceeds the sum, then remove the starting elements
+      while (curr_sum > sum && start < i-1)
+      {
+        curr_sum = curr_sum - arr(start)
+        start+=1
+      }
+
+      // If curr_sum becomes equal to sum, then return true
+      if (curr_sum == sum)
+      {
+        var p = i-1
+        return arr.slice(start,p+1)
+      }
+
+      // Add this element to curr_sum
+      if (i < n)
+        curr_sum = curr_sum + arr(i)
+
+    }
+    null
   }
 }
