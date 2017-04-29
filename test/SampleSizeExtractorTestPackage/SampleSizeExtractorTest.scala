@@ -130,8 +130,8 @@ class SampleSizeExtractorTest extends FunSuite{
     val files = getListOfFiles(PdfPath)
     var filesCount = 0
     val finalEvaluationList = mutable.Map.empty[String,mutable.Map[String,List[Int]]]
-    var case1=0 var case2=0 var case3=0 var case4=0 var case5=0 var case6=0 var case7=0 var case8=0 var case9=0 var case10=0 var case11=0
-    var case12=0 var case13=0 var case14=0 var case15=0 var case16=0
+    var case1=0; var case2=0; var case3=0; var case4=0; var case5=0; var case6=0; var case7=0; var case8=0; var case9=0;
+    var case10=0; var case11=0;var case12=0; var case13=0; var case14=0; var case15=0; var case16=0
 
     for(file <- files){
       val SS_POS_Arr = mutable.ArrayBuffer.empty[Int]
@@ -510,9 +510,7 @@ class SampleSizeExtractorTest extends FunSuite{
                 }
               }
 
-              if(poolInitialSS.filter(_ > poolActualSS.max).nonEmpty){
-                OL1_SS_potential += poolInitialSS.filter(_ > poolActualSS.max).head
-              }
+              OL1_SS_potential += poolInitialSS.max
             } else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
               /*======================================== Case 4 ========================================*/
               case4 += 1
@@ -768,20 +766,43 @@ class SampleSizeExtractorTest extends FunSuite{
             } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 15 ========================================*/
               case15 += 1
-              NL1_SS_potential += subArrayMap.keySet.max
-              L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
-              OL1_SS_potential += poolInitialSS.max
+              if(subArrayMap.nonEmpty){
+                NL1_SS_potential += subArrayMap.keySet.max
+                L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                OL1_SS_potential += poolInitialSS.max
+              } else if(subSetMap.nonEmpty){
+                NL1_SS_potential += subSetMap.keySet.max
+                L2_SS_potential += subSetMap(subSetMap.keySet.max)
+                OL1_SS_potential += poolInitialSS.max
+              }
             } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 16 ========================================*/
               case16 += 1
-              NL1_SS_potential += subArrayMap.keySet.max
-              L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+              if(subArrayMap.nonEmpty){
+                NL1_SS_potential += subArrayMap.keySet.max
+                L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+              } else if(subSetMap.nonEmpty){
+                NL1_SS_potential += subSetMap.keySet.max
+                L2_SS_potential += subSetMap(subSetMap.keySet.max)
+              }
             }
 
             val innerFinalMap = mutable.Map.empty[String,List[Int]]
-            innerFinalMap += "initialSampleSize" -> List(OL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1)
-            innerFinalMap += "actualSampleSize" -> List(NL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1)
-            innerFinalMap += "groupSampleSizes" -> L2_SS_potential.filter(_.sum==NL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1).head
+            if(OL1_SS_potential.nonEmpty){
+              innerFinalMap += "initialSampleSize" -> List(OL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1)
+            } else {
+              innerFinalMap += "initialSampleSize" -> List()
+            }
+            if(NL1_SS_potential.nonEmpty){
+              innerFinalMap += "actualSampleSize" -> List(NL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1)
+            } else {
+              innerFinalMap += "actualSampleSize" -> List()
+            }
+            if(L2_SS_potential.nonEmpty){
+              innerFinalMap += "groupSampleSizes" -> L2_SS_potential.filter(_.sum==NL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1).head
+            } else {
+              innerFinalMap += "groupSampleSizes" -> List()
+            }
 
             finalEvaluationList += FilenameUtils.getBaseName(fileString) -> innerFinalMap
 //            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
@@ -814,26 +835,26 @@ class SampleSizeExtractorTest extends FunSuite{
     info("===== Prec/Rec OL1 =====")
     val heuristic_ol1 = mutable.ListBuffer.empty[Int]
     for(key <- finalEvaluationList.keys){
-      if(!finalEvaluationList.get(key).get("initialSampleSize").isEmpty){
+      if(finalEvaluationList.get(key).get("initialSampleSize").nonEmpty){
         heuristic_ol1 += finalEvaluationList.get(key).get("initialSampleSize").head
       }
     }
-    val precision_ol1 = (heuristic_ol1.intersect(gt_ol1).length)/(heuristic_ol1.length).toFloat
+    val precision_ol1 = heuristic_ol1.intersect(gt_ol1).length / heuristic_ol1.length.toFloat
     info("Precision: " + precision_ol1)
-    val recall_ol1 = (heuristic_ol1.intersect(gt_ol1).length)/(gt_ol1.length).toFloat
+    val recall_ol1 = heuristic_ol1.intersect(gt_ol1).length / gt_ol1.length.toFloat
     info("Recall: " + recall_ol1)
 
 
     info("===== Prec/Rec NL1 =====")
     val heuristic_nl1 = mutable.ListBuffer.empty[Int]
     for(key <- finalEvaluationList.keys){
-      if(!finalEvaluationList.get(key).get("actualSampleSize").isEmpty){
+      if(finalEvaluationList.get(key).get("actualSampleSize").nonEmpty){
         heuristic_nl1 += finalEvaluationList.get(key).get("actualSampleSize").head
       }
     }
-    val precision_nl1 = (heuristic_nl1.intersect(gt_nl1).length)/(heuristic_nl1.length).toFloat
+    val precision_nl1 = heuristic_nl1.intersect(gt_nl1).length / heuristic_nl1.length.toFloat
     info("Precision: " + precision_nl1)
-    val recall_nl1 = (heuristic_nl1.intersect(gt_nl1).length)/(gt_nl1.length).toFloat
+    val recall_nl1 = heuristic_nl1.intersect(gt_nl1).length / gt_nl1.length.toFloat
     info("Recall: " + recall_nl1)
 
     info("===== Prec/Rec L2 - Exact Matches =====")
