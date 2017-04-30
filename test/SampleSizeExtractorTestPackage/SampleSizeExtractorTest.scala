@@ -544,17 +544,6 @@ class SampleSizeExtractorTest extends FunSuite{
               /*======================================== Case 4 ========================================*/
               case4 += 1
 
-              /*Case Take largest subArray or subSet*/
-              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
-                if(subArrayMap.nonEmpty){
-                  NL1_SS_potential += subArrayMap.keySet.max
-                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
-                } else if(subSetMap.nonEmpty){
-                  NL1_SS_potential += subSetMap.keySet.max
-                  L2_SS_potential += subSetMap(subSetMap.keySet.max)
-                }
-              }
-
               if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
                 /*Case: There is subArray or subSet of KC which sums up to NL1(i)*/
                 for(actualSS <- poolActualSS){
@@ -565,6 +554,17 @@ class SampleSizeExtractorTest extends FunSuite{
                     NL1_SS_potential += actualSS
                     L2_SS_potential += subSetMap(actualSS)
                   }
+                }
+              }
+
+              /*Case Take largest subArray or subSet*/
+              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
+                if(subArrayMap.nonEmpty){
+                  NL1_SS_potential += subArrayMap.keySet.max
+                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                } else if(subSetMap.nonEmpty){
+                  NL1_SS_potential += subSetMap.keySet.max
+                  L2_SS_potential += subSetMap(subSetMap.keySet.max)
                 }
               }
 
