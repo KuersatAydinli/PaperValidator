@@ -481,6 +481,15 @@ class SampleSizeExtractorTest extends FunSuite{
                   L2_SS_potential += subSetMap(greatestActualSS)
                 }
               }
+              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
+                if(subArrayMap.nonEmpty){
+                  NL1_SS_potential += subArrayMap.keySet.max
+                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                } else if(subSetMap.nonEmpty){
+                  NL1_SS_potential += subSetMap.keySet.max
+                  L2_SS_potential += subSetMap(subSetMap.keySet.max)
+                }
+              }
             } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.nonEmpty){
               /*======================================== Case 3 ========================================*/
               case3 += 1
@@ -514,6 +523,16 @@ class SampleSizeExtractorTest extends FunSuite{
             } else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
               /*======================================== Case 4 ========================================*/
               case4 += 1
+              /*Case Take largest subArray or subSet*/
+              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
+                if(subArrayMap.nonEmpty){
+                  NL1_SS_potential += subArrayMap.keySet.max
+                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                } else if(subSetMap.nonEmpty){
+                  NL1_SS_potential += subSetMap.keySet.max
+                  L2_SS_potential += subSetMap(subSetMap.keySet.max)
+                }
+              }
               if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
                 /*Case: There is subArray or subSet of KC which sums up to NL1(i)*/
                 for(actualSS <- poolActualSS){
@@ -549,6 +568,9 @@ class SampleSizeExtractorTest extends FunSuite{
               }
               if(poolInitialSS.filter(_ > poolActualSS.max).nonEmpty){
                 OL1_SS_potential += poolInitialSS.filter(_ > poolActualSS.max).head
+              }
+              if(NL1_SS_potential.isEmpty){
+                NL1_SS_potential += poolUsualKC.groupBy(identity).maxBy(_._2.size)._1
               }
             } else if(poolInitialSS.nonEmpty && poolActualSS.nonEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 5 ========================================*/
@@ -641,6 +663,15 @@ class SampleSizeExtractorTest extends FunSuite{
                   L2_SS_potential += subSetMap(greatestActualSS)
                 }
               }
+              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
+                if(subArrayMap.nonEmpty){
+                  NL1_SS_potential += subArrayMap.keySet.max
+                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                } else if(subSetMap.nonEmpty){
+                  NL1_SS_potential += subSetMap.keySet.max
+                  L2_SS_potential += subSetMap(subSetMap.keySet.max)
+                }
+              }
             } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 8 ========================================*/
               case8 += 1
@@ -682,7 +713,7 @@ class SampleSizeExtractorTest extends FunSuite{
                 }
               }
               OL1_SS_potential += poolInitialSS.max
-            } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.nonEmpty){
+            } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 10 ========================================*/
               case10 += 1
               /*Case: There is a KC(i) which is result of OL1(i) - !NL1(i) => Take subArray of NL1(i) or subSet from usualKC*/
@@ -744,11 +775,27 @@ class SampleSizeExtractorTest extends FunSuite{
                   L2_SS_potential += potentialSubset.toList
                 }
               }
+              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
+                if(subArrayMap.nonEmpty){
+                  NL1_SS_potential += subArrayMap.keySet.max
+                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                }
+              }
+              if(NL1_SS_potential.isEmpty){
+                NL1_SS_potential += poolUsualKC.groupBy(identity).maxBy(_._2.size)._1
+              }
             } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.nonEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 13 ========================================*/
               case13 += 1
-              NL1_SS_potential += subArrayMap.keySet.max
-              L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+//              NL1_SS_potential += subArrayMap.keySet.max
+//              L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+              if(subArrayMap.nonEmpty){
+                NL1_SS_potential += subArrayMap.keySet.max
+                L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+              } else if(subSetMap.nonEmpty){
+                NL1_SS_potential += subSetMap.keySet.max
+                L2_SS_potential += subSetMap(subSetMap.keySet.max)
+              }
             } else if(poolInitialSS.isEmpty && poolActualSS.nonEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 14 ========================================*/
               case14 += 1
@@ -761,6 +808,15 @@ class SampleSizeExtractorTest extends FunSuite{
                 } else if(subSetMap.keySet.contains(greatestActualSS)){
                   NL1_SS_potential += greatestActualSS
                   L2_SS_potential += subSetMap(greatestActualSS)
+                }
+              }
+              if(NL1_SS_potential.isEmpty && L2_SS_potential.isEmpty){
+                if(subArrayMap.nonEmpty){
+                  NL1_SS_potential += subArrayMap.keySet.max
+                  L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+                } else if(subSetMap.nonEmpty){
+                  NL1_SS_potential += subSetMap.keySet.max
+                  L2_SS_potential += subSetMap(subSetMap.keySet.max)
                 }
               }
             } else if(poolInitialSS.nonEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
@@ -778,6 +834,19 @@ class SampleSizeExtractorTest extends FunSuite{
             } else if(poolInitialSS.isEmpty && poolActualSS.isEmpty && poolActualSSNegative.isEmpty && poolGroupSSVal.isEmpty){
               /*======================================== Case 16 ========================================*/
               case16 += 1
+//              if(subArrayMap.nonEmpty && subArrayMap.keySet.size >= 2){
+//                NL1_SS_potential += secondLastElement(subArrayMap.keySet.toList)
+//                L2_SS_potential += subArrayMap(secondLastElement(subArrayMap.keySet.toList))
+//              } else if(subSetMap.nonEmpty && subSetMap.keySet.size >= 2){
+//                NL1_SS_potential += secondLastElement(subSetMap.keySet.toList)
+//                L2_SS_potential += subSetMap(secondLastElement(subSetMap.keySet.toList))
+//              } else if(subArrayMap.nonEmpty && subArrayMap.size < 2){
+//                NL1_SS_potential += subArrayMap.keySet.max
+//                L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
+//              } else if(subSetMap.nonEmpty && subSetMap.size < 2){
+//                NL1_SS_potential += subSetMap.keySet.max
+//                L2_SS_potential += subSetMap(subSetMap.keySet.max)
+//              }
               if(subArrayMap.nonEmpty){
                 NL1_SS_potential += subArrayMap.keySet.max
                 L2_SS_potential += subArrayMap(subArrayMap.keySet.max)
@@ -799,6 +868,7 @@ class SampleSizeExtractorTest extends FunSuite{
               innerFinalMap += "actualSampleSize" -> List()
             }
             if(L2_SS_potential.nonEmpty){
+              L2_SS_potential.map(l2 => l2.filterNot(_==0))
               innerFinalMap += "groupSampleSizes" -> L2_SS_potential.filter(_.sum==NL1_SS_potential.groupBy(identity).maxBy(_._2.size)._1).head
             } else {
               innerFinalMap += "groupSampleSizes" -> List()
@@ -806,19 +876,20 @@ class SampleSizeExtractorTest extends FunSuite{
 
             finalEvaluationList += FilenameUtils.getBaseName(fileString) -> innerFinalMap
 //            matchesInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "InitialSS" + " ==> " + ss))
-//            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
+            poolInitialSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolInitialSS" + " ==> " + ss))
 //            matchesActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSS" + " ==> " + ss))
-//            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
+            poolActualSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSS" + " ==> " + ss))
 //            matchesActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "ActualSSNegative" + " ==> " + ss))
-//            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
+            poolActualSSNegative.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolActualSSNegative" + " ==> " + ss))
 //            matchesGroupSS.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "GroupSS" + " ==> " + ss))
-//            poolGroupSSVal.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
+            poolGroupSSVal.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolGroupSS" + " ==> " + ss))
 //            matchesUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "UsualKC" + " ==> " + ss))
-//            poolUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolKC" + " ==> " + ss))
+            poolUsualKC.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "PoolKC" + " ==> " + ss))
 //            info("SS_POS_Map: FILE: " + FilenameUtils.getBaseName(fileString))
 //            for(i <- 0 to SS_Pos_Map.size-1){
 //              info("Match: " + SS_Pos_Map(i) + " ==> "+i)
 //            }
+            info("FILE: ======> "+FilenameUtils.getBaseName(fileString))
             OL1_SS_potential.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "OL1_SS" + " ==> " + ss))
             NL1_SS_potential.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "NL1_ss" + " ==> " + ss))
             L2_SS_potential.foreach(ss => info(FilenameUtils.getBaseName(fileString) + " ==> "+ "L2_SS" + " ==> " + ss))
@@ -944,6 +1015,20 @@ class SampleSizeExtractorTest extends FunSuite{
       }
     }
     false
+  }
+
+  def secondLastElement(numbers:List[Int]) : Int = {
+    var high1 = Integer.MIN_VALUE
+    var high2 = Integer.MIN_VALUE
+    for(num <- numbers){
+      if(num > high1){
+        high2 = high1
+        high1 = num
+      } else if(num > high2){
+        high2 = num
+      }
+    }
+    high2
   }
 
   def getListOfFiles(dir: String):List[File] = {
