@@ -2301,18 +2301,25 @@ class SampleSizeExtractorTest_useless extends FunSuite{
   }
 
   test("Find Subset DP Problem"){
-    var myList = mutable.ArrayBuffer.empty[Int]
+    var myList = mutable.ListBuffer.empty[Int]
     myList += 400
-    myList += 700
-    myList += -200
-//    info(findSubsetSum(myList.toList,200).toString())
-    val subarray = subArraySum(myList.toArray,myList.size, 200)
-    if(subarray != null){
-      info("SubArray size: " + subarray.length)
-      info(subarray.mkString(","))
-    } else {
-      info("SubArray: NULL")
-    }
+    myList += 100
+    myList += 200
+    myList += 300
+    myList += 400
+    myList += 500
+    myList += 800
+    myList += 900
+
+    val possible_lists = findSubsetSum(myList.toList,800)
+    possible_lists.foreach(list => info("List: " + list))
+//    val subarray = subArraySum(myList.toArray,myList.size, 200)
+//    if(subarray != null){
+//      info("SubArray size: " + subarray.length)
+//      info(subarray.mkString(","))
+//    } else {
+//      info("SubArray: NULL")
+//    }
   }
 
   def subArraySum(arr:Array[Int], n:Int, sum:Int): Array[Int] =
@@ -2374,14 +2381,15 @@ class SampleSizeExtractorTest_useless extends FunSuite{
     solution(A.length)(sum)
   }
 
-  def findSubsetSum(numbers: List[Int], sum: Int):ArrayBuffer[Int] = {
-    val subset = mutable.ArrayBuffer.empty[Int]
+  def findSubsetSum(numbers: List[Int], sum: Int):List[List[Int]] = {
+    val retSets = mutable.ListBuffer.empty[ArrayBuffer[Int]]
     for (i <- 0 until numbers.length){
+      val subset = mutable.ArrayBuffer.empty[Int]
       if (findSubsetSum(numbers, i, subset, sum)) {
-        return subset
+        retSets += subset
       }
     }
-    null
+    retSets.map(_.toList)toList
   }
 
   def findSubsetSum(numbers: List[Int], index: Int, subset: ArrayBuffer[Int], sum: Int):Boolean = {

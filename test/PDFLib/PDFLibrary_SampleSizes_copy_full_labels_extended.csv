@@ -1,0 +1,2854 @@
+PDF_Name,ID,Index,part_of,N,comment,Label
+2004_12404.txt,1,6:615,null,312,312 native american women,false
+2004_12404.txt,2,6:1258,1,273,a total of 273 women,false
+2004_12404.txt,3,12:297,null,8000, survey of 8000 women,false
+2004_12404.txt,4,15:1791,null,300, sample sizes over 300,false
+2004_12404.txt,5,21:1962,1,312, a total of 312 women,false
+2004_12404.txt,6,33:1422,1,273, there were 273 women,false
+2004_12404.txt,7,33:1862,1,9, n=9,false
+2004_12404.txt,8,36:208,null,140, 140 answered survey questions,false
+2004_12404.txt,9,36:282,8,13, a total of 13 of these women,false
+2004_12404.txt,10,36:475,9,4, 4 reported,false
+2004_12404.txt,11,48:1297,null,3130, 3130 Georgia women,false
+2004_12404.txt,12,48:1452,null,1600, study of over 1600 women,false
+2004_12404.txt,13,54:318,null,30, among 30 native american women,false
+2004_12404.txt,14,54:2037,null,588, survey of 588 native american women,false
+2004_12404.txt,15,93:150,1,312, participants (n=312),false
+2004_12404.txt,16,93:172,null,273, male partners (n=273),false
+2004_12404.txt,17,96:224,1,312, n=312,false
+2004_12404.txt,18,96:241,1,273, 273 past-year prevalence,false
+2004_12404.txt,19,99:248,2,51, 51 aged over 32,false
+2004_12404.txt,20,99:251,2,221, 221 aged less or equal 31,false
+2004_12404.txt,21,99:391,2,201, 201 married/boyfriend,false
+2004_12404.txt,22,99:395,2,72, 72 separated/divorced,false
+2004_12404.txt,23,99:512,2,112, 112 not pregnant in past 12 month,false
+2004_12404.txt,24,99:516,2,161, 161 pregnant in past 12 month,false
+2004_12404.txt,25,99:599,2,208, 208 less or equal than 5 in household,false
+2004_12404.txt,26,99:603,2,63, 63 more than 6 in household,false
+2004_12404.txt,27,99:707,2,170, 170 do have home telephone,false
+2004_12404.txt,28,99:711,2,102, 102 no home telephone,false
+2010_2107.txt,29,6:666,null,362, 362 patients,NL1
+2010_2107.txt,30,6:753,29,185, 185 patients,L2
+2010_2107.txt,31,6:800,29,177, 177 patients,L2
+2010_2107.txt,32,18:92,null,316, 316 patients,false
+2010_2107.txt,33,21:1170,null,378, n=378,false
+2010_2107.txt,34,21:1407,33,282, n=282,false
+2010_2107.txt,35,33:1198,null,1954, 1954 patients were screened,OL1
+2010_2107.txt,36,33:1254,35,788, 788 were eligible,false
+2010_2107.txt,37,33:1278,36,362, 362 recruited,false
+2010_2107.txt,38,33:1710,37,177, n=177 participants,false
+2010_2107.txt,39,33:1792,37,185, n=185 participants,false
+2010_2107.txt,40,36:1030,39,76, 76/185,false
+2010_2107.txt,41,36:1072,38,64, 64/177,false
+2010_2107.txt,42,66:116,37,177, n=177,false
+2010_2107.txt,43,66:161,37,185, n=185,false
+2010_2107.txt,44,66:187,42,96, sex - male,false
+2010_2107.txt,45,66:196,43,103, sex - male,false
+2010_2107.txt,46,66:398,42,46, 46 reason for admission - gastrointestinal,false
+2010_2107.txt,47,66:408,42,37, 37 reason for admission - respiratory,false
+2010_2107.txt,48,66:418,42,21, 21 reason for admission - oncology,false
+2010_2107.txt,49,66:428,42,16, 16 reason for admission - orthopaedic,false
+2010_2107.txt,50,66:437,42,10, 10 reason for admission - cardiac,false
+2010_2107.txt,51,66:446,42,9, 9 reason for admission - neurological,false
+2010_2107.txt,52,66:454,42,7, 7 reason for admission - vascular,false
+2010_2107.txt,53,66:462,42,16, 16 reason for admission - renal,false
+2010_2107.txt,54,66:471,42,15, 15 reason for admission - other,false
+2010_2107.txt,55,66:482,43,52, 52 reason for admission - gastrointestinal,false
+2010_2107.txt,56,66:492,43,34, 34 reason for admission - respiratory,false
+2010_2107.txt,57,66:502,43,21, 21 reason for admission - oncology,false
+2010_2107.txt,58,66:512,43,22, 22 reason for admission - orthopaedic,false
+2010_2107.txt,59,66:522,43,10, 10 reason for admission - cardiac,false
+2010_2107.txt,60,66:531,43,10, 10 reason for admission - neurological,false
+2010_2107.txt,61,66:540,43,7, 7 reason for admission - vascular,false
+2010_2107.txt,62,66:548,43,9, 9 reason for admission - renal,false
+2010_2107.txt,63,66:556,43,20, 20 reason for admission - other,false
+2010_2107.txt,64,81:255,42,64, 64 IVD complications,false
+2010_2107.txt,65,81:264,43,76, 64 IVD complications,false
+2010_2107.txt,66,87:28,35,1954, n=1954,false
+2010_2107.txt,67,87:70,35,1166, n=1166 - didn't meet inclusion criteria,false
+2010_2107.txt,68,87:142,35,788, n=788 - met inclusion criteria,false
+2010_2107.txt,69,87:173,68,69, n=69 - refused to participate,false
+2010_2107.txt,70,87:201,68,200, n=200 - altered mental state,false
+2010_2107.txt,71,87:226,68,67, n=67 - language barrier,false
+2010_2107.txt,72,87:253,68,90, n=90 - too ill to approach,false
+2010_2145.txt,73,6:931,null,37, 37 trials ... met the inclusion criteria,false
+2010_2145.txt,74,6:957,null,5754, a total of 5754 patients,false
+2010_2145.txt,75,6:1151,73,32, 32 trials,false
+2010_2145.txt,76,18;56,null,234, a total of 234 trials,false
+2010_2145.txt,77,30:91,null,1854, total of 1854 references,false
+2010_2145.txt,78,30:116,77,1779, 1779 were excluded inthe screening process,false
+2010_2145.txt,79,30:257,77,75, remaining 75 references,false
+2010_2145.txt,80,30:321,73,37, a total of 37 studies,false
+2010_2145.txt,81,30:1329,73,37, the 37 eligible trials,false
+2010_2145.txt,82,30:1368,74,5754, a total of 5754 patients,false
+2010_2145.txt,83,30:1421,73,14, 14 trials,false
+2010_2145.txt,84,30:1438,74,3369, 3369 patients,false
+2010_2145.txt,85,30:1532,73,8, 8 were short-term trials,false
+2010_2145.txt,86,30:1600,74,522, 522 patients,false
+2010_2145.txt,87,30:1785,73,15, 15 trials,false
+2010_2145.txt,88,30:1797,74,1863, 1863 patients,false
+2010_2145.txt,89,30:1863,83,10, 10 of the 14 trials,false
+2010_2145.txt,90,33:135,73,15, 15 studies,false
+2010_2145.txt,91,33:202,73,32, 32 trials,false
+2010_2145.txt,92,33:271,73,24, 24 trials,false
+2010_2145.txt,93,33:300,73,19, 19 trials,false
+2010_2145.txt,94,33:554,73,31, 31 trials,false
+2010_2145.txt,95,33:614,94,7, 7 trials,false
+2010_2145.txt,96,33:697,94,24, 24 trials,false
+2010_2145.txt,97,33:1018,75,32, 32 trials,false
+2010_2145.txt,98,42:2071,null,13, 13 three-armed trials,false
+2010_2145.txt,99,42:2158,98,9, 9 of the studies,false
+2010_2145.txt,100,42:2247,98,4, 4 trials,false
+2010_2145.txt,101,84:276,74,46, 46,false
+2010_2145.txt,102,84:456,74,298, 298,false
+2010_2145.txt,103,84:615,74,638, 638,false
+2010_2145.txt,104,84:806,74,160, 160,false
+2010_2145.txt,105,84:1024,74,352, 352,false
+2010_2145.txt,106,84:1227,74,48, 48,false
+2010_2145.txt,107,84:1397,74,70, 70,false
+2010_2145.txt,108,84:1591,74,39, 39,false
+2010_2145.txt,109,84:1780,74,131, 131,false
+2010_2145.txt,110,84:1963,74,302, 302,false
+2010_2145.txt,111,84:2163,74,270, 270,false
+2010_2145.txt,112,84:2355,74,186, 186,false
+2010_2145.txt,113,84:2570,74,535, 535,false
+2010_2145.txt,114,84:2751,74,294, 294,false
+2010_2145.txt,115,87:259,74,48, 48,false
+2010_2145.txt,116,87:443,74,75, 75,false
+2010_2145.txt,117,87:589,74,30, 30,false
+2010_2145.txt,118,87:810,74,75, 75,false
+2010_2145.txt,119,87:997,74,48, 48,false
+2010_2145.txt,120,87:1139,74,36, 36,false
+2010_2145.txt,121,87:1316,74,120, 120,false
+2010_2145.txt,122,87:1550,74,90, 90,false
+2011_2213.txt,123,6:553,125,457, 157 men ... participated in the study,false
+2011_2213.txt,124,6:565,125,322, 322 women ... participated in the study,false
+2011_2213.txt,125,18:1082,130,479, 479 participants,false
+2011_2213.txt,126,27:1645,125,393, n=393,false
+2011_2213.txt,127,33:705,null,705, 705 participants,OL1
+2011_2213.txt,128,33:154,127,92, 92 participants refused to participate,false
+2011_2213.txt,129,33:205,127,14, 14 participants died before enrolment,false
+2011_2213.txt,130,33:280,127,599, study population of 599 participants,false
+2011_2213.txt,131,33:350,130,72, 72 participants...were excluded,false
+2011_2213.txt,132,33:450,130,48, 48 participants died,false
+2011_2213.txt,133,33:529,130,479, study population of 479 persons,false
+2011_2213.txt,134,33:1559,125,92, 92 participants,false
+2011_2213.txt,135,36:120,125,246, 246 participants died,false
+2011_2213.txt,136,36:168,135,7, of whom 7 participants died,false
+2011_2213.txt,137,78:364,130,479, n=479,false
+2011_2213.txt,138,78:673,125,322, 322 female,false
+2011_2213.txt,139,78:820,125,107, 107 long-term care facility,false
+2011_2213.txt,140,78:952,125,238, 238 low income,false
+2011_2213.txt,141,78:1096,125,296, 296 primary school only,false
+2011_2213.txt,142,78:1236,125,70, smoking,false
+2011_2213.txt,143,78:1379,125,212, body mass index >= 27,false
+2011_2213.txt,144,78:1582,125,90, severe cognitive impairment,false
+2011_2213.txt,145,78:1746,125,58, depressive symptoms,false
+2011_2213.txt,146,78:1895,125,283, disability in daily living,false
+2011_2213.txt,147,87:234,130,479, n=479,false
+2011_2213.txt,148,87:418,125,103, going to the toilet,false
+2011_2213.txt,149,87:512,125,44, drinking and feeding oneself,false
+2011_2213.txt,150,87:598,125,65, washing hands and face,false
+2011_2213.txt,151,87:682,125,80, preparing breakfast,false
+2011_2213.txt,152,87:774,125,128, getting into and out of bed,false
+2011_2213.txt,153,87:864,125,133, getting around the house,false
+2011_2213.txt,154,87:948,125,204, washing whole body,false
+2011_2213.txt,155,87:1030,125,183, dressing oneself,false
+2011_2213.txt,156,87:1120,125,147, standing up from a chair,false
+2011_2213.txt,157,90:209,130,479, n=479,NL1
+2011_2213.txt,158,90:298,125,88, severe cognitive impairment,false
+2011_2213.txt,159,90:351,125,275, disability in daily living,false
+2011_2213.txt,160,90:492,125,231, self-reported urine incontinence,false
+2011_2213.txt,161,93:152,125,372, n=372,L2
+2011_2213.txt,162,93:184,125,107, n=107,L2
+2011_2213.txt,163,93:276,161,242, female,false
+2011_2213.txt,164,93:301,162,80, female,false
+2011_2213.txt,165,93:337,161,170, low income,false
+2011_2213.txt,166,93:362,162,68, low income,false
+2011_2213.txt,167,93:407,161,221, primary school only,false
+2011_2213.txt,168,93:432,162,75, primary school only,false
+2011_2213.txt,169,93:475,161,55, smoking,false
+2011_2213.txt,170,93:499,162,15, smoking,false
+2011_2213.txt,171,93:545,161,171, body mass index >= 27,false
+2011_2213.txt,172,93:570,162,41, body mass index >= 27,false
+2011_2213.txt,173,93:656,161,36, severe cognitive impairment,false
+2011_2213.txt,174,93:680,162,54, severe cognitive impairment,false
+2011_2213.txt,175,93:739,161,46, depressive symptoms,false
+2011_2213.txt,176,93:763,162,12, depressive symptoms,false
+2011_2213.txt,177,93:817,161,191, disability in daily living,false
+2011_2213.txt,178,93:842,162,92, disability in daily living,false
+2011_9739.txt,179,9:306,null,18, data ... from 18 countries,false
+2011_9739.txt,180,9:585,179,18, data from 18 countries,false
+2011_9739.txt,181,9:629,null,89.037, n=89.037,false
+2011_9739.txt,182,9:828,179,10, in the 10 high income countries,false
+2011_9739.txt,183,9:869,179,8, in the 8 low-middle income countries,false
+2011_9739.txt,184,15:286,179,18, 18 countries,false
+2011_9739.txt,185,15:1414,179,18, 18 countries participating ...,false
+2011_9739.txt,186,18:677,null,14, across 14 different countries,false
+2011_9739.txt,187,21:737,181,2.372, ranged from 2.372,false
+2011_9739.txt,188,21:764,181,12.790, to 12.790,false
+2011_9739.txt,189,21:801,181,89.037, a total of 89.037,false
+2011_9739.txt,190,30:1511,179,10, in 10 countries,false
+2011_9739.txt,191,39:603,179,15, 15 of the 18 countries,false
+2011_9739.txt,192,39:643,179,3, and even in the 3 exceptions,false
+2011_9739.txt,193,39:1197,182,2, in 2 high income ... countries,false
+2011_9739.txt,194,39:1216,183,5, 5 low-middle income countries,false
+2011_9739.txt,195,39:1290,182,6, in 6 high income countries,false
+2011_9739.txt,196,42:316,197,7, in 7 countries,false
+2011_9739.txt,197,42:325,null,10, 10 developed countries,false
+2011_9739.txt,198,42:342,199,4, 4 countries,false
+2011_9739.txt,199,42:351,null,8, 8 countries,false
+2011_9739.txt,200,84:619,null,2419, 2419,false
+2011_9739.txt,201,84:627,null,1043, 1043,false
+2011_9739.txt,202,84:635,null,486, 486,false
+2011_9739.txt,203,84:1049,null,2894, 2894,false
+2011_9739.txt,204,84:1057,null,1436, 1436,false
+2011_9739.txt,205,84:1065,null,727, 727,false
+2011_9739.txt,206,84:1280,null,3555, 3555,false
+2011_9739.txt,207,84:1288,null,1323, 1323,false
+2011_9739.txt,208,84:1296,null,621, 621,false
+2011_9739.txt,209,84:1510,null,4859, 4859,false
+2011_9739.txt,210,84:1518,null,4859, 4859,false
+2011_9739.txt,211,84:1740,null,4712, 4712,false
+2011_9739.txt,212,84:1748,null,1779, 1779,false
+2011_9739.txt,213,84:1756,null,853, 853,false
+2011_9739.txt,214,84:2127,null,3415, 3416,false
+2011_9739.txt,215,84:2135,null,1305, 1305,false
+2011_9739.txt,216,84:2143,null,425, 425,false
+2011_9739.txt,217,84:2414,null,2372, 2372,false
+2011_9739.txt,218,84:2422,null,1094, 1094,false
+2011_9739.txt,219,84:2430,null,516, 516,false
+2011_9739.txt,220,84:2619,null,12790, 12790,false
+2011_9739.txt,221,84:2618,null,7312, 7312,false
+2011_9739.txt,222,84:2636,null,4119, 4119,false
+2011_9739.txt,223,84:2816,null,5473, 5473,false
+2011_9739.txt,224,84:2824,null,2121, 2121,false
+2011_9739.txt,225,84:2832,null,960, 960,false
+2011_9739.txt,226,84:3022,null,9282, 9282,false
+2011_9739.txt,227,84:3030,null,5692, 5692,false
+2011_9739.txt,228,84:3038,null,3197, 3197,false
+2011_9739.txt,229,84:3332,null,5038, 5037,false
+2011_9739.txt,230,84:3340,null,2942, 2942,false
+2011_9739.txt,231,84:3650,null,4426, 4426,false
+2011_9739.txt,232,84:3658,null,2381, 2381,false
+2011_9739.txt,233,84:3666,null,1731, 1731,false
+2011_9739.txt,234,84:3879,null,2992, 2992,false
+2011_9739.txt,235,84:3887,null,1373, 1373,false
+2011_9739.txt,236,84:3895,null,642, 642,false
+2011_9739.txt,237,84:4082,null,2857, 2857,false
+2011_9739.txt,238,84:4090,null,1031, 1031,false
+2011_9739.txt,239,84:4098,null,595, 595,false
+2011_9739.txt,240,84:4403,null,5782, 5782,false
+2011_9739.txt,241,84:4411,null,2362, 2362,false
+2011_9739.txt,242,84:4419,null,1736, 1736,false
+2011_9739.txt,243,84:4606,null,4315, 4315,false
+2011_9739.txt,244,84:4614,null,4315, 4315,false
+2011_9739.txt,245,84:4801,null,4724, 4724,false
+2011_9739.txt,246,84:4809,null,1719, 1719,false
+2011_9739.txt,247,84:4817,null,540, 540,false
+2011_9739.txt,248,84:5059,null,7132, 7132,false
+2011_9739.txt,249,84:5067,null,2475, 2475,false
+2011_9739.txt,250,84:5075,null,1994, 1994,false
+2012_4548.txt,251,9:1475,null,4493, in total 4493 adult patients,NL1
+2012_4548.txt,252,27:182,251,1912, 1912 RA patients,L2
+2012_4548.txt,253,27:228,252,402, 402 were men,false
+2012_4548.txt,254,27:251,252,1510, 1510 were women,false
+2012_4548.txt,255,30:687,251,131, 131 patients,L2
+2012_4548.txt,256,33:27,251,2450, in total 2450 patients were enrolled,L2
+2012_4548.txt,257,33:112,256,589, 589 patients,false
+2012_4548.txt,258,33:342,256,600, 600 patients,false
+2012_4548.txt,259,33:400,256,800, 800,false
+2012_4548.txt,260,72:1426,251,402, 402,false
+2012_4548.txt,261,72:1436,251,1510, 1510,false
+2012_7461.txt,262,6:1037,266,9, 9 reviews,false
+2012_7461.txt,263,6:1066,null,224, a total of 224 trials,false
+2012_7461.txt,264,6:1081,null,24059, 24059 patients were included,false
+2012_7461.txt,265,6:1126,null,1, one review,false
+2012_7461.txt,266,18:708,null,18, 18 potentially relevant reviews,false
+2012_7461.txt,267,18:799,266,2, two were excluded,false
+2012_7461.txt,268,18:876,266,2, two were excluded,false
+2012_7461.txt,269,18:915,266,4, four were excluded,false
+2012_7461.txt,270,18:960,266,4, four were excluded,false
+2012_7461.txt,271,18:1830,262,9, nine included reviews,false
+2012_7461.txt,272,18:1875,263,224, total of 224 trials,false
+2012_7461.txt,273,18:1891,264,24059, 24059 patients,false
+2012_7461.txt,274,21:1326,null,3, three trials,false
+2012_7461.txt,275,21:1346,null,183, 183 patients,false
+2012_7461.txt,276,24:1083,null,11, 11 trials,false
+2012_7461.txt,277,24:1269,null,5, 5 trials,false
+2012_7461.txt,278,24:1469,null,14, 14 trials,false
+2012_7461.txt,279,24:1561,null,9, 9 trials,false
+2012_7461.txt,280,30:638,null,4000, 4000 participants,false
+2012_7461.txt,281,30:810,280,1441, 1441 participants,false
+2012_7461.txt,282,30:1007,280,815, 815 participants,false
+2012_7461.txt,283,30:1902,280,539, 539 participants,false
+2012_7461.txt,284,30:2607,null,204, 204 patients,false
+2012_7461.txt,285,33:303,null,3600, 3600 patients,false
+2012_7461.txt,286,33:1752,null,74, 74 patients,false
+2012_7461.txt,287,33:1918,null,50, 50 patients,false
+2012_7461.txt,288,33:2149,null,56, 56 patients,false
+2012_7461.txt,289,33:2240,null,66, 66 patients,false
+2012_7461.txt,290,36:902,null,155, 155 patients,false
+2012_7461.txt,291,36:1404,262,9, nine reviews,false
+2012_7461.txt,292,36:1444,263,224, 224 trials,false
+2012_7461.txt,293,36:1459,264,24059, 24059 patients,false
+2012_7461.txt,294,45:2670,null,32, 32 trials,false
+2012_7461.txt,295,45:2695,null,3600, 3600 patients,false
+2012_7461.txt,296,48:57,null,50, 50 patients,false
+2012_7461.txt,297,48:64,null,150, 150 patients,false
+2012_7488.txt,298,6:797,300,7, a total of 7 studies,false
+2012_7488.txt,299,6:817,null,1425, enrolling 1425 subjects,false
+2012_7488.txt,300,21:876,null,123, a total of 123 articles,false
+2012_7488.txt,301,21:907,298,7, 7 studies,false
+2012_7488.txt,302,21:927,299,1425, 1425 patients satisfied the inclusion criteria,false
+2012_7488.txt,303,30:901,298,7, 7 studies,false
+2012_7488.txt,304,42:994,298,4, Four studies,false
+2012_7488.txt,305,42:1047,298,3, 3 studies,false
+2012_7488.txt,306,42:1125,298,2, 2 studies,false
+2012_7488.txt,307,42:1245,298,4, 4 studies,false
+2012_7488.txt,308,42:1299,298,3, 3 studies,false
+2012_7488.txt,309,48:129,299,1425, including 1425 patients,false
+2012_7569.txt,310,6:1121,null,502, a sample of 502 patients,false
+2012_7569.txt,311,6:1586,null,396, n=396,false
+2012_7569.txt,312,18:1083,null,22, sample of 22 patients,false
+2012_7569.txt,313,30:711,310,502, in total 502 patients,false
+2012_7569.txt,314,30:752,310,266, 266 women,false
+2012_7569.txt,315,30:861,310,257, 257 were inpatients,false
+2012_7569.txt,316,30:894,310,300, 300 reported ...,false
+2012_7569.txt,317,36:494,310,211, 211 patients,false
+2012_7569.txt,318,60:72,310,502, n=502,false
+2012_7569.txt,319,60:442,310,266, 266 female,false
+2012_7569.txt,320,60:538,310,216, 216 married,false
+2012_7569.txt,321,60:551,310,38, 38 live-in partner,false
+2012_7569.txt,322,60:562,310,171, 171 single/separated,false
+2012_7569.txt,323,60:575,310,64, 64 widowed,false
+2012_7569.txt,324,60:691,310,85, 85 no diploma/primary school,false
+2012_7569.txt,325,60:703,310,195, 195 secondary/high school,false
+2012_7569.txt,326,60:716,310,178, 178 college,false
+2012_7569.txt,327,60:752,310,257, 257 inpatient,false
+2012_7569.txt,328,60:893,310,132, 132 need for assistance,false
+2012_7569.txt,329,60:1860,310,81, 81 diabetes,false
+2012_7569.txt,330,60:1872,310,59, 59 rheumatologic diseases,false
+2012_7569.txt,331,60:1884,310,44, 44 high blood pressure,false
+2012_7569.txt,332,60:1895,310,43, 43 systemic diseases,false
+2012_7569.txt,333,60:1906,310,40, 40 pulmonary diseases,false
+2012_7569.txt,334,60:1917,310,37, 37 heart diseases,false
+2012_7569.txt,335,60:1928,310,37, 37 asthma,false
+2012_7569.txt,336,60:1939,310,34, 34 cancers,false
+2012_7569.txt,337,60:1950,310,19, 19 HIV infection,false
+2012_7569.txt,338,60:1961,310,17, 17 thrombosis,false
+2012_7569.txt,339,60:1972,310,80, 80 other diseases,false
+2012_7569.txt,340,69:1385,310,502, n=502,NL1
+2012_7569.txt,341,69:1409,310,240, n=240,L2
+2012_7569.txt,342,69:1438,310,140, n=140,L2
+2012_7569.txt,343,69:1463,310,122, n=122,L2
+2012_7569.txt,344,69:1628,310,266, 266 female,false
+2012_7569.txt,345,69:1632,341,118, 118 female,false
+2012_7569.txt,346,69:1644,342,78, 78 female,false
+2012_7569.txt,347,69:1655,343,70, 70 female,false
+2012_7569.txt,348,69:1777,310,216, 216 married,false
+2012_7569.txt,349,69:1782,310,38, 38 live in partner,false
+2012_7569.txt,350,69:1786,310,171, 171 single/separated,false
+2012_7569.txt,351,69:1791,310,64, 64 widowed,false
+2012_7569.txt,352,69:1797,341,105, 105 married,false
+2012_7569.txt,353,69:1810,341,13, 13 live in partner,false
+2012_7569.txt,354,69:1821,341,76, 76 single/separated,false
+2012_7569.txt,355,69:1833,341,38, 38 widowed,false
+2012_7569.txt,356,69:1847,342,60, 60 married,false
+2012_7569.txt,357,69:1859,342,12, 12 live in partner,false
+2012_7569.txt,358,69:1870,342,49, 49 single/separated,false
+2012_7569.txt,359,69:1882,342,17, 17 widowed,false
+2012_7569.txt,360,69:1896,343,51, 51 married,false
+2012_7569.txt,361,69:1908,343,13, 13 live in partner,false
+2012_7569.txt,362,69:1920,343,46, 46 single/separated,false
+2012_7569.txt,363,69:1932,343,9, 9 widowed,false
+2012_7569.txt,364,69:2094,310,85, 85 no diploma/primary school,false
+2012_7569.txt,365,69:2096,310,195, 195 secondary/high school,false
+2012_7569.txt,366,69:2102,310,178, 178 college,false
+2012_7569.txt,367,69:2108,341,43, 43 no diploma/primary school,false
+2012_7569.txt,368,69:2120,341,96, 96 secondary/high school,false
+2012_7569.txt,369,69:2132,341,77, 77 college,false
+2012_7569.txt,370,69:2146,342,23, 23 no diploma/primary school,false
+2012_7569.txt,371,69:2158,342,54, 54 secondary/high school,false
+2012_7569.txt,372,69:2170,342,54, 54 college,false
+2012_7569.txt,373,69:2184,343,19, 19 no diploma/primary school,false
+2012_7569.txt,374,69:2196,343,45, 45 secondary/high school,false
+2012_7569.txt,375,69:2208,344,47, 47 college,false
+2012_7569.txt,376,69:2267,310,257, 257 inpatient,false
+2012_7569.txt,377,69:2271,341,105, 105 inpatient,false
+2012_7569.txt,378,69:2283,342,84, 84 inpatient,false
+2012_7569.txt,379,69:2294,343,68, 68 inpatient,false
+2012_7569.txt,380,69:2496,310,132, 132 need for assistance,false
+2012_7569.txt,381,69:2500,341,45, 45 need for assistance,false
+2012_7569.txt,382,69:2511,342,41, 41 need for assistance,false
+2012_7569.txt,383,69:2522,343,46, 46 need for assistance,false
+2012_7569.txt,384,72:1053,310,81, 81 diabetes,false
+2012_7569.txt,385,72:1057,310,59, 59 rheumatologic diseases,false
+2012_7569.txt,386,72:1061,310,40, 40 pulmonary diseases,false
+2012_7569.txt,387,72:1067,310,44, 44 high blood pressure,false
+2012_7569.txt,388,72:1073,310,37, 37 asthma,false
+2012_7569.txt,389,72:1077,310,43, 43 systemic diseases,false
+2012_7569.txt,390,72:1083,341,25, 25 diabetes,false
+2012_7569.txt,391,72:1095,341,25, 25 rheumatologic diseases,false
+2012_7569.txt,392,72:1107,341,23, 23 pulmonary diseases,false
+2012_7569.txt,393,72:1120,341,29, 29 high blood pressure,false
+2012_7569.txt,394,72:1137,341,23, 23 asthma,false
+2012_7569.txt,395,72:1145,341,16, 16 systemic diseases,false
+2012_7569.txt,396,72:1158,342,14, 14 diabetes,false
+2012_7569.txt,397,72:1170,342,21, 21 rheumatologic diseases,false
+2012_7569.txt,398,72:1182,342,12, 12 pulmonary diseases,false
+2012_7569.txt,399,72:1195,342,9, 9 high blood pressure,false
+2012_7569.txt,400,72:1208,342,8, 8 asthma,false
+2012_7569.txt,401,72:1217,342,13, 13 systemic diseases,false
+2012_7569.txt,402,72:1230,343,42, 42 diabetes,false
+2012_7569.txt,403,72:1242,343,13, 13 rheumatologic diseases,false
+2012_7569.txt,404,72:1254,343,5, 5 pulmonary diseases,false
+2012_7569.txt,405,72:1266,343,6, 6 high blood pressure,false
+2012_7569.txt,406,72:1278,343,6, 6 asthma,false
+2012_7569.txt,407,72:1288,343,14, 14 systemic diseases,false
+2012_8584.txt,408,6:577,null,115172, n=115172,NL1
+2012_8584.txt,409,12:1264,408,26994, a total of 26994,false
+2012_8584.txt,null,12:847,408,15492, n=15492,L2
+2012_8584.txt,410,12:863,408,39666, n=39666,L2
+2012_8584.txt,411,12:879,408,4046, n=4046,L2
+2012_8584.txt,412,12:894,408,20574, n=20574,L2
+2012_8584.txt,413,12:913,408,23892, n=23892,L2
+2012_8584.txt,null,12:1171,408,11502, n=11502,L2
+2012_8584.txt,414,12:1717,408,115172, 115172 patients,false
+2012_8584.txt,415,12:1739,408,26162, 26162 english patients,false
+2012_8584.txt,416,12:1758,408,89010, 89010 scottish patients,false
+2012_8584.txt,417,27349,null,1524, n=1524,false
+2012_8584.txt,418,54:145,409,13075, 13075 england,false
+2012_8584.txt,419,54:152,410,4747, 4747 england,false
+2012_8584.txt,420,54:158,411,1622, 1622 england,false
+2012_8584.txt,421,54:164,412,2463, 2463 england,false
+2012_8584.txt,422,54:170,413,4255, 4255 england,false
+2012_8584.txt,423,54:176,415,26162, 26162 england,false
+2012_8584.txt,424,54:193,409,13919, 13919 scotland,false
+2012_8584.txt,425,54:200,410,34919, 34919 scotland,false
+2012_8584.txt,426,54:207,411,2424, 2424 scotland,false
+2012_8584.txt,427,54:213,412,18111, 18111 scotland,false
+2012_8584.txt,428,54:220,413,19637, 19637 scotland,false
+2012_8584.txt,429,54:227,416,89010, 89010 scotland,false
+2012_8584.txt,430,54:241,409,26994, 26994 total MS,false
+2012_8584.txt,431,54:248,410,39666, 39666 total RA,false
+2012_8584.txt,432,54:255,411,4046, 4046 total SLE,false
+2012_8584.txt,433,54:261,412,20574, 20574 total CD,false
+2012_8584.txt,434,54:268,413,23892, 23892 total UC,false
+2012_8584.txt,435,54:275,408,115172, 115172 total patients,false
+2012_9254.txt,436,6:1290,440,100, in total 100 were included in the study,NL1
+2012_9254.txt,437,6:1339,436,87, data on 87 patients,false
+2012_9254.txt,438,6:1368,436,96, 96 patients,false
+2012_9254.txt,439,48:1716,null,557, in total 557 patients were screened,OL1
+2012_9254.txt,440,51:25,439,244, of those 244 had ...,false
+2012_9254.txt,441,51:130,439,244, of the 244 patients,false
+2012_9254.txt,442,51:186,440,100, 100 were included,false
+2012_9254.txt,443,51:230,440,144, 144 did not meet inclusion criteria,false
+2012_9254.txt,444,51:287,436,87, data on 87 patients,false
+2012_9254.txt,445,51:319,436,96, 96 patients,false
+2012_9254.txt,446,51:459,436,78, 78 patients,false
+2012_9254.txt,447,51:648,436,78, 78 patients,false
+2012_9254.txt,448,51:680,436,76, 76 patients,false
+2012_9254.txt,449,96:151,436,49, 49 in rest group,L2
+2012_9254.txt,450,96:154,436,51, 51 in exercise group,L2
+2012_9254.txt,451,96:157,436,100, 100 all patients,false
+2012_9254.txt,452,96:214,449,33, 33 female,false
+2012_9254.txt,453,96:222,450,35, 35 female,false
+2012_9254.txt,454,96:230,436,68, 68 female,false
+2012_9254.txt,455,96:451,449,8, 8 obese patients,false
+2012_9254.txt,456,96:458,450,10, 10 obese patients,false
+2012_9254.txt,457,96:466,436,18, 18 obese patients,false
+2012_9254.txt,458,96:493,449,23, 23 smoking patients,false
+2012_9254.txt,459,96:501,450,18, 18 smoking patients,false
+2012_9254.txt,460,96:509,436,41, 41 smoking patients,false
+2012_9254.txt,461,96:605,449,34, 34 employed patients,false
+2012_9254.txt,462,96:613,450,39, 39 employed patients,false
+2012_9254.txt,463,96:621,436,73, 73 employed patients,false
+2012_9254.txt,464,96:817,449,11, 11 sitting patients,false
+2012_9254.txt,465,96:825,450,6, 6 sitting patients,false
+2012_9254.txt,466,96:832,436,17, 17 sitting patients,false
+2012_9254.txt,467,96:856,449,17, 17 mostly walking patients,false
+2012_9254.txt,468,96:864,450,23, 23 mostly walking patients,false
+2012_9254.txt,469,96:872,436,40, 40 mostly walking patients,false
+2012_9254.txt,470,96:950,449,10, 10 hard physical work,false
+2012_9254.txt,471,96:958,450,10, 10 hard physical work,false
+2012_9254.txt,472,96:966,436,20, 20 hard physical work,false
+2013_1130.txt,473,6:536,null,14772, 14772 adult patients,false
+2013_1130.txt,474,6:1160,null,9379, n=9379,false
+2013_1130.txt,475,18:247,473,14772, collection of 14772 individuals,false
+2013_1130.txt,476,57:317,474,9379, DHS dataset,false
+2013_1130.txt,477,57:420,473,14772, aggregate of 13 databases,false
+2013_1130.txt,478,57:543,473,644, BRISK dataset,false
+2013_1130.txt,479,57:644,473,1003, CRIBSA dataset,false
+2013_1130.txt,480,57:765,473,718, Mangaung dataset,false
+2013_1130.txt,481,57:884,473,782, QwaQwa dataset,false
+2013_1130.txt,482,57:1019,473,385, AHA-FS urban dataset,false
+2013_1130.txt,483,57:1153,473,512, AHA-FS rural dataset,false
+2013_1130.txt,484,57:1278,473,903, PURE urban dataset,false
+2013_1130.txt,485,57:1397,473,933, PURE rural dataset,false
+2013_1130.txt,486,57:1525,473,742, Kwazulu-natal dataset,false
+2013_1130.txt,487,57:1646,473,775, CRISIC dataset,false
+2013_1130.txt,488,57:1765,473,695, Mamre dataset,false
+2013_1130.txt,489,57:1884,473,5608, KORIS dataset,false
+2013_1130.txt,490,57:2001,473,1072, Phoenix,false
+2013_1130.txt,491,69:319,null,5751, Aggregate dataset,false
+2013_1130.txt,492,69:398,491,287, BRISK dataset,false
+2013_1130.txt,493,69:475,491,357, CRIBSA dataset,false
+2013_1130.txt,494,69:555,491,276, Mangaung dataset,false
+2013_1130.txt,495,69:633,491,247, QwaQwa dataset,false
+2013_1130.txt,496,69:721,491,90, AHA-FS urban dataset,false
+2013_1130.txt,497,69:807,491,151, AHA-FS rural dataset,false
+2013_1130.txt,498,69:891,491,364, Pure urban,false
+2013_1130.txt,499,69:975,491,326, Pure rural,false
+2013_1130.txt,500,69:1064,491,130, KwaZulu-natal dataset,false
+2013_1130.txt,501,69:1141,491,382, CRISIC dataset,false
+2013_1130.txt,502,69:1217,491,296, Mamre dataset,false
+2013_1130.txt,503,69:1293,491,2571, KORIS dataset,false
+2013_1130.txt,504,69:1374,491,274, Phoenix dataset,false
+2013_1130.txt,505,72:331,null,9021, aggregate dataset,false
+2013_1130.txt,506,72:426,505,357, BRISK dataset,false
+2013_1130.txt,507,72:519,505,646, CRIBSA dataset,false
+2013_1130.txt,508,72:615,505,442, Mangaung dataset,false
+2013_1130.txt,509,72:709,505,535, QwaQwa dataset,false
+2013_1130.txt,510,72:813,505,295, AHA-FS urban dataset,false
+2013_1130.txt,511,72:916,505,361, AHA-FS rural dataset,false
+2013_1130.txt,512,72:1016,505,539, Pure urban dataset,false
+2013_1130.txt,513,72:1116,505,607, Pure rural dataset,false
+2013_1130.txt,514,72:1221,505,612, KwaZulu-Natal dataset,false
+2013_1130.txt,515,72:1314,505,393, CRISIC dataset,false
+2013_1130.txt,516,72:1406,505,399, Mamre dataset,false
+2013_1130.txt,517,72:1494,505,3037, KORIS dataset,false
+2013_1130.txt,518,72:1592,505,798, Phoenix dataset,false
+2013_1130.txt,519,72:1679,505,9021, Aggregate dataset,false
+2013_1165.txt,520,9:396,null,1470, 1470 healthy elderly swiss men and women ... were recruited for this study,OL1
+2013_1165.txt,521,9:490,520,179, 179 subjects,false
+2013_1165.txt,522,21:882,520,1470, 1470 participants,false
+2013_1165.txt,523,21:902,520,179, 179 ... were excluded,false
+2013_1165.txt,524,21:1195,520,1291,1291 subjects,NL1
+2013_1165.txt,525,21:1210,524,558, 558 were between 60-69 yrs old,false
+2013_1165.txt,526,21:1243,524,498, 498 between 70-79 yrs old,false
+2013_1165.txt,527,21:1273,524,235, 235 were >= 80 yrs old,false
+2013_1165.txt,528,30:39,524,1291, the entire cohort of 1291 people,false
+2013_1165.txt,529,57:155,524,600, 600 men,false
+2013_1165.txt,530,57:167,524,691, 691 women,false
+2013_1165.txt,531,57:179,524,1291, 1291 total,false
+2013_1165.txt,532,57:285,524,558, 558 aged between 60-69,false
+2013_1165.txt,533,57:356,524,498, 498 aged between 70-70,false
+2013_1165.txt,534,57:427,525,235, 235 aged >= 80,false
+2013_1165.txt,535,57:504,524,1291, 1291 total,false
+2013_1165.txt,536,60:266,524,103, N=103,L2
+2013_1165.txt,537,60:284,524,403, N=403,L2
+2013_1165.txt,538,60:302,524,404, N=404,L2
+2013_1165.txt,539,60:319,524,381, N=381,L2
+2013_1242.txt,540,3:810,null,200, 200 individuals,false
+2013_1242.txt,541,24:744,540,200, 200 individuals,false
+2013_1242.txt,542,24:977,540,194, 194 participants,false
+2013_1242.txt,543,24:1004,542,95, of whom 95 were ...,false
+2013_1242.txt,544,24:1041,542,85, 85 black,false
+2013_1242.txt,545,24:1059,542,13, 13 mixed race,false
+2013_1242.txt,546,24:1085,542,1, 1 asian,false
+2013_1242.txt,547,24:1197,540,191, 191 participants,false
+2013_1242.txt,548,24:1235,547,82, n=82,false
+2013_1242.txt,549,24:1258,547,48, n=48,false
+2013_1242.txt,550,24:1289,547,17, n=17,false
+2013_1242.txt,551,24:1320,547,12, n=12,false
+2013_1242.txt,552,24:1346,547,8, n=8,false
+2013_1242.txt,553,24:1365,547,5, n=5,false
+2013_1242.txt,554,24:1383,547,2, n=2,false
+2013_1242.txt,555,24:1413,547,17, n=17,false
+2013_1242.txt,556,45:248,540,4, 4 participants did not wish to ...,false
+2013_1242.txt,557,45:331,540,196, of the remaining 196,false
+2013_1242.txt,558,45:336,557,63, 63 screened positive ...,false
+2013_1242.txt,559,45:392,557,46, 46,false
+2013_1242.txt,560,45:529,559,46, all 46 participants,false
+2013_1242.txt,561,45:583,559,24, 24,false
+2013_1242.txt,562,45:1083,561,24, from the 24 completed interviews,false
+2013_1242.txt,563,45:1108,561,19, 19 participants,false
+2013_1242.txt,564,45:1197,561,14, 14 individuals,false
+2013_1242.txt,565,48:413,540,194, 194 participants,false
+2013_1242.txt,566,48:548,565,148, 148 screened positive ...,false
+2013_1242.txt,567,48:586,559,46, n=46,false
+2013_1242.txt,568,48:593,567,44, 44 completed the ...,false
+2013_1242.txt,569,48:671,567,6, 6 had ...,false
+2013_1242.txt,570,54:1134,540,190,190 individuals,false
+2013_1242.txt,571,54:1207,570,85, 85 were noted to have,false
+2013_1242.txt,572,54:1316,571,7, 7 people screened positive for ...,false
+2013_1242.txt,573,54:1354,571,24, 24 screened positive for ...,false
+2013_1242.txt,574,54:1484,540,166,166 individuals,false
+2013_1242.txt,575,54:1540,574,7, 7 were provided ...,false
+2013_1242.txt,576,54:1592,575,2, 2 of these,false
+2013_1242.txt,577,57:22,574,159, of the remaining 159,false
+2013_1242.txt,578,57:27,577,35, 35 screened positive for,false
+2013_1242.txt,579,57:77,577,9, 9 screened positive for,false
+2013_1287.txt,580,6:710,586,356, among 356 men and women,false
+2013_1287.txt,581,6:817,586,379, n=379,false
+2013_1287.txt,582,6:839,586,360, n=360,false
+2013_1287.txt,583,42:1376,582,360, n=360,false
+2013_1287.txt,584,42:1393,581,379, n=379,false
+2013_1287.txt,585,42:1414,580,356, n=356,false
+2013_1287.txt,586,51:1942,null,1100, based on data from almost 1100,false
+2013_1287.txt,587,81:141,582,360, n=360,false
+2013_1287.txt,588,81:162,581,379, n=379,false
+2013_1287.txt,589,81:178,580,356, n=356,false
+2013_1287.txt,590,84:141,582,360, n=360,false
+2013_1287.txt,591,84:156,581,379, n=379,false
+2013_1287.txt,592,84:172,580,356, n=356,false
+2013_1287.txt,593,87:135,582,360, n=360,false
+2013_1287.txt,594,87:150,581,379, n=379,false
+2013_1287.txt,595,87:166,580,356, n=356,false
+2013_1287.txt,596,93:138,582,360, n=360,false
+2013_1287.txt,597,93:153,581,379, n=379,false
+2013_1287.txt,598,93:169,580,356, n=356,false
+2013_1287.txt,599,96:152,582,360, n=360,false
+2013_1287.txt,600,96:167,581,379, n=379,false
+2013_1287.txt,601,96:183,580,356, n=356,false
+2013_1287.txt,602,99:147,582,360, n=360,false
+2013_1287.txt,603,99:162,581,379, n=379,false
+2013_1287.txt,604,99:178,580,356, n=356,false
+2013_1287.txt,605,102:107,582,360, n=360,false
+2013_1287.txt,606,102:122,581,379, n=379,false
+2013_1287.txt,607,102:138,580,356, n=356,false
+2013_1429.txt,608,6:475,null,109, 109 MS patients,false
+2013_1429.txt,609,6:493,608,79, 79 were ...,false
+2013_1429.txt,610,6:527,608,23, 23 with ...,false
+2013_1429.txt,611,6:561,608,7, 7 with ...,false
+2013_1429.txt,612,6:1194,608,64, 64 patients,false
+2013_1429.txt,613,21:73,608,109, 109 patients,false
+2013_1429.txt,614,21:96,608,79, 79 were ...,false
+2013_1429.txt,615,21:140,608,23, 23 with ...,false
+2013_1429.txt,616,21:176,608,7, 7 with ...,false
+2013_1429.txt,617,21:843,608,64, 64 patients,false
+2013_1429.txt,618,21:893,608,45, 45 negative,false
+2013_1429.txt,619,24:354,608,109, in this sample of 109,false
+2013_1429.txt,620,42:285,608,64, n=64,false
+2013_1429.txt,621,42:434,608,38, 38 male,false
+2013_1429.txt,622,42:437,608,72, 72 female,false
+2013_1429.txt,623,42:446,612,27, 27 male,false
+2013_1429.txt,624,42:449,612,38, 38 female,false
+2013_1429.txt,625,48:150,608,109, 109 MS patients,NL1
+2013_1429.txt,626,51:148,608,45, n=45,L2
+2013_1429.txt,627,51:169,608,64, n=64,L2
+2013_1911.txt,628,6:477,null,4811, a prospective study of 4811 students,false
+2013_1911.txt,629,21:1401,628,4811, the primary dataset consists of the 4811 students,false
+2013_1911.txt,630,33:630,628,4811, of 4811 medical students,false
+2013_1911.txt,631,33:709,628,4056, 4056 passed ...,false
+2013_1911.txt,632,33:780,628,565, 565 progressed,false
+2013_1911.txt,633,33:838,628,94, 94 were required to,false
+2013_1911.txt,634,33:892,628,96, 96 left the medial school,false
+2013_1911.txt,635,33:1066,628,109, altogether 109 students left the medical school,false
+2013_1911.txt,636,36:226,628,3432, n=3432,false
+2013_1911.txt,637,36:326,628,715, n=715,false
+2013_1911.txt,638,36:400,628,2717, n=2717,false
+2013_1911.txt,639,36:595,628,2717, n=2717,false
+2013_1911.txt,640,36:654,628,715, n=715,false
+2013_1911.txt,641,36:812,628,3432, n=3432,false
+2013_1911.txt,642,36:845,628,715, n=715,false
+2013_1911.txt,643,42:664,628,690, n=690,false
+2013_1911.txt,644,42:718,628,4076, n=4076,false
+2013_1911.txt,645,99:211,628,769, were available for 769 students,false
+2013_1911.txt,646,102:4761,628, 4811, 4811 individuals,false
+2013_1911.txt,647,102:4904,628, 4114, in 4114 cases,false
+2013_1911.txt,648,102:4937,628,1986, of whom 1986 had,false
+2013_1921.txt,649,6:488,null,16781, n=16781,false
+2013_1921.txt,650,6:786,null,4047, n=4047,false
+2013_1921.txt,651,9:831,null,14719, in a cohort study of 14719 patients,false
+2013_1921.txt,652,24:1576,649,16781, among the 16781 participants,false
+2013_1921.txt,653,27:12,649,16781, of the 16781 subjects,false
+2013_1921.txt,654,27:44,649,404, there were 404 individuals,false
+2013_1921.txt,655,27:122,649,404, of the 404 people,false
+2013_1921.txt,656,27:150,654,142, 142 had,false
+2013_1921.txt,657,27:201,654,150, 150 had,false
+2013_1921.txt,658,27:1481,650,4047, 4047 adult patients,false
+2013_1921.txt,659,27:1648,650,468, 468 tested positive,true
+2013_1921.txt,660,27:1680,650,3579, 3579 tested negative,true
+2013_1921.txt,661,33:426,650,406, n=406,false
+2013_1921.txt,662,75:268,649,5277, 5277 <= 60 years,false
+2013_1921.txt,663,75:332,649,7258, 7258 between 60-75 years,false
+2013_1921.txt,664,75:395,649,4246, 4246 > 75 years,false
+2013_1921.txt,665,75:460,649,7352, 7352 men,false
+2013_1921.txt,666,75:519,649,9429, 9429 women,false
+2013_1921.txt,667,75:601,649,2232, 2232 african-american,false
+2013_1921.txt,668,75:660,649,14549, 14549 other race,false
+2013_1921.txt,669,75:748,649,700, 700 mexican,false
+2013_1921.txt,670,75:812,649,486, 486 other hispanic,false
+2013_1921.txt,671,75:876,649,15595, 15595 non-hispanic,false
+2013_1921.txt,672,75:1260,649,5691, 5691 no high school degree,false
+2013_1921.txt,673,75:1332,649,11090, 11090 high school degree,false
+2013_1921.txt,674,75:1423,649,2958, 2958 northeast,false
+2013_1921.txt,675,75:1484,649,4205, 4205 midwest,false
+2013_1921.txt,676,75:1543,649,6823, 6823 south,false
+2013_1921.txt,677,75:1601,649,2795, 2795 west,false
+2013_1921.txt,678,75:1666,649,16781, 16781 overall,false
+2013_1921.txt,679,81:170,659,468, n=468,false
+2013_1921.txt,680,81:187,660,3579, n=3579,false
+2013_1921.txt,681,81:264,659,223, 223 female,false
+2013_1921.txt,682,81:276,660,1723, 1723 female,false
+2013_1921.txt,683,81:317,659,387, 387 caucasian,false
+2013_1921.txt,684,81:329,660,2927, 2927 caucasian,false
+2013_1921.txt,685,81:369,659,51, 51 african-american,false
+2013_1921.txt,686,81:380,660,386, 386 african-american,false
+2013_1921.txt,687,81:423,659,30, 30 other race,false
+2013_1921.txt,688,81:433,660,266, 266 other race,false
+2013_1921.txt,689,81:481,659,138, 138 elective admission,false
+2013_1921.txt,690,81:493,660,930, 930 elective admission,false
+2013_1921.txt,691,81:531,659,104, 104 urgent admission,false
+2013_1921.txt,692,81:543,660,846, 846 urgent admission,false
+2013_1921.txt,693,81:583,659,226, 226 emergent admission,false
+2013_1921.txt,694,81:595,660,1803, 1803 emergent admission,false
+2013_1942.txt,695,9:540,null,16224, 16224 children,false
+2013_1942.txt,696,9:595,695,3120, 3120 had,false
+2013_1942.txt,697,9:602,696,1016, 1016 between 2-6 yrs old,false
+2013_1942.txt,698,9:626,696,2104, 2104 between 6-9 yrs old,false
+2013_1942.txt,699,18:37,null,435, n=435,false
+2013_1942.txt,700,21:222,695,16224, a total of 16224 children,false
+2013_1942.txt,701,21:638,695,16224, from the total sample of 16224 children,false
+2013_1942.txt,702,21:667,695,12134, a subset of 12134 had,false
+2013_1942.txt,703,21:1030,695,3019, n=3019,false
+2013_1942.txt,704,84:121,697,994, n=994,false
+2013_1942.txt,705,84:127,697,524, n=524,false
+2013_1942.txt,706,84:133,697,470, n=470,false
+2013_1942.txt,707,84:1114,698,2025, n=2025,false
+2013_1942.txt,708,84:1121,698,1038, n=1038,false
+2013_1942.txt,709,84:1128,698,987, n=987,false
+2013_1942.txt,710,93:424,697,524, n=524,false
+2013_1942.txt,711,93:960,697,470, n=470,false
+2013_1942.txt,712,96:143,698,1038, n=1038,false
+2013_1942.txt,713,96:681,698,987, n=987,false
+2013_1942.txt,714,102:354,698,414, n=414,false
+2013_1942.txt,715,102:930,698,421, n=421,false
+2013_1984.txt,716,6:616,null,252, 252 patients,NL1
+2013_2378.txt,717,6:768,null,6696, 6696 subjects,NL1
+2013_2378.txt,718,6:1183,717,1307, 1307 persons,false
+2013_2378.txt,719,6:1202,718,480, 480 from cancer,false
+2013_2378.txt,720,6:1222,718,344, 344 from cardiovascular disease,false
+2013_2378.txt,721,21:173,null,9294, sample of 9294,OL1
+2013_2378.txt,722,30:702,717,6696, the study sample included 6696,false
+2013_2378.txt,723,30:815,717,2382, 2382 subjects,false
+2013_2378.txt,724,30:1334,717,1454, n=1454,L2
+2013_2378.txt,725,30:1404,717,464, n=464,L2
+2013_2378.txt,726,30:1450,717,260, n=260,false
+2013_2378.txt,727,30:1496,717,212, n=212,false
+2013_2378.txt,728,30:1589,717,1070, n=1070,false
+2013_2378.txt,729,30:1613,717,321, n=321,false
+2013_2378.txt,730,30:1650,717,204, n=204,false
+2013_2378.txt,731,30:1819,717,304, n=304,false
+2013_2378.txt,732,33:53,717,244, n=244,false
+2013_2378.txt,733,33:90,717,127, n=127,false
+2013_2378.txt,734,33:132,717,378, n=378,false
+2013_2378.txt,735,36:1890,717,3496, 3496 participants,false
+2013_2378.txt,736,36:1986,717,773, 773 reported,false
+2013_2378.txt,737,36:2078,717,1040, 1040 were,false
+2013_2378.txt,738,72:145,717,5242, n=5242,false
+2013_2378.txt,739,72:158,717,1454, n=1454,false
+2013_2378.txt,740,72:237,738,4136, 4136 no high level of education,false
+2013_2378.txt,741,72:248,739,1245, 1245 no high level of education,false
+2013_2378.txt,742,72:274,738,1106, 1106 high level of education,false
+2013_2378.txt,743,72:285,739,209, 209 high level of education,false
+2013_2378.txt,744,72:331,738,1610, 1610 living alone,false
+2013_2378.txt,745,72:342,739,605, 605 living alone,false
+2013_2378.txt,746,72:364,738,3632, 3632 not living alone,false
+2013_2378.txt,747,72:375,739,849, 849 not living alone,false
+2013_2378.txt,748,75:32,738,5242, n=5242,false
+2013_2378.txt,749,75:45,739,1454, n=1454,false
+2013_2378.txt,750,75:120,738,5081, 5081 does not take antidepressants,false
+2013_2378.txt,751,75:131,739,1196, 1196 does not take antidepressants,false
+2013_2378.txt,752,75:158,738,161, 161 does take antidepressants,false
+2013_2378.txt,753,75:167,739,258, 258 does take antidepressants,false
+2013_2378.txt,754,75:433,738,2477, 2477 normal body,false
+2013_2378.txt,755,75:444,739,747, 747 normal body,false
+2013_2378.txt,756,75:482,738,2106, 2106 overweight,false
+2013_2378.txt,757,75:493,739,515, 515 overweight,false
+2013_2378.txt,758,75:535,738,659, 659 obese,false
+2013_2378.txt,759,75:545,739,192, 192 obese,false
+2013_2378.txt,760,75:590,738,2175, 2175 hypertension no,false
+2013_2378.txt,761,75:601,739,538, 538 hypertension no,false
+2013_2378.txt,762,75:624,738,3067, 3067 hypertension yes,false
+2013_2378.txt,763,75:635,739,916, 916 hypertension yes,false
+2013_2378.txt,764,75:685,738,4777, 4777 diabetes no,false
+2013_2378.txt,765,75:696,739,1314, 1314 diabetes no,false
+2013_2378.txt,766,75:720,738,465, 465 diabetes yes,false
+2013_2378.txt,767,75:729,739,140, 140 diabetes yes,false
+2013_2378.txt,768,81:113,717,5389, n=5389,false
+2013_2378.txt,769,81:126,717,1307, n=1307,false
+2013_2378.txt,770,81:205,768,4337, 4337 no high level of education,false
+2013_2378.txt,771,81:216,769,1044, 1044 no high level of education,false
+2013_2378.txt,772,81:240,768,1052, 1052 high level od education,false
+2013_2378.txt,773,81:251,769,263, 263 high level od education,false
+2013_2378.txt,774,81:297,768,1782, 1782 living alone,false
+2013_2378.txt,775,81:308,769,433, 433 living alone,false
+2013_2378.txt,776,81:330,768,3607, 3607 not living alone,false
+2013_2378.txt,777,81:341,769,874, 874 not living alone,false
+2013_2378.txt,778,84:331,768,2611, 2611 normal body,false
+2013_2378.txt,779,84:342,769,613, 613 normal body,false
+2013_2378.txt,780,84:382,768,2118, 2118 overweight,false
+2013_2378.txt,781,84:393,769,503, 503 overweight,false
+2013_2378.txt,782,84:435,768,660, 660 obese,false
+2013_2378.txt,783,84:445,769,191, 191 obese,false
+2013_2378.txt,784,84:490,768,2313, 2313 hypertension no,false
+2013_2378.txt,785,84:501,769,400, 400 hypertension no,false
+2013_2378.txt,786,84:525,768,3076, 3076 hypertension yes,false
+2013_2378.txt,787,84:536,769,907, 907 hypertension yes,false
+2013_2378.txt,788,84:586,768,4965, 4965 diabetes no,false
+2013_2378.txt,789,84:597,769,1126, 1126 diabetes no,false
+2013_2378.txt,790,84:623,768,424, 424 diabetes yes,false
+2013_2378.txt,791,84:632,769,181, 181 diabetes yes,false
+2013_8087.txt,792,9:507,799,372, 372 patients,false
+2013_8087.txt,793,9:678,792,161, 161 patients,NL1
+2013_8087.txt,794,21:921,792,372, data on 372 residents,false
+2013_8087.txt,795,36:22,792,372, 372 patients,false
+2013_8087.txt,796,36:36,792,218, 218 died,false
+2013_8087.txt,797,36:110,792,161, 161 patients,false
+2013_8087.txt,798,81:43,792,161, n=161,false
+2013_8087.txt,799,108:5,null,491, 491 residents enrolled,false
+2013_8087.txt,800,108:93,799,119, 119 residents enrolled,false
+2013_8087.txt,801,108:219,799,372, 372 residents enrolled,false
+2013_8087.txt,802,108:297,792,154, 154 still alive,false
+2013_8087.txt,803,108:350,792,218, 218 descendants,false
+2013_8087.txt,804,108:367,803,28, 28 early deaths,false
+2013_8087.txt,805,108:443,803,3, 3 lacked,false
+2013_8087.txt,806,108:486,803,11, 11 lacked,false
+2013_8087.txt,807,108:528,803,176, 176 descendants,false
+2013_8087.txt,808,108:587,807,15, 15 cases had,false
+2013_8087.txt,809,108:657,807,161, 161 descendants selected for analyses,false
+2013_8200.txt,810,9:492,null,3681, n=3681,false
+2013_8200.txt,811,42:1084,810,3681, 3681 women,NL1
+2013_8200.txt,812,42:1116,810,1470, 1470 in group A,L2
+2013_8200.txt,813,42:1125,810,2211, 2211 in group B,L2
+2013_8200.txt,814,75:143,null,532, n=532,false
+2013_8200.txt,815,75:162,null,922, n=922,false
+2013_8200.txt,816,75:306,814,475, 475 white ethnic,false
+2013_8200.txt,817,75:318,815,804, 804 white ethnic,false
+2013_8200.txt,818,75:377,814,403, 403 spontaneous vaginal,false
+2013_8200.txt,819,75:389,815,690, 690 spontaneous vaginal,false
+2013_8200.txt,820,75:410,814,74, 74 forceps,false
+2013_8200.txt,821,75:421,815,120, 120 forceps,false
+2013_8200.txt,822,75:455,814,52, 52 ventouse,false
+2013_8200.txt,823,75:466,815,111, 111 ventouse,false
+2013_8200.txt,824,75:485,814,3, 3 breech,false
+2013_8200.txt,825,75:494,815,6, 6 breech,false
+2013_8200.txt,826,78:590,812,138, 138 phase 1 group A,false
+2013_8200.txt,827,78:604,813,211, 211 phase 1 group B,false
+2013_8200.txt,828,78:618,812,347, 347 phase 2 group A,false
+2013_8200.txt,829,78:632,813,461, 461 phase 2 group B,false
+2013_8200.txt,830,78:646,812,330, 330 phase 3 group A,false
+2013_8200.txt,831,78:660,813,519, 519 phase 3 group B,false
+2013_8200.txt,832,78:749,812,109, 109 phase 1 group A,false
+2013_8200.txt,833,78:763,813,195, 195 phase 1 group B,false
+2013_8200.txt,834,78:777,812,322, 322 phase 2 group A,false
+2013_8200.txt,835,78:791,813,442, 442 phase 2 group B,false
+2013_8200.txt,836,78:805,812,310, 310 phase 3 group A,false
+2013_8200.txt,837,78:819,813,490, 490 phase 3 group B,false
+2013_8200.txt,838,78:915,812,161, 161 phase 1 group A,false
+2013_8200.txt,839,78:929,813,279, 279 phase 1 group B,false
+2013_8200.txt,840,78:943,812,388, 388 phase 2 group A,false
+2013_8200.txt,841,78:958,813,570, 570 phase 2 group B,false
+2013_8200.txt,842,78:971,812,405, 405 phase 3 group A,false
+2013_8200.txt,843,78:985,813,582, 582 phase 3 group B,false
+2013_8200.txt,844,78:1148,812,77, 77 phase 1 group A,false
+2013_8200.txt,845,78:1161,813,156, 156 phase 1 group B,false
+2013_8200.txt,846,78:1175,812,290, 290 phase 2 group A,false
+2013_8200.txt,847,78:1189,813,343, 343 phase 2 group B,false
+2013_8200.txt,848,78:1203,812,274, 274 phase 3 group A,false
+2013_8200.txt,849,78:1217,813,429, 429 phase 3 group B,false
+2013_8200.txt,850,78:1293,812,259, 259 phase 1 group A,false
+2013_8200.txt,851,78:1307,813,343, 343 phase 1 group B,false
+2013_8200.txt,852,78:1321,812,475, 475 phase 2 group A,false
+2013_8200.txt,853,78:1335,813,681, 681 phase 2 group B,false
+2013_8200.txt,854,78:1349,812,503, 503 phase 3 group A,false
+2013_8200.txt,855,78:1363,813,725, 725 phase 3 group B,false
+2013_8200.txt,856,78:1403,812,52, 52 phase 1 group A,false
+2013_8200.txt,857,78:1416,813,68, 68 phase 1 group B,false
+2013_8200.txt,858,78:1429,812,199, 199 phase 2 group A,false
+2013_8200.txt,859,78:1443,813,155, 155 phase 2 group B,false
+2013_8200.txt,860,78:1457,812,229, 229 phase 3 group A,false
+2013_8200.txt,861,78:1471,813,323, 323 phase 3 group B,false
+2013_8892.txt,862,6:451,null,22, 22 participants,NL1
+2013_8892.txt,863,9:4032,862,22, n=22,false
+2013_8892.txt,864,12:11,862,20, 20 male,false
+2013_8892.txt,865,18:1556,862,12, n=12,false
+2013_8892.txt,866,81:165,862,12, n=12,L2
+2013_8892.txt,867,81:172,862,10, n=10,L2
+2013_8892.txt,868,81:183,862,12, n=12,false
+2013_8892.txt,869,81:190,862,8, n=8,false
+2013_8892.txt,870,81:200,862,12, n=12,false
+2013_8892.txt,871,84:55,862,22, n=22,false
+bmj4_1_e003440.full.txt,872,3:1578,875,40, 40 participants,L2
+bmj4_1_e003440.full.txt,873,3:1664,875,41, 41 participants,L2
+bmj4_1_e003440.full.txt,874,3:1714,null,9, 9 participants,false
+bmj4_1_e003440.full.txt,875,3:2099,877,81, 81 participants,NL1
+bmj4_1_e003440.full.txt,876,9:1843,null,231, 231 individuals,OL1
+bmj4_1_e003440.full.txt,877,9:1906,876,126, 126 completed,false
+bmj4_1_e003440.full.txt,878,9:1963,876,22, 22 did not finish the screening,false
+bmj4_1_e003440.full.txt,879,9:1998,876,83, 83 did not begin the screening,false
+bmj4_1_e003440.full.txt,880,9:2041,877,29, 29 were excluded,false
+bmj4_1_e003440.full.txt,881,9:2615,877,81, 81 were finally included in the data analysis,false
+bmj4_1_e003440.full.txt,882,9:2809,881,57, n=57,false
+bmj4_1_e003440.full.txt,883,9:2830,881,24, n=24,false
+bmj4_1_e003440.full.txt,884,12:1448,872,40, n=40,false
+bmj4_1_e003440.full.txt,885,12:1467,873,41, n=41,false
+bmj4_1_e003440.full.txt,886,12:1480,875,81, n=81,false
+bmj4_1_e003440.full.txt,887,12:1584,872,28, 28 female,false
+bmj4_1_e003440.full.txt,888,12:1593,873,29, 29 female,false
+bmj4_1_e003440.full.txt,889,12:1604,875,57, 57 female,false
+bmj4_1_e003440.full.txt,890,12:1618,872,12, 12 male,false
+bmj4_1_e003440.full.txt,891,12:1627,873,12, 12 male,false
+bmj4_1_e003440.full.txt,892,12:1638,875,24, 24 male,false
+bmj4_1_e003440.full.txt,893,12:1669,872,15, 15 single,false
+bmj4_1_e003440.full.txt,894,12:1680,873,15, 15 single,false
+bmj4_1_e003440.full.txt,895,12:1691,875,30, 30 single,false
+bmj4_1_e003440.full.txt,896,12:1708,872,19, 19 married,false
+bmj4_1_e003440.full.txt,897,12:1719,873,24, 24 married,false
+bmj4_1_e003440.full.txt,898,12:1730,875,43, 43 married,false
+bmj4_1_e003440.full.txt,899,12:1764,872,5, 5 divorced,false
+bmj4_1_e003440.full.txt,900,12:1774,873,1, 1 divorced,false
+bmj4_1_e003440.full.txt,901,12:1783,875,6, 6 divorced,false
+bmj4_1_e003440.full.txt,902,12:1920,872,11, 11 secondry school,false
+bmj4_1_e003440.full.txt,903,12:1931,873,14, 14 secondry school,false
+bmj4_1_e003440.full.txt,904,12:1942,875,25, 25 secondry school,false
+bmj4_1_e003440.full.txt,905,12:1972,872,27, 27 college,false
+bmj4_1_e003440.full.txt,906,12:1983,873,24, 24 college,false
+bmj4_1_e003440.full.txt,907,12:1994,875,51, 51 college,false
+bmj4_1_e003440.full.txt,908,12:2071,872,35, 35 employed,false
+bmj4_1_e003440.full.txt,909,12:2082,873,30, 30 employed,false
+bmj4_1_e003440.full.txt,910,12:2093,875,65, 65 employed,false
+bmj4_1_e003440.full.txt,911,12:2115,872,3, 3 unemployed,false
+bmj4_1_e003440.full.txt,912,12:2124,873,3, 3 unemployed,false
+bmj4_1_e003440.full.txt,913,12:2133,875,6, 6 unemployed,false
+bmj4_1_e003440.full.txt,914,12:2475,872,19, 19 psychological treatment,false
+bmj4_1_e003440.full.txt,915,12:2486,873,23, 23 psychological treatment,false
+bmj4_1_e003440.full.txt,916,12:2497,875,42, 42 psychological treatment,false
+bmj4_1_e003440.full.txt,917,12:2513,872,21, 21 no psychological treatment,false
+bmj4_1_e003440.full.txt,918,12:2524,873,18, 18 no psychological treatment,false
+bmj4_1_e003440.full.txt,919,12:2535,875,39, 39 no psychological treatment,false
+bmj4_1_e003460.full.txt,920,3:1405,923,19065, 19065 women,false
+bmj4_1_e003460.full.txt,921,3:1919,920,5392, 5392 had ...,false
+bmj4_1_e003460.full.txt,922,3:1944,920,13673, 13673 had ...,false
+bmj4_1_e003460.full.txt,923,6:3218,null,21958, 21958 women,OL1
+bmj4_1_e003460.full.txt,924,9:1276,920,19065, 19065 women,NL1
+bmj4_1_e003460.full.txt,925,9:1402,920,4715, n=4715,L2
+bmj4_1_e003460.full.txt,926,9:1426,920,9162, n=9162,L2
+bmj4_1_e003460.full.txt,927,9:1455,920,5188, n=5188,L2
+bmj4_1_e003460.full.txt,928,12:2008,923,19340, 19340 women,false
+bmj4_1_e003460.full.txt,929,12:2134,920,19065, 19065 participants,false
+bmj4_1_e003460.full.txt,930,21:3185,920,1675, 1675 asc-us,false
+bmj4_1_e003460.full.txt,931,21:3190,920,2151, 2151 asc-us,false
+bmj4_1_e003460.full.txt,932,21:3195,920,1566, 1566 asc-us,false
+bmj4_1_e003460.full.txt,933,21:3209,920,3040, 3040 normal,false
+bmj4_1_e003460.full.txt,934,21:3214,920,7011, 7011 normal,false
+bmj4_1_e003460.full.txt,935,21:3219,920,3622, 3622 normal,false
+bmj4_1_e003460.full.txt,936,21:3385,920,275, 275 asc-us,false
+bmj4_1_e003460.full.txt,937,21:3396,920,206, 206 asc-us,false
+bmj4_1_e003460.full.txt,938,21:3406,920,141, 141 asc-us,false
+bmj4_1_e003460.full.txt,939,21:3429,920,1057, 1057 normal,false
+bmj4_1_e003460.full.txt,940,21:3441,920,2296, 2296 normal,false
+bmj4_1_e003460.full.txt,941,21:3453,920,1294, 1294 normal,false
+bmj4_1_e003460.full.txt,942,21:3499,920,466, 466 asc-us,false
+bmj4_1_e003460.full.txt,943,21:3510,920,661, 661 asc-us,false
+bmj4_1_e003460.full.txt,944,21:3521,920,318, 318 asc-us,false
+bmj4_1_e003460.full.txt,945,21:3545,920,184, 184 normal,false
+bmj4_1_e003460.full.txt,946,21:3555,920,373, 373 normal,false
+bmj4_1_e003460.full.txt,947,21:3565,920,81, 81 normal,false
+bmj4_1_e003460.full.txt,948,21:3608,920,307, 307 asc-us,false
+bmj4_1_e003460.full.txt,949,21:3619,920,480, 480 asc-us,false
+bmj4_1_e003460.full.txt,950,21:3630,920,211, 211 asc-us,false
+bmj4_1_e003460.full.txt,951,21:3654,920,120, 120 normal,false
+bmj4_1_e003460.full.txt,952,21:3664,920,305, 305 normal,false
+bmj4_1_e003460.full.txt,953,21:3674,920,54, 54 normal,false
+bmj4_1_e003460.full.txt,954,21:3835,920,959, 959 asc-us,false
+bmj4_1_e003460.full.txt,955,21:3846,920,1504, 1504 asc-us,false
+bmj4_1_e003460.full.txt,956,21:3858,920,510, 510 asc-us,false
+bmj4_1_e003460.full.txt,957,21:3894,920,808, 808 normal,false
+bmj4_1_e003460.full.txt,958,21:3905,920,1657, 1657 normal,false
+bmj4_1_e003460.full.txt,959,21:3917,920,166, 166 normal,false
+bmj4_1_e003799.full.txt,960,3:1163,961,84, 84 healthy men and women,false
+bmj4_1_e003799.full.txt,961,6:2556,null,110, 110 adults,false
+bmj4_1_e003799.full.txt,962,6:2880,961,110, 110 participants,false
+bmj4_1_e003799.full.txt,963,6:2898,961,84, 84 participants,false
+bmj4_1_e003799.full.txt,964,6:2975,961,26, twenty-six were excluded,false
+bmj4_1_e003799.full.txt,965,9:3557,961,84, n=84,false
+bmj4_1_e003799.full.txt,966,9:3608,961,25, 25 men,false
+bmj4_1_e003799.full.txt,967,9:3623,961,59, 59 women,false
+bmj4_1_e003799.full.txt,968,9:3828,961,39, 39 education level <=12 years,false
+bmj4_1_e003799.full.txt,969,9:3846,961,44, 44 education level >=12 years,false
+bmj4_1_e003799.full.txt,970,9:3863,961,1, 1 unknown,false
+bmj4_1_e003824.full.txt,971,3:1527,null,1309, 1309 patients,false
+bmj4_1_e003824.full.txt,972,6:2352,971,1309, 1309 patients,false
+bmj4_1_e003824.full.txt,973,6:3802,971,1309, 1309 patients,OL1
+bmj4_1_e003824.full.txt,974,6:3840,971,1232, 1232 successfully underwent,false
+bmj4_1_e003824.full.txt,975,6:3889,974,994, for 994 of these patients,NL1
+bmj4_1_e003824.full.txt,976,6:4093,971,1238, n=1238,false
+bmj4_1_e003824.full.txt,977,6:4183,971,534, 534 patients,false
+bmj4_1_e003824.full.txt,978,12:1947,974,994, n=994,false
+bmj4_1_e003824.full.txt,979,12:1972,975,534, n=534,L2
+bmj4_1_e003824.full.txt,980,12:1994,975,460, n=460,L2
+bmj4_1_e003824.full.txt,981,12:2049,975,784, 784 male,false
+bmj4_1_e003824.full.txt,982,12:2050,979,426, 426 male,false
+bmj4_1_e003824.full.txt,983,12:2067,980,358, 358 male,false
+bmj4_1_e003824.full.txt,984,12:2774,975,170, 170 smoking never,false
+bmj4_1_e003824.full.txt,985,12:2783,979,100, 100 smoking never,false
+bmj4_1_e003824.full.txt,986,12:2792,980,70, 70 smoking never,false
+bmj4_1_e003824.full.txt,987,12:2805,975,454, 454 smoking ever,false
+bmj4_1_e003824.full.txt,988,12:2814,979,257, 257 smoking ever,false
+bmj4_1_e003824.full.txt,989,12:2823,980,197, 197 smoking ever,false
+bmj4_1_e003824.full.txt,990,12:2840,975,370, 370 smoking current,false
+bmj4_1_e003824.full.txt,991,12:2849,979,177, 177 smoking current,false
+bmj4_1_e003824.full.txt,992,12:2858,980,193, 193 smoking current,false
+bmj4_1_e003824.full.txt,993,12:2976,975,261, 261 cerebrovascular disease,false
+bmj4_1_e003824.full.txt,994,12:2985,979,144, 144 cerebrovascular disease,false
+bmj4_1_e003824.full.txt,995,12:2994,980,117, 117 cerebrovascular disease,false
+bmj4_1_e003824.full.txt,996,12:3027,975,580, 580 coronary artery disease,false
+bmj4_1_e003824.full.txt,997,12:3036,979,325, 325 coronary artery disease,false
+bmj4_1_e003824.full.txt,998,12:3045,980,255, 255 coronary artery disease,false
+bmj4_1_e003824.full.txt,999,12:3080,975,241, 241 peripheral artery disease,false
+bmj4_1_e003824.full.txt,1000,12:3089,979,108, 108 peripheral artery disease,false
+bmj4_1_e003824.full.txt,1001,12:3098,980,133, 133 peripheral artery disease,false
+bmj4_1_e003824.full.txt,1002,12:3139,975,99, 99 aneurysm of the abdominal aorta,false
+bmj4_1_e003824.full.txt,1003,12:3146,979,37, 37 aneurysm of the abdominal aorta,false
+bmj4_1_e003824.full.txt,1004,12:3153,980,62, 62 aneurysm of the abdominal aorta,false
+bmj4_1_e003824.full.txt,1005,15:2579,975,994, n=994,false
+bmj4_1_e003824.full.txt,1006,15:2603,979,534, n=534,false
+bmj4_1_e004046.full.txt,1007,3:1951,null,5313, 5313 procedures were analyzed,false
+bmj4_1_e004046.full.txt,1008,3:2057,1007,3756, 3756 procedures,false
+bmj4_1_e004046.full.txt,1009,6:2272,1007,5313, 5313 knee replacement procedures,false
+bmj4_1_e004046.full.txt,1010,6:2669,1008,3756, training dataset included 3756 procedures,false
+bmj4_1_e004046.full.txt,1011,6:2918,1007,1557, testing dataset included 1557 procedures,false
+bmj4_1_e004046.full.txt,1012,9:1565,1007,5313, total of 5313,false
+bmj4_1_e004046.full.txt,1013,9:3115,1007,5313, n=5313,false
+bmj4_1_e004046.full.txt,1014,9:3124,1008,3756, n=3756,false
+bmj4_1_e004046.full.txt,1015,9:3133,1011,1557, n=1557,false
+bmj4_1_e004046.full.txt,1016,9:3170,1007,3558, 3558 female,false
+bmj4_1_e004046.full.txt,1017,9:3182,1008,2543, 2543 female,false
+bmj4_1_e004046.full.txt,1018,9:3194,1011,1015, 1015 female,false
+bmj4_1_e004046.full.txt,1019,9:3303,1007,3388, 3388 patients with comorbidity,false
+bmj4_1_e004046.full.txt,1020,9:3315,1008,2440, 2440 patients with comorbidity,false
+bmj4_1_e004046.full.txt,1021,9:3317,1011,948, 948 patients with comorbidity,false
+bmj4_1_e004046.full.txt,1022,9:3620,1007,2196, 2196 hypertension,false
+bmj4_1_e004046.full.txt,1023,9:3632,1008,1609, 1609 hypertension,false
+bmj4_1_e004046.full.txt,1024,9:3644,1011,587, 587 hypertension,false
+bmj4_1_e004046.full.txt,1025,9:3670,1007,1242, 1242 obesity,false
+bmj4_1_e004046.full.txt,1026,9:3682,1008,935, 935 obesity,false
+bmj4_1_e004046.full.txt,1027,9:3693,1011,307, 307 obesity,false
+bmj4_1_e004046.full.txt,1028,9:3719,1007,814, 814 tobacco,false
+bmj4_1_e004046.full.txt,1029,9:3730,1008,590, 590 tobacco,false
+bmj4_1_e004046.full.txt,1030,9:3740,1011,224, 224 tobacco,false
+bmj4_1_e004205.full.txt,1031,3:1344,null,100, 100 patients,L2
+bmj4_1_e004205.full.txt,1032,3:1543,null,137, 137 controls,L2
+bmj4_1_e004205.full.txt,1033,6:1867,null,607, a total of 607 patients,OL1
+bmj4_1_e004205.full.txt,1034,6:1921,1033,250, among whom 250 provided,false
+bmj4_1_e004205.full.txt,1035,6:2123,1031,100, 100 patients,false
+bmj4_1_e004205.full.txt,1036,6:5255,1031,100, 100 patients,false
+bmj4_1_e004205.full.txt,1037,6:5286,1032,137, 137 controls,false
+bmj4_1_e004205.full.txt,1038,9:2529,1031,35, 35 male,false
+bmj4_1_e004205.full.txt,1039,9:2532,1031,65, 65 female,false
+bmj4_1_e004205.full.txt,1040,9:2591,1031,82, 82 non-smoker,false
+bmj4_1_e004205.full.txt,1041,9:2594,1031,18, 18 smoker,false
+bmj4_1_e004205.full.txt,1042,9:2626,1031,58, 58 drink no alcohol,false
+bmj4_1_e004205.full.txt,1043,9:2630,1031,42, 42 drink alcohol,false
+bmj4_1_e004205.full.txt,1044,9:2658,1031,25, 25 no headache,false
+bmj4_1_e004205.full.txt,1045,9:2661,1031,75, 75 headache,false
+bmj4_1_e004205.full.txt,1046,9:2691,1031,51, 51 no depression,false
+bmj4_1_e004205.full.txt,1047,9:2695,1031,49, 49 depression,false
+bmj4_1_e004205.full.txt,1048,9:3241,1031,100, 100 sample size,false
+bmj4_1_e004205.full.txt,1049,9:3245,1032,137, 137 sample size,falase
+bmj4_1_e004205.full.txt,1050,9:3296,1031,35, 35 male,false
+bmj4_1_e004205.full.txt,1051,9:3299,1031,65, 65 female,false
+bmj4_1_e004205.full.txt,1052,9:3302,1032,47, 47 male,false
+bmj4_1_e004205.full.txt,1053,9:3305,1032,90, 90 female,false
+bmj4_1_e004205.full.txt,1054,9:3360,1031,82, 82 non-smoker,false
+bmj4_1_e004205.full.txt,1055,9:3363,1031,18, 18 smoker,false
+bmj4_1_e004205.full.txt,1056,9:3366,1032,115, 115 non-smoker,false
+bmj4_1_e004205.full.txt,1057,9:2270,1032,22, 22 smoker,false
+bmj4_1_e004205.full.txt,1058,9:3388,1031,58, 58 drink no alcohol,false
+bmj4_1_e004205.full.txt,1059,9:3391,1031,42, 42 drink alcohol,false
+bmj4_1_e004205.full.txt,1060,9:3394,1032,51, 51 drink no alcohol,false
+bmj4_1_e004205.full.txt,1061,9:3397,1032,82, 82 drink alcohol,false
+bmj4_1_e004205.full.txt,1062,9:3421,1031,25, 25 no headache,false
+bmj4_1_e004205.full.txt,1063,9:3424,1031,75, 75 headache,false
+bmj4_1_e004205.full.txt,1064,9:3427,1032,98, 98 no headache,false
+bmj4_1_e004205.full.txt,1065,9:3430,1032,39, 39 headache,false
+bmj4_2_e003642.full.txt,1066,3:1504,null,575, 575 incidents,false
+bmj4_2_e003642.full.txt,1067,6:2301,1066,575, a total of 575 incidents,false
+bmj4_2_e003642.full.txt,1068,6:4358,1066,518, 518 male,false
+bmj4_2_e003642.full.txt,1069,6:4371,1066,57, 57 female,false
+bmj4_2_e004051.full.txt,1070,3:1733,null,2151, 2151 women,false
+bmj4_2_e004051.full.txt,1071,3:1794,1070,496, of these 496 were,false
+bmj4_2_e004051.full.txt,1072,3:1880,1071,129, 129 also,false
+bmj4_2_e004051.full.txt,1073,3:1894,1071,215, 215 also,false
+bmj4_2_e004051.full.txt,1074,3:2044,1070,182, 182 redeemed,false
+bmj4_2_e004051.full.txt,1075,3:2060,1070,235, 235 redeemed,false
+bmj4_2_e004051.full.txt,1076,9:3588,1070,2151, 2151 women,false
+bmj4_2_e004051.full.txt,1077,9:3684,1070,2073, 2073 had,false
+bmj4_2_e004051.full.txt,1078,9:3720,1070,78, 78 had,false
+bmj4_2_e004051.full.txt,1079,9:2781,1070,2151, 2151 women,false
+bmj4_2_e004051.full.txt,1080,9:3793,1070,1655, 1655 did not,false
+bmj4_2_e004051.full.txt,1081,9:3897,1070,496, 496 did,false
+bmj4_2_e004051.full.txt,1082,9:4398,1081,496, 496 women,false
+bmj4_2_e004051.full.txt,1083,9:4447,1081,129, 129 redeemed,false
+bmj4_2_e004051.full.txt,1084,9:4551,1083,85, of these 85,false
+bmj4_2_e004051.full.txt,1085,9:4622,1081,215, total of 215,false
+bmj4_2_e004051.full.txt,1086,9:4793,1080,1655, 1655 women,false
+bmj4_2_e004051.full.txt,1087,9:4852,1080,182, 182 women,false
+bmj4_2_e004051.full.txt,1088,9:4941,1087,64, 64 women,false
+bmj4_2_e004051.full.txt,1089,9:5058,1080,171, 171 became,false
+bmj4_2_e004051.full.txt,1090,12:79,1080,235, 235,false
+bmj4_2_e004051.full.txt,1091,12:1781,1070,2151, 2151 women,false
+bmj4_2_e004051.full.txt,1092,15:3576,1070,2151, n=2151,NL1
+bmj4_2_e004051.full.txt,1093,15:3658,1081,496, n=496,L2
+bmj4_2_e004051.full.txt,1094,15:3675,1080,1655, n=1655,L2
+bmj4_2_e004051.full.txt,1095,15:3784,1081,30, 30 between 18-39,false
+bmj4_2_e004051.full.txt,1096,15:3793,1080,182, 182 between 18-39,false
+bmj4_2_e004051.full.txt,1097,15:3810,1081,196, 196 between 40-59,false
+bmj4_2_e004051.full.txt,1098,15:3821,1080,911, 911 between 40-59,false
+bmj4_2_e004051.full.txt,1099,15:3836,1081,270, 270 between 60-,false
+bmj4_2_e004051.full.txt,1100,15:3857,1080,562, 562 between 60-,false
+bmj4_2_e004051.full.txt,1101,15:3882,1081,140, 140 rpmus,false
+bmj4_2_e004051.full.txt,1102,15:3893,1080,535, 535 rpmus,false
+bmj4_2_e004051.full.txt,1103,15:3910,1081,222, 222 tomus,false
+bmj4_2_e004051.full.txt,1104,15:3921,1080,750, 750 tomus,false
+bmj4_2_e004051.full.txt,1105,15:3940,1081,110, 110 bulking,false
+bmj4_2_e004051.full.txt,1106,15:3951,1080,250, 250 bulking,false
+bmj4_2_e004051.full.txt,1107,15:3969,1081,24, 24 others,false
+bmj4_2_e004051.full.txt,1108,15:3978,1080,120, 120 others,false
+bmj4_2_e004051.full.txt,1109,15:4099,1081,299, 299 sulfamethizol—j01eb02,false
+bmj4_2_e004051.full.txt,1110,15:4134,1081,288, 288 pivmecillinam—j01ca08,false
+bmj4_2_e004051.full.txt,1111,15:4170,1081,65, 65 nitrofurantoin—j01xe01,false
+bmj4_2_e004051.full.txt,1112,15:4203,1081,45, 45 trimethoprim—j01ea01,false
+bmj4_2_e004051.full.txt,1113,15:4268,1081,211, 211 oestrogen using no,false
+bmj4_2_e004051.full.txt,1114,15:4279,1080,997, 997 oestrogen using no,false
+bmj4_2_e004051.full.txt,1115,15:4294,1081,285, 285 oestrogen using yes,false
+bmj4_2_e004051.full.txt,1116,15:4305,1080,658, 658 oestrogen using yes,false
+bmj4_2_e004051.full.txt,1117,15:4446,1081,229, 229 education basic,false
+bmj4_2_e004051.full.txt,1118,15:4457,1080,688, 688 education basic,false
+bmj4_2_e004051.full.txt,1119,15:4478,1081,170, 170 education secondary,false
+bmj4_2_e004051.full.txt,1120,15:4489,1080,600, 600 education secondary,false
+bmj4_2_e004051.full.txt,1121,15:4507,1081,84, 84 education higher,false
+bmj4_2_e004051.full.txt,1122,15:4517,1080,340, 340 education higher,false
+bmj4_2_e004051.full.txt,1123,15:4568,1081,152, 152 low income,false
+bmj4_2_e004051.full.txt,1124,15:4579,1080,385, 385 low income,false
+bmj4_2_e004051.full.txt,1125,15:4616,1081,252, 252 middle income,false
+bmj4_2_e004051.full.txt,1126,15:4627,1080,825, 825 middle income,false
+bmj4_2_e004051.full.txt,1127,15:4658,1081,92, 92 high income,false
+bmj4_2_e004051.full.txt,1128,15:4668,1080,445, 445 high income,false
+bmj4_2_e004226.full.txt,1129,3:1804,1142,296, 296 women,L2
+bmj4_2_e004226.full.txt,1130,3:1829,1129,12, 12 hip,false
+bmj4_2_e004226.full.txt,1131,3:1837,1129,48, 48 vertebral,false
+bmj4_2_e004226.full.txt,1132,3:1851,1129,91, 91 forearm,false
+bmj4_2_e004226.full.txt,1133,3:1869,1129,17, 17 upper arm,false
+bmj4_2_e004226.full.txt,1134,3:1883,1129,7, 7 pelvis,false
+bmj4_2_e004226.full.txt,1135,3:1893,1129,11, 11 rib,false
+bmj4_2_e004226.full.txt,1136,3:1901,1129,62, 62 lower leg,false
+bmj4_2_e004226.full.txt,1137,3:1918,1129,48, 48 other fractures,false
+bmj4_2_e004226.full.txt,1138,3:1942,1146,590, 590 women,L2
+bmj4_2_e004226.full.txt,1139,6:1485,null,1397, n=1397,false
+bmj4_2_e004226.full.txt,1140,6:1740,1139,1082, 1082 women,false
+bmj4_2_e004226.full.txt,1141,6:1826,1140,832, n=832,false
+bmj4_2_e004226.full.txt,1142,6:1882,1141,439, n=439,false
+bmj4_2_e004226.full.txt,1143,6:1943,1142,296, total of 296,false
+bmj4_2_e004226.full.txt,1144,6:2219,null,1494, 1494 women,false
+bmj4_2_e004226.full.txt,1145,6:2365,1144,1275, n=1275,false
+bmj4_2_e004226.full.txt,1146,6:2427,1145,758, total of 758,false
+bmj4_2_e004226.full.txt,1147,6:2471,1146,590, 590 women,false
+bmj4_2_e004226.full.txt,1148,6:4801,1142,296, total of 296 women,false
+bmj4_2_e004226.full.txt,1149,6:4939,1146,590, 590 women,false
+bmj4_2_e004226.full.txt,1150,9:3857,1129,170, n=170,false
+bmj4_2_e004226.full.txt,1151,9:3863,1138,382, n=382,false
+bmj4_2_e004226.full.txt,1152,9:4033,1150,17, 17 depression,false
+bmj4_2_e004226.full.txt,1153,9:4044,1151,60, 60 depression,false
+bmj4_2_e004226.full.txt,1154,9:4088,1150,117, 117 physical activity,false
+bmj4_2_e004226.full.txt,1155,9:4100,1151,275, 275 physical activity,false
+bmj4_2_e004226.full.txt,1156,9:4148,1150,77, 77 alcohol consumption,false
+bmj4_2_e004226.full.txt,1157,9:4159,1151,198, 198 alcohol consumption,false
+bmj4_2_e004226.full.txt,1158,9:4195,1150,20, 20 smoking,false
+bmj4_2_e004226.full.txt,1159,9:4206,1151,40, 40 smoking,false
+bmj4_2_e004226.full.txt,1160,9:4234,1129,126, n=126,false
+bmj4_2_e004226.full.txt,1161,9:4240,1138,208, n=208,false
+bmj4_2_e004226.full.txt,1162,9:4411,1160,12, 12 depression,false
+bmj4_2_e004226.full.txt,1163,9:4421,1161,7, 7 depression,false
+bmj4_2_e004226.full.txt,1164,9:4463,1160,48, 48 physical activity,false
+bmj4_2_e004226.full.txt,1165,9:4474,1161,78, 78 physical activity,false
+bmj4_2_e004226.full.txt,1166,9:4521,1160,40, 40 alcohol consumption,false
+bmj4_2_e004226.full.txt,1167,9:4532,1161,69, 69 alcohol consumption,false
+bmj4_2_e004226.full.txt,1168,9:4567,1160,3, 3 smoking,false
+bmj4_2_e004226.full.txt,1169,9:4576,1161,3, 3 smoking,false
+bmj4_2_e004226.full.txt,1170,9:52,null,552, n=552,false
+bmj4_2_e004226.full.txt,1171,9:747,null,334, n=334,false
+bmj4_2_e004418.full.txt,1172,3:1879,1174,347, 347 patients,false
+bmj4_2_e004418.full.txt,1173,3:1915,1174,335, 335 controls,false
+bmj4_2_e004418.full.txt,1174,9:767,null,682, 682 patients,false
+bmj4_2_e004418.full.txt,1175,9:831,1174,1172, of which 347,false
+bmj4_3_e004007.full.txt,1176,3:1379,1177,869, 869 patients,false
+bmj4_3_e004007.full.txt,1177,6:3430,null,963, 963 patients,false
+bmj4_3_e004007.full.txt,1178,9:458,1177,963, 963 patients,false
+bmj4_3_e004007.full.txt,1179,9:541,1176,869, 869 patients,false
+bmj4_3_e004007.full.txt,1180,9:581,1177,94, 94 patients,false
+bmj4_3_e004007.full.txt,1181,9:2973,1177,869, 869 patients,false
+bmj4_3_e004007.full.txt,1182,9:3029,1179,664, 664 had,false
+bmj4_3_e004007.full.txt,1183,9:3803,1179,869, n=869,false
+bmj4_3_e004007.full.txt,1184,9:3822,1180,94, n=94,false
+bmj4_3_e004007.full.txt,1185,9:3886,1179,487, 487 male,false
+bmj4_3_e004007.full.txt,1186,9:3891,1180,48, 48 male,false
+bmj4_3_e004007.full.txt,1187,9:3926,1179,172, 172 genitourinary,false
+bmj4_3_e004007.full.txt,1188,9:3930,1180,21, 21 genitourinary,false
+bmj4_3_e004007.full.txt,1189,9:3948,1179,140, 140 colorectal,false
+bmj4_3_e004007.full.txt,1190,9:3952,1180,14, 14 colorectal,false
+bmj4_3_e004007.full.txt,1191,9:3964,1179,121, 121 lung,false
+bmj4_3_e004007.full.txt,1192,9:3968,1180,18, 18 lung,false
+bmj4_3_e004007.full.txt,1193,9:2981,1179,122, 122 breast,false
+bmj4_3_e004007.full.txt,1194,9:3985,1180,15, 15 breast,false
+bmj4_3_e004007.full.txt,1195,9:4006,1179,99, 99 haematological,false
+bmj4_3_e004007.full.txt,1196,9:4009,1180,7, 7 haematological,false
+bmj4_3_e004007.full.txt,1197,9:4037,1179,83, 83 upper gastrointestinal,false
+bmj4_3_e004007.full.txt,1198,9:4040,1180,9, 9 upper gastrointestinal,false
+bmj4_3_e004007.full.txt,1199,9:4050,1179,36, 36 skin,false
+bmj4_3_e004007.full.txt,1200,9:4053,1180,1, 1 skin,false
+bmj4_3_e004007.full.txt,1201,9:4072,1179,35, 35 head and neck,false
+bmj4_3_e004007.full.txt,1202,9:4075,1180,0, 0 head and neck,false
+bmj4_3_e004007.full.txt,1203,9:4095,1179,19, 19 gynaecological,false
+bmj4_3_e004007.full.txt,1204,9:4098,1180,4, 4 gynaecological,false
+bmj4_3_e004007.full.txt,1205,9:4130,1179,38, 38 unknown primary,false
+bmj4_3_e004007.full.txt,1206,9:4133,1180,9, 9 unknown primary,false
+bmj4_3_e004384.full.txt,1207,3:1364,null,2328, 2328 participants,false
+bmj4_3_e004384.full.txt,1208,6:910,null,8498, sample of 8498,false
+bmj4_3_e004384.full.txt,1209,6:987,1207,2328, 2328 participants,false
+bmj4_3_e004384.full.txt,1210,9:2580,1207,2328, 2328 participants,false
+bmj4_3_e004384.full.txt,1211,9:2624,1207,1246, 1246 of them,false
+bmj4_3_e004384.full.txt,1212,9:2687,1207,900, whereas 900 of them,false
+bmj4_3_e004384.full.txt,1213,9:3095,1207,2122, 2122 had a job,false
+bmj4_3_e004384.full.txt,1214,12:1610,1207,1150, 1150 male,false
+bmj4_3_e004384.full.txt,1215,12:1627,1207,1178, 1178 female,false
+bmj4_4_e004404.full.txt,1216,3:1506,null,30, 30 studies,false
+bmj4_4_e004404.full.txt,1217,3:1532,null,1400, 1400 people,false
+bmj4_4_e004404.full.txt,1218,9:3983,1216,30, identified 30 studies,false
+bmj4_4_e004404.full.txt,1219,9:3208,1216,30, 30 studies,false
+bmj4_4_e004404.full.txt,1220,15:423,1217,91, 91,false
+bmj4_4_e004404.full.txt,1221,15:688,1217,24, 24,false
+bmj4_4_e004404.full.txt,1222,15:1062,1217,6, 6,false
+bmj4_4_e004404.full.txt,1223,15:1392,1217,17, 17,false
+bmj4_4_e004404.full.txt,1224,15:1812,1217,25, 25,false
+bmj4_4_e004404.full.txt,1225,15:2370,1217,21, 21,false
+bmj4_4_e004404.full.txt,1226,15:2683,1217,7, 7,false
+bmj4_4_e004404.full.txt,1227,15:3296,1217,348, 348,false
+bmj4_4_e004404.full.txt,1228,15:3574,1217,5, 5,false
+bmj4_4_e004404.full.txt,1229,18:437,1217,47, 47,false
+bmj4_4_e004404.full.txt,1230,18:750,1217,12, 12,false
+bmj4_4_e004404.full.txt,1231,18:1512,1217,24, 24,false
+bmj4_4_e004404.full.txt,1232,18:1992,1217,5, 5,false
+bmj4_4_e004404.full.txt,1233,18:2284,1217,15, 15,false
+bmj4_4_e004404.full.txt,1234,18:2588,1217,20, 20,false
+bmj4_4_e004404.full.txt,1235,18:2915,1217,43, 43,false
+bmj4_4_e004404.full.txt,1236,18:3301,1217,56, 56,false
+bmj4_4_e004404.full.txt,1237,21:311,1217,54, 54,false
+bmj4_4_e004404.full.txt,1238,21:680,1217,103, 103,false
+bmj4_4_e004404.full.txt,1239,21:1021,1217,11, 11,false
+bmj4_4_e004404.full.txt,1240,21:1424,1217,62, 62,false
+bmj4_4_e004404.full.txt,1241,21:1910,1217,37, 37,false
+bmj4_4_e004404.full.txt,1242,21:2475,1217,16, 16,false
+bmj4_4_e004404.full.txt,1243,21:2757,1217,8, 8,false
+bmj4_4_e004404.full.txt,1244,21:3180,1217,26, 26,false
+bmj4_4_e004404.full.txt,1245,24:517,1217,36, 36,false
+bmj4_4_e004404.full.txt,1246,24:1248,1217,36, 36,false
+bmj4_4_e004404.full.txt,1247,24:1599,1217,31, 31,false
+bmj4_4_e004666.full.txt,1248,3:1392,null,16715, 16715 people,false
+bmj4_4_e004666.full.txt,1249,9:3896,1248,16715, 16715 people,false
+bmj4_4_e004666.full.txt,1250,9:4033,1248,13199, n=13199,false
+bmj4_4_e004666.full.txt,1251,9:4076,1248,5011, n=5011,false
+bmj4_4_e004666.full.txt,1252,9:4482,1248,12852, n=12852,false
+bmj4_4_e004666.full.txt,1253,9:4773,1248,51, 51 died,false
+bmj4_4_e004666.full.txt,1254,9:4844,1253,46, n=46,false
+bmj4_4_e004666.full.txt,1255,9:4875,1253,37, n=37,false
+bmj4_4_e004666.full.txt,1256,9:4958,1253,11, n=11,false
+bmj4_4_e004666.full.txt,1257,9:5110,1253,32, n=32,false
+bmj4_4_e004666.full.txt,1258,9:5463,1253,17, n=17,false
+bmj4_4_e004666.full.txt,1259,9:5556,1253,13, n=13,false
+bmj4_4_e004666.full.txt,1260,12:2086,1248,16715, n=16715,false
+bmj4_4_e004666.full.txt,1261,12:2118,1248,16715, n=16715,false
+bmj4_4_e004666.full.txt,1262,12:2157,1248,12852, n=12852,false
+bmj4_4_e004666.full.txt,1263,12:2185,1248,3863, n=3863,false
+bmj4_4_e004666.full.txt,1264,12:2213,2148,13199, 13199 male,false
+bmj4_4_e004666.full.txt,1265,12:2225,1262,10109, 10109 male,false
+bmj4_4_e004666.full.txt,1266,12:2239,1263,3090, 3090 male,false
+bmj4_4_e004666.full.txt,1267,12:2386,1248,5011, 5011 indigenous,false
+bmj4_4_e004666.full.txt,1268,12:2396,1262,4208, 4208 indigenous,false
+bmj4_4_e004666.full.txt,1269,12:2408,1263,803, 803 indigenous,false
+bmj4_4_e004666.full.txt,1270,12:2647,1248,12852, 12852 OST in prison,false
+bmj4_4_e004666.full.txt,1271,12:3072,1253,51, n=51,false
+bmj4_4_e004666.full.txt,1272,12:3104,1253,46, 46 male,false
+bmj4_4_e004666.full.txt,1273,12:3181,1253,14, 14 indigenous,false
+bmj4_4_e004666.full.txt,1274,12:3213,1253,11, 11 OST in prison,false
+bmj4_4_e004666.full.txt,1275,12:3249,1253,11, 11 natural death,false
+bmj4_4_e004666.full.txt,1276,12:3275,1253,32, 32 unnatural death,false
+bmj4_4_e004675.full.txt,1277,3:1289,1279,594, 594 participants,false
+bmj4_4_e004675.full.txt,1278,6:407,null,6162, 6162 participants,false
+bmj4_4_e004675.full.txt,1279,6:745,1278,3960, 3960 patients,false
+bmj4_4_e004675.full.txt,1280,6:817,1279,782, 782 patients,false
+bmj4_4_e004675.full.txt,1281,6:942,1279,1062, 1062 patients,false
+bmj4_4_e004675.full.txt,1282,6:1348,1279,594, 594 participants,false
+bmj4_4_e004675.full.txt,1283,6:1611,1279,309, 309 were sampled,false
+bmj4_4_e004675.full.txt,1284,6:1657,1283,103, 103 with,false
+bmj4_4_e004675.full.txt,1285,6:1690,1283,88, 88 on,false
+bmj4_4_e004675.full.txt,1286,6:1717,1283,134, 134 with,false
+bmj4_4_e004675.full.txt,1287,6:4679,1279,594, 594 participants,false
+bmj4_4_e004675.full.txt,1288,12:2359,1279,309, 309 general population,false
+bmj4_4_e004675.full.txt,1289,12:2402,1279,103, 103 previous label,false
+bmj4_4_e004675.full.txt,1290,12:2438,1270,88, 88 on diuretics,false
+bmj4_4_e004675.full.txt,1291,12:2471,1279,134, 134 at high risk,false
+bmj4_4_e004675.full.txt,1292,15:1294,1279,594, 594 participants,false
+bmj4_4_e004682.full.txt,1293,3:1434,1295,27, 27 men,false
+bmj4_4_e004682.full.txt,1294,3:1552,1293,12, 12 were,false
+bmj4_4_e004682.full.txt,1295,6:3367,null,31, 31 men,false
+bmj4_4_e004682.full.txt,1296,6:3390,1295,4, 4 withdrew,false
+bmj4_4_e004682.full.txt,1297,6:3549,1295,27, 27 participants,false
+bmj4_4_e004682.full.txt,1298,6:3645,1293,12, n=12,false
+bmj4_4_e004682.full.txt,1299,6:3671,1293,15, n=15,false
+bmj4_4_e004682.full.txt,1300,9:4459,1293,12, of the 12 men,false
+bmj4_4_e004682.full.txt,1301,12:1328,1300,11, n=11,false
+bmj4_4_e004682.full.txt,1302,12:1362,1301,8, 8 general practitioner,false
+bmj4_4_e004682.full.txt,1303,12:1387,1302,5, 5 family and friends,false
+bmj4_4_e004682.full.txt,1304,12:1401,1302,4, 4 internet,false
+bmj4_4_e004682.full.txt,1305,12:1416,1302,4, 4 the media,false
+bmj4_4_e004682.full.txt,1306,12:1447,1302,2, 2 other,false
+bmj4_4_e004682.full.txt,1307,12:1477,1302,1, 1 other,false
+bmj4_4_e004682.full.txt,1308,12:1510,1302,2, 2 never looked for information,false
+bmj4_4_e005312.full.txt,1309,3:1780,null,128, sample of 128,false
+bmj4_4_e005312.full.txt,1310,3:1902,1309,64, 64 services,false
+bmj4_4_e005312.full.txt,1311,3:1998,1309,64, 64 services,false
+bmj4_4_e005312.full.txt,1312,24:3508,1309,128, 128 services,false
+bmj4_4_e005312.full.txt,1313,24:3614,1309,102, 102 services,false
+bmj4_5_e004099.full.txt,1314,3:1766,null,104635, study population includes 104635,false
+bmj4_5_e004099.full.txt,1315,6:3491,null,196, 196 studies,false
+bmj4_5_e004099.full.txt,1316,6:3504,1315,110, 110 studies,false
+bmj4_5_e004099.full.txt,1317,6:3604,1315,70, n=70,false
+bmj4_5_e004099.full.txt,1318,6:3882,1315,91, n=91,false
+bmj4_5_e004099.full.txt,1319,15:1483,1314,104635, there were 104635 clients,false
+bmj4_5_e004099.full.txt,1320,21:597,1314,54508, 54508 male,false
+bmj4_5_e004099.full.txt,1321,21:559,1320,44480, 44480 male,false
+bmj4_5_e004099.full.txt,1322,21:573,1320,5921, 5921 male,false
+bmj4_5_e004099.full.txt,1323,21:585,1320,4928, 4928 male,false
+bmj4_5_e004099.full.txt,1324,21:654,1314,50127, 50127 female,false
+bmj4_5_e004099.full.txt,1325,21:618,1324,48890, 48890 female,false
+bmj4_5_e004099.full.txt,1326,21:632,1324,1143, 1143 female,false
+bmj4_5_e004099.full.txt,1327,21:644,1324,100, 100 female,false
+bmj4_5_e004099.full.txt,1328,21:719,1314,10230, 10230 aged 65-74,false
+bmj4_5_e004099.full.txt,1329,21:687,1328,9363, 9363 aged 65-74,false
+bmj4_5_e004099.full.txt,1330,21:699,1328,855, 855 aged 65-74,false
+bmj4_5_e004099.full.txt,1331,21:710,1328,18, 18 aged 65-74,false
+bmj4_5_e004099.full.txt,1332,21:776,1314,23539, 23539 aged 75-79,false
+bmj4_5_e004099.full.txt,1333,21:738,1332,20632, 20632 aged 75-79,false
+bmj4_5_e004099.full.txt,1334,21:752,1332,1972, 1972 aged 75-79,false
+bmj4_5_e004099.full.txt,1335,21:764,1332,1104, 1104 aged 75-79,false
+bmj4_5_e004099.full.txt,1336,21:834,1314,45234, 45234 aged 80-84,false
+bmj4_5_e004099.full.txt,1337,21:796,1336,39983, 39983 aged 80-84,false
+bmj4_5_e004099.full.txt,1338,21:810,1336,2850, 2850 aged 80-84,false
+bmj4_5_e004099.full.txt,1339,21:822,1336,2879, 2879 aged 80-84,false
+bmj4_5_e004099.full.txt,1340,21:891,1314,19682, 19682 aged 85-89,false
+bmj4_5_e004099.full.txt,1341,21:854,1340,17884, 17884 aged 85-89,false
+bmj4_5_e004099.full.txt,1342,21:868,1340,1069, 1069 aged 85-89,false
+bmj4_5_e004099.full.txt,1343,21:880,1340,881, 881 aged 85-89,false
+bmj4_5_e004099.full.txt,1344,21:940,1314,5950, 5950 aged 90+,false
+bmj4_5_e004099.full.txt,1345,21:909,1344,5508, 5508 aged 90+,false
+bmj4_5_e004099.full.txt,1346,21:920,1344,318, 318 aged 90+,false
+bmj4_5_e004099.full.txt,1347,21:930,1344,146, 146 aged 90+,false
+bmj4_5_e004099.full.txt,1348,21:1317,1314,27651, 27651 any cancer,false
+bmj4_5_e004099.full.txt,1349,21:1279,1348,23993, 23993 any cancer,false
+bmj4_5_e004099.full.txt,1350,21:1293,1348,2515, 2515 any cancer,false
+bmj4_5_e004099.full.txt,1351,21:1305,1348,1396, 1396 any cancer,false
+bmj4_5_e004099.full.txt,1352,21:1379,1314,7452, 7452 prostate,false
+bmj4_5_e004099.full.txt,1353,21:1346,1352,6122, 6122 prostate,false
+bmj4_5_e004099.full.txt,1354,21:1357,1352,895, 895 prostate,false
+bmj4_5_e004099.full.txt,1355,21:1368,1352,527, 527 prostate,false
+bmj4_5_e004099.full.txt,1356,21:1432,1314,6162, 6162 skin,false
+bmj4_5_e004099.full.txt,1357,21:1401,1356,5432, 5432 skin,false
+bmj4_5_e004099.full.txt,1358,21:1415,1356,615, 615 skin,false
+bmj4_5_e004099.full.txt,1359,21:1422,1356,165, 165 skin,false
+bmj4_5_e004099.full.txt,1360,21:1495,1314,4661, 4661 colorectal,false
+bmj4_5_e004099.full.txt,1361,21:1464,1360,4109, 4109 colorectal,false
+bmj4_5_e004099.full.txt,1362,21:1475,1360,389, 389 colorectal,false
+bmj4_5_e004099.full.txt,1363,21:1485,1360,203, 203 colorectal,false
+bmj4_5_e004099.full.txt,1364,21:1548,1314,2485, 2485 breast,false
+bmj4_5_e004099.full.txt,1365,21:1519,1364,2342, 2342 breast,false
+bmj4_5_e004099.full.txt,1366,21:1530,1364,137, 137 breast,false
+bmj4_5_e004099.full.txt,1367,21:1540,1364,7, 7 breast,false
+bmj4_5_e004099.full.txt,1368,21:3095,1314,93370, total 93370,false
+bmj4_5_e004099.full.txt,1369,21:3111,1314,7064, total 7064,false
+bmj4_5_e004099.full.txt,1370,21:3124,1314,5028, total 5028,false
+bmj4_5_e004099.full.txt,1371,21:3137,1314,104635, total 104635,false
+bmj4_5_e004587.full.txt,1372,3:1494,null,159, 159 studies,false
+bmj4_5_e004587.full.txt,1373,3:1507,null,33253, n=33253,false
+bmj4_5_e004587.full.txt,1374,3:1542,1373,804, 804 patients,false
+bmj4_5_e004587.full.txt,1375,9:838,1372,159, total of 159,false
+bmj4_5_e004587.full.txt,1376,9:1224,1372,159, 159 studies were included,false
+bmj4_5_e004587.full.txt,1377,9:2460,1372,72, 72 studies,false
+bmj4_5_e004587.full.txt,1378,9:2734,1372,135, 135 studies,false
+bmj4_5_e004587.full.txt,1379,15:865,1373,33253, 33253 participants,false
+bmj4_5_e004587.full.txt,1380,15:886,1373,16773, 16773 received,false
+bmj4_5_e004587.full.txt,1381,15:922,1373,16480, 16480 received,false
+bmj4_5_e004587.full.txt,1382,15:958,1373,804, 804 patients,false
+bmj4_5_e004587.full.txt,1383,15:972,1382,480, 480 receiving,false
+bmj4_5_e004587.full.txt,1384,15:1007,1382,324, 324 receiving,false
+bmj4_5_e004587.full.txt,1385,15:3110,1372,159, 159 studies total,false
+bmj4_5_e004587.full.txt,1386,15:3114,1385,72, 72 studies with bleeding,false
+bmj4_5_e004587.full.txt,1387,15:3124,1385,87, 87 studies without bleeding,false
+bmj4_5_e004587.full.txt,1388,15:3221,1386,59, 59 bleeding,false
+bmj4_5_e004587.full.txt,1389,15:3245,1386,7, 7 perforation,false
+bmj4_5_e004587.full.txt,1390,15:3280,1386,6, 6 bleeding and perforation,false
+bmj4_5_e004587.full.txt,1391,15:3341,1385,103, 103 hospitalised,false
+bmj4_5_e004587.full.txt,1392,15:3345,1386,67, 67 hospitalised,false
+bmj4_5_e004587.full.txt,1393,15:3355,1387,36, 36 hospitalised,false
+bmj4_5_e004587.full.txt,1394,15:3381,1385,56, 56 ambulant,false
+bmj4_5_e004587.full.txt,1395,15:3392,1386,51, 51 ambulant,false
+bmj4_5_e004587.full.txt,1396,15:3472,1385,24, 24 no concomitant medication described,false
+bmj4_5_e004587.full.txt,1397,15:3475,1386,11, 11 no concomitant medication described,false
+bmj4_5_e004587.full.txt,1398,15:3485,1387,13, 13 no concomitant medication described,false
+bmj4_5_e004587.full.txt,1399,15:3528,1385,135, 135 concomitant medication described,false
+bmj4_5_e004587.full.txt,1400,15:3532,1386,61, 61 concomitant medication described,false
+bmj4_5_e004587.full.txt,1401,15:3542,1387,74, 74 concomitant medication described,false
+bmj4_5_e004587.full.txt,1402,15:3563,1385,19, 19 nsaids/asa,false
+bmj4_5_e004587.full.txt,1403,15:3566,1386,11, 11 nsaids/asa,false
+bmj4_5_e004587.full.txt,1404,15:3576,1387,8, 8 nsaids/asa,false
+bmj4_5_e004587.full.txt,1405,15:3613,1385,14, 14 gastroprotective drugs,false
+bmj4_5_e004587.full.txt,1406,15:3616,1386,12, 12 gastroprotective drugs,false
+bmj4_5_e004587.full.txt,1407,15:3619,1387,2, 2 gastroprotective drugs,false
+bmj4_5_e004587.full.txt,1408,18:1561,1385,103, 103 hospitalised,false
+bmj4_5_e004587.full.txt,1409,18:1565,1371,24602, 24602 hospitalised,false
+bmj4_5_e004587.full.txt,1410,18:1619,1385,56, 56 ambulant,false
+bmj4_5_e004587.full.txt,1411,18:1622,1371,8651, 8651 ambulant,false
+bmj4_5_e004587.full.txt,1412,18:1686,1385,140, 140 nsaid use not documented,false
+bmj4_5_e004587.full.txt,1413,18:1690,1371,30874, 30874 nsaid use not documented,false
+bmj4_5_e004587.full.txt,1414,18:1756,1385,19, 19 nsaid use documented,false
+bmj4_5_e004587.full.txt,1415,18:1759,1371,2379, 2379 nsaid use documented,false
+bmj4_5_e004587.full.txt,1416,18:1855,1385,106, 106 peptic ulcer as an exclusion criterion not documented,false
+bmj4_5_e004587.full.txt,1417,18:1859,1371,25760, 25760 peptic ulcer as an exclusion criterion not documented,false
+bmj4_5_e004587.full.txt,1418,18:1954,1385,53, 53 peptic ulcer as an exclusion criterion documented,false
+bmj4_5_e004587.full.txt,1419,18:1957,1371,7493, 7493 peptic ulcer as an exclusion criterion documented,false
+bmj4_5_e004587.full.txt,1420,18:2036,1385,145, 145 gastroprotective drugs not documented,false
+bmj4_5_e004587.full.txt,1421,18:2040,1371,31759, 31759 gastroprotective drugs not documented,false
+bmj4_5_e004587.full.txt,1422,18:2119,1385,14, 14 gastroprotective drugs documented,false
+bmj4_5_e004587.full.txt,1423,18:2122,1371,1494, 1494 gastroprotective drugs documented,false
+bmj4_5_e004848.full.txt,1424,3:1343,1426,10514, 10514 patients,false
+bmj4_5_e004848.full.txt,1425,3:1394,1424,3233, 3233 provided,false
+bmj4_5_e004848.full.txt,1426,9:383,null,23420, 23420 patients,false
+bmj4_5_e004848.full.txt,1427,9:430,1426,744, 744 were not eligible,false
+bmj4_5_e004848.full.txt,1428,9:579,1426,10514, 10514 patients,false
+bmj4_5_e004848.full.txt,1429,9:856,1424,3233, 3233 patients,false
+bmj4_5_e005326.full.txt,1430,3:1354,null,55, a sample of 55 investigations,false
+bmj4_5_e005326.full.txt,1431,6:2725,1430,55, sample of 55 investigations,false
+bmj4_5_e005326.full.txt,1432,6:4290,1430,55, selection of 55 investigations,false
+bmj4_5_e005326.full.txt,1433,9:4694,1430,39, 39 of the 55 AEs,false
+bmj4_5_e005326.full.txt,1434,9:5100,1430,29, n=29,false
+bmj4_5_e005326.full.txt,1435,9:5131,1430,26, n=26,false
+bmj4_5_e005326.full.txt,1436,9:5368,null,289, total of 289,false
+bmj4_5_e005326.full.txt,1437,12:4598,1436,1, 1 macro,false
+bmj4_5_e005326.full.txt,1438,12:4600,1436,6, 6 macro,false
+bmj4_5_e005326.full.txt,1439,12:4604,1436,7, 7 macro,false
+bmj4_5_e005326.full.txt,1440,12:4611,1436,30, 30 meso,false
+bmj4_5_e005326.full.txt,1441,12:4614,1436,26, 26 meso,false
+bmj4_5_e005326.full.txt,1442,12:4617,1436,16, 16 meso,false
+bmj4_5_e005326.full.txt,1443,12:4620,1436,72, 72 meso,false
+bmj4_5_e005326.full.txt,1444,12:4629,1436,82, 82 micro,false
+bmj4_5_e005326.full.txt,1445,12:4632,1436,53, 53 micro,false
+bmj4_5_e005326.full.txt,1446,12:4635,1436,40, 40 micro,false
+bmj4_5_e005326.full.txt,1447,12:4638,1436,175, 175 micro,false
+bmj4_5_e005326.full.txt,1448,12:4655,1436,113, 113 total,false
+bmj4_5_e005326.full.txt,1449,12:4659,1436,85, 85 total,false
+bmj4_5_e005326.full.txt,1450,12:4662,1436,56, 56 total,false
+bmj4_5_e005326.full.txt,1451,12:107,1436,284, 284 recommendations,false
+bmj4_5_e005326.full.txt,1452,12:169,1436,254, 254 of them,false
+bmj4_5_e005326.full.txt,1453,15:1420,1430,43, in 43 investigations,false
+bmj4_5_e005326.full.txt,1454,15:1455,1436,217, 217 recommendations,false
+bmj4_5_e005326.full.txt,1455,15:1762,1430,21, n=21,false
+bmj4_5_e005326.full.txt,1456,15:1795,1430,8, n=8,false
+bmj4_6_e004736.full.txt,1457,3:1720,null,24, 24 participants,false
+bmj4_6_e004736.full.txt,1458,9:702,1457,24, 24 participants,false
+bmj4_6_e004736.full.txt,1459,12:2322,1457,20, total 20,false
+bmj4_6_e004736.full.txt,1460,12:2317,1459,14, 14 glasgow participants,false
+bmj4_6_e004736.full.txt,1461,12:2320,1459,6, 6 edinburgh participants,false
+bmj4_6_e004736.full.txt,1462,12:2361,1460,9, 9 male,false
+bmj4_6_e004736.full.txt,1463,12:2363,1460,6, 6 female,false
+bmj4_6_e004736.full.txt,1464,12:2365,1461,4, 4 male,false
+bmj4_6_e004736.full.txt,1465,12:2367,1461,2, 2 female,false
+bmj4_6_e004736.full.txt,1466,12:2369,1459,13, 13 male,false
+bmj4_6_e004736.full.txt,1467,12:2372,1459,7, 7 female,false
+bmj4_6_e005001.full.txt,1468,3:1385,null,425, 425 children,false
+bmj4_6_e005001.full.txt,1469,6:1933,null,1029, cohort originally consisted of 1029 babies,false
+bmj4_6_e005001.full.txt,1470,6:2162,1469,1011, n=1011,false
+bmj4_6_e005001.full.txt,1471,9:3281,1470,510, 510 children,false
+bmj4_6_e005001.full.txt,1472,9:3339,1470,474, 474 children,false
+bmj4_6_e005001.full.txt,1473,9:3393,1470,597, 597 children,false
+bmj4_6_e005001.full.txt,1474,9:3485,1470,425, 425 children,false
+bmj4_6_e005001.full.txt,1475,9:4223,1468,425, n=425,false
+bmj4_6_e005001.full.txt,1476,9:4236,1468,211, n=211,false
+bmj4_6_e005001.full.txt,1477,9:4258,1468,214, n=214,false
+bmj4_6_e005001.full.txt,1478,12:1851,1468,3, 3 underweight,false
+bmj4_6_e005001.full.txt,1479,12:1857,1476,1, 1 underweight,false
+bmj4_6_e005001.full.txt,1480,12:1863,1477,2, 2 underweight,false
+bmj4_6_e005001.full.txt,1481,12:1884,1468,320, 320 healthy weight,false
+bmj4_6_e005001.full.txt,1482,12:1893,1476,160, 160 healthy weight,false
+bmj4_6_e005001.full.txt,1483,12:1902,1477,160, 160 healthy weight,false
+bmj4_6_e005001.full.txt,1484,12:1922,1468,75, 75 overweight,false
+bmj4_6_e005001.full.txt,1485,12:1930,1476,35, 35 overweight,false
+bmj4_6_e005001.full.txt,1486,12:1938,1477,40, 40 overweight,false
+bmj4_6_e005001.full.txt,1487,12:1952,1468,27, 27 obese,false
+bmj4_6_e005001.full.txt,1488,12:1959,1476,15, 15 obese,false
+bmj4_6_e005001.full.txt,1489,12:1966,1477,12, 12 obese,false
+bmj4_6_e005053.full.txt,1490,3:1641,null,877778, 877778 children,false
+bmj4_6_e005053.full.txt,1491,3:1709,1490,5327, n=5327,false
+bmj4_6_e005053.full.txt,1492,3:1727,1490,24436, n=24436,false
+bmj4_6_e005053.full.txt,1493,3:1765,1490,105677, total of 105677,false
+bmj4_6_e005053.full.txt,1494,9:2093,1490,877778, n=877778,false
+bmj4_6_e005053.full.txt,1495,9:2213,1490,31759, 31759 all corticosteroid use,false
+bmj4_6_e005053.full.txt,1496,9:2226,1490,846019, 846019 no corticosteroid use,false
+bmj4_6_e005053.full.txt,1497,9:2272,1495,2363, 2363 age <25,false
+bmj4_6_e005053.full.txt,1498,9:2283,1496,119386, 119386 age <25,false
+bmj4_6_e005053.full.txt,1499,9:2304,1495,9306, 9306 age 25-29,false
+bmj4_6_e005053.full.txt,1500,9:2316,1496,295693, 295693 age 25-29,false
+bmj4_6_e005053.full.txt,1501,9:2337,1495,12819, 12819 age 30-34,false
+bmj4_6_e005053.full.txt,1502,9:2351,1496,295891, 295891 age 30-34,false
+bmj4_6_e005053.full.txt,1503,9:2372,1495,6170, 6170 age 35-39,false
+bmj4_6_e005053.full.txt,1504,9:2384,1496,116104, 116104 age 35-39,false
+bmj4_6_e005053.full.txt,1505,9:2403,1495,1101, 1101 age >= 40,false
+bmj4_6_e005053.full.txt,1506,9:2415,1496,18945, 18945 age >= 40,false
+bmj4_6_e005053.full.txt,1507,9:2476,1495,14817, 14817 antibiotics,false
+bmj4_6_e005053.full.txt,1508,9:2490,1496,297906, 297906 antibiotics,false
+bmj4_6_e005053.full.txt,1509,9:2517,1495,554, 554 paracetamol,false
+bmj4_6_e005053.full.txt,1510,9:2527,1496,5367, 5367 paracetamol,false
+bmj4_6_e005053.full.txt,1511,9:2543,1495,887, 887 ppis,false
+bmj4_6_e005053.full.txt,1512,9:2553,1496,10238, 10238 ppis,false
+bmj4_6_e005053.full.txt,1513,9:2580,1495,2384, 2384 nsaids/coxibs,false
+bmj4_6_e005053.full.txt,1514,9:259,1496,35412, 35412 nsaids/coxibs,false
+bmj4_6_e005053.full.txt,1515,9:2632,1495,25391, 25391 no smoking,false
+bmj4_6_e005053.full.txt,1516,9:2646,1496,653391, 653391 no smoking,false
+bmj4_6_e005053.full.txt,1517,9:2681,1495,3908, 3908 1–10 cigarettes/day,false
+bmj4_6_e005053.full.txt,1518,9:2693,1496,120435, 120435 1–10 cigarettes/day,false
+bmj4_6_e005053.full.txt,1519,9:2729,1495,1150, 1150 11–20 cigarettes/day,false
+bmj4_6_e005053.full.txt,1520,9:2740,1496,35206, 35206 11–20 cigarettes/day,false
+bmj4_6_e005053.full.txt,1521,9:2772,1495,173, 173 >20 cigarettes/day,false
+bmj4_6_e005053.full.txt,1522,9:2782,1496,4962, 4962 >20 cigarettes/day,false
+bmj4_6_e005053.full.txt,1523,9:2801,1495,1137, 1137 missing,false
+bmj4_6_e005053.full.txt,1524,9:2812,1496,32025, 32025 missing,false
+bmj4_6_e005053.full.txt,1525,9:2874,1495,1037, 1037 inflammatory bowel disease (ibd),false
+bmj4_6_e005053.full.txt,1526,9:2885,1496,5097, 5097 inflammatory bowel disease (ibd),false
+bmj4_6_e005053.full.txt,1527,9:2917,1495,251, 251 crohn’s disease (cd),false
+bmj4_6_e005053.full.txt,1528,9:2927,1496,1775, 1775 crohn’s disease (cd),false
+bmj4_6_e005053.full.txt,1529,9:2962,1495,655, 655 ulcerative colitis (uc),false
+bmj4_6_e005053.full.txt,1530,9:2972,1496,2793, 2793 ulcerative colitis (uc),false
+bmj4_6_e005053.full.txt,1531,9:2988,1495,131, 131 both,false
+bmj4_6_e005053.full.txt,1532,9:2998,1496,529, 529 both,false
+bmj4_6_e005053.full.txt,1533,9:3053,1495,178, 178 chronic obstructive pulmonary disease (copd),false
+bmj4_6_e005053.full.txt,1534,9:3063,1496,2159, 2159 chronic obstructive pulmonary disease (copd),false
+bmj4_6_e005053.full.txt,1535,9:3110,1495,116, 116 maternal diabetes mellitus (type 1),false
+bmj4_6_e005053.full.txt,1536,9:3120,1496,2865, 2865 maternal diabetes mellitus (type 1),false
+bmj4_6_e005053.full.txt,1537,9:3167,1495,120, 120 maternal diabetes mellitus (type 2),false
+bmj4_6_e005053.full.txt,1538,9:3177,1496,2355, 2355 maternal diabetes mellitus (type 2),false
+bmj4_6_e005053.full.txt,1539,9:3195,1495,4431, 4431 asthma,false
+bmj4_6_e005053.full.txt,1540,9:3207,1496,38662, 38662 asthma,false
+bmj4_6_e005053.full.txt,1541,12:2174,1490,2246, 2246 corticosteroid use 30 days,false
+bmj4_6_e005053.full.txt,1542,12:2217,1490,7297, 7297 exposure during first trimester,false
+bmj4_6_e005053.full.txt,1543,12:2272,1490,22216, 22216 exposure during second and third trimester,false
+bmj4_6_e005053.full.txt,1544,12:2316,1490,96, 96 age (weeks) 19–29,false
+bmj4_6_e005053.full.txt,1545,12:2325,1490,2918, 2918 age (weeks) 19–29,false
+bmj4_6_e005053.full.txt,1546,12:2342,1490,1402, 1402 30-36 weeks,false
+bmj4_6_e005053.full.txt,1547,12:2353,1490,37965, 37965 30-36 weeks,false
+bmj4_6_e005053.full.txt,1548,12:2372,1490,27686, 27686 37-41 weeks,false
+bmj4_6_e005053.full.txt,1549,12:2386,1490,736254, 736254 37-41 weeks,false
+bmj4_6_e005053.full.txt,1550,12:2407,1490,2418, 2418 42-48 weeks,false
+bmj4_6_e005053.full.txt,1551,12:2418,1490,63202, 63202 42-48 weeks,false
+bmj4_6_e005053.full.txt,1552,12:2439,1490,157, 157 missing,false
+bmj4_6_e005053.full.txt,1553,12:2449,1490,5680, 5680 missing,false
+bmj4_6_e005097.full.txt,1554,3:1661,null,7510, 7510 patients,false
+bmj4_6_e005097.full.txt,1555,3:2051,1554,6591, 6591 patients,false
+bmj4_6_e005097.full.txt,1556,3:2068,1555,4182, 4182 patients,false
+bmj4_6_e005097.full.txt,1557,3:2107,1555,2187, 2187 patients,false
+bmj4_6_e005097.full.txt,1558,3:2156,1555,222, 222 patients,false
+bmj4_6_e005097.full.txt,1559,6:1974,1554,7510, 7510 patients,false
+bmj4_6_e005097.full.txt,1560,6:2559,1554,7510, 7510 patients,false
+bmj4_6_e005097.full.txt,1561,6:2574,1554,123, 123 patients,false
+bmj4_6_e005097.full.txt,1562,6:2653,1554,796, 796 patients,false
+bmj4_6_e005097.full.txt,1563,6:2835,1554,6591, 6591 patients,false
+bmj4_6_e005097.full.txt,1564,9:2004,1555,6591, 6591 patients,false
+bmj4_6_e005097.full.txt,1565,9:2043,1564,4696, 4696 were men,false
+bmj4_6_e005097.full.txt,1566,9:2068,1564,1895, 1895 were women,false
+bmj4_6_e005097.full.txt,1567,9:2223,1564,4182, 4182 had,false
+bmj4_6_e005097.full.txt,1568,9:2278,1564,2187, 2187 had,false
+bmj4_6_e005097.full.txt,1569,9:2343,1564,222, 222 had,false
+bmj4_6_e005097.full.txt,1570,12:1260,1567,4182, n=4182,false
+bmj4_6_e005097.full.txt,1571,12:1301,1568,2187, n=2187,false
+bmj4_6_e005097.full.txt,1572,12:1342,1569,222, n=222,false
+bmj4_6_e005097.full.txt,1573,12:1587,1567,362, 362 previous MI,false
+bmj4_6_e005097.full.txt,1574,12:1597,1568,142, 142 previous MI,false
+bmj4_6_e005097.full.txt,1575,12:1607,1569,22, 22 previous MI,false
+bmj4_6_e005097.full.txt,1576,12:1642,1567,461, 461 previous DM,false
+bmj4_6_e005097.full.txt,1577,12:1653,1568,251, 251 previous DM,false
+bmj4_6_e005097.full.txt,1578,12:1664,1569,33, 33 previous DM,false
+bmj4_6_e005097.full.txt,1579,12:1701,1567,1362, 1362 previous HTN,false
+bmj4_6_e005097.full.txt,1580,12:1713,1568,1256, 1256 previous HTN,false
+bmj4_6_e005097.full.txt,1581,12:1725,1569,173, 173 previous HTN,false
+bmj4_6_e005097.full.txt,1582,12:1767,1567,341, 341 previous stroke,false
+bmj4_6_e005097.full.txt,1583,12:1777,1568,236, 236 previous stroke,false
+bmj4_6_e005097.full.txt,1584,12:1788,1569,37, 37 previous stroke,false
+bmj4_6_e005097.full.txt,1585,12:1825,1567,105, 105 previous HF,false
+bmj4_6_e005097.full.txt,1586,12:1835,1568,59, 59 previous HF,false
+bmj4_6_e005097.full.txt,1587,12:1844,1569,13, 13 previous HF,false
+bmj4_6_e005097.full.txt,1588,12:2299,1567,2221, 2221 V1-V6,false
+bmj4_6_e005097.full.txt,1589,12:2311,1568,1253, 1253 V1-V6,false
+bmj4_6_e005097.full.txt,1590,12:2323,1569,140, 140 V1-V6,false
+bmj4_6_e005097.full.txt,1591,12:2371,1567,1888, 1888 ii iii avf or v7–v9,false
+bmj4_6_e005097.full.txt,1592,12:2383,1568,880, 880 ii iii avf or v7–v9,false
+bmj4_6_e005097.full.txt,1593,12:2394,1569,73, 73 ii iii avf or v7–v9,false
+bmj4_6_e005097.full.txt,1594,12:2426,1567,73, 73 i avl,false
+bmj4_6_e005097.full.txt,1595,12:2435,1568,54, 54 i avl,false
+bmj4_6_e005097.full.txt,1596,12:2444,1569,9, 9 i avl,false
+bmj4_6_e005097.full.txt,1597,12:2741,1567,4182, n=4182,false
+bmj4_6_e005097.full.txt,1598,12:2782,1568,2187, n=2187,false
+bmj4_6_e005097.full.txt,1599,12:2823,1569,222, n=222,false
+bmj4_6_e005097.full.txt,1600,12:2882,1567,2252, 2252 thrombolysis,false
+bmj4_6_e005097.full.txt,1601,12:2894,1568,1101, 1101 thrombolysis,false
+bmj4_6_e005097.full.txt,1602,12:2906,1569,96, 96 thrombolysis,false
+bmj4_6_e005097.full.txt,1603,12:2934,1567,517, 517 pci,false
+bmj4_6_e005097.full.txt,1604,12:2945,1568,241, 241 pci,false
+bmj4_6_e005097.full.txt,1605,12:2956,1569,15, 15 pci,false
+bmj4_6_e005097.full.txt,1606,12:3012,1567,3881, 3881 heparin (or lmwh),false
+bmj4_6_e005097.full.txt,1607,12:3024,1568,1981, 1981 heparin (or lmwh),false
+bmj4_6_e005097.full.txt,1608,12:3036,1569,197, 197 heparin (or lmwh),false
+bmj4_6_e005097.full.txt,1609,12:3090,1567,4028, 4028 aspirin,false
+bmj4_6_e005097.full.txt,1610,12:3102,1568,2107, 2107 aspirin,false
+bmj4_6_e005097.full.txt,1611,12:3114,1569,210, 210 aspirin,false
+bmj4_6_e005097.full.txt,1612,12:3151,1567,1205, 1205 clopidogrel,false
+bmj4_6_e005097.full.txt,1613,12:3163,1568,605, 605 clopidogrel,false
+bmj4_6_e005097.full.txt,1614,12:3174,1569,55, 55 clopidogrel,false
+bmj4_6_e005442.full.txt,1615,3:1825,1619,461, we screened 461 citations,false
+bmj4_6_e005442.full.txt,1616,3:1852,null,12, 12 articles,false
+bmj4_6_e005442.full.txt,1617,3:1874,null,12, 12 trials,false
+bmj4_6_e005442.full.txt,1618,3:1887,null,14829, 14829 participants,false
+bmj4_6_e005442.full.txt,1619,6:4686,null,751, a total of 751 citations,false
+bmj4_6_e005442.full.txt,1620,6:4876,1615,461, we screened 461 citations,false
+bmj4_6_e005442.full.txt,1621,6:4914,1615,447, 447 were ineligible,false
+bmj4_6_e005442.full.txt,1622,6:4988,1615,14, 14 articles,false
+bmj4_6_e005442.full.txt,1623,6:5329,1622,12, total of 12,false
+bmj4_6_e005476.full.txt,1624,3:1352,null,12, 12 women,NL1
+bmj4_6_e005476.full.txt,1625,6:4320,1624,12, 12 women,false
+bmj4_6_e005476.full.txt,1626,6:4817,1624,12, 12 women,false
+bmj4_6_e005757.full.txt,1627,3:1765,null,300, study of 300 residents,false
+bmj4_7_e004419.full.txt,1628,3:1455,null,9028, 9028 participants,false
+bmj4_7_e004419.full.txt,1629,3:1499,1628,7568, 7568 participants,false
+bmj4_7_e004419.full.txt,1630,3:2051,1629,3060, 3060 male,false
+bmj4_7_e004419.full.txt,1631,3:2067,1629,4508, 4508 female,false
+bmj4_7_e004419.full.txt,1632,6:1853,1628,9028, 9028 participants,false
+bmj4_7_e004419.full.txt,1633,6:1975,1629,7568, 7568 participants,false
+bmj4_7_e004419.full.txt,1634,6:2102,1628,1460, 1460 patients,false
+bmj4_7_e004419.full.txt,1635,6:2822,1629,7568, 7568 participants,false
+bmj4_7_e004419.full.txt,1636,9:1528,1629,7568, 7568 participants,false
+bmj4_7_e004419.full.txt,1637,9:1574,1630,3060, 3060 males,false
+bmj4_7_e004419.full.txt,1638,9:1589,1631,4508, 4508 females,false
+bmj4_7_e004419.full.txt,1639,12:119,1629,3517, n=3517,false
+bmj4_7_e004419.full.txt,1640,12:147,1629,2769, n=2769,false
+bmj4_7_e004419.full.txt,1641,12:176,1629,1282, n=1282,false
+bmj4_7_e004419.full.txt,1642,12:204,1639,1353, 1353 male,false
+bmj4_7_e004419.full.txt,1643,12:217,1640,1117, 1117 male,false
+bmj4_7_e004419.full.txt,1644,12:230,1641,590, 590 male,false
+bmj4_7_e004419.full.txt,1645,12:259,1639,2164, 2164 female,false
+bmj4_7_e004419.full.txt,1646,12:272,1640,1652, 1652 female,false
+bmj4_7_e004419.full.txt,1647,12:285,1641,692, 692 female,false
+bmj4_7_e004419.full.txt,1648,12:1187,1639,2643, 2643 normal,false
+bmj4_7_e004419.full.txt,1649,12:1200,1640,1950, 1950 normal,false
+bmj4_7_e004419.full.txt,1650,12:1213,1641,879, 879 normal,false
+bmj4_7_e004419.full.txt,1651,12:1241,1639,873, 873 abnormal,false
+bmj4_7_e004419.full.txt,1652,12:1253,1640,818, 818 abnormal,false
+bmj4_7_e004419.full.txt,1653,12:1266,1641,402, 402 abnormal,false
+bmj4_7_e004419.full.txt,1654,12:1291,1639,2671, 2671 no smoker,false
+bmj4_7_e004419.full.txt,1655,12:1304,1640,2178, 2178 no smoker,false
+bmj4_7_e004419.full.txt,1656,12:1317,1641,922, 922 no smoker,false
+bmj4_7_e004419.full.txt,1657,12:1340,1639,846, 846 smoker,false
+bmj4_7_e004419.full.txt,1658,12:1352,1640,591, 591 smoker,false
+bmj4_7_e004419.full.txt,1659,12:1364,1641,360, 360 smoker,false
+bmj4_7_e004419.full.txt,1660,12:1397,1639,2886, 2886 no alcohol user,false
+bmj4_7_e004419.full.txt,1661,12:1410,1640,2234, 2234 no alcohol user,false
+bmj4_7_e004419.full.txt,1662,12:1423,1641,989, 989 no alcohol user,false
+bmj4_7_e004419.full.txt,1663,12:1445,1639,631, 631 alcohol user,false
+bmj4_7_e004419.full.txt,1664,12:1457,1640,535, 535 alcohol user,false
+bmj4_7_e004419.full.txt,1665,12:1469,1641,293, 293 alcohol user,false
+bmj4_7_e004419.full.txt,1666,12:1596,1639,3327, 3327 no physical activity,false
+bmj4_7_e004419.full.txt,1667,12:1609,1640,2353, 2353 no physical activity,false
+bmj4_7_e004419.full.txt,1668,12:1622,1641,1068, 1068 no physical activity,false
+bmj4_7_e004419.full.txt,1669,12:1646,1639,190, 190 physical activity,false
+bmj4_7_e004419.full.txt,1670,12:1657,1640,416, 416 physical activity,false
+bmj4_7_e004419.full.txt,1671,12:1670,1641,214, 214 physical activity,false
+bmj4_7_e004419.full.txt,1672,12:2004,1639,2310, 2310 hypertension no,false
+bmj4_7_e004419.full.txt,1673,12:2017,1640,1837, 1837 hypertension no,false
+bmj4_7_e004419.full.txt,1674,12:2030,1641,865, 865 hypertension no,false
+bmj4_7_e004419.full.txt,1675,12:2051,1639,1207, 1207 hypertension yes,false
+bmj4_7_e004419.full.txt,1676,12:2065,1640,932, 932 hypertension yes,false
+bmj4_7_e004419.full.txt,1677,12:2077,1641,417, 417 hypertension yes,false
+bmj4_7_e004466.full.txt,1678,3:1205,null,412, 412 patients,false
+bmj4_7_e004466.full.txt,1679,3:1239,null,418, 418 controls,false
+bmj4_7_e004466.full.txt,1680,6:2252,1678,155, 155 men,false
+bmj4_7_e004466.full.txt,1681,6:2264,1678,257, 257 women,false
+bmj4_7_e004466.full.txt,1682,6:2749,1679,418, 418 participants,false
+bmj4_7_e004466.full.txt,1683,6:2814,1679,160, 160 men,false
+bmj4_7_e004466.full.txt,1684,6:2826,1679,258, 258 women,false
+bmj4_7_e004466.full.txt,1685,12:2663,1679,418, n=418,false
+bmj4_7_e004466.full.txt,1686,12:2683,1678,412, n=412,false
+bmj4_7_e004466.full.txt,1687,12:2753,1679,114, 114 tt,false
+bmj4_7_e004466.full.txt,1688,12:2762,1678,94, 94 tt,false
+bmj4_7_e004466.full.txt,1689,12:2798,1679,225, 225 at,false
+bmj4_7_e004466.full.txt,1690,12:2807,1678,186, 186 at,false
+bmj4_7_e004466.full.txt,1691,12:2844,1679,79, 79 aa,false
+bmj4_7_e004466.full.txt,1692,12:2852,1678,132, 132 aa,false
+bmj4_7_e004466.full.txt,1693,12:2900,1679,383, 383 per a allele,false
+bmj4_7_e004466.full.txt,1694,12:2909,1678,450, 450 per a allele,false
+bmj4_7_e004466.full.txt,1695,12:2965,1679,154, 154 cc,false
+bmj4_7_e004466.full.txt,1696,12:2974,1678,208, 208 cc,false
+bmj4_7_e004466.full.txt,1697,12:3012,1679,190, 190 ct,false
+bmj4_7_e004466.full.txt,1698,12:3021,1678,170, 170 ct,false
+bmj4_7_e004466.full.txt,1699,12:3058,1679,74, 74 tt,false
+bmj4_7_e004466.full.txt,1700,12:3066,1678,34, 34 tt,false
+bmj4_7_e004466.full.txt,1701,12:3112,1679,338, 338 per t allele,false
+bmj4_7_e004466.full.txt,1702,12:3121,1678,238, 238 per t allele,false
+bmj4_7_e004466.full.txt,1703,12:3178,1679,114, 114 cc,false
+bmj4_7_e004466.full.txt,1704,12:3187,1678,94, 94 cc,false
+bmj4_7_e004466.full.txt,1705,12:3223,1679,226, 226 ct,false
+bmj4_7_e004466.full.txt,1706,12:3232,1679,190, 190 ct,false
+bmj4_7_e004466.full.txt,1707,12:3269,1678,78, 78 tt,false
+bmj4_7_e004466.full.txt,1708,12:3277,1679,128, 128 tt,false
+bmj4_7_e004466.full.txt,1709,12:3325,1679,382, 382 per t allele,false
+bmj4_7_e004466.full.txt,1710,12:3334,1678,446, 446 per t allele,false
+bmj4_7_e004481.full.txt,1711,3:1340,null,1093, 1093 children,false
+bmj4_7_e004481.full.txt,1712,3:1411,1711,271, n=271,false
+bmj4_7_e004481.full.txt,1713,6:3256,1711,1093, total of 1093,false
+bmj4_7_e004481.full.txt,1714,6:3552,1711,540, n=540,false
+bmj4_7_e004481.full.txt,1715,6:3574,1711,553, n=553,false
+bmj4_7_e004481.full.txt,1716,6:3885,1711,271, n=271,false
+bmj4_7_e004481.full.txt,1717,18:2129,1711,271, n=271,false
+bmj4_7_e004481.full.txt,1718,18:2150,1711,244, n=244,false
+bmj4_7_e004481.full.txt,1719,18:2175,1711,27, n=27,false
+bmj4_7_e004481.full.txt,1720,18:2219,1711,150, 150 girls,false
+bmj4_7_e004481.full.txt,1721,18:2228,1718,135, 135 girls,false
+bmj4_7_e004481.full.txt,1722,18:2237,1719,15, 15 girls,false
+bmj4_7_e004481.full.txt,1723,18:2381,1711,200, 200 new zealand european and others,false
+bmj4_7_e004481.full.txt,1724,18:2390,1718,182, 182 new zealand european and others,false
+bmj4_7_e004481.full.txt,1725,18:2399,1719,18, 18 new zealand european and others,false
+bmj4_7_e004481.full.txt,1726,18:2418,1711,50, 50 maori,false
+bmj4_7_e004481.full.txt,1727,18:2426,1718,43, 43 maori,false
+bmj4_7_e004481.full.txt,1728,18:2434,1719,7, 7 maori,false
+bmj4_7_e004481.full.txt,1729,18:2470,1711,20, 20 pacific,false
+bmj4_7_e004481.full.txt,1730,18:2477,1718,18, 18 pacific,false
+bmj4_7_e004481.full.txt,1731,18:2484,1719,2, 2 pacific,false
+bmj4_7_e004481.full.txt,1732,18:2711,1711,86, 86 some secondary school,false
+bmj4_7_e004481.full.txt,1733,18:2719,1718,79, 79 some secondary school,false
+bmj4_7_e004481.full.txt,1734,18:2727,1719,7, 7 some secondary school,false
+bmj4_7_e004481.full.txt,1735,18:2805,1711,91, 91 completed secondary school or tertiary education,false
+bmj4_7_e004481.full.txt,1736,18:2813,1718,79, 79 completed secondary school or tertiary education,false
+bmj4_7_e004481.full.txt,1737,18:2821,1719,12, 12 completed secondary school or tertiary education,false
+bmj4_7_e004481.full.txt,1738,18:2868,1711,91, 91 university degree,false
+bmj4_7_e004481.full.txt,1739,18:2876,1718,83, 83 university degree,false
+bmj4_7_e004481.full.txt,1740,18:2884,1719,8, 8 university degree,false
+bmj4_7_e004576.full.txt,1741,3:2231,null,1130, 1130 patients,NL1
+bmj4_7_e004576.full.txt,1742,3:2274,1741,544, n=544,L2
+bmj4_7_e004576.full.txt,1743,3:2304,1741,586, n=586,L2
+bmj4_7_e004576.full.txt,1744,3:2361,1741,1049, 1049 participants,false
+bmj4_7_e004576.full.txt,1745,9:3937,1741,1130, 1130 patients,false
+bmj4_7_e004576.full.txt,1746,9:4168,1741,1049, 1049 participants,false
+bmj4_7_e004576.full.txt,1747,12:929,1742,544, n=544,false
+bmj4_7_e004576.full.txt,1748,12:956,1743,586, n=586,false
+bmj4_7_e004576.full.txt,1749,12:971,1742,269, 269 men,false
+bmj4_7_e004576.full.txt,1750,12:982,1743,281, 281 men,false
+bmj4_7_e004576.full.txt,1751,12:1122,1742,461, 461 on drug treatment,false
+bmj4_7_e004576.full.txt,1752,12:1133,1743,507, 507 on drug treatment,false
+bmj4_7_e004576.full.txt,1753,12:1191,1742,88, 88 positive family history,false
+bmj4_7_e004576.full.txt,1754,12:1201,1743,78, 78 positive family history,false
+bmj4_7_e004576.full.txt,1755,12:1233,1742,11, 11 history of stroke,false
+bmj4_7_e004576.full.txt,1756,12:1242,1743,20, 20 history of stroke,false
+bmj4_7_e004576.full.txt,1757,12:1288,1742,10, 10 history of myocardial infarction,false
+bmj4_7_e004576.full.txt,1758,12:1297,1743,11, 11 history of myocardial infarction,false
+bmj4_7_e004576.full.txt,1759,12:1398,1742,73, 73 left ventricular hypertrophy,false
+bmj4_7_e004576.full.txt,1760,12:1408,1743,61, 61 left ventricular hypertrophy,false
+bmj4_7_e004576.full.txt,1761,12:1441,1742,256, 256 alcohol intake,false
+bmj4_7_e004576.full.txt,1762,12:1452,1743,267, 267 alcohol intake,false
+bmj4_7_e004576.full.txt,1763,12:1482,1742,84, 84 current smoker,false
+bmj4_7_e004576.full.txt,1764,12:1492,1743,86, 86 current smoker,false
+bmj4_7_e004581.full.txt,1765,3:1671,null,9, 9 eligible trials,false
+bmj4_7_e004581.full.txt,1766,3:1708,null,631, 631 patients,false
+bmj4_7_e004581.full.txt,1767,6:4901,null,606, total of 606,false
+bmj4_7_e004581.full.txt,1768,6:4984,1767,597, 597 were excluded,false
+bmj4_7_e004592.full.txt,1769,3:1089,null,15476, 15476 women,false
+bmj4_7_e004592.full.txt,1770,6:1668,1769,15476, 15476 women,false
+bmj4_7_e004592.full.txt,1771,6:5233,1769,15476, 15476 women,false
+bmj4_7_e004592.full.txt,1772,9:1101,1769,15476, n=15476,false
+bmj4_7_e004592.full.txt,1773,9:1153,1769,14463, n=14463,false
+bmj4_7_e004592.full.txt,1774,9:1160,1769,1013, n=1013,false
+bmj4_7_e004592.full.txt,1775,9:1224,1769,1781, 1781,false
+bmj4_7_e004592.full.txt,1776,9:1253,1769,3169, 3169,false
+bmj4_7_e004592.full.txt,1777,9:1282,1769,3611, 3611,false
+bmj4_7_e004592.full.txt,1778,9:1311,1769,3826, 3826,false
+bmj4_7_e004592.full.txt,1779,9:1339,1769,3089, 3089,false
+bmj4_7_e004592.full.txt,1780,9:1398,1769,4040, 4040,false
+bmj4_7_e004592.full.txt,1781,9:1423,1769,5233, 5233,false
+bmj4_7_e004592.full.txt,1782,9:1448,1769,2785, 2785,false
+bmj4_7_e004592.full.txt,1783,9:1603,1769,8992, 8992,false
+bmj4_7_e004592.full.txt,1784,9:1626,1769,6484, 6484,false
+bmj4_7_e004592.full.txt,1785,9:1677,1769,8500, 8500,false
+bmj4_7_e004592.full.txt,1786,9:1700,1769,6976, 6976,false
+bmj4_7_e004592.full.txt,1787,9:1777,1769,92, 92,false
+bmj4_7_e004607.full.txt,1788,3:1111,null,416, 416 students,false
+bmj4_7_e004607.full.txt,1789,12:1349,1788,416, 416 participants,false
+bmj4_7_e004607.full.txt,1790,12:3976,1788,416, n=416,false
+bmj4_7_e004607.full.txt,1791,12:4040,1788,64, 64 age 11-12,false
+bmj4_7_e004607.full.txt,1792,12:4051,1788,154, 154 age 13,false
+bmj4_7_e004607.full.txt,1793,12:4064,1788,198, 198 age 14+,false
+bmj4_7_e004607.full.txt,1794,12:4089,1788,394, 394 muslim,false
+bmj4_7_e004607.full.txt,1795,12:4109,1788,22, 22 non-muslim,false
+bmj4_7_e004607.full.txt,1796,12:4148,1788,57, 57 father no education,false
+bmj4_7_e004607.full.txt,1797,12:4175,1788,176, 176 father incomplete primary,false
+bmj4_7_e004607.full.txt,1798,12:4201,1788,94, 94 father complete primary,false
+bmj4_7_e004607.full.txt,1799,12:4229,1788,89, 89 father secondary or higher,false
+bmj4_7_e004607.full.txt,1800,12:4269,1788,49, 49 mother no education,false
+bmj4_7_e004607.full.txt,1801,12:4296,1788,173, 173 mother incomplete primary,false
+bmj4_7_e004607.full.txt,1802,12:4322,1788,119, 119 mother complete primary,false
+bmj4_7_e004607.full.txt,1803,12:4351,1788,75, 75 mother secondary or higher,false
+bmj4_7_e004607.full.txt,1804,12:4488,1788,116, 116 poor,false
+bmj4_7_e004607.full.txt,1805,12:4504,1788,144, 144 middle,false
+bmj4_7_e004607.full.txt,1806,12:4518,1789,156, 156 rich,false
+bmj4_7_e004782.full.txt,1807,3:1510,null,163, 163 participants,NL1
+bmj4_7_e004782.full.txt,1808,3:1560,1807,60, including 60 non-smokers,L2
+bmj4_7_e004782.full.txt,1809,3:1576,1807,53, 53 smokers,L2
+bmj4_7_e004782.full.txt,1810,3:1591,1807,50, 50 patients,L2
+bmj4_7_e004782.full.txt,1811,6:2747,1808,60, 60 non-smokers,false
+bmj4_7_e004782.full.txt,1812,6:2763,1809,53, 53 smokers,false
+bmj4_7_e004782.full.txt,1813,6:2778,1810,50, 50 patients,false
+bmj4_7_e004782.full.txt,1814,9:1053,1807,163, 163 participants,false
+bmj4_7_e004782.full.txt,1815,9:1128,1808,60, with 60 non-smokers,false
+bmj4_7_e004782.full.txt,1816,9:1200,1809,53, 53 smokers,false
+bmj4_7_e004782.full.txt,1817,9:1271,1810,50, 50 patients,false
+bmj4_7_e004782.full.txt,1818,9:4113,1807,163, n=163,false
+bmj4_7_e004782.full.txt,1819,9:4142,1808,60, n=60,false
+bmj4_7_e004782.full.txt,1820,9:4167,1809,53, n=53,false
+bmj4_7_e004782.full.txt,1821,9:4179,1810,50, n=50,false
+bmj4_7_e004782.full.txt,1822,9:4308,1807,88, 88 male,false
+bmj4_7_e004782.full.txt,1823,9:4317,1808,23, 23 male,false
+bmj4_7_e004782.full.txt,1824,9:4326,1809,37, 37 male,false
+bmj4_7_e004782.full.txt,1825,9:4335,1810,28, 28 male,false
+bmj4_7_e004782.full.txt,1826,9:4357,1807,75, 75 female,false
+bmj4_7_e004782.full.txt,1827,9:4366,1808,37, 37 female,false
+bmj4_7_e004782.full.txt,1828,9:4375,1809,16, 16 female,false
+bmj4_7_e004782.full.txt,1829,9:4384,1810,22, 22 female,false
+bmj4_7_e004782.full.txt,1830,9:4411,1807,129, 129 white,false
+bmj4_7_e004782.full.txt,1831,9:4421,1808,43, 43 white,false
+bmj4_7_e004782.full.txt,1832,9:4430,1809,41, 41 white,false
+bmj4_7_e004782.full.txt,1833,9:4439,1810,45, 45 white,false
+bmj4_7_e004782.full.txt,1834,9:4468,1807,17, 17 asian,false
+bmj4_7_e004782.full.txt,1835,9:4477,1808,9, 9 asian,false
+bmj4_7_e004782.full.txt,1836,9:4485,1809,7, 7 asian,false
+bmj4_7_e004782.full.txt,1837,9:4493,1810,1, 1 asian,false
+bmj4_7_e004782.full.txt,1838,9:4526,1807,14, 14 black,false
+bmj4_7_e004782.full.txt,1839,9:4534,1808,5, 5 black,false
+bmj4_7_e004782.full.txt,1840,9:4541,1809,5, 5 black,false
+bmj4_7_e004782.full.txt,1841,9:4548,1810,4, 4 black,false
+bmj4_7_e004782.full.txt,1842,9:4561,1807,3, 3 mixed,false
+bmj4_7_e004782.full.txt,1843,9:4568,1808,3, 3 mixed,false
+bmj4_7_e004875.full.txt,1844,3:1448,null,61491, 61491 male participants,false
+bmj4_7_e004875.full.txt,1845,3:1504,null,74941, 74941 female participants,false
+bmj4_7_e004875.full.txt,1846,6:818,1844,61491, 61491 male participants,false
+bmj4_7_e004875.full.txt,1847,6:855,1845,74941, 74941 female participants,false
+bmj4_7_e004875.full.txt,1848,6:2508,1844,59910, total of 59910,false
+bmj4_7_e004875.full.txt,1849,6:2523,1845,73114, 73114 women,false
+bmj4_7_e004875.full.txt,1850,12:1601,1848,55311, 55311 participants,false
+bmj4_7_e004875.full.txt,1851,12:1608,1848,4599, 4599 participants,false
+bmj4_7_e004875.full.txt,1852,12:1613,1849,66823, 66823 participants,false
+bmj4_7_e004875.full.txt,1853,12:1620,1849,6291, 6291 participants,false
+bmj4_7_e004899.full.txt,1854,3:1269,1857,986, data of 986 employees,false
+bmj4_7_e004899.full.txt,1855,3:1307,1854,405, 405 men,false
+bmj4_7_e004899.full.txt,1856,3:1319,1854,581, 581 women,false
+bmj4_7_e004899.full.txt,1857,6:549,null,1247, of the 1247 employees who filled in the questionnaire,false
+bmj4_7_e004899.full.txt,1858,6:637,1857,261, 261 were ... excluded,false
+bmj4_7_e004899.full.txt,1859,6:1120,1857,986, data of 986 individuals,false
+bmj4_7_e004899.full.txt,1860,6:1137,1859,405, 405 men,false
+bmj4_7_e004899.full.txt,1861,6:1149,1859,581, 581 women,false
+bmj4_7_e004899.full.txt,1862,9:2528,1860,180, 180 non-smokers,false
+bmj4_7_e004899.full.txt,1863,9:2539,1860,122, 122 smokers,false
+bmj4_7_e004899.full.txt,1864,9:2550,1860,103, 103 former smokers,false
+bmj4_7_e004899.full.txt,1865,12:2489,1861,276, 276 non-smokers,false
+bmj4_7_e004899.full.txt,1866,12:2500,1861,181, 181 smokers,false
+bmj4_7_e004899.full.txt,1867,12:2511,1861,124, 124 former smokers,false
+bmj4_7_e004919.full.txt,1868,3:1617,null,26000, sample of 26000 students,false
+bmj4_7_e004919.full.txt,1869,12:695,null,26078, from the total sample size of 26078 students,false
+bmj4_7_e004919.full.txt,1870,12:712,1869,2546, 2546 individuals did not answer,false
+bmj4_7_e004919.full.txt,1871,12:2463,1869,23532, 23532 total students,false
+bmj4_7_e004919.full.txt,1872,12:2470,1871,7799, 7799 high SC students,false
+bmj4_7_e004919.full.txt,1873,12:2475,1871,8389, 8389 medium SC students,false
+bmj4_7_e004919.full.txt,1874,12:2480,1871,7344, 7344 low SC students,false
+bmj4_7_e004919.full.txt,1875,12:2614,1871,3449, 3449 injured,false
+bmj4_7_e004919.full.txt,1876,12:2626,1872,1142, 1142 injured,false
+bmj4_7_e004919.full.txt,1877,12:2638,1873,1221, 1221 injured,false
+bmj4_7_e004919.full.txt,1878,12:2650,1874,1086, 1086 injured,false
+bmj4_7_e004919.full.txt,1879,12:2705,1871,12598, 12598 family affluence well off,false
+bmj4_7_e004919.full.txt,1880,12:2718,1872,3891, 3891 family affluence well off,false
+bmj4_7_e004919.full.txt,1881,12:2730,1873,4544, 4544 family affluence well off,false
+bmj4_7_e004919.full.txt,1882,12:2742,1874,4163, 4163 family affluence well off,false
+bmj4_7_e004919.full.txt,1883,12:2762,1871,7978, 7978 family affluence average,false
+bmj4_7_e004919.full.txt,1884,12:2774,1872,2871, 2871 family affluence average,false
+bmj4_7_e004919.full.txt,1885,12:2786,1873,2828, 2828 family affluence average,false
+bmj4_7_e004919.full.txt,1886,12:2798,1874,2279, 2279 family affluence average,false
+bmj4_7_e004919.full.txt,1887,12:2821,1871,2223, 2223 family affluence not well off,false
+bmj4_7_e004919.full.txt,1888,12:2832,1872,827, 827 family affluence not well off,false
+bmj4_7_e004919.full.txt,1889,12:2843,1873,778, 778 family affluence not well off,false
+bmj4_7_e004919.full.txt,1890,12:2853,1874,613, 613 family affluence not well off,false
+bmj4_7_e004919.full.txt,1891,12:2871,1871,733, 733 family affluence missing,false
+bmj4_7_e004919.full.txt,1892,12:2881,1872,210, 210 family affluence missing,false
+bmj4_7_e004919.full.txt,1893,12:2891,1873,239, 239 family affluence missing,false
+bmj4_7_e004919.full.txt,1894,12:2901,1874,284, 284 family affluence missing,false
+bmj4_7_e005142.full.txt,1895,3:1551,null,15140, 15140 eligible people,false
+bmj4_7_e005142.full.txt,1896,15:2525,1895,15140, n=15140,false
+bmj4_7_e005142.full.txt,1897,15:2534,1895,14016, n=14016,false
+bmj4_7_e005142.full.txt,1898,15:2543,1895,12807, n=12807,false
+bmj4_7_e005142.full.txt,1899,15:2552,1895,12746, n=12746,false
+bmj4_7_e005330.full.txt,1900,3:1331,1901,194, 194 adult patients,false
+bmj4_7_e005330.full.txt,1901,3:1494,null,736, 736 consecutive adults,false
+bmj4_7_e005330.full.txt,1902,6:1911,1901,736, 736 consecutive adults,false
+bmj4_7_e005330.full.txt,1903,9:5420,1901,217, of the 217 patients,false
+bmj4_7_e005330.full.txt,1904,9:5469,1903,23, 23 were not eligible,false
+bmj4_7_e005330.full.txt,1905,9:5491,1904,10, 10 were not available,false
+bmj4_7_e005330.full.txt,1906,9:5544,1904,5, 5 refusals,false
+bmj4_7_e005330.full.txt,1907,9:5556,1904,4, 4 already participated,false
+bmj4_7_e005330.full.txt,1908,9:5593,1904,3, 3 unable to consent,false
+bmj4_7_e005330.full.txt,1909,9:5653,1900,25, 25 failures,false
+bmj4_7_e005330.full.txt,1910,9:5719,1900,194, 194 patients,false
+bmj4_7_e005330.full.txt,1911,9:5769,1900,94, 94 elective patients,false
+bmj4_7_e005330.full.txt,1912,15:532,1900,25, n=25,false
+bmj4_7_e005330.full.txt,1913,15:547,1900,169, n=169,false
+bmj4_7_e005330.full.txt,1914,15:610,1912,19, 19 males,false
+bmj4_7_e005330.full.txt,1915,15:618,1913,131, 131 males,false
+bmj4_7_e005330.full.txt,1916,15:917,1912,1, 1 exploratory,false
+bmj4_7_e005330.full.txt,1917,15:923,1913,5, 5 exploratory,false
+bmj4_7_e005330.full.txt,1918,15:964,1912,3, 3 laparoscopic liver resection,false
+bmj4_7_e005330.full.txt,1919,15:971,1913,28, 28 laparoscopic liver resection,false
+bmj4_7_e005330.full.txt,1920,15:1006,1912,5, 5 minor open liver resection,false
+bmj4_7_e005330.full.txt,1921,15:1013,1913,62, 62 minor open liver resection,false
+bmj4_7_e005330.full.txt,1922,15:1061,1912,12, 12 major open liver±biliary reconstruction,false
+bmj4_7_e005330.full.txt,1923,15:1069,1913,52, 52 major open liver±biliary reconstruction,false
+bmj4_7_e005330.full.txt,1924,15:1085,1912,2, 2 whipple,false
+bmj4_7_e005330.full.txt,1925,15:1091,1913,15, 15 whipple,false
+bmj4_7_e005330.full.txt,1926,15:1123,1912,2, 2 other pancreatic surgery,false
+bmj4_7_e005330.full.txt,1927,15:1129,1913,7, 7 other pancreatic surgery,false
+bmj4_7_e005330.full.txt,1928,15:1169,1912,4, 4 major,false
+bmj4_7_e005330.full.txt,1929,15:1176,1913,36, 36 major,false
+bmj4_7_e005330.full.txt,1930,15:1201,1912,21, 21 ultramajor,false
+bmj4_7_e005330.full.txt,1931,15:1209,1913,133, 133 ultramajor,false
+bmj4_7_e005330.full.txt,1932,15:1995,1912,20, 20 urinary creatinine normal,false
+bmj4_7_e005330.full.txt,1933,15:2003,1913,143, 143 urinary creatinine normal,false
+bmj4_7_e005330.full.txt,1934,15:2022,1912,3, 3 urinary creatinine low,false
+bmj4_7_e005330.full.txt,1935,15:2029,1913,17, 17 urinary creatinine low,false
+bmj4_7_e005330.full.txt,1936,15:2042,1912,2, 2 urinary creatinine high,false
+bmj4_7_e005330.full.txt,1937,15:2048,1913,9, 9 urinary creatinine high,false
+bmj4_7_e005361.full.txt,1938,3:2152,1942,177, 177 patients,NL1
+bmj4_7_e005361.full.txt,1939,3:2175,1938,101, 101 men,false
+bmj4_7_e005361.full.txt,1940,3:2312,1938,110, 110 participants,false
+bmj4_7_e005361.full.txt,1941,3:2358,1938,67, ... was found in 67,L2
+bmj4_7_e005361.full.txt,1942,9:3050,null,189, 189 patients,OL1
+bmj4_7_e005361.full.txt,1943,9:3127,1942,10, 10 had ...,false
+bmj4_7_e005361.full.txt,1944,9:3257,1938,177, 177 participants,false
+bmj4_7_e005361.full.txt,1945,9:3284,1938,101, 101 were men,false
+bmj4_7_e005361.full.txt,1946,9:3423,1938,75, n=75,L2
+bmj4_7_e005361.full.txt,1947,9:3482,1938,35, n=35,L2
+bmj4_7_e005361.full.txt,1947,9:3482,1938,35, n=35,false
+bmj4_7_e005361.full.txt,1948,9:4351,1938,177, n=177,false
+bmj4_7_e005361.full.txt,1949,9:4404,1938,101, 101 male sex,false
+bmj4_7_e005361.full.txt,1950,9:4556,1938,35, 35 current or past smoking,false
+bmj4_7_e005361.full.txt,1951,9:4620,1938,47, 47 HIV infection,false
+bmj4_7_e005361.full.txt,1952,9:4648,1938,4, 4 diabetes millitus,false
+bmj4_7_e005361.full.txt,1953,9:4820,1938,110, 110 any respiratory symptoms,false
+bmj4_7_e005361.full.txt,1954,9:4837,1938,87, 87 cough,false
+bmj4_7_e005361.full.txt,1955,9:4861,1938,62, 62 expectoration,false
+bmj4_7_e005361.full.txt,1956,9:4880,1938,99, 99 dyspnoea,false
+bmj4_7_e005381.full.txt,1957,3:1580,1958,219, 219 patients,false
+bmj4_7_e005381.full.txt,1958,6:2923,null,309, 309 patients,false
+bmj4_7_e005381.full.txt,1959,9:238,1958,309, 309 patients,false
+bmj4_7_e005381.full.txt,1960,9:319,1958,286, 286 medical reports were retrieved,false
+bmj4_7_e005381.full.txt,1961,9:554,1958,219, 219 patients,false
+bmj4_7_e005381.full.txt,1962,9:1987,1961,216, 216 malaysian,false
+bmj4_7_e005381.full.txt,1963,9:2012,1961,3, 3 non-malaysian,false
+bmj4_7_e005381.full.txt,1964,9:2044,1961,69, 69 malay,false
+bmj4_7_e005381.full.txt,1965,9:2062,1961,110, 110 chinese,false
+bmj4_7_e005381.full.txt,1966,9:2080,1961,33, 33 indian,false
+bmj4_7_e005381.full.txt,1967,9:2097,1961,7, 7 other,false
+bmj4_7_e005381.full.txt,1968,9:2305,1961,25, 25 normal body weight,false
+bmj4_7_e005381.full.txt,1969,9:2326,1961,37, 37 overweight,false
+bmj4_7_e005381.full.txt,1970,9:2342,1961,43, 43 obese,false
+bmj4_7_e005381.full.txt,1971,9:2360,1961,114, 114 unknown,false
+bmj4_7_e005381.full.txt,1972,9:2405,1961,31, 31 current smoker,false
+bmj4_7_e005381.full.txt,1973,9:2425,1961,26, 26 ex-smoker,false
+bmj4_7_e005381.full.txt,1974,9:2446,1961,76, 76 non-smoker,false
+bmj4_7_e005381.full.txt,1975,9:2464,1961,86, 86 unknown,false
+bmj4_7_e005381.full.txt,1976,9:2518,1961,37, 37 current drinker,false
+bmj4_7_e005381.full.txt,1977,9:2539,1961,3, 3 ex-drinker,false
+bmj4_7_e005381.full.txt,1978,9:2559,1961,66, 66 non-drinker,false
+bmj4_7_e005381.full.txt,1979,9:2577,1961,113, 113 unknown,false
+bmj4_7_e005388.full.txt,1980,3:2215,1981,731989, our sample included 731989 babies,false
+bmj4_7_e005388.full.txt,1981,6:2151,null,811599, we identified all the 811599 babies,false
+bmj4_7_e005388.full.txt,1982,6:2879,1981,19167, n=19167,false
+bmj4_7_e005388.full.txt,1983,6:2978,1981,13539, we excluded 13539 babies,false
+bmj4_7_e005388.full.txt,1984,6:3203,1981,9195, n=9195,false
+bmj4_7_e005388.full.txt,1985,6:3367,1981,768059, the final sample included 768059 babies,false
+bmj4_7_e005388.full.txt,1986,12:1213,1985,768059, 768059 SGA,false
+bmj4_7_e005388.full.txt,1987,12:1228,1985,676961, 676961 SGA Term,false
+bmj4_7_e005388.full.txt,1988,12:1243,1985,36080, 36080 SGA Preterm,false
+bmj4_7_e005388.full.txt,1989,12:1258,1985,55018, 55018 SGA Postterm,false
+bmj4_7_e005388.full.txt,1990,12:1336,1986,393538,393538 male,false
+bmj4_7_e005388.full.txt,1991,12:1349,1987,343549, 343549 male,false
+bmj4_7_e005388.full.txt,1992,12:1362,1988,19635, 19635 male,false
+bmj4_7_e005388.full.txt,1993,12:1374,1989,30354, 30354 male,false
+bmj4_7_e005388.full.txt,1994,12:1393,1986,374521, 374521 female,false
+bmj4_7_e005388.full.txt,1995,12:1406,1987,333412, 333412 female,false
+bmj4_7_e005388.full.txt,1996,12:1419,1988,16445, 16445 female,false
+bmj4_7_e005388.full.txt,1997,12:1432,1989,24664, 24664 female,false
+bmj4_7_e005388.full.txt,1998,12:1462,1986,325326, 325326 birth order first,false
+bmj4_7_e005388.full.txt,1999,12:1475,1987,279426, 279426 birth order first,false
+bmj4_7_e005388.full.txt,2000,12:1488,1988,18796, 18796 birth order first,false
+bmj4_7_e005388.full.txt,2001,12:1501,1989,27104, 27104 birth order first,false
+bmj4_7_e005388.full.txt,2002,12:1520,1986,268998, 268998 birth order second,false
+bmj4_7_e005388.full.txt,2003,12:1533,1987,242276, 242276 birth order second,false
+bmj4_7_e005388.full.txt,2004,12:1546,1988,9774, 9774 birth order second,false
+bmj4_7_e005388.full.txt,2005,12:1557,1989,16948, 16948 birth order second,false
+bmj4_7_e005388.full.txt,2006,12:2911,1986,663043, 663043 born in Sweden,false
+bmj4_7_e005388.full.txt,2007,12:2924,1987,584683, 584683 born in Sweden,false
+bmj4_7_e005388.full.txt,2008,12:2937,1988,30745, 30745 born in Sweden,false
+bmj4_7_e005388.full.txt,2009,12:2950,1989,47615, 47615 born in Sweden,false
+bmj4_7_e005388.full.txt,2010,12:2981,1986,95393, 95393 not born in Sweden,false
+bmj4_7_e005388.full.txt,2011,12:2993,1987,84022, 84022 not born in Sweden,false
+bmj4_7_e005388.full.txt,2012,12:3005,1988,4749, 4749 not born in Sweden,false
+bmj4_7_e005388.full.txt,2013,12:3016,1989,6622, 6622 not born in Sweden,false
+bmj4_7_e005388.full.txt,2014,12:3035,1986,9623, 9623 missing,false
+bmj4_7_e005388.full.txt,2015,12:3045,1987,8256, 8256 missing,false
+bmj4_7_e005388.full.txt,2016,12:3055,1988,586, 586 missing,false
+bmj4_7_e005388.full.txt,2017,12:3064,1989,781, 781 missing,false
+bmj4_7_e005393.full.txt,2018,3:1531,2019,730, 730 individuals,false
+bmj4_7_e005393.full.txt,2019,6:4845,null,774, 774 individuals,false
+bmj4_7_e005393.full.txt,2020,6:5231,2019,730, 730 individuals,false
+bmj4_7_e005393.full.txt,2021,6:5715,2020,48, n=48,false
+bmj4_7_e005393.full.txt,2022,6:5814,2020,169, n=169,false
+bmj4_7_e005393.full.txt,2023,6:5885,2020,119, n=119,false
+bmj4_7_e005393.full.txt,2024,6:5972,2020,394, n=394,false
+bmj4_7_e005393.full.txt,2025,15:905,2021,48, n=48,false
+bmj4_7_e005393.full.txt,2026,15:920,2022,169, n=169,false
+bmj4_7_e005393.full.txt,2027,15:936,2023,119, n=119,false
+bmj4_7_e005393.full.txt,2028,15:952,2024,394, n=394,false
+bmj4_7_e005393.full.txt,2029,15:1057,2021,35, 35 male,false
+bmj4_7_e005393.full.txt,2030,15:1060,2021,13, 13 female,false
+bmj4_7_e005393.full.txt,2031,15:1063,2022,66, 66 male,false
+bmj4_7_e005393.full.txt,2032,15:1066,2022,103, 103 female,false
+bmj4_7_e005393.full.txt,2033,15:1070,2023,81, 81 male,false
+bmj4_7_e005393.full.txt,2034,15:1073,2023,38, 38 female,false
+bmj4_7_e005393.full.txt,2035,15:1076,2024,90, 90 male,false
+bmj4_7_e005393.full.txt,2036,15:1079,2024,304, 304 female,false
+bmj4_7_e005393.full.txt,2037,21:994,2021,48, n=48,false
+bmj4_7_e005393.full.txt,2038,21:1009,2022,169, n=169,false
+bmj4_7_e005393.full.txt,2039,21:1025,2023,119, n=119,false
+bmj4_7_e005393.full.txt,2040,21:1041,2024,394, n=394,false
+bmj4_7_e005393.full.txt,2041,21:2083,2021,48, n=48,false
+bmj4_7_e005393.full.txt,2042,21:2098,2022,169, n=169,false
+bmj4_7_e005393.full.txt,2043,21:2114,2023,119, n=119,false
+bmj4_7_e005393.full.txt,2044,21:2130,2024,394, n=394,false
+bmj4_7_e005412.full.txt,2045,3:1247,2046,761, 761 children,false
+bmj4_7_e005412.full.txt,2046,6:5383,null,1640, 1640 children,false
+bmj4_7_e005412.full.txt,2047,9:15,2046,773, 773 infants,false
+bmj4_7_e005412.full.txt,2048,9:187,2046,761, leaving 761 in the analysis,false
+bmj4_7_e005412.full.txt,2049,9:2774,2048,761, n=761,false
+bmj4_7_e005412.full.txt,2050,9:2805,null,879, n=879,false
+bmj4_7_e005429.full.txt,2051,3:1200,null,12875, n=12875,false
+bmj4_7_e005429.full.txt,2052,12:845,2051,12875, in the study population of 12875,false
+bmj4_7_e005429.full.txt,2053,12:951,2052,9384, 9384 with cardiovascular system drugs,false
+bmj4_7_e005429.full.txt,2054,12:1025,2052,2861, 2861 with respiratory system drugs,false
+bmj4_7_e005429.full.txt,2055,12:1063,2052,5395, 5395 non-opioid analgesia,false
+bmj4_7_e005429.full.txt,2056,12:1096,2052,3241, 3241 antidepressants,false
+bmj4_7_e005429.full.txt,2057,12:1132,2052,2916, 2916 antidiabetic drugs,false
+bmj4_7_e005429.full.txt,2058,12:1198,2052,2143, 2143 musculoskeletal system anti-inﬂammatory drugs,false
+bmj4_7_e005429.full.txt,2059,18:1399,2052,2738, 2738 age 40-54,false
+bmj4_7_e005429.full.txt,2060,18:1404,2053,1257, 1257 age 40-54,false
+bmj4_7_e005429.full.txt,2061,18:1414,2054,441, 441 age 40-54,false
+bmj4_7_e005429.full.txt,2062,18:1423,2052,1447, 1447 age 40-54,false
+bmj4_7_e005429.full.txt,2063,18:1433,2057,555, 555 age 40-54,false
+bmj4_7_e005429.full.txt,2064,18:1442,2058,378, 378 age 40-54,false
+bmj4_7_e005429.full.txt,2065,18:1457,2052,4963, 4963 age 55-69,false
+bmj4_7_e005429.full.txt,2066,18:1462,2053,3712, 3712 age 55-69,false
+bmj4_7_e005429.full.txt,2067,18:1471,2054,1131, 1131 age 55-69,false
+bmj4_7_e005429.full.txt,2068,18:1482,2052,2694, 2694 age 55-69,false
+bmj4_7_e005429.full.txt,2069,18:1492,2057,1250, 1250 age 55-69,false
+bmj4_7_e005429.full.txt,2070,18:1502,2058,1003, 1003 age 55-69,false
+bmj4_7_e005429.full.txt,2071,18:1518,2052,4459, 4459 age 70-84,false
+bmj4_7_e005429.full.txt,2072,18:1523,2053,3807, 3807 age 70-84,false
+bmj4_7_e005429.full.txt,2073,18:1533,2054,1154, 1154 age 70-84,false
+bmj4_7_e005429.full.txt,2074,18:1543,2052,2824, 2824 age 70-84,false
+bmj4_7_e005429.full.txt,2075,18:1553,2057,1010, 1010 age 70-84,false
+bmj4_7_e005429.full.txt,2076,18:1563,2058,703, 703 age 70-84,false
+bmj4_7_e005429.full.txt,2077,18:1644,2052,6896, 6896 women,false
+bmj4_7_e005429.full.txt,2078,18:1649,2053,4813, 4813 women,false
+bmj4_7_e005429.full.txt,2079,18:1659,2054,1510, 1510 women,false
+bmj4_7_e005429.full.txt,2080,18:1669,2052,4528, 4528 women,false
+bmj4_7_e005429.full.txt,2081,18:1679,2057,1351, 1351 women,false
+bmj4_7_e005429.full.txt,2082,18:1689,2058,1260, 1260 women,false
+bmj4_7_e005429.full.txt,2083,18:1703,2052,5979, 5979 men,false
+bmj4_7_e005429.full.txt,2084,18:1708,2053,4571, 4571 men,false
+bmj4_7_e005429.full.txt,2085,18:1718,2054,1351, 1351 men,false
+bmj4_7_e005429.full.txt,2086,18:1728,2052,2950, 2950 men,false
+bmj4_7_e005429.full.txt,2087,18:1738,2057,1565, 1565 men,false
+bmj4_7_e005429.full.txt,2088,18:1748,2058,883, 883 men,false
+bmj4_7_e005866.full.txt,2089,9:1537,null,412, 412 patients,false
+bmj4_7_e005866.full.txt,2090,24:840,2089,412, 412 patients,false
+Doc2.txt,2091,18:3072,null,20, we selected the following 20 journals,false
+Doc2.txt,2092,54:3131,null,600, sample of CEOs of more than 600,false
+Doc3.txt,2093,6:2917,2093,1000, over 1000 top managers,false
+Doc3.txt,2094,6:2943,null,1500, 1500 firms,false
+Doc3.txt,2095,21:1544,1094,1500, 1500 firms,false
+Doc3.txt,2096,21:2604,null,1123, 1123 top managers,false
+Doc3.txt,2097,21:2635,2095,626, 626 firms,false
+Doc4.txt,2098,3:1066,null,221, data from 221 establishments,NL1
+Doc4.txt,2099,33:1844,2098,221, the final sample includes 221 establishments,false
+Doc4.txt,2100,33:1926,2099,135, 135 US sample,false
+Doc4.txt,2101,33:2011,2099,86, 86 canadian sample,false
+Doc7.txt,2102,3:675,null,82, n=82,false
+Doc7.txt,2103,3:710,null,225, n=225,false
+Doc7.txt,2104,21:493,null,125, a total of 125 employees,false
+Doc7.txt,2105,21:577,null,92, 92 employees,false
+Doc7.txt,2106,45:1027,null,225, participants included 225 employees,false
+Doc7.txt,2107,15:1547,2106,140, 140 were women,false
+Doc10.txt,2108,3:1070,2110,154, using a sample of 154 acquisitions,NL1
+Doc10.txt,2109,9:1520,2108,154, 154 acquisitions,false
+Doc10.txt,2110,33:2956,null,397, 397 target firms,false
+Doc11.txt,2111,30:2991,null,261, 261 firms as our initial sample,OL1
+Doc11.txt,2112,33:93,2111,139, 139 firms in our sample,NL1
+manuscript4.txt,2113,9:740,null,129, 129 adult patients,NL1
+manuscript4.txt,2114,9:773,2113,97, 97 obese,L2
+manuscript4.txt,2115,9:793,2113,32, 32 non-obese,L2
+manuscript4.txt,2116,15:2109,null,31, 31 patients,false
+manuscript4.txt,2117,30:150,2113,129, 129 patients,false
+manuscript4.txt,2118,33:184,2116,31, 31 additional patients,false
+p1-zhao.txt,2119,3:651,null,13, 13 participants,NL1
+p1-zhao.txt,2120,9:3117,2119,13, 13 people,false
+p1-zhao.txt,2121,9:3128,2120,9, 9 female,false
+p1-zhao.txt,2122,9:3138,2120,4, 4 male,false
+p1-zhao.txt,2123,9:3146,2120,8, 8 white,false
+p1-zhao.txt,2124,9:3166,2120,2, 2 asian,false
+p1-zhao.txt,2125,9:3175,2120,2, 2 hispanic,false
+p9-balakrishnan.txt,2126,12:4452,null,12, 12 right-handed volunteers,false
+p9-balakrishnan.txt,2127,18:231,2126,12, 12 subjects,NL1
+p9-balakrishnan.txt,2128,18:1283,2126,12, 12 subjects,false
+p11-jung.txt,2129,3:1017,null,98, n=98,false
+p11-jung.txt,2130,12:697,null,3150, of the 3150 staff members invited,OL1
+p11-jung.txt,2131,12:745,1230,666, 666 participated,false
+p11-jung.txt,2132,12:2720,2131,98, 98 lab participants,NL1
+p21-bernstein.txt,2133,9:2735,null,542, 542 respondents general audience,false
+p21-bernstein.txt,2134,9:2788,null,589, 589 respondents specific audience,false
+p25-isokoski.txt,2135,12:1577,null,6, 6 people,false
+p53-petrelli.txt,2136,9:1746,null,16, 16 people,NL1
+p53-petrelli.txt,2137,9:1803,2136,6, 6 men,false
+p53-petrelli.txt,2138,9:1813,2136,10, 10 women,false
+p65-hinckley.txt,2139,19:4660,null,27, 27 people,false
+p65-hinckley.txt,2140,19:4671,2139,12, 12 male,false
+p75-branham.txt,2141,9:1766,null,50, 50 employees,false
+p85-salvucci.txt,2142,9:2123,null,20, total of 20,false
+p103-wang.txt,2143,15:3227,null,48, 48 participants,false
+p103-wang.txt,2144,15:3244,2143,15, 15 female,false
+p133-barkhuus.txt,2145,9:4914,null,18, 18 participants,false
+p133-barkhuus.txt,2146,9:4932,2145,13, 13 female,false
+p133-barkhuus.txt,2147,9:5620,2145,16, 16 of our participants,false
+p163-karkkainen.txt,2148,9:1945,null,13, 13 participants,false
+p163-karkkainen.txt,2149,12:4181,2148,13, 13 participants,false
+p163-karkkainen.txt,2150,12:4198,2148,11, 11 males,false
+p183-unruh.txt,2151,6:4186,null,14, 14 patients,false
+p193-klasnja.txt,2152,6:287,null,15, 15 breast cancer patients,false
+p193-klasnja.txt,2153,9:1913,2152,15, 15 patients,false
+p213-freire.txt,2154,6:1677,null,7, 7 participants,false
+p673-dubroy.txt,2155,3:358,null,21, 21 participants,false
+p673-dubroy.txt,2156,9:984,2155,21, 21 people,false
+p673-dubroy.txt,2157,9:995,2155,13, 13 female,false
+p673-dubroy.txt,2158,9:1006,2155,8, 8 female,false
+p1089-bianchi.txt,2159,9:1034,null,12, 12 participants,NL1
+p1281-iqbal.txt,2160,3:4072,null,18, 18 participants,false
+p1321-jankowski.txt,2161,15:2692,null,20, 20 students ... participated in the experiment,false
+p1321-jankowski.txt,2162,15:2816,2161,10, 10 were native,false
+p1321-jankowski.txt,2163,15:2870,2161,4, 4 female,false
+p1321-jankowski.txt,2164,15:3029,2161,9, 9 participants,false
+p1321-jankowski.txt,2165,15:3092,2161,2, 2 were researchers,false
+p1545-harrison.txt,2166,3:3972,null,20, 20 participants,false
+p1739-morris.txt,2167,3:666,null,624, 624 people,false
+p1739-morris.txt,2168,3:2768,2167,624, 624 people,false
+p1739-morris.txt,2169,9:4154,2167,624, 624 people,false
+p1739-morris.txt,2170,24:4340,2167,624, data from a survey of 624 users,false
+p1739-morris.txt,2171,30:297,2167,624, 624 people,false
+2014_172664.txt,2172,9:267,null,768, n=768,false
+2014_172664.txt,2173,9:669,2172,510, 510 patients,false
+2014_172664.txt,2174,21:1163,2172,768, 768 patients,false
+2014_172664.txt,2175,24:265,2172,402, n=402,false
+2014_172664.txt,2176,33:122,2172,269, n=269,false
+2014_172664.txt,2177,33:159,2172,293, n=293,false
+2014_172664.txt,2178,33:207,2172,206, n=206,false
+2014_172664.txt,2179,33:1070,2172,768, 768 patients,false
+2014_172664.txt,2180,36:195,2172,768, n=768,false
+2014_172664.txt,2181,36:736,2172,155, 155 cases,false
+2014_172664.txt,2182,36:802,2172,455, 455 cases,false
+2014_172664.txt,2183,36:868,2172,3, 3 cases,false
+2014_172664.txt,2184,36:1038,2172,55, 55 cases,false
+2014_172664.txt,2185,36:1152,2172,11, 11 patients,false
+2014_172664.txt,2186,39:388,2172,155, n=155,false
+2014_172664.txt,2187,39:409,2172,355, n=355,false
+2014_172664.txt,2188,39:772,2172,149, 149 cases,false
+2014_172664.txt,2189,39:825,2172,39, 39 had ...,false
+2014_172664.txt,2190,39:1201,2172,353, n=353,false
+2014_172664.txt,2191,39:1335,2172,155, n=155,false
+2014_172664.txt,2192,42:265,2172,455, n=455,false
+2014_172664.txt,2193,42:299,2172,55, n=55,false
+2014_172664.txt,2194,87:195,2172,100, 100 delirium,false
+2014_172664.txt,2195,87:304,2172,100, 100 delirium,false
+2014_172664.txt,2196,87:318,2172,69, 69 nondelirium,false
+2014_172664.txt,2197,87:473,2172,80, 80 delirium,false
+2014_172664.txt,2198,87:589,2172,100, 100 delirium,false
+2014_172664.txt,2199,87:603,2172,60, 60 nondelirium,false
+2014_172664.txt,2200,87:739,2172,55, 55 delirium,false
+2014_172664.txt,2201,87:752,2172,78, 78 nondelirium,false
+2014_172664.txt,2202,87:903,2172,75, 75 delirium,false
+2014_172664.txt,2203,87:916,2172,51, 51 nondelirium,false
+2014_172664.txt,2204,96:302,2172,768, n=768,NL1
+2014_172664.txt,2205,96:306,2172,510, n=510,L2
+2014_172664.txt,2206,96:310,2172,258, n=258,L2
+2014_172664.txt,2207,96:314,2172,158, n=158,false
+2014_172664.txt,2208,96:318,2172,610, n=610,false
+2014_172664.txt,2209,96:322,2172,466, n=466,false
+2014_172664.txt,2210,96:326,2172,302, n=302,false
+2014_172664.txt,2211,96:447,2172,49, 49 male,false
+2014_172664.txt,2212,96:450,2205,53, 53 male,false
+2014_172664.txt,2213,96:453,2206,45, 45 male,false
+2014_172664.txt,2214,96:456,2207,50, 50 male,false
+2014_172664.txt,2215,96:459,2208,50, 50 male,false
+2014_172664.txt,2216,96:462,2209,55, 55 male,false
+2014_172664.txt,2217,96:465,2210,40, 40 male,false
+2014_200039.txt,2218,6:872,2221,1320, 1320 patients,NL1
+2014_200039.txt,2219,15:117,null,3644, 3644 patients,false
+2014_200039.txt,2220,15:315,2219,2230, n=2230,OL1
+2014_200039.txt,2221,21:1152,null,2294, 2294 patients,false
+2014_200039.txt,2222,21:1219,2221,1320, 1320 patients,false
+2014_200039.txt,2223,21:1349,2221,974, n=974,false
+2014_200039.txt,2224,24:405,2218,627, 627/1320,false
+2014_200039.txt,2225,66:66,2218,693, n=693,L2
+2014_200039.txt,2226,66:101,2218,627, n=627,L2
+2014_200039.txt,2227,66:228,2225,264, n=264,false
+2014_200039.txt,2228,66:240,2226,272, n=272,false
+2014_200039.txt,2229,66:549,2225,58, 58 heart failure,false
+2014_200039.txt,2230,66:558,2226,102, 102 heart failure,false
+2014_200039.txt,2231,66:606,2225,136, 136 heart disease,false
+2014_200039.txt,2232,66:617,2226,145, 145 heart disease,false
+2014_200039.txt,2233,66:767,2225,144, 144 lung disease,false
+2014_200039.txt,2234,66:778,2226,111, 111 lung disease,false
+2014_200039.txt,2235,66:817,2225,20, 20 liver disease,false
+2014_200039.txt,2236,66:826,2226,19, 19 liver disease,false
+2014_200039.txt,2237,66:857,2225,65, 65 diabetes,false
+2014_200039.txt,2238,66:866,2226,76, 76 diabetes,false
+2014_218645.txt,2239,9:790,null,949, total of 949,NL1
+2014_218645.txt,2240,9:848,2239,357, n=357,L2
+2014_218645.txt,2241,9:869,2239,212, n=212,L2
+2014_218645.txt,2242,9:907,2239,380, n=380,L2
+2014_218645.txt,2243,9:1022,null,183, 183 newborns,false
+2014_218645.txt,2244,9:1046,2243,55, 55 fresh ET,false
+2014_218645.txt,2245,9:1059,2243,48, 48 frozen ET,false
+2014_218645.txt,2246,9:1076,2243,80, 80 serum T3,false
+2014_218645.txt,2247,18:1059,2239,212, 212 children,false
+2014_218645.txt,2248,21:582,2239,949, 949 asian singletons,false
+2014_218645.txt,2249,21:692,2239,357, 357 cases,false
+2014_218645.txt,2250,21:718,2239,212, 212 cases,false
+2014_218645.txt,2251,21:748,2239,380, 380 cases,false
+2014_218645.txt,2252,21:1556,2243,183, 183 full-term singletons,false
+2014_218645.txt,2253,39:1703,2243,183, 183 newborns,false
+2014_218645.txt,2254,87:200,2239,380, n=380,false
+2014_218645.txt,2255,87:225,2239,357, n=357,false
+2014_218645.txt,2256,87:255,2239,212, n=212,false
+2014_218645.txt,2257,90:830,2243,80, n=80,false
+2014_218645.txt,2258,90:855,2243,55, n=55,false
+2014_218645.txt,2259,90:882,2243,48, n=48,false
+2014_496814.txt,2260,9:614,null,8341, 8341 patients,NL1
+2014_496814.txt,2261,9:1068,2260,6292, 6292 elderly patients,L2
+2014_496814.txt,2262,9:1130,2260,2049, 2049 patients,L2
+2014_496814.txt,2263,36:81,2260,8341, 8341 elderly patients,false
+2014_496814.txt,2264,36:694,2261,6292, n=6292,false
+2014_496814.txt,2265,36:757,2262,2049, n=2049,false
+2014_496814.txt,2266,36:896,2260,5807, total of 5807,false
+2014_496814.txt,2267,42:606,2260,1984, 1984 study subjects,false
+2014_496814.txt,2268,42:664,2260,1984, 1984 matched subjects,false
+2014_496814.txt,2269,96:189,2260,8341, 8341 all patients,false
+2014_496814.txt,2270,96:195,2262,2049, 2049 not receiving chronic dialysis,false
+2014_496814.txt,2271,96:201,2261,6292, 6292 receiving chronic dialysis,false
+2014_496814.txt,2272,96:222,2260,3726, 3726 male,false
+2014_496814.txt,2273,96:235,2262,955, 955 male,false
+2014_496814.txt,2274,96:246,2261,2771, 2771 male,false
+2014_564259.txt,2275,12:644,null,7447, 7447-participant,OL1
+2014_564259.txt,2276,12:1290,2275,327, 327 deaths,false
+2014_564259.txt,2277,12:659,2275,7447, eligible participants were 7447,false
+2014_564259.txt,2278,27:1763,2275,7172, 7172 participants,NL1
+2014_564259.txt,2279,33:1010,2276,327, observed deaths was 327,false
+2014_564259.txt,2280,33:1025,2279,131, 131 were due to cancer,false
+2014_564259.txt,2281,33:1049,2279,81, 81 were cardiovascular,false
+2014_564259.txt,2282,33:1077,2279,115, 115 were for other causes,false
+2014_564259.txt,2283,78:152,2278,1434, n=1434,L2
+2014_564259.txt,2284,78:166,2278,1435, n=1435,L2
+2014_564259.txt,2285,78:180,2278,1434, n=1434,L2
+2014_564259.txt,2286,78:194,2278,1435, n=1435,L2
+2014_564259.txt,2287,78:208,2278,1434, n=1434,L2
+2014_564259.txt,2288,78:350,2283,836, 836 women,false
+2014_564259.txt,2289,78:361,2284,924, 924 women,false
+2014_564259.txt,2290,78:372,2285,712, 712 women,false
+2014_564259.txt,2291,78:383,2286,803, 803 women,false
+2014_564259.txt,2292,78:395,2287,648, 648 women,false
+2014_564259.txt,2293,78:598,2283,217, 217 current smoker,false
+2014_564259.txt,2294,78:609,2284,210, 210 current smoker,false
+2014_564259.txt,2295,78:620,2285,194, 194 current smoker,false
+2014_564259.txt,2296,78:631,2286,265, 265 current smoker,false
+2014_564259.txt,2297,78:642,2287,317, 317 current smoker,false
+2014_564259.txt,2298,78:676,2283,273, 273 former smoker,false
+2014_564259.txt,2299,78:687,2284,263, 263 former smoker,false
+2014_564259.txt,2300,78:698,2285,317, 317 former smoker,false
+2014_564259.txt,2301,78:709,2286,319, 319 former smoker,false
+2014_564259.txt,2302,78:720,2287,413, 413 former smoker,false
+2014_746816.txt,2303,6:920,null,2793, 2793 women,OL1
+2014_746816.txt,2304,6:944,2303,2012, 2012 were included,false
+2014_746816.txt,2305,10:1046,2303,279, n=279,false
+2014_746816.txt,2306,21:2453,2303,2752, n=2752,false
+2014_746816.txt,2307,33:351,2303,2793, 2793 were enrolled,false
+2014_746816.txt,2308,33:529,2303,2775, 2775 women,NL1
+2014_746816.txt,2309,69:104,2308,1382, n=1382,L2
+2014_746816.txt,2310,69:142,2308,1393, n=1393,L2
+2014_746816.txt,2311,69:613,2309,681, 681 - 0 previous pregnancies,false
+2014_746816.txt,2312,69:624,2310,709, 709 - 0 previous pregnancies,false
+2014_746816.txt,2313,69:639,2309,292, 292 - 1 previous pregnancies,false
+2014_746816.txt,2314,69:650,2310,279, 279 - 1 previous pregnancies,false
+2014_746816.txt,2315,69:666,2309,406, 406 - >=2 previous pregnancies,false
+2014_746816.txt,2316,69:677,2310,403, 403 - >=2 previous pregnancies,false
+2014_746816.txt,2317,69:1247,2309,249, 249 smoker,false
+2014_746816.txt,2318,69:1264,2310,275, 275 smoker,false
+2014_746816.txt,2319,69:1298,2309,844, 844 rural residence,false
+2014_746816.txt,2320,69:1215,2310,876, 876 rural residence,false
+2014_813247.txt,2321,9:476,null,62, 62 patients,false
+2014_813247.txt,2322,9:549,null,58, 58 patients,false
+2014_813247.txt,2323,33:1243,null,120, 120 patients,OL1
+2014_813247.txt,2324,39:273,2323,120, 120 patients,false
+2014_813247.txt,2325,39:554,2323,118, 118 patients,NL1
+2014_813247.txt,2326,39:586,2325,4, 4 patients,false
+2014_813247.txt,2327,84:91,2322,58, n=58,L2
+2014_813247.txt,2328,84:113,2321,60, n=60,L2
+2014_813247.txt,2329,84:185,2327,26, 26 male,false
+2014_813247.txt,2330,84:195,2328,28, 28 male,false
+2014_813247.txt,2331,84:723,2327,23, 23 vertigo,false
+2014_813247.txt,2332,84:734,2327,49, 49 tinnitus,false
+2014_813247.txt,2333,84:745,2327,44, 44 aural fullness,false
+2014_813247.txt,2334,84:758,2328,31, 31 vertigo,false
+2014_813247.txt,2335,84:769,2328,51, 51 tinnitus,false
+2014_813247.txt,2336,84:778,2328,32, 32 aural fullness,false
+2014_813247.txt,2337,96:1,2323,120, 120 randomised,false
+bmj4_3_e004842.full.txt,2338,3:1615,null,7000, 7000 substudy eligible patients,false
+bmj4_3_e004842.full.txt,2339,6:2100,2338,4494, 4494 adult patients,false
+bmj4_3_e004842.full.txt,2340,9:2556,null,7500, 7500 patients,false
+bmj4_3_e004842.full.txt,2341,12:4238,2338,7000, 7000 sirs patients,false
+bmj4_3_e004842.full.txt,2342,15:4367,2341,6598, n=6598,false
+bmj4_3_e004842.full.txt,2343,15:4430,2342,4668, n=4668,false
+bmj4_3_e004842.full.txt,2344,15:4492,2342,1930, n=1930,false
+bmj4_3_e004842.full.txt,2345,18:4441,2342,4231, n=4231,false
+bmj4_3_e004842.full.txt,2346,18:4504,2345,3016, n=3016,false
+bmj4_3_e004842.full.txt,2347,18:4566,2345,1215, n=1215,false
+bmj4_3_e004842.full.txt,2348,15:4633,2345,4200, 4200 patients,false
+bmj4_4_e004362.full.txt,2349,3:1917,null,350, 350 individuals,NL1
+bmj4_4_e004362.full.txt,2350,12:1479,2349,350, 350 participants,false
+bmj4_4_e005190.full.txt,2351,3:1703,2355,40, 40 participants,false
+bmj4_4_e005190.full.txt,2352,6:73,null,440, n=440,false
+bmj4_4_e005190.full.txt,2353,9:2505,2351,40, a total sample of 40,NL1
+bmj4_4_e005190.full.txt,2354,9:2509,2505,20, n=20,false
+bmj4_4_e005190.full.txt,2355,9:3322,null,44, n=44,false
+bmj4_5_e005268.full.txt,2356,15:512,null,150, 150 patients,NL1
+bmj4_5_e005268.full.txt,2357,15:610,2356,90, 90 patients,false
+bmj4_6_e005374.full.txt,2358,3:1048,null,1000, n=1000,false
+bmj4_6_e005374.full.txt,2359,6:1749,2358,1000, a representative sample of 1000,false
+bmj4_6_e005374.full.txt,2360,6:2106,2358,1000, 1000 participants,false
+bmj4_6_e005374.full.txt,2361,6:2315,null,4899,4899 people,OL1
+bmj4_6_e005374.full.txt,2362,6:2374,2361,3876, 3876 were excluded,false
+bmj4_6_e005374.full.txt,2363,6:2558,2362,23, n=23,false
+bmj4_6_e005374.full.txt,2364,6:5542,2358,214, n=214,L2
+bmj4_6_e005374.full.txt,2365,6:555,2358,239, n=239,L2
+bmj4_6_e005374.full.txt,2366,6:5568,2358,198, n=198,L2
+bmj4_6_e005374.full.txt,2367,6:5591,2358,189, n=189,L2
+bmj4_6_e005374.full.txt,2368,6:5645,2358,159, n=159,L2
+bmj4_6_e005374.full.txt,2369,9:3448,2358,1000, n=1000,false
+bmj4_6_e005374.full.txt,2370,9:3566,2369,999, n=999,NL1
+bmj4_6_e005374.full.txt,2371,12:949,2373,171, 171 male neck pain,false
+bmj4_6_e005374.full.txt,2372,12:960,2373,211, 211 female neck pain,false
+bmj4_6_e005374.full.txt,2373,12:971,2369,382, 382 total neck pain,false
+bmj4_6_e005374.full.txt,2374,12:1056,2376,137, 137 male headache,false
+bmj4_6_e005374.full.txt,2375,12:1067,2376,217, 217 female headache,false
+bmj4_6_e005374.full.txt,2376,12:1078,2369,354, 354 total  headache,false
+bmj4_6_e005374.full.txt,2377,12:1319,2379,115, 115 male muscle pain,false
+bmj4_6_e005374.full.txt,2378,12:1330,2379,116, 116 female muscle pain,false
+bmj4_6_e005374.full.txt,2379,12:1341,2369,231, 231 total muscle pain,false
+bmj4_8_e004892.full.txt,2380,3:1407,null,2533, 2533 patients,NL1
+bmj4_8_e004892.full.txt,2381,6:3962,2380,2533, 2533 patients,false
+bmj4_8_e004892.full.txt,2382,6:4865,2380,2533, 2533 patients,false
+bmj4_8_e004892.full.txt,2383,9:2691,2380,99, n=99,L2
+bmj4_8_e004892.full.txt,2384,9:2710,2380,520, 520 delayed PCI,L2
+bmj4_8_e004892.full.txt,2385,9:2725,2380,1496, 1496 NSTE,L2
+bmj4_8_e004892.full.txt,2386,9:2735,2380,418, n=418,L2
+bmj4_8_e004892.full.txt,2387,9:2749,2380,2533, n=2533,false
+bmj4_8_e004892.full.txt,2388,9:2849,2383,79, 79 male,false
+bmj4_8_e004892.full.txt,2389,9:2859,2384,397, 397 male,false
+bmj4_8_e004892.full.txt,2390,9:2870,2385,948, 948 male,false
+bmj4_8_e004892.full.txt,2391,9:2881,2386,301, 301 male,false
+bmj4_8_e004892.full.txt,2392,9:2892,2387,1723, 1723 male,false
+bmj4_8_e004892.full.txt,2393,21:4858,2380,2533, 2533 patients,false
+bmj4_8_e005643.full.txt,2394,3:1813,null,100, 100 patients,NL1
+bmj4_8_e005643.full.txt,2395,3:2482,2394,100, 100 patients,false
+bmj4_8_e005643.full.txt,2396,9:4727,2394,100, 100 patients,false
+bmj4_8_e005643.full.txt,2397,9:5188,2396,50, 50 participants,L2
+bmj4_8_e005643.full.txt,2398,9:5259,2396,50, 50 non-exposed participants,L2
+bmj4_10_e005947.full.txt,2399,3:1291,null,2192, 2192 participants,NL1
+bmj4_10_e005947.full.txt,2400,3:1583,2399,793, n=793,L2
+bmj4_10_e005947.full.txt,2401,3:1656,2399,1399, n=1399,L2
+bmj4_10_e005947.full.txt,2402,6:2110,null,13 233, 13 233 registered patients,OL1
+bmj4_10_e005947.full.txt,2403,6:2138,2402,2192, 2192 underwent ...,false
+bmj4_10_e005947.full.txt,2404,6:4488,2399,793, 793 patients,false
+bmj4_10_e005947.full.txt,2405,6:4525,2404,698, n=698,false
+bmj4_10_e005947.full.txt,2406,6:4550,2404,95, n=95,false
+bmj4_10_e005947.full.txt,2407,6:4575,2399,1399, 1399 patients,false
+bmj4_10_e005947.full.txt,2408,6:4616,2407,996, n=996,false
+bmj4_10_e005947.full.txt,2409,6:4643,2407,403, n=403,false
+bmj4_10_e005947.full.txt,2410,9:2559,2399,1399, n=1399,false
+bmj4_10_e005947.full.txt,2411,9:2578,2399,793, n=793,false
+bmj4_10_e005947.full.txt,2412,9:2911,2410,996, 996 male,false
+bmj4_10_e005947.full.txt,2413,9:2922,2411,698, 698 male,false
+bmj4_10_e005947.full.txt,2414,9:2940,2410,403, 403 female,false
+bmj4_10_e005947.full.txt,2415,9:2951,2411,95, 95 female,false
+bmj4_10_e005947.full.txt,2416,12:1335,2402,11 041, n=11 041,false
+bmj4_10_e005947.full.txt,2417,12:1353,2399,2192, n=2192,false
+bmj4_10_e005947.full.txt,2418,12:1840,2407,1399,n=1399,false
+bmj4_10_e005947.full.txt,2419,12:1852,2404,793, n=793,false
+bmj4_10_e005947.full.txt,2420,12:2343,2418,823, n=823,false
+bmj4_10_e005947.full.txt,2421,12:2354,2419,418, n=418,false
+bmj4_10_e005947.full.txt,2422,15:3527,2407,1399, n=1399,false
+bmj4_10_e005947.full.txt,2423,15:3539,2404,793, n=793,false
+bmj4_10_e005947.full.txt,2424,18:1964,2407,1399, n=1399,false
+bmj4_10_e005947.full.txt,2425,18:1983,2404,793, n=793,false
+bmj4_10_e005947.full.txt,2426,18:2328,2424,891, n=891,false
+bmj4_10_e005947.full.txt,2427,18:2346,2425,496, n=496,false
+bmj4_10_e005947.full.txt,2428,18:2653,2424,389, n=389,false
+bmj4_10_e005947.full.txt,2429,18:2671,2425,164, n=164,false
+bmj4_11_e006551.full.txt,2430,3:1995,null,5362, 5362 reviewed cases,OL1
+bmj4_11_e006551.full.txt,2431,3:2043,2430,651, 651 were excluded,false
+bmj4_11_e006551.full.txt,2432,6:4912,2430,5362, 5362 cases,false
+bmj4_11_e006551.full.txt,2433,6:4960,2431,651, 651 were excluded,false
+bmj4_11_e006551.full.txt,2434,6:5012,2432,4711, 4711 cases,NL1
+bmj4_11_e006551.full.txt,2435,6:5024,2434,2674, 2674 women,false
+bmj4_11_e006551.full.txt,2436,6:5034,2434,2037, 2037 men,false
+bmj4_11_e006551.full.txt,2437,6:5137,2434,1842, 1842 cases,L2
+bmj4_11_e006551.full.txt,2438,6:5157,2434,1819, 1819 cases,L2
+bmj4_11_e006551.full.txt,2439,6:5180,2434,1050, 1050 cases,L2
+bmj4_11_e006551.full.txt,2440,9:4166,2434,2037, 2037 male,false
+bmj4_11_e006551.full.txt,2441,9:4272,2434,2674, 2674 female,false
+bmj4_11_e006551.full.txt,2442,9:4378,2434,4711, 4711 total,false
+bmj4_11_e006551.full.txt,2443,12:3194,2434,1842, n=1842,false
+bmj4_11_e006551.full.txt,2444,12:3219,2434,1819, n=1819,false
+bmj4_11_e006551.full.txt,2445,12:3241,2434,1050, n=1050,false
+bmj4_11_e006551.full.txt,2446,15:1279,2444,925, n=925,false
+bmj4_11_e006551.full.txt,2447,15:1314,2444,894, n=894,false
+Doc2 2.txt,2448,3:729,null,179, 179 employees,false
+Doc2 2.txt,2449,18:3255,null,271, staff size of 271,NL1
+Doc2 2.txt,2450,21:2191,2448,189, 189 employees,false
+Doc2 2.txt,2451,24:522,2448,179, 179 employees,false
+Doc2 2.txt,2452,24:577,2451,28, 28 employees,false
+Doc2 2.txt,2453,24:615,2451,62, 62 employees,false
+Doc2 2.txt,2454,24:659,2451,89, 89 employees,false
+Doc2 2.txt,2455,24:1067,2451,179, n=179,L2
+Doc2 2.txt,2456,24:1143,2455,92, n=92,L2
+Doc2 2.txt,2457,24:1897,2451,179, 179 employees,false
+Doc5 4.txt,2458,24:3036,null,1019, 1019 employees,NL1
+Doc5 4.txt,2459,24:3164,2458,733, 733 employees,L2
+Doc5 4.txt,2460,39:3893,2459,286, 286 worked in Plant B,L2
+Doc5 4.txt,2461,42:2378,2460,223, n=223,false
+Doc5 4.txt,2462,57:2670,2458,250, 250 employees,false
+Doc5 5.txt,2463,3:756,null,221, 221 entrepreneurs,NL1
+Doc5 5.txt,2464,35:2928,null,1866, 1866 firms,OL1
+Doc5 5.txt,2465,35:1970,2464,905, excluded 905 businesses,false
+Doc5 5.txt,2466,35:3148,2464,36, 36 firms,false
+Doc5 5.txt,2467,38:83,2464,920, final sample of 920 new ventures,false
+Doc5 5.txt,2468,38:224,2467,920, 920 entrepreneurs,false
+Doc5 5.txt,2469,38:244,2467,321, 321 did not response,false
+Doc5 5.txt,2470,38:295,2467,71, 71 refused to participate,false
+Doc5 5.txt,2471,38:822,2467,248, 248 entrepreneurs,false
+Doc5 5.txt,2472,38:916,2467,221, 221 surveys,false
+Doc5 5.txt,2473,38:1495,2472,204, n=204,false
+Doc5 5.txt,2474,38:1597,2472,17, n=17,false
+Doc5 5.txt,2475,38:1895,2472,168, 168 males,false
+Doc5 5.txt,2476,38:1910,2472,53, 53 females,false
+Doc5 5.txt,2477,38:2033,2472,5, n=5,false
+Doc5 5.txt,2478,38:2060,2472,100, n=100,false
+Doc5 5.txt,2479,38:2088,2472,61, n=61,false
+Doc5 5.txt,2480,38:2114,2472,11, n=11,false
+Doc5 5.txt,2481,38:2146,2472,44, n=44,false
+Doc8.txt,2482,3:841,null,310, sample of 310 working respondents,NL1
+Doc8.txt,2483,27:1013,2482,310, sample consisted of 310 respondents,false
+How-lexical-is-the.txt,2484,33:3784,null,36, n=36,false
+How-lexical-is-the.txt,2485,27:3258,null,32, 32 participants,false
+Infants-detect-changes.txt,2486,15:3002,null,30, 30 healthy full-term infants,false
+Infants-detect-changes.txt,2487,15:3032,2486,13, 13 girls,false
+Infants-detect-changes.txt,2488,15:3042,2486,17, 17 boys,false
+Infants-detect-changes.txt,2489,15:3467,2486,12, 12 additional infants,false
+Infants-detect-changes.txt,2490,15:3521,2489,3, n=3,false
+Infants-detect-changes.txt,2491,15:2612,2489,3, n=3,false
+Infants-detect-changes.txt,2492,15:3637,2489,2, n=2,false
+Infants-detect-changes.txt,2493,15:3704,2489,2, n=2,false
+Infants-detect-changes.txt,2494,15:3793,2489,2, n=2,false
+Infants-detect-changes.txt,2495,27:109,null,32, 32 healthy full-term infants,false
+Infants-detect-changes.txt,2496,27:139,2495,18, 18 girls,false
+Infants-detect-changes.txt,2497,27:149,2495,14, 14 boys,false
+Infants-detect-changes.txt,2498,27:287,2495,16, n=16,false
+Infants-detect-changes.txt,2499,27:318,2495,16, n=16,false
+Infants-detect-changes.txt,2500,27:394,2495,4, n=4,false
+Infants-detect-changes.txt,2501,27:425,2495,1, n=1,false
+Infants-detect-changes.txt,2502,27:450,2495,2, n=2,false
+Infants-detect-changes.txt,2503,27:480,2495,1, n=1,false
+Infants-detect-changes.txt,2504,33:2404,null,64, 64 healthy full-term infants,false
+Infants-detect-changes.txt,2505,33:2434,2504,25, 25 girls,false
+Infants-detect-changes.txt,2506,33:2444,2504,39, 39 boys,false
+Infants-detect-changes.txt,2507,33:2903,2504,18, 18 additional infants were excluded,false
+Infants-detect-changes.txt,2508,33:2957,2507,5, n=5,false
+Infants-detect-changes.txt,2509,33:2982,2507,4, n=4,false
+Infants-detect-changes.txt,2510,33:3009,2507,4, n=4,false
+Infants-detect-changes.txt,2511,33:3076,2507,3, n=3,false
+Infants-detect-changes.txt,2512,33:3104,2507,1, n=1,false
+Infants-detect-changes.txt,2513,33:3124,2507,1, n=1,false
+Infants-detect-changes.txt,2514,42:91,null,32, 32 infants,false
+Infants-detect-changes.txt,2515,42:103,2514,15, 15 girls,false
+Infants-detect-changes.txt,2516,42:113,2514,17, 17 boys,false
+Infants-detect-changes.txt,2517,42:241,2514,16, n=16,false
+Infants-detect-changes.txt,2518,42:299,2514,16, n=16,false
+Infants-detect-changes.txt,2519,42:295,2514,1, n=1,false
+Infants-detect-changes.txt,2520,42:424,2514,1, n=1,false
+Inferring-word-meanings.txt,2521,18:3221,null,201, 201 unique individuals,false
+Inferring-word-meanings.txt,2522,27:1538,null,24, 24 children,false
+Inferring-word-meanings.txt,2523,27:1770,2522,12, n=12,false
+Inferring-word-meanings.txt,2524,27:1813,2522,12, n=12,false
+Inferring-word-meanings.txt,2525,33:1611,null,25, 25 children,false
+Inferring-word-meanings.txt,2526,33:1743,2525,12, n=12,false
+Inferring-word-meanings.txt,2527,33:1786,2525,13, n=13,false
+Inferring-word-meanings.txt,2528,36:1963,null,144, 144 children,false
+Inferring-word-meanings.txt,2529,36:2102,2528,24, n=24,false
+Inferring-word-meanings.txt,2530,36:2189,2528,24, n=24,false
+NEJMoa1305224.txt,2531,3:2120,null,419, 419 postmenopausal women,OL1
+NEJMoa1305224.txt,2532,6:2661,2531,419, 419 participants,false
+NEJMoa1305224.txt,2533,6:2791,2531,367, total of 367,false
+NEJMoa1305224.txt,2534,6:3125,2531,52, 52 participants,false
+NEJMoa1305224.txt,2535,12:3726,2531,419, 419 participants,false
+NEJMoa1305224.txt,2536,12:3804,2531,383, 383 ... completed,false
+NEJMoa1305224.txt,2537,12:3845,2531,36, 36 participants,false
+NEJMoa1305224.txt,2538,15:2944,2531,52, n=52,false
+NEJMoa1305224.txt,2539,15:2966,2531,51, n=51,false
+NEJMoa1305224.txt,2540,15:2989,2531,55, n=55,false
+NEJMoa1305224.txt,2541,18:1822,2531,50, n=50,false
+NEJMoa1305224.txt,2542,18:1844,2531,51, n=51,false
+NEJMoa1305224.txt,2543,18:1867,2531,49, n=49,false
+NEJMoa1305224.txt,2544,21:2537,2531,419, 419 postmenopausal women,false
+NEJMoa1310460.txt,2545,9:1619,null,1661, 1661 patients,false
+NEJMoa1310460.txt,2546,12:2243,2545,900, 900 patients,false
+NEJMoa1310460.txt,2547,12:2621,2545,1200, 1200 patients,false
+NEJMoa1310460.txt,2548,12:2778,null,2001, 2001 patients,NL1
+NEJMoa1310460.txt,2549,12:2798,2548,1347, 1347 in the group ...,L2
+NEJMoa1310460.txt,2550,12:2858,2548,340, 340 in the group ...,L2
+NEJMoa1310460.txt,2551,12:2923,2548,314, 314 in the group ...,L2
+NEJMoa1310460.txt,2552,15:3156,2548,500, 500 patients,false
+NEJMoa1310460.txt,2553,15:3239,2552,87, 87 had ...,false
+NEJMoa1310460.txt,2554,15:3478,2552,117, 117 patients,false
+NEJMoa1310460.txt,2555,15:3541,2554,44, 44 had ...,false
+NEJMoa1310460.txt,2556,15:3788,2548,770, 770 patients,false
+NEJMoa1310460.txt,2557,15:3943,2556,122, 122 of these patients,false
+NEJMoa1310460.txt,2558,15:4385,2548,173, 173 patients,false
+NEJMoa1310753.txt,2559,3:2124,null,947, 947 participants,NL1
+NEJMoa1310753.txt,2560,12:662,null,1080, 1080 participants,false
+NEJMoa1310753.txt,2561,12:1459,null,5322, 5322 potential patients,OL1
+NEJMoa1310753.txt,2562,12:1501,2561,4375, 4375 were not enrolled,false
+NEJMoa1310753.txt,2563,12:1431,2559,947, 947 underwent randomization,false
+NEJMoa1310753.txt,2564,12:1693,2563,467, 467 were assigned to ...,L2
+NEJMoa1310753.txt,2565,12:1924,2563,480, 480 were assigned to ...,L2
+NEJMoa1310753.txt,2566,12:2234,2563,459, 459 were included in ...,false
+NEJMoa1310753.txt,2567,12:2272,2563,472, 472 were included in ...,false
+NEJMoa1310753.txt,2568,18:1782,2566,459, n=459,false
+NEJMoa1310753.txt,2569,18:1815,2567,472, n=472,false
+NEJMoa1311274.txt,2570,3:2902,null,1277, 1277 adults,NL1
+NEJMoa1311274.txt,2571,3:3100,2570,426, 426 patients,L2
+NEJMoa1311274.txt,2572,3:3202,2570,433, 433 patients,L2
+NEJMoa1311274.txt,2573,3:3357,2570,418, 418 patients,L2
+NEJMoa1311274.txt,2574,3:3839,2570,255, 255 patients,false
+NEJMoa1311274.txt,2575,12:846,2570,400, 400 patients,false
+NEJMoa1311274.txt,2576,12:1631,2570,400, 400 patients,false
+NEJMoa1311274.txt,2577,12:2512,2570,1277, 1277 patients,false
+NEJMoa1311274.txt,2578,15:1219,null,1837, 1837 patients,OL1
+NEJMoa1311274.txt,2579,15:1263,2578,560, 560 were excluded,false
+NEJMoa1311274.txt,2580,21:1411,2571,426, n=426,false
+NEJMoa1311274.txt,2581,21:1441,2572,433, n=433,false
+NEJMoa1311274.txt,2582,21:1470,2573,418, n=418,false
+NEJMoa1311274.txt,2583,21:1493,2570,1277, n=1277,false
+NEJMoa1311274.txt,2584,21:1524,2571,264, 264 female,false
+NEJMoa1311274.txt,2585,21:1533,2572,263, 263 female,false
+NEJMoa1311274.txt,2586,21:1542,2573,215, 215 female,false
+NEJMoa1311274.txt,2587,21:1551,2570,742, 742 female,false
+NEJMoa1311274.txt,2588,24:133,2571,426, n=426,false
+NEJMoa1311274.txt,2589,24:163,2572,433, n=433,false
+NEJMoa1311274.txt,2590,24:192,2573,418, n=418,false
+NEJMoa1311274.txt,2591,24:215,2570,1277, n=1277,false
+NEJMoa1312173.txt,2592,3:2047,null,776, 776 patients,NL1
+NEJMoa1312173.txt,2593,3:2389,2592,388, 388 patients,L2
+NEJMoa1312173.txt,2594,3:2447,2592,388, 388 patients,L2
+NEJMoa1312173.txt,2595,6:3955,null,600, 600 patients,false
+NEJMoa1312173.txt,2596,12:3536,2592,776, 776 patients,false
+NEJMoa1312173.txt,2597,12:3829,2596,388, 388 patients,false
+NEJMoa1312173.txt,2598,12:3887,2596,388, 388 patients,false
+NEJMoa1312173.txt,2599,15:506,null,4098, 4098 patients,OL1
+NEJMoa1312173.txt,2600,15:550,2599,3298, 3298 were not eligible,false
+NEJMoa1312173.txt,2601,15:1841,2599,800, 800 patients,false
+NEJMoa1312173.txt,2602,15:478,2601,798, 798 underwent randomization,false
+NEJMoa1312173.txt,2603,15:1498,2602,396, 396 were assigned to ...,false
+NEJMoa1312173.txt,2604,15:1533,2602,402, 402 were assigned to ...,false
+NEJMoa1312173.txt,2605,15:1739,2603,388, 388 were included,false
+NEJMoa1312173.txt,2606,15:1790,2603,388, 388 were included,false
+NEJMoa1312173.txt,2607,18:771,2592,388, 388 patients,false
+NEJMoa1312173.txt,2608,18:829,2592,388, 388 patients,false
+NEJMoa1312173.txt,2609,18:1232,2592,388, n=388,false
+NEJMoa1312173.txt,2610,18:1260,2592,388, n=388,false
+NEJMoa1312173.txt,2611,18:1309,2609,250, 250 male,false
+NEJMoa1312173.txt,2612,18:1320,2610,267, 267 male,false
+NEJMoa1312173.txt,2613,21:2034,2592,388, n=388,false
+NEJMoa1312173.txt,2614,21:2062,2592,388, n=388,false
+NEJMoa1312173.txt,2615,21:1270,2592,26, 26 patients,false
+NEJMoa1312173.txt,2616,21:1319,2592,11, 11 patients,false
+NEJMoa1312173.txt,2617,27:797,2592,388, n=388,false
+NEJMoa1312173.txt,2618,27:825,2592,388, n=388,false
+NEJMoa1312808.txt,2619,3:989,2622,251, 251 patients,NL1
+NEJMoa1312808.txt,2620,9:3838,null,3458, 3458 patients,OL1
+NEJMoa1312808.txt,2621,9:3855,2620,447, 447 of these,false
+NEJMoa1312808.txt,2622,9:3925,2621,251, 251 underwent randomization,false
+NEJMoa1312808.txt,2623,9:3955,2622,126, 126 to ...,L2
+NEJMoa1312808.txt,2624,9:3987,2622,125, 125 to ...,L2
+NEJMoa1312808.txt,2625,12:901,2623,126, n=126,false
+NEJMoa1312808.txt,2626,12:930,2623,125, n=125,false
+NEJMoa1312808.txt,2627,12:966,2625,77, 77 male,false
+NEJMoa1312808.txt,2628,12:976,2626,78, 78 male,false
+NEJMoa1312808.txt,2629,12:1038,2625,104, 104 white race,false
+NEJMoa1312808.txt,2630,12:1049,2626,98, 98 white race,false
+NEJMoa1312808.txt,2631,18:777,2622,126, n=126,false
+NEJMoa1312808.txt,2632,18:807,2622,125, n=125,false
+NEJMoa1312808.txt,2633,18:841,2622,126, n=126,false
+NEJMoa1312808.txt,2634,18:871,2622,125, n=125,false
+NEJMoa1400697.txt,2635,3:799,null,832, 832 newborns,OL1
+NEJMoa1400697.txt,2636,3:1340,2635,707, 707 participants,false
+NEJMoa1400697.txt,2637,3:1397,2636,553, 553 had ...,NL1
+NEJMoa1400697.txt,2638,9:3260,2637,297, n=297,L2
+NEJMoa1400697.txt,2639,3:3279,2637,256, n=256,L2
+NEJMoa1400697.txt,2640,9:3333,2638,146, 146 female,false
+NEJMoa1400697.txt,2641,9:3344,2639,128, 128 female,false
+NEJMoa1400697.txt,2642,12:2391,2635,125, 125 patients,false
+NEJMoa1400697.txt,2643,12:2442,2635,707, 707 infants,false
+NEJMoa1400697.txt,2644,12:2455,2643,379, 379 in group a,false
+NEJMoa1400697.txt,2645,12:2474,2643,328, 328 in group b,false
+NEJMoa1400697.txt,2646,12:2503,2643,351, 351 girls,false
+NEJMoa1400697.txt,2647,12:3334,2643,536, 536 children,false
+NEJMoa1400697.txt,2648,12:3375,2643,487, 487 children,false
+NEJMoa1400697.txt,2649,12:3574,2643,451, 451 children,false
+NEJMoa1400697.txt,2650,12:3613,2643,373, 373 children,false
+NEJMoa1400697.txt,2651,12:3651,2643,267, 267 children,false
+NEJMoa1400697.txt,2652,12:3694,2643,89, 89 children,false
+NEJMoa1400697.txt,2653,12:3742,2643,122, 122 children,false
+NEJMoa1400697.txt,2654,12:3797,2653,117, 117 children,false
+NEJMoa1400697.txt,2655,12:3910,2653,117, 117 children,false
+NEJMoa1400697.txt,2656,12:3958,2655,113, 113 were ...,false
+NEJMoa1400697.txt,2657,15:1572,2636,707, 707 children,false
+NEJMoa1400697.txt,2658,21:627,2636,117, n=117,false
+NEJMoa1400697.txt,2659,21:661,2636,93, n=93,false
+NEJMoa1400697.txt,2660,21:690,2636,436, n=436,false
+NEJMoa1400697.txt,2661,21:720,2658,65, 65 female,false
+NEJMoa1400697.txt,2662,21:730,2659,54, 54 female,false
+NEJMoa1400697.txt,2663,21:740,2660,209, 209 female,false
+NEJMoa1402584.txt,2664,3:2442,null,1066, 1066 patients,NL1
+NEJMoa1402584.txt,2665,6:1197,2664,432, 432 patients,false
+NEJMoa1402584.txt,2666,12:3091,null,194, 194 patients,false
+NEJMoa1402584.txt,2667,12:3130,null,291, 291 patients,false
+NEJMoa1402584.txt,2668,12:3567,2664,1066, 1066 patients,false
+NEJMoa1402584.txt,2669,12:3607,2668,515, 515 patients,L2
+NEJMoa1402584.txt,2670,12:3638,2668,551, 551 patients,L2
+NEJMoa1402584.txt,2671,12:2726,2668,513, 513 patients,false
+NEJMoa1402584.txt,2672,12:3867,2668,78, 78 patients,false
+NEJMoa1402584.txt,2673,12:3916,2668,36, 36 patients,false
+NEJMoa1402584.txt,2674,12:4356,2668,548, 548 patients,false
+NEJMoa1402584.txt,2675,12:4424,2674,329, 329 received ...,false
+NEJMoa1402584.txt,2676,12:4452,2674,219, 219 received ...,false
+NEJMoa1402584.txt,2677,12:4487,2668,78, 78 patients,false
+NEJMoa1402584.txt,2678,12:4537,2668,44, 44 patients,false
+NEJMoa1402584.txt,2679,15:155,2668,62, 62 patients,false
+NEJMoa1402584.txt,2680,15:1039,2671,309, n=309,false
+NEJMoa1402584.txt,2681,15:1059,2671,204, n=204,false
+NEJMoa1402584.txt,2682,15:1083,2674,329, n=329,false
+NEJMoa1402584.txt,2683,15:1103,2674,219, n=219,false
+NEJMoa1402584.txt,2684,15:1131,2680,251, 251 male,false
+NEJMoa1402584.txt,2685,15:1142,2681,163, 163 male,false
+NEJMoa1402584.txt,2686,15:1153,2682,256, 256 male,false
+NEJMoa1402584.txt,2687,15:1164,2683,171, 171 male,false
+NEJMoa1402584.txt,2688,15:1363,2680,71, 71 never smoked,false
+NEJMoa1402584.txt,2689,15:1373,2681,51, 51 never smoked,false
+NEJMoa1402584.txt,2690,15:1383,2682,103, 103 never smoked,false
+NEJMoa1402584.txt,2691,15:1394,2683,71, 71 never smoked,false
+NEJMoa1402584.txt,2692,15:1418,2680,217, 217 former smoker,false
+NEJMoa1402584.txt,2693,15:1429,2681,144, 144 former smoker,false
+NEJMoa1402584.txt,2694,15:1440,2682,218, 218 former smoker,false
+NEJMoa1402584.txt,2695,15:1451,2683,139, 139 former smoker,false
+NEJMoa1402584.txt,2696,15:1477,2680,21, 21 current smoker,false
+NEJMoa1402584.txt,2697,15:1486,2681,9, 9 current smoker,false
+NEJMoa1402584.txt,2698,15:1494,2682,8, 8 current smoker,false
+NEJMoa1402584.txt,2699,15:1502,2683,9, 9 current smoker,false
+NEJMoa1402584.txt,2700,30:566,2671,309, n=309,false
+NEJMoa1402584.txt,2701,30:586,2671,204, n=204,false
+NEJMoa1402584.txt,2702,30:608,2671,329, n=329,false
+NEJMoa1402584.txt,2703,30:628,2671,219, n=219,false
+NEJMoa1403285.txt,2704,3:3155,null,540, 540 patients,false
+NEJMoa1403285.txt,2705,3:3174,2704,259, 259 patients,false
+NEJMoa1403285.txt,2706,3:3215,2704,281, 281 to ...,false
+NEJMoa1403285.txt,2707,9:1171,null,5926, 5926 patients,OL1
+NEJMoa1403285.txt,2708,9:1215,2707,5386, 5386 were excluded,false
+NEJMoa1403285.txt,2709,9:1143,2707,540, 540 underwent randomization,NL1
+NEJMoa1403285.txt,2710,9:1892,2709,259, 259 were assigned to ...,L2
+NEJMoa1403285.txt,2711,9:2101,2709,281, 281 were assigned to ...,L2
+NEJMoa1403285.txt,2712,9:2303,2710,258, 258 were included,false
+NEJMoa1403285.txt,2713,9:2341,2710,279, 279 were included,false
+NEJMoa1403285.txt,2714,12:2113,null,524, 524 patients,false
+NEJMoa1403285.txt,2715,12:2559,2709,540, 540 patients,false
+NEJMoa1403285.txt,2716,12:3954,2707,5926, 5926 patients,false
+NEJMoa1403285.txt,2717,12:4004,2716,540, 540 ... underwent randomization,false
+NEJMoa1403285.txt,2718,12:4050,2717,8, 8 patients,false
+NEJMoa1403285.txt,2719,12:4234,2717,5, 5 patients,false
+NEJMoa1403285.txt,2720,15:2784,2717,259, n=259,false
+NEJMoa1403285.txt,2721,15:2802,2717,280, n=280,false
+NEJMoa1403285.txt,2722,15:2859,2720,137, 137 male,false
+NEJMoa1403285.txt,2723,15:2870,2721,170, 170 male,false
+NEJMoa1403285.txt,2724,18:1645,2717,258, 258 simvastatin,false
+NEJMoa1403285.txt,2725,18:1649,2717,279, 279 placebo,false
+NEJMoa1403285.txt,2726,18:1868,2717,257, 257 simvastatin,false
+NEJMoa1403285.txt,2727,18:1872,2717,279, 279 placebo,false
+NEJMoa1403285.txt,2728,18:2043,2717,259, 259 simvastatin,false
+NEJMoa1403285.txt,2729,18:2047,2717,280, 280 placebo,false
+NEJMoa1404380.txt,2730,3:2167,null,1600, 1600 enrolled patients,NL1
+NEJMoa1404380.txt,2731,3:2191,2730,796, 796 were assigned to ...,L2
+NEJMoa1404380.txt,2732,3:2231,2730,804, 804 to the ...,L2
+NEJMoa1404380.txt,2733,12:1736,2730,1600, 1600 patients,false
+NEJMoa1404380.txt,2734,12:1756,2730,796, 796 assigned to ...,false
+NEJMoa1404380.txt,2735,12:1792,2730,804, 804 to the ...,false
+NEJMoa1404380.txt,2736,12:1863,2730,9, 9 patients,false
+NEJMoa1404380.txt,2737,12:1974,2730,793, 793 patients,false
+NEJMoa1404380.txt,2738,12:1991,2730,798, 798 patients,false
+NEJMoa1404380.txt,2739,15:1147,null,3559, 3559 patients,OL1
+NEJMoa1404380.txt,2740,15:1194,2739,1959, 1959 were excluded,false
+NEJMoa1404380.txt,2741,15:1118,2730,1600, 1600 underwent randomization,false
+NEJMoa1404380.txt,2742,15:2057,2741,796, 796 were assigned to ...,false
+NEJMoa1404380.txt,2743,15:2091,2741,804, 804 were assigned to ...,false
+NEJMoa1404380.txt,2744,15:2314,2742,792, 792 were included,false
+NEJMoa1404380.txt,2745,15:2383,2743,796, 796 were included,false
+NEJMoa1404380.txt,2746,18:1242,2744,792, 792 patients,false
+NEJMoa1404380.txt,2747,18:1293,2745,796, 796 patients,false
+NEJMoa1404380.txt,2748,18:2410,2741,793, n=793,false
+NEJMoa1404380.txt,2749,18:2431,2741,798, n=798,false
+NEJMoa1404380.txt,2750,18:2488,2748,477, 477 male,false
+NEJMoa1404380.txt,2751,18:2499,2749,473, 473 male,false
+NEJMoa1409860.txt,2752,3:2421,null,2400, 2400 patients,OL1
+NEJMoa1409860.txt,2753,3:2436,2752,2388, 2388 ... were included,NL1
+NEJMoa1409860.txt,2754,3:2480,2753,1191, 1191 in the ... group,L2
+NEJMoa1409860.txt,2755,3:2514,2753,1197, 1197 in the ... group,L2
+NEJMoa1409860.txt,2756,3:2554,2754,393, 393 of ...,false
+NEJMoa1409860.txt,2757,3:2562,2754,1188, 1188 patients,false
+NEJMoa1409860.txt,2758,3:2612,2755,409, 409 of ...,false
+NEJMoa1409860.txt,2759,3:2619,2755,1195, 1195 patients,false
+NEJMoa1409860.txt,2760,3:2887,2754,44, 44 patients,false
+NEJMoa1409860.txt,2761,3:2911,2754,74, 74 patients,false
+NEJMoa1409860.txt,2762,3:2956,2754,100, 100 patients,false
+NEJMoa1409860.txt,2763,3:2980,2754,194, 194 patients,false
+NEJMoa1409860.txt,2764,3:3205,2757,442, 442 of ...,false
+NEJMoa1409860.txt,2765,3:3212,2757,1184, 1184 patients,false
+NEJMoa1409860.txt,2766,3:3238,2757,464, 464 of ...,false
+NEJMoa1409860.txt,2767,3:3246,2757,1188, 1188 patients,false
+NEJMoa1409860.txt,2768,9:2236,null,1200, 1200 patients,false
+NEJMoa1409860.txt,2769,12:512,null,11108, 11108 patients,false
+NEJMoa1409860.txt,2770,12:483,2769,2400, 2400 underwent randomization,false
+NEJMoa1409860.txt,2771,12:1635,2770,1200, 1200 were assigned to ...,false
+NEJMoa1409860.txt,2772,12:1678,2700,1200, 1200 were assigned to ...,false
+NEJMoa1409860.txt,2773,12:1261,2771,1155, 1155 received,false
+NEJMoa1409860.txt,2774,12:1447,2772,1167, 1167 received,false
+NEJMoa1409860.txt,2775,12:1864,2773,1188, 1188 were included,false
+NEJMoa1409860.txt,2776,12:1915,2774,1195, 1195 were included,false
+NEJMoa1409860.txt,2777,15:417,2769,11108, 11108 patients,false
+NEJMoa1409860.txt,2778,15:519,2777,2400, 2400 were enrolled,false
+NEJMoa1409860.txt,2779,15:549,2778,12, 12 patients,false
+NEJMoa1409860.txt,2780,15:703,2778,2388, 2388 patients,false
+NEJMoa1409860.txt,2781,15:718,2780,1191, 1191 in the ... group,false
+NEJMoa1409860.txt,2782,15:752,2780,1197, 1197 in the ... group,false
+NEJMoa1409860.txt,2783,15:2393,2780,58, 58 patients,false
+NEJMoa1409860.txt,2784,15:2441,2780,58, 58 patients,false
+NEJMoa1409860.txt,2785,15:2965,2775,393, 393 of the ...,false
+NEJMoa1409860.txt,2786,15:2972,2775,1188, 1188 patients,false
+NEJMoa1409860.txt,2787,15:3673,2780,44, 44 patients,false
+NEJMoa1409860.txt,2788,15:3697,2780,74, 74 patients,false
+NEJMoa1409860.txt,2789,15:3813,2780,100, 100 patients,false
+NEJMoa1409860.txt,2790,15:3837,2780,194, 194 patients,false
+NEJMoa1409860.txt,2791,18:199,2780,1191, n=1191,false
+NEJMoa1409860.txt,2792,18:225,2780,1197, n=1197,false
+NEJMoa1409860.txt,2793,18:283,2791,689, 689 male,false
+NEJMoa1409860.txt,2794,18:294,2792,725, 725 male,false
+NEJMoa1409860.txt,2795,21:564,2780,1191, n=1191,false
+NEJMoa1409860.txt,2796,21:590,2780,1197, n=1197,false
+NEJMoa1409860.txt,2797,21:690,2795,150, 150 nonadherence,false
+NEJMoa1409860.txt,2798,21:701,2796,127, 127 nonadherence,false
+NEJMoa1409860.txt,2799,27:173,2780,1191, n=1191,false
+NEJMoa1409860.txt,2800,27:200,2780,1197, n=1197,false
+The-inherence-heuristic.txt,2801,18:4279,null,48, 48 children,false
+The-inherence-heuristic.txt,2802,18:4322,2801,24, 24 girls,false
+The-inherence-heuristic.txt,2803,18:4335,2801,24, 24 boys,false
+The-inherence-heuristic.txt,2804,18:4348,null,48, 48 adults,false
+The-inherence-heuristic.txt,2805,18:4359,2804,20, 20 women,false
+The-inherence-heuristic.txt,2806,18:4372,2804,28, 28 men,false
+The-inherence-heuristic.txt,2807,21:280,2801,24, n=24,false
+The-inherence-heuristic.txt,2808,21:520,2804,24, n=24,false
+The-inherence-heuristic.txt,2809,30:2662,null,48, 48 children,false
+The-inherence-heuristic.txt,2810,30:2705,2809,24, 24 girls,false
+The-inherence-heuristic.txt,2811,30:2718,2809,24, 24 boys,false
+The-inherence-heuristic.txt,2812,30:2731,null,48, 48 adults,false
+The-inherence-heuristic.txt,2813,30:2742,2812,25, 25 women,false
+The-inherence-heuristic.txt,2814,30:2755,2812,23, 23 men,false
+The-inherence-heuristic.txt,2815,33:3155,null,48, 48 children,false
+The-inherence-heuristic.txt,2816,33:3198,2815,24, 24 girls,false
+The-inherence-heuristic.txt,2817,33:3211,2815,24, 24 boys,false
+The-inherence-heuristic.txt,2818,33:3224,null,48, 48 adults,false
+The-inherence-heuristic.txt,2819,33:3235,2818,24, 24 women,false
+The-inherence-heuristic.txt,2820,33:3248,2818,24, 24 men,false
+The-inherence-heuristic.txt,2821,39:3903,null,48, 48 children,false
+The-inherence-heuristic.txt,2822,39:3946,2821,24, 24 girls,false
+The-inherence-heuristic.txt,2823,39:3959,2821,24, 24 boys,false
+The-inherence-heuristic.txt,2824,39:3972,null,48, 48 adults,false
+The-inherence-heuristic.txt,2825,39:3983,2824,26, 26 women,false
+The-inherence-heuristic.txt,2826,39:3996,2824,22, 22 men,false
+The-inherence-heuristic.txt,2827,48:2043,null,48, 48 children,false
+The-inherence-heuristic.txt,2828,48:2086,2827,24, 24 girls,false
+The-inherence-heuristic.txt,2829,48:2099,2827,24, 24 boys,false
+The-inherence-heuristic.txt,2830,48:2112,null,48, 48 adults,false
+The-inherence-heuristic.txt,2831,48:2123,2830,29, 29 women,false
+The-inherence-heuristic.txt,2832,48:2136,2830,19, 19 men,false
+The-inherence-heuristic.txt,2833,63:3182,2835,41, 41 women,false
+The-inherence-heuristic.txt,2834,63:3195,2835,29, 29 en,false
+The-inherence-heuristic.txt,2835,63:3113,null,70, 70 participants,false
+The-inherence-heuristic.txt,2836,66:227,null,70, n=70,false
+The-inherence-heuristic.txt,2837,66:264,2836,36, 36 women,false
+The-inherence-heuristic.txt,2838,66:277,2836,34, 34 men,false
+The-inherence-heuristic.txt,2839,66:1682,null,70, 70 Mechanical Turk participants,false
+The-inherence-heuristic.txt,2840,66:1715,2839,41, 41 women,false
+The-inherence-heuristic.txt,2841,66:1728,2839,29, 29 men,false
+The-inherence-heuristic.txt,2842,66:2514,null,32, 32 children,false
+The-inherence-heuristic.txt,2843,66:2557,2842,16, 16 girls,false
+The-inherence-heuristic.txt,2844,66:2570,2842,16, 16 boys,false
+The-inherence-heuristic.txt,2845,66:3898,null,70, 70 Mechanical Turk participants,false
+The-inherence-heuristic.txt,2846,66:3931,2845,36, 36 women,false
+The-inherence-heuristic.txt,2847,66:3944,2845,34, 34 men,false
+The-inherence-heuristic.txt,2848,69:1119,null,70, 70 mechanical turk participants,false
+The-inherence-heuristic.txt,2849,69:1152,2848,41, 41 women,false
+The-inherence-heuristic.txt,2850,69:1162,2848,29, 29 men,false
