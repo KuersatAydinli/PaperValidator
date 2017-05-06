@@ -1,0 +1,13 @@
+ Late course accelerated hyperfractionated radiotherapy plus concurrent chemotherapy for squamous cell carcinoma of the esophagus : a phase III randomized study .
+ Late course accelerated hyperfractionated ( LCAF ) radiotherapy ( RT ) is as effective as standard chemoradiotherapy for nonsurgical management of locally advanced esophageal squamous cell carcinoma ( SCC ) .
+ We have evaluated further the efficacy of concurrent LCAF RT and chemotherapy .
+ In all , 111 eligible patients with esophageal SCC were randomized to receive LCAF alone ( LCAF ) or concurrent LCAF and chemotherapy ( LCAT+CT ) between March 1998 and July 2000 .
+ All patients received conventional fractionation irradiation of 1.8 Gy per day , to a dose of 41.4 Gy/23 fractions in 4-5 weeks , followed by accelerated hyperfractionated irradiation using reduced fields , 1.5 Gy/fractions twice a day , to a dose of 27 Gy in 18 days.
+ Thus , the total dose was 68.4 Gy/41 fractions in 44 days.
+ Fifty-four patients in the LCAF+CT arm had an additional four cycles of chemotherapy using cisplatin 25 mg/m(2 ) daily and fluorouracil ( 5-FU ) 600 mg/m(2 ) daily on Days 1-3 every 4 weeks starting on the same day that LCAF was delivered .
+ The median survival was 23.9 months ( 95 % confidence [ CI ] , 20.1-27.7 ) for the LCAF arm and 30.8 months ( 95 % CI , 17.6-44.1 ) for the LCAF+CT arm , respectively .
+ Survival rates at 1 , 3 , and 5 years of the LCAF arm were 77 % , 39 % , and 28 % , respectively , while those of the LCAF+CT arm were 67 % , 44 % , and 40 % , respectively ( p = 0.310 ) .
+ Grades 3 and 4 acute toxicities occurred in 46 % and 25 % of the patients in the LCAF arm and the LCAF+CT arm , respectively ; 6 % of the patients in the combined arm had Grade 5 acute toxicities , whereas none was noted in the LCAF alone arm .
+ Late course accelerated hyperfractionation was effective for locally advanced esophageal SCC .
+ There was a trend toward better survival among patients who received intensified treatment with concurrent chemotherapy .
+ Further randomized studies with a larger number of patients should be carried out , but additional measures must be taken to reduce the higher mortality rate due to chemotherapy-related acute toxicities .

@@ -1,0 +1,9 @@
+ Adjuvant therapy with edrecolomab versus observation in stage II colon cancer : a multicenter randomized phase III study .
+ In a phase III study recruiting patients with stage II colon cancer the effect of adjuvant therapy with edrecolomab , a murine monoclonal antibody to the cell-surface glycoprotein 17-1A , was compared to observation alone .
+ From January 1997 until July 2000 a total of 377 patients were postoperatively stratified according to tumor stage ( T3 vs. T4 ) and center , and randomly allocated to either treatment with edrecolomab ( cohort A , n = 183 ) or observation ( cohort B , n = 194 ) .
+ Patients in cohort A received a total of 900 mg edrecolomab .
+ The study was terminated prematurely because of discontinuation of drug supply in Germany .
+ 305 patients were eligible for the primary endpoint of overall survival and 282 patients for disease-free survival .
+ After a median follow-up of 42 months overall survival and disease-free survival were not significantly different .
+ Toxicity was mild .
+ In the present study , postoperative adjuvant treatment with edrecolomab in patients with resected stage II colon cancer did not improve overall or disease-free survival .

@@ -1,0 +1,9 @@
+ A competing risk analysis of 579 patients treated with epirubicin-based chemotherapy .
+ In order to identify factors predictive of central nervous system ( CNS ) metastasis , we reviewed the histories of 579 patients treated with epirubicin-based chemotherapy for metastatic breast cancer .
+ Statistical analysis included Kaplan-Meier survival plots , Cox 's regression analysis and competing risk analysis using the cumulative incidence .
+ Median follow-up-time was 137 months ( range 0-183+ ) .
+ In this period , one hundred and twenty-four patients ( 21.4 % ) developed CNS metastasis .
+ Lung , liver , and lymph node metastases and oestrogen receptor negative or unknown tumor were predictive as well .
+ However , increased pretreatment lactate dehydrogenase ( LDH ) concentration in serum above the upper normal limits was the strongest single risk factor and should therefore be measured .
+ The risk of CNS metastasis differed considerably among risk groups .
+ Patients without risk factors had a cumulative incidence on 9 % , compared to a cumulative incidence of 42 % , when the serum LDH concentration was elevated to more than twice the upper normal limits .

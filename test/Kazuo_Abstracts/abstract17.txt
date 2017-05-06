@@ -1,0 +1,10 @@
+ Phase III randomized multicenter study of a humanized anti-CD33 monoclonal antibody , lintuzumab , in combination with chemotherapy , versus chemotherapy alone in patients with refractory or first-relapsed acute myeloid leukemia .
+ Lintuzumab ( HuM195 ) is an unconjugated humanized murine monoclonal antibody directed against the cell surface myelomonocytic differentiation antigen CD33 .
+ In this study , the efficacy of lintuzumab in combination with induction chemotherapy was compared with chemotherapy alone in adults with first relapsed or primary refractory acute myeloid leukemia ( AML ) .
+ Patients with relapsed or primary resistant AML ( duration of first response , zero to 12 months ) were randomly assigned to receive either mitoxantrone 8 mg/m(2 ) , etoposide 80 mg/m(2 ) , and cytarabine 1 g/m(2 ) daily for 6 days ( MEC ) in combination with lintuzumab 12 mg/m(2 ) , or MEC alone .
+ Overall response , defined as the rate of complete remission ( CR ) and CR with incomplete platelet recovery ( CRp ) , was the primary end point of the study , with additional analyses of survival time and toxicity .
+ A total of 191 patients were randomly assigned from November 1999 to April 2001 .
+ The percent CR plus CRp with MEC plus lintuzumab was 36 % v 28 % in patients treated with MEC alone ( P = .28 ) .
+ The overall median survival was 156 days and was not different in the two arms of the study .
+ Apart from mild antibody infusion-related toxicities ( fever , chills , and hypotension ) , no differences in chemotherapy-related adverse effects , including hepatic and cardiac dysfunction , were observed with the addition of lintuzumab to induction chemotherapy .
+ The addition of lintuzumab to salvage induction chemotherapy was safe , but did not result in a statistically significant improvement in response rate or survival in patients with refractory/relapsed AML .

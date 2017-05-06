@@ -1,0 +1,14 @@
+ a phase III trial of erlotinib hydrochloride ( OSI-774 ) combined with carboplatin and paclitaxel chemotherapy in advanced non-small-cell lung cancer .
+ Erlotinib is a potent reversible HER1/epidermal growth factor receptor ( EGFR ) tyrosine kinase inhibitor with single-agent activity in patients with non-small-cell lung cancer ( NSCLC ) .
+ Erlotinib was combined with chemotherapy to determine if it could improve the outcome of patients with NSCLC .
+ TRIBUTE randomly assigned patients with good performance status and previously untreated advanced ( stage IIIB/IV ) NSCLC to erlotinib 150 mg/d or placebo combined with up to six cycles of carboplatin and paclitaxel , followed by maintenance monotherapy with erlotinib .
+ Random assignment was stratified by stage , weight loss in the previous 6 months , measurable disease , and treatment center .
+ The primary end point was overall survival ( OS ) .
+ Secondary end points included time to progression ( TTP ) , objective response ( OR ) , and duration of response .
+ There were 1,059 assessable patients ( 526 erlotinib ; 533 placebo ) .
+ Median survival for patients treated with erlotinib was 10.6 v 10.5 months for placebo ( hazard ratio , 0.99 ; 95 % CI , 0.86 to 1.16 ; P = .95 ) .
+ There was no difference in OR or median TTP .
+ Patients who reported never smoking ( 72 erlotinib ; 44 placebo ) experienced improved OS in the erlotinib arm ( 22.5 v 10.1 months for placebo ) , though no other prespecified factors showed an advantage in OS with erlotinib .
+ Erlotinib and placebo arms were equivalent in adverse events ( except rash and diarrhea ) .
+ Erlotinib with concurrent carboplatin and paclitaxel did not confer a survival advantage over carboplatin and paclitaxel alone in patients with previously untreated advanced NSCLC .
+ Never smokers treated with erlotinib and chemotherapy seemed to experience an improvement in survival and will undergo further investigation in future randomized trials .

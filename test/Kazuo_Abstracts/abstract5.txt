@@ -1,0 +1,11 @@
+ Effect of graft-versus-host disease prophylaxis on 3-year disease-free survival in recipients of unrelated donor bone marrow ( T-cell Depletion Trial ) : a multi-centre , randomised phase II-III trial .
+ Graft-versus-host disease ( GVHD ) reduces the efficacy of unrelated donor bone marrow transplantation in patients with lymphohaemopoietic malignancy .
+ A multi-centre , randomised trial was undertaken to determine the effects of ex-vivo T-cell depletion versus methotrexate and cyclosporine immunosuppression on 3-year disease-free survival .
+ Between Mar 1 , 1995 , and Oct 31 , 2000 , 405 patients with lymphohaemopoietic malignancy , from 15 participating centres , were randomly assigned to undergo transplantation with either T-cell depleted marrow and cyclosporine A ( TCD arm ; n=201 ) or methotrexate and cyclosporine A after transplantation of T-replete marrow ( M/C arm ; n=204 ) .
+ The primary outcome was 3-year disease-free survival and was analysed by intention to treat .
+ Five patients died before transplantation .
+ Seven in the TCD arm received T-replete grafts .
+ Disease-free survival at 3 years was 27 % ( 95 % CI 21-33 ) and 34 % ( 27-40 ) in recipients of TCD and M/C , respectively ( p=0.16 ) .
+ TCD was associated with significantly more rapid neutrophil recovery ( 15 days vs 20 days , p<0.0001 ) , less grade III-IV acute GVHD ( 18%vs 37 % , p<0.0001 ) , reduced grade III-IV toxicities ( 19%vs 29 % , p=0.017 ) , reduced duration of initial hospitalisation , but higher risk of chronic myelogenous leukaemia relapse ( 20%vs 7 % , p=0.009 ) and cytomegalovirus infection ( 28%vs 17 % , p=0.023 ) than was M/C .
+ Disease-free survival at 3 years did not differ between TCD and M/C groups .
+ Relapse and opportunistic infection are important obstacles to successful unrelated donor bone marrow transplantation , irrespective of the method of GVHD prophylaxis used .

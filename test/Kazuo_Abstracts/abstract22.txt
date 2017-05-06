@@ -1,0 +1,12 @@
+ Phase III trial of ursodeoxycholic acid to prevent colorectal adenoma recurrence .
+ Ursodeoxycholic acid ( UDCA ) treatment is associated with a reduced incidence of colonic neoplasia in preclinical models and in patients with conditions associated with an increased risk for colon cancer .
+ We conducted a phase III , double-blind placebo-controlled trial of UDCA to evaluate its ability to prevent colorectal adenoma recurrence .
+ We randomly assigned 1285 individuals who had undergone removal of a colorectal adenoma within the past 6 months to daily treatment with UDCA ( 8-10 mg/kg of body weight ; 661 participants ) or with placebo ( 624 participants ) for 3 years or until follow-up colonoscopy .
+ Recurrence rates ( number of recurrent adenomas per unit time ) were compared by use of a Huber-White variance estimator .
+ Proportions of participants with one or more recurrent adenomas were compared with a Pearson chi-square statistic ; adjusted odds ratios ( ORs ) were obtained by logistic regression .
+ All statistical tests were two-sided .
+ We observed a non-statistically significant 12 % reduction in the adenoma recurrence rate associated with UDCA treatment , compared with placebo treatment .
+ However , UDCA treatment was associated with a statistically significant reduction ( P = .03 ) in the recurrence of adenomas with high-grade dysplasia ( adjusted OR = 0.61 , 95 % confidence interval = 0.39 to 0.96 ) .
+ We observed no statistically significant differences between UDCA and placebo groups in recurrence with regard to adenoma size , villous histology , or location .
+ UDCA treatment was associated with a non-statistically significant reduction in total colorectal adenoma recurrence but with a statistically significant 39 % reduction in recurrence of adenomas with high-grade dysplasia .
+ Because severely dysplastic lesions have a high risk of progression to invasive colorectal carcinoma , this finding indicates that future chemoprevention trials of UDCA in individuals with such lesions should be considered .

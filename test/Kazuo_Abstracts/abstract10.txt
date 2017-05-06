@@ -1,0 +1,16 @@
+ A randomized trial between two neoadjuvant chemotherapy protocols : CDDP + 5-FU versus CDDP + VP16 in advanced cancer of the head and neck .
+ We investigated a phase III randomized trial to compare efficacy and tolerance of CDDP + 5-FU to CDDP + VP16 , both given intravenously in patients with unresectable advanced head and neck cancer .
+ The 197 eligible patients were paired off successively on the basis of tumor sites and UICC stage .
+ Comparisons were made through sequential closed plans .
+ In 179 patients , tumor beds and cervical lymph nodes were irradiated , and 20 patients underwent salvage surgical procedures .
+ Cisplatin plus 5-fluorouracil showed a response ( CR + PR ) rate of 15 % greater than that observed with cisplatin plus etoposide ( alpha=0.05 , power 70 % ) .
+ Complete responses played a major role in the CDDP + 5-FU regimen .
+ Furthermore , we noted a higher cervical node regression with this chemotherapy combination .
+ Because radiotherapy was administered after chemotherapy , we could not analyze the mean duration response for each protocol .
+ No significant difference in survival existed between the two groups .
+ Myelosuppression was the most frequent sign of toxicity observed , especially with the CDDP + VP16 regimen .
+ Mucositis was rare with allopurinol protection .
+ In the CDDP + 5-FU group , one patient had grade 4 cardiac dysfunction , and 3 patients exhibited unconsciousness that may be related to cerebral vascular damage .
+ Thirteen patients died , with 8 cases related to septic shock ( 5 CPPP + VP16 and 3 CDDP + 5-FU ) .
+ Cisplatin plus 5-FU chemotherapy showed a satisfactory efficacy and acceptable toxicity profile compared with CDDP + VP16 , with caution to patients with a cardiac or vascular history .
+ Although we could not show a benefit in survival with the CDDP + 5-FU protocol , this trial supports literature data and confirms that this regimen may be proposed as a first-line therapy in advanced cancer of the head and neck .

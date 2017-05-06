@@ -1,0 +1,13 @@
+ Surgery alone versus chemoradiotherapy followed by surgery for resectable cancer of the oesophagus : a randomised controlled phase III trial .
+ Resection remains the best treatment for carcinoma of the oesophagus in terms of local control , but local recurrence and distant metastasis remain an issue after surgery .
+ We aimed to assess whether a short preoperative chemoradiotherapy regimen improves outcomes for patients with resectable oesophageal cancer .
+ 128 patients were randomly assigned to surgery alone and 128 patients to surgery after 80 mg/m(2 ) cisplatin on day 1 , 800 mg/m(2 ) fluorouracil on days 1-4 , with concurrent radiotherapy of 35 Gy given in 15 fractions .
+ The primary endpoint was progression-free survival .
+ Secondary endpoints were overall survival , tumour response , toxic effects , patterns of failure , and quality of life .
+ Analysis was done by intention to treat .
+ Neither progression-free survival nor overall survival differed between groups ( hazard ratio [ HR ] 0.82 [ 95 % CI 0.61-1.10 ] and 0.89 [ 0.67-1.19 ] , respectively ) .
+ The chemoradiotherapy-and-surgery group had more complete resections with clear margins than did the surgery-alone group ( 103 of 128 [ 80 % ] vs 76 of 128 [ 59 % ] , p=0.0002 ) , and had fewer positive lymph nodes ( 44 of 103 [ 43 % ] vs 69 of 103 [ 67 % ] , p=0.003 ) .
+ Subgroup analysis showed that patients with squamous-cell tumours had better progression-free survival with chemoradiotherapy than did those with non-squamous tumours ( HR 0.47 [ 0.25-0.86 ] vs 1.02 [ 0.72-1.44 ] ) .
+ However , the trial was underpowered to determine the real magnitude of benefit in this subgroup .
+ Preoperative chemoradiotherapy with cisplatin and fluorouracil does not significantly improve progression-free or overall survival for patients with resectable oesophageal cancer compared with surgery alone .
+ However , further assessment is warranted of the role of chemoradiotherapy in patients with squamous-cell tumours .

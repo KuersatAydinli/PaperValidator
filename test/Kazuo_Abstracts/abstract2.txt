@@ -1,0 +1,4 @@
+ CA19-9 as a prognostic factor in inoperable pancreatic cancer : the implication for clinical trials .
+ In a multivariate analysis of 154 patients receiving chemotherapy , baseline CA19-9 was an independent prognostic factor for overall survival ( OS ) ( HR 1.8 ; 95 % CI : 1.3-2.5 , P = 0.0004 ) .
+ The 1-year OS was 19 and 46 % , respectively , for patients with a baseline CA19-9 above or below the median value .
+ A fall of 20 % in CA19-9 level from baseline was an independent prognostic factor for OS ( HR 1.9 ; 95 % CI : 1.1-3.4 , P = 0.019 ) .

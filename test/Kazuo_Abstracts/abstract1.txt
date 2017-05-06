@@ -1,0 +1,13 @@
+ Phase II to III study comparing doxorubicin and docetaxel with fluorouracil , doxorubicin , and cyclophosphamide as first-line chemotherapy in patients with metastatic breast cancer : results of a Dutch Community Setting Trial for the Clinical Trial Group of the Comprehensive Cancer Centre .
+ To compare the efficacy and safety of doxorubicin and docetaxel ( AT ) with fluorouracil , doxorubicin , and cyclophosphamide ( FAC ) as first-line chemotherapy for metastatic breast cancer ( MBC ) .
+ Patients ( n = 216 ) were randomly assigned to either AT ( doxorubicin 50 mg/m(2 ) and docetaxel 75 mg/m2 ) or FAC ( fluorouracil 500 mg/m2 , doxorubicin 50 mg/m2 , and cyclophosphamide 500 mg/m2 ) ; both regimens were administered on day 1 , every 3 weeks .
+ A median number of six cycles was delivered in both arms , with a median relative dose-intensity of more than 98 % .
+ Median time to progression ( TTP ) and median overall survival ( OS ) were significantly longer for patients on AT compared with FAC ( TTP : 8.0 v 6.6 months , respectively ; P = .004 ; and OS : 22.6 v 16.2 months , respectively ; P = .019 ) .
+ The overall response rate ( ORR ) was significantly higher in patients on AT compared with FAC ( 58 % v 37 % , respectively ; P = .003 ) .
+ The ORR on AT was also higher in patients with visceral disease compared with FAC patients with visceral disease ( 59 % v 36 % , respectively ; P = .003 ) .
+ There were no differences in grade 3 to 4 neutropenia and infections ( AT 89 % v FAC 84 % and AT 12 % v FAC 9 % , respectively ) .
+ Neutropenic fever was more common in AT-treated patients than FAC-treated patients ( 33 % v 9 % , respectively ; P < .001 ) .
+ Grade 3 to 4 nonhematologic toxicity was infrequent in both arms .
+ Congestive heart failure was observed in 3 % and 6 % of patients on AT and FAC , respectively .
+ In this phase II to III study , AT resulted in a significantly longer TTP and OS and a higher objective ORR than FAC .
+ First-line AT is a valid treatment option for patients with MBC .

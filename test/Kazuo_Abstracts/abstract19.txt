@@ -1,0 +1,14 @@
+ Late radiation morbidity following randomization to preoperative versus postoperative radiotherapy in extremity soft tissue sarcoma .
+ This study compared late radiation morbidity in patients with extremity soft tissue sarcoma randomized to treatment by pre- ( 50 Gy ) or postoperative ( 66 Gy ) radiotherapy in combination with surgery .
+ The morbidities evaluated included fibrosis , joint stiffness and edema at 2 years following treatment .
+ The impact of morbidity on patient function as measured by the Musculoskeletal Tumor Rating Scale ( MSTS ) and the Toronto Extremity Salvage Score ( TESS ) was also evaluated .
+ 129 patients were evaluated .
+ Toxicity rates were compared by treatment arm using the Fisher 's exact test .
+ Function scores by toxicity were analyzed using the Wilcoxon rank sum test .
+ Multivariate logistic regression was used to evaluate the joint effect of treatment arm , field size , and dose on subcutaneous tissue fibrosis , joint stiffness and edema .
+ 27 of 56 patients ( 48.2 % ) in the postoperative arm compared to 23 of 73 ( 31.5 % ) in the preoperative arm had grade 2 or greater fibrosis ( P = 0.07 ) .
+ Although not statistically significant , edema was more frequent in the postoperative arm , 13 of 56 ( 23.2 % ) versus 11 of 73 ( 15.5 % ) in the preoperative arm , as was joint stiffness , 13 of 56 ( 23.2 % ) versus 13 of 73 ( 17.8 % ) .
+ Patients with significant fibrosis , joint stiffness or edema had significantly lower function scores on both measures ( all P-values < 0.01 ) .
+ Field size was predictive of greater rates of fibrosis ( P = 0.002 ) and joint stiffness ( P = 0.006 ) and marginally predictive of edema ( P = 0.06 ) .
+ Patients treated with postoperative radiotherapy tended to have greater fibrosis .
+ Fibrosis , joint stiffness and edema adversely affect patient function .

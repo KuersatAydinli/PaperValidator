@@ -1,0 +1,14 @@
+ Improved detection and treatment of bladder cancer using hexaminolevulinate imaging : a prospective , phase III multicenter study .
+ We determined if improved tumor detection using hexaminolevulinate ( HAL ) fluorescence cystoscopy could lead to improved treatment in patients with bladder cancer .
+ A total of 146 patients with known or suspected bladder cancer were assessed in this open , comparative , within patient , controlled phase III study .
+ Patients received intravesical HAL for 1 hour and were assessed with standard white light cystoscopy and blue light fluorescence cystoscopy .
+ All lesions were mapped onto a bladder chart and biopsies were taken from suspicious areas for assessment by an independent pathologist .
+ An independent urologist blinded to the detection method used recommended treatment plans based on biopsy results and medical history according to European Association of Urology bladder cancer guidelines .
+ Any differences in recommended treatment plans arising from the 2 cystoscopy methods were recorded .
+ HAL imaging improved overall tumor detection .
+ Of all tumors 96 % were detected with HAL imaging compared with 77 % using standard cystoscopy .
+ This difference was particularly noticeable for dysplasia ( 93 % vs 48 % ) , carcinoma in situ ( 95 % vs 68 % ) and superficial papillary tumors ( 96 % vs 85 % ) .
+ As a result of improved detection , additional postoperative procedures were recommended in 15 patients ( 10 % ) and more extensive treatment was done intraoperatively in a further 10 .
+ Overall 17 % of patients received more appropriate treatment at the time of the study following blue light fluorescence cystoscopy , that is 22 % or 1 of 5 if patients without tumors were excluded .
+ HAL imaging is more effective than standard white light cystoscopy for detecting bladder tumors and lesions .
+ This leads to improved treatment in a significant number of patients ( p <0.0001 ) .

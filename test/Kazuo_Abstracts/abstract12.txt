@@ -1,0 +1,13 @@
+ Prospective , double-blind , placebo-controlled , multicenter , randomized phase III study with orally administered budesonide for prevention of irinotecan ( CPT-11)-induced diarrhea in patients with advanced colorectal cancer .
+ Unpredictable and severe diarrhea ( NCI grade > or =3 ) remains a life-threatening adverse event in patients treated with irinotecan ( CPT-11 ) .
+ The aim of this study was to evaluate the efficacy and safety of orally administered budesonide for prevention of CPT-11-induced delayed diarrhea in patients with advanced colorectal cancer .
+ A total of 56 patients with advanced colorectal cancer receiving CPT-11 therapy ( 125 mg/m2 once weekly ) were enrolled in this multicenter trial .
+ Patients were randomly treated with 3 mg budesonide orally 3 times daily versus placebo .
+ Detailed assessment of diarrhea by monitoring stool frequency , stool consistency and loperamide rescue medication was made by keeping a diary .
+ Diarrhea , defined as number of stools >4 occurring on a single day during the study period , could be prevented in 58.3 % of the budesonide-treated patients compared to 38.5 % of the patients under placebo .
+ Patients in the budesonide group had less episodes ( 0.7 vs. 2.2 episodes ) and a considerably shorter total duration of diarrhea ( 1.8 vs. 4.2 days ) episodes than patients in the placebo group .
+ Loperamide use was more frequent in the placebo than in the budesonide arm ( 55.6 vs. 41.7 % ) .
+ Also , exposure to rescue medication of loperamide was higher for placebo ( 36.2 capsules ) than for budesonide ( 24.9 capsules ) .
+ A superior prevention of diarrhea was observed for budesonide compared to placebo in the first cycle ( 14 vs. 10 ; p = 0.257 ) , with more failures observed in the placebo group ( 16 vs. 10 ) .
+ This double-blind randomized trial failed to show that budesonide has a significant benefit in preventing CPT-11-induced diarrhea .
+ While a trend exists , further trials are warranted .

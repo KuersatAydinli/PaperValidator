@@ -1,0 +1,13 @@
+ Cyclin A as a marker for prognosis and chemotherapy response in advanced breast cancer .
+ We wanted to study cyclin A as a marker for prognosis and chemotherapy response .
+ A total of 283 women with metastatic breast cancer were initially enrolled in a randomised multicentre trial comparing docetaxel to sequential methotrexate-fluorouracil ( MF ) in advanced breast cancer after anthracycline failure .
+ Paraffin-embedded blocks of the primary tumour were available for 96 patients ( 34 % ) .
+ The proportion of cells expressing cyclin A was determined by immunohistochemistry using a mouse monoclonal antibody to human cyclin A.
+ Response evaluation was performed according to WHO recommendations .
+ The median cyclin A positivity of tumour cells was 14.5 % ( range 1.2-45.0 ) .
+ Cyclin A correlated statistically significantly to all other tested proliferation markers ( mitotic count , histological grade and Ki-67 ) .
+ A high cyclin A correlated significantly to a shorter time to first relapse , risk ratio ( RR ) 1.94 ( 95 % CI 1.24-3.03 ) and survival from diagnosis , RR 2.49 ( 95 % CI 1.45-4.29 ) , cutoff point for high/low proliferation group 10.5 % .
+ Cyclin A did not correlate to chemotherapy response or survival after anthracycline , docetaxel or MF therapy .
+ Of all tumour biological factors tested ( mitotic count , histological grade and Ki-67 ) , cyclin A seemed to have the strongest prognostic value .
+ Cyclin A is a good marker for tumour proliferation and prognosis in breast cancer .
+ In the present study , cyclin A did not predict chemotherapy response .
