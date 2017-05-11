@@ -1,0 +1,12 @@
+ Randomized phase III study of matrix metalloproteinase inhibitor BMS-275291 in combination with paclitaxel and carboplatin in advanced non-small-cell lung cancer : National Cancer Institute of Canada-Clinical Trials Group Study BR.18 .
+ To determine whether BMS-275291 , a broad-spectrum matrix metalloproteinase inhibitor ( MMPI ) , added to systemic chemotherapy improved survival in advanced non-small-cell lung cancer ( NSCLC ) .
+ In early phase studies , BMS- 275291 was not associated with dose-limiting joint toxicity seen with other MMPIs .
+ Chemotherapy-naive patients with stage IIIB/IV NSCLC , performance status ( PS ) 0 to 2 , and adequate organ function were eligible .
+ All patients received paclitaxel 200 mg/m2 plus carboplatin ( area under the curve , 6 mg/mL-min ) intravenously every 21 days for up to 8 cycles , and were randomly assigned to receive BMS-275291 , 1,200 mg orally daily , or placebo until disease progression .
+ The primary study end point was survival ( OS ) ; secondary end points included progression-free survival ( PFS ) , response rates ( RR ) , toxicity , and quality of life .
+ From 2000 to 2002 , 774 patients were randomly assigned .
+ Pretreatment characteristics were well balanced between arms : median age , 61 years ; male sex , 73 % ; stage IV , 79 % ; PS 0 to 1 , 88 % .
+ Interim safety analysis revealed no survival advantage and increased toxicity in the experimental arm , and study treatment was stopped .
+ Median OS , PFS and RR in the final analysis in the BMS-275291 arm were 8.6 months , 4.9 months , and 25.8 % respectively , and in the control arm 9.2 months , 5.3 months , 33.7 % .
+ Toxicity was significantly higher in the BMS-275291 arm , including flu-like symptoms , rash , hypersensitivity reactions ( 8.6 % v 2.4 % ) , and febrile neutropenia ( 9.7 % v 5.5 % ) .
+ BMS-275291 added to chemotherapy increases toxicity and does not improve survival in advanced NSCLC .

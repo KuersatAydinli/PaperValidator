@@ -1,0 +1,14 @@
+ Phase III Southwest Oncology Group 9415/Intergroup 0153 randomized trial of fluorouracil , leucovorin , and levamisole versus fluorouracil continuous infusion and levamisole for adjuvant treatment of stage III and high-risk stage II colon cancer .
+ Modest toxicity and possibly enhanced activity makes continuous-infusion fluorouracil ( FU ) an attractive alternative to FU plus leucovorin ( FU/LV ) for the adjuvant treatment of colorectal cancer .
+ Intergroup trial 0153 ( Southwest Oncology Group trial 9415 ) was developed to compare the efficacy of continuous-infusion FU ( CIFU ) plus levamisole to FU/LV plus levamisole in the adjuvant treatment of high-risk Dukes ' B2 and C1 or C2 colon cancer .
+ After surgery , patients were randomly assigned to CIFU 250 mg/m(2)/d for 56 days every 9 weeks for three cycles or FU 425 mg/m(2 ) and LV 20 mg/m(2 ) daily for 5 days every 28 to 35 days for six cycles .
+ All patients received levamisole 50 mg tid for 3 days every other week .
+ The primary end point was overall survival ( OS ) .
+ The study closed in December 1999 after an interim analysis demonstrated little likelihood of CIFU showing superiority to FU/LV within the stipulated hazard ratio .
+ A total of 1,135 patients were registered .
+ At least one grade 4 toxicity occurred in 39 % of patients receiving FU/LV and 5 % of patients receiving CIFU .
+ However , almost twice as many patients receiving CIFU discontinued therapy early compared with those receiving FU/LV .
+ The 5-year OS is 70 % ( 95 % CI , 66 % to 74 % ) for FU/LV and 69 % ( 95 % CI , 64 % to 73 % ) for CIFU .
+ The corresponding 5-year disease-free survival ( DFS ) is 61 % ( 95 % CI , 56 % to 65 % ) and 63 % ( 95 % CI , 59 % to 68 % ) , respectively .
+ For all patients , 5-year OS is 83 % , 74 % , and 55 % ; 5-year DFS is 78 % , 67 % , and 47 % for N0 , N1 , and N2-3 , respectively .
+ CIFU had less severe toxicity but did not improve DFS or OS in comparison with bolus FU/LV .

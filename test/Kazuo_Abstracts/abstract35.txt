@@ -1,0 +1,10 @@
+ Randomized phase III trial comparing cisplatin-etoposide to carboplatin-paclitaxel in advanced or metastatic non-small cell lung cancer .
+ The present study was designed to evaluate the efficacy and safety of the regimen of carboplatin plus paclitaxel ( investigational arm ) versus the reference regimen of cisplatin plus etoposide for the treatment of advanced or metastatic non-small-cell lung cancer .
+ A total of 369 patients were enrolled , 179 on arm A ( cisplatin 75 mg/m2 and etoposide 100 mg/m2 ) and 190 on arm B ( carboplatin AUC=6 mg/ml min and paclitaxel 225 mg/m2 ) , with cycles repeated every 3 weeks .
+ The arms were well balanced with respect to age , performance status , weight loss , stage of disease and disease measurability .
+ However , significantly more women were randomized to arm A than to arm B ( P=0.039 ) .
+ The objective response rate ( ORR ) was 15 % on arm A compared with 23 % on arm B ( P=0.061 ) .
+ Median survival time , time to progression and 1-year survival rates for arms A and B were 274 days and 233 days ( P=0.086 ) , 111 days and 121 days ( P=0.877 ) , and 37 % and 32 % , respectively .
+ The most prevalent toxicities were neutropenia and leukopenia and they occurred at a higher rate in arm A than in arm B.
+ There was no statistically significant survival advantage for carboplatin-paclitaxel compared with cisplatin-etoposide .
+ However , there was an overall benefit in quality of life with the carboplatin-paclitaxel regimen .

@@ -1,0 +1,13 @@
+ Bevacizumab in combination with fluorouracil and leucovorin : an active regimen for first-line metastatic colorectal cancer .
+ In a phase III trial , combining bevacizumab ( BV)--a recombinant , humanized , monoclonal antibody targeting vascular endothelial growth factor--with irinotecan , bolus fluorouracil ( FU ) , and leucovorin ( LV ; IFL ) increased survival compared with IFL alone in first-line treatment of patients with metastatic colorectal cancer ( CRC ) .
+ Results for the parent study of IFL/BV versus IFL/placebo are reported elsewhere .
+ Here , we describe efficacy and safety results for the third patient cohort in this trial , who received BV combined with FU/LV , and compare them with results for concurrently enrolled patients who received IFL .
+ Patients ( N = 923 ) were randomly assigned to receive IFL/placebo ( control ) , IFL/BV , or FU/LV/BV .
+ Bevacizumab ( Avastin ; Genentech Inc , South San Francisco , CA ) 5 mg/kg was administered intravenously every 2 weeks .
+ Before an interim analysis confirmed acceptable safety for IFL/BV , 313 patients were concurrently randomly assigned to these three arms ; after this analysis , the FU/LV/BV arm was discontinued .
+ Median overall survivals were 18.3 and 15.1 months with FU/LV/BV ( n = 110 ) and IFL/placebo ( n = 100 ) , respectively .
+ Median progression-free survivals were 8.8 and 6.8 months , respectively .
+ Overall response rates were 40.0 % and 37.0 % , and median response durations were 8.5 and 7.2 months , respectively .
+ Adverse events consistent with those expected from FU/leucovorin- or IFL-based regimens were seen , as were modest increases in hypertension and bleeding in the bevacizumab arm , which were generally easily managed .
+ The FU/LV/BV regimen seems as effective as IFL and has an acceptable safety profile .
+ FU/LV/BV is an active alternative treatment regimen for patients with previously untreated metastatic CRC .

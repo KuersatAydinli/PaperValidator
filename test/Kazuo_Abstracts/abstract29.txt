@@ -1,0 +1,21 @@
+ A randomised trial of accelerated radiotherapy for localised invasive bladder cancer .
+ To evaluate the efficacy and toxicity of an accelerated fractionation regimen to treat localised muscle invasive bladder cancer .
+ A prospective randomised trial was undertaken in 229 patients randomised between 1988 and 1998 comparing accelerated fractionation ( AF ) to a dose of 60.8 Gy in 32 fractions over 26 days with conventional fractionation ( CF ) treating to 64 Gy in 32 fractions over 45 days.
+ Accelerated fractionation was delivered using two fractions per day with a 6h gap between fractions and with the first daily fraction size being 1.8 Gy and the second daily fraction size being 2.0 Gy .
+ There was a 1 week treatment gap after the first 12 fractions .
+ Conventional fractionation was one fraction per day , 5 days per week .
+ Eligible patients had clinical stage T2 or T3 , N0 or N1 , M0 transitional cell carcinoma .
+ The primary endpoint of the trial was local control and the trial was powered to detect a 20 % difference ( alpha 0.05 , power 90 % ) .
+ Secondary endpoints were toxicity and survival .
+ In the initial phase of the trial , randomisation was unequal such that in total 129 patients were randomised to accelerated fractionation and 100 to conventional fractionation .
+ Acute toxicity was evaluable in 121 patients treated with AF and 96 patients treated with CF .
+ RTOG grade 2 or 3 bowel toxicity was noted in 44 % of AF patients compared to 26 % of CF patients ( P trend =0.001 ) .
+ Acute grade 2 or 3 bladder toxicity was seen in 35 % of AF patients compared to 36 % of CF patients ( P=0.99 ) .
+ Late radiation toxicity was evaluated in patients surviving free from local recurrence at 2 years post treatment .
+ Late radiation toxicity equivalent to RTOG grade 2 or more had occurred in 44 % ( 95 % CI 34-55 % ) of AF patients and in 38 % ( 95 % CI 26-49 % ) of CF patients ( logrank over 5 years follow-up P=0.23 ) .
+ There was no significant difference in analysis of time to loss of local tumour control comparing the two treatment arms ; local recurrence was recorded in 29 of the 100 patients treated with CF and in 41 of 129 patients treated with AF ( logrank P=0.86 ) .
+ There was also no significant difference between the treatment arms comparing disease-free survival and overall survival .
+ The overall survival figures at 3 years were for AF 54 % ( 95 % CI 45-63 % ) and for CF 47 % ( 95 % CI 36-57 % ) .
+ By 5 years the overall survival was 37 % for AF and 40 % for CF .
+ There were two treatment related deaths , both on the AF arm of the trial .
+ This accelerated fractionation schedule did not improve on the efficacy of conventional fractionation for patients with T2 and T3 bladder cancer and accelerated fractionation was associated with increased acute bowel reactions .

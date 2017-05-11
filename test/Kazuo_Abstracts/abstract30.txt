@@ -1,0 +1,13 @@
+ Zoledronic acid significantly improves pain scores and quality of life in breast cancer patients with bone metastases : a randomised , crossover study of community vs hospital bisphosphonate administration .
+ Patients with bone metastases from breast cancer often experience substantial skeletal complications -- including debilitating bone pain -- which negatively affect quality of life .
+ Zoledronic acid ( 4 mg ) has been demonstrated to reduce significantly the risk of skeletal complications in these patients and is administered via a short , 15-min infusion every 3 weeks , allowing the possibility for home administration .
+ This study compared the efficacy and safety of zoledronic acid administered in the community setting vs the hospital setting in breast cancer patients with > or =1 bone metastasis receiving hormonal therapy .
+ After a lead-in phase of three infusions of 4 mg zoledronic acid in the hospital setting , 101 patients were randomized to receive three open-label infusions in the community or hospital setting , followed by three infusions in the opposite venue ( a total of nine infusions ) .
+ The Brief Pain Inventory ( BPI ) and the European Organisation for Research and Treatment of Cancer Quality of Life Core Questionnaire 30 ( EORTC QLQ-C30 ) were used to assess potential benefits of zoledronic acid therapy .
+ At study end , analysis of the BPI showed significant reductions in worst pain ( P=0.008 ) and average pain in the last 7 days ( P=0.039 ) , and interference with general activity ( P=0.012 ) .
+ In each case , there were significantly greater improvements in pain scores after treatment in the community setting compared with the hospital crossover setting for worst pain ( P=0.021 ) , average pain ( P=0.003 ) , and interference with general activity ( P=0.001 ) .
+ Overall global health status showed a significant median improvement of 8.3 % ( P=0.013 ) at study end .
+ Physical , emotional , and social functioning also showed significant overall improvement ( P=0.013 , 0.005 , and 0.043 , respectively ) .
+ Furthermore , physical , role , and social functioning showed significantly greater improvements after treatment in the community setting compared with the hospital crossover setting ( P=0.018 , 0.001 , and 0.026 , respectively ) .
+ There was no difference between hospital and community administration in renal or other toxicity , with zoledronic acid being well tolerated in both treatment settings .
+ These data confirm the safety and quality-of-life benefits of zoledronic acid in breast cancer patients with bone metastases , particularly when administered in the community setting .

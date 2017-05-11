@@ -1,0 +1,14 @@
+ Androgen suppression adjuvant to definitive radiotherapy in prostate carcinoma--long-term results of phase III RTOG 85-31 .
+ Radiation Therapy Oncology Group protocol 85-31 was designed to evaluate the effectiveness of adjuvant androgen suppression , using goserelin , in unfavorable prognosis carcinoma of the prostate treated with definitive radiotherapy ( RT ) .
+ Eligible patients were those with palpable primary tumor extending beyond the prostate ( clinical Stage T3 ) or those with regional lymphatic involvement .
+ Patients who had undergone prostatectomy were eligible if penetration through the prostatic capsule to the margin of resection and/or seminal vesicle involvement was documented histologically .
+ Stratification was based on histologic differentiation , nodal status , acid phosphatase status , and prior prostatectomy .
+ The patients were randomized to either RT and adjuvant goserelin ( Arm I ) or RT alone followed by observation and application of goserelin at relapse ( Arm II ) .
+ In Arm I , the drug was to be started during the last week of RT and was to be continued indefinitely or until signs of progression .
+ Between 1987 and 1992 , when the study was closed , 977 patients were entered : 488 to Arm I and 489 to Arm II .
+ As of July 2003 , the median follow-up for all patients was 7.6 years and for living patients was 11 years .
+ At 10 years , the absolute survival rate was significantly greater for the adjuvant arm than for the control arm : 49 % vs. 39 % , respectively ( p = 0.002 ) .
+ The 10-year local failure rate for the adjuvant arm was 23 % vs. 38 % for the control arm ( p <0.0001 ) .
+ The corresponding 10-year rates for the incidence of distant metastases and disease-specific mortality was 24 % vs. 39 % ( p <0.001 ) and 16 % vs. 22 % ( p = 0.0052 ) , respectively , both in favor of the adjuvant arm .
+ In a population of patients with unfavorable prognosis carcinoma of the prostate , androgen suppression applied as an adjuvant after definitive RT was associated not only with a reduction in disease progression but in a statistically significant improvement in absolute survival .
+ The improvement in survival appeared preferentially in patients with a Gleason score of 7-10 .

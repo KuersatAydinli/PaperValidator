@@ -1,0 +1,13 @@
+ Health-related quality of life in survivors of locally advanced breast cancer : an international randomised controlled phase III trial .
+ Dose-intensive chemotherapy has generated much interest in the treatment of patients with locally advanced breast cancer because it might offer a survival benefit .
+ We aimed to compare the effects of such an approach with those of standard chemotherapy on health-related quality of life ( HRQOL ) .
+ 224 patients with locally advanced breast cancer were randomly assigned to 75 mg/m(2 ) cyclophosphamide given orally on days 1-14 , and 60 mg/m(2 ) epirubicin and 500 mg/m(2 ) fluorouracil both given intravenously on days 1 and 8 , for six cycles every 28 days ( 6 months ' treatment ; standard treatment ) and 224 patients to 830 mg/m(2 ) cyclophosphamide and 120 mg/m(2 ) epirubicin both given intravenously on day 1 , and 5 microg/kg filgrastim per day given subcutaneously on days 2-13 , for six cycles every 14 days ( 3 months ' treatment ; dose-intensive treatment ) .
+ HRQOL was assessed by use of the European Organisation for Research and Treatment of Cancer Quality of Life Questionnaire-Core 30 ( EORTC QLQ-C30 ) .
+ Baseline assessments were done before randomisation ; then once a month for the first 3 months ; and at months 6 , 9 , 12 , 18 , 26 , 34 , 42 , 48 , and 54 .
+ The primary endpoint was progression-free survival ; secondary endpoints were HRQOL , response , safety , overall response , and health economics .
+ Analyses were by intention to treat .
+ Previously reported data showed that groups did not differ in progression-free survival .
+ Patients assigned shorter , intensified treatment had a significantly lower overall HRQOL score during the first 3 months than did those assigned standard treatment ( mean score at 3 months 41.8 [ SD 1.78 ] vs 49.6 [ 1.64 ] , p=0.0015 ) .
+ However , scores returned to near baseline , with no difference between groups , at 12 months ( 62.6 [ 1.97 ] vs 65.6 [ 2.04 ] , p=0.3007 ) .
+ Over the remaining 2 years , the groups showed few significant differences in HRQOL .
+ Dose-intensive treatment only has a temporary effect on HRQOL , thus enabling more research on intensive treatment for patients with locally advanced breast cancer .

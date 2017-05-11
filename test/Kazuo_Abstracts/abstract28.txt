@@ -1,0 +1,17 @@
+ Randomized trial of 8 Gy in 1 versus 20 Gy in 5 fractions of radiotherapy for neuropathic pain due to bone metastases ( Trans-Tasman Radiation Oncology Group , TROG 96.05 ) .
+ Despite numerous randomized trials investigating radiotherapy ( RT ) fractionation schedules for painful bone metastases , there are very few data on RT for bone metastases causing pain with a neuropathic component .
+ The Trans-Tasman Radiation Oncology Group undertook a randomized trial comparing the efficacy of a single 8 Gy ( 8/1 ) with 20 Gy in 5 fractions ( 20/5 ) for this type of pain .
+ Eligible patients had radiological evidence of bone metastases from a known malignancy with no change in systemic therapy within 6 weeks before or anticipated within 4 weeks after RT , no other metastases along the distribution of the neuropathic pain and no clinical or radiological evidence of cord/cauda equina compression .
+ All patients gave written informed consent .
+ Primary endpoints were pain response within 2 months of commencement of RT and time to treatment failure ( TTF ) .
+ The hypothesis was that 8/1 is at least as effective as 20/5 and the planned sample size was 270 patients .
+ Between February 1996 and December 2002 , 272 patients were randomized ( 8/1:20/5=137:135 ) from 15 centres ( Australia 11 , New Zealand 3 , UK 1 ) .
+ The commonest primary cancers were lung ( 31 % ) , prostate ( 29 % ) and breast ( 8 % ) ; index sites were spine ( 89 % ) , rib ( 9 % ) , other ( 2 % ) ; 72 % of patients were males and the median age was 67 ( range 29-89 ) .
+ The median overall survival ( 95 % CI ) for all randomized patients was 4.8 mo ( 4.2-5.7 mo ) .
+ The intention-to-treat overall response rates ( 95 % CI ) for 8/1 vs 20/5 were 53 % ( 45-62 % ) vs 61 % ( 53-70 % ) , P=0.18 .
+ Corresponding figures for complete response were 26 % ( 18-34 % ) vs 27 % ( 19-35 % ) , P=0.89 .
+ The estimated median TTFs ( 95 % CI ) were 2.4 mo ( 2.0-3.3 mo ) vs 3.7 mo ( 3.1-5.9 mo ) respectively .
+ The hazard ratio ( 95 % CI ) for the comparison of TTF curves was 1.35 ( 0.99-1.85 ) , log-rank P=0.056 .
+ There were no statistically significant differences in the rates of re-treatment , cord compression or pathological fracture by arm .
+ 8/1 was not shown to be as effective as 20/5 , nor was it statistically significantly worse .
+ Outcomes were generally poorer for 8/1 , although the quantitative differences were relatively small .

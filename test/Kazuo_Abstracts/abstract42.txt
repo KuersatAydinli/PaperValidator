@@ -1,0 +1,11 @@
+ A prospective analysis of the time to normalization of serum androgens following 6 months of androgen deprivation therapy in patients on a randomized phase III clinical trial using limited hormonal therapy .
+ Patients with prostate cancer are treated with neoadjuvant , adjuvant and intermittent therapy with gonadotropin-releasing hormone agonists ( GnRH-A ) .
+ While these are largely successful in decreasing testosterone ( T ) and dihydroxytestosterone ( DHT ) to castrate levels , discontinuation of such therapy often results in continued suppression of androgens for variable periods of time .
+ We present the largest published series of patients evaluating the timing of T and DHT increase after cessation of GnRH therapy .
+ Serial T and DHT measurements were prospectively obtained every 3 months while on GnRH-A then monthly upon discontinuation of GnRH-A .
+ Analysis of time from the second 3-month GnRH-A administration to T and DHT increase was undertaken .
+ A total of 80 evaluable patients had a median time to T 50 ng/dl or greater of 12.9 weeks and a median time to T normalization ( 212 ng/dl or greater ) of 16.6 weeks .
+ Low baseline T was associated with a prolonged time to T 212 ng/dl or greater ( p = 0.0086 ) and a similar trend was seen in patients older than 66 years ( p = 0.08 ) .
+ There were 62 evaluable patients with a median of 14.9 weeks to DHT 150 pg/ml or greater .
+ There was no association with Gleason score at diagnosis , on study prostate specific antigen , type of prior definitive therapy , or any prior hormonal therapy and time to increase in circulating androgens .
+ After 6 months of GnRH-A therapy in these patients , DHT and T levels did not return to normal for a median of 14.9 and 16.6 weeks , respectively .

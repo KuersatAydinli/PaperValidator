@@ -1,0 +1,13 @@
+ Results of combined-modality therapy for limited-stage small cell lung carcinoma in the elderly .
+ A Phase III trial was conducted by the North Central Cancer Treatment Group to determine whether chemotherapy ( etoposide and cisplatin ) plus either twice-daily radiotherapy ( BIDRT ) or once-daily radiotherapy ( QDRT ) resulted in a better outcome for patients with limited-stage small cell lung carcinoma ( LD-SCLC ) .
+ No difference in survival was identified between the two arms .
+ The current analysis examined the relation between age and outcome for patients treated during this trial .
+ The current study included 263 patients with LD-SCLC and an Eastern Cooperative Oncology Group performance status of < or = 2 who were randomized to receive QDRT or split-course BIDRT .
+ The outcomes of the 209 ( 79 % ) younger patients ( age < 70 years old ) were compared with the 54 ( 21 % ) elderly patients ( age > or = 70 years old ) .
+ Elderly patients presented with significantly greater weight loss and poorer performance status .
+ The 2-year and 5-year survival rates were 48 % and 22 % for younger patients compared with 33 % and 17 % for older patients ( P = 0.14 ) .
+ One specific toxicity ( i.e. , Grade > or = 4 pneumonitis [ according to National Cancer Institute Common Toxicity Criteria ] ) occurred in 0 % of those patients age < 70 years compared with 6 % of older patients ( P = 0.008 ) .
+ Grade 5 toxicity occurred in 1 of 209 ( 0.5 % ) patients age < 70 years compared with 3 of 54 ( 5.6 % ) older patients ( P = 0.03 ) .
+ Despite having more weight loss , poorer performance status , increased pulmonary toxicity , and more deaths due to treatment , survival was not found to be significantly worse in older individuals .
+ Fit elderly patients with LD-SCLC can receive combined-modality therapy with the expectation of relatively favorable long-term survival .
+ Future research should focus on ways to decrease toxicity especially in the elderly .

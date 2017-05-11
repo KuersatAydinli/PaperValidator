@@ -1,0 +1,8 @@
+ Overall survival after concurrent cisplatin-radiotherapy compared with radiotherapy alone in locoregionally advanced nasopharyngeal carcinoma .
+ This phase III randomized study compared concurrent cisplatin-radiotherapy ( CRT ) versus radiotherapy ( RT ) alone in patients with locoregionally advanced nasopharyngeal carcinoma .
+ A total of 350 patients were randomly assigned to receive external RT alone or concurrently with cisplatin at a dosage of 40 mg/m(2 ) weekly .
+ The primary endpoint was overall survival , and the median follow-up was 5.5 years .
+ The 5-year overall survival was 58.6 % ( 95 % confidence interval [ CI ] = 50.9 % to 66.2 % ) for the RT arm and 70.3 % ( 95 % CI = 63.4 % to 77.3 % ) for the CRT arm .
+ In Cox regression analysis adjusted for T stage , age , and overall stage , the difference in overall survival was statistically significantly in favor of concurrent CRT ( P = .049 , hazard ratio [ HR ] = 0.71 [ 95 % CI = 0.5 to 1.0 ] ) .
+ Subgroup analysis demonstrated that there was no difference between overall survival in the arms for T1/T2 stage ( P = .74 , HR = 0.93 [ 95 % CI = 0.59 to 1.4 ] ) , whereas there was a difference between the arms for T3/T4 stage ( P = .013 , HR = 0.51 [ 95 % CI = 0.3 to 0.88 ] ) , favoring the CRT arm .
+ The regimen of weekly concurrent CRT is a promising standard treatment strategy for locoregionally advanced nasopharyngeal carcinoma patients .

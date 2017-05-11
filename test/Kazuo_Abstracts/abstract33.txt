@@ -1,0 +1,8 @@
+ Value of intravenous 6-mercaptopurine during continuation treatment in childhood acute lymphoblastic leukemia and non-Hodgkin 's lymphoma : final results of a randomized phase III trial ( 58881 ) of the EORTC CLG .
+ Between November 1990 and November 1996 , EORTC Children Leukemia Group conducted a randomized trial in de novo acute lymphoblastic leukemia and lymphoblastic non-Hodgkin 's lymphoma patients using a Berlin-Frankfurt-Munster protocol to evaluate the monthly addition of intravenous 6-mercaptopurine ( i.v . 6-MP ) ( 1 g/m(2 ) ) to conventional continuation therapy comprising per oral MTX weekly and 6-MP daily .
+ Only during the first 18 months of the randomization period , 6-MP p.o. was interrupted for 1 week after each i.v. 6-MP .
+ A total of 877 patients was randomized to either no i.v. 6-MP ( Arm A ) or additional i.v. 6-MP ( Arm B ) .
+ A total of 217 relapses ( 91 in Group A vs 128 in Group B ) and 13 deaths in CR ( 5 vs 8 ) were reported ; a total of 134 patients ( 55 vs 79 ) died .
+ The median follow-up was 7.6 years .
+ At 8 years , the disease-free survival rate was lower ( P=0.005 ) in Arm B ( 69.1 % ( s.e.=2.2 % ) ) than in Arm A ( 77.9 % ( s.e.=2.0 % ) ) , and the hazard ratio was 1.45 ( 95 % CI 1.12-1.89 ) .
+ In conclusion , as delivered in this study , i.v. 6-MP was detrimental to event-free survival .

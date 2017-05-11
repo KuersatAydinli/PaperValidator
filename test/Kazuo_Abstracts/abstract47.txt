@@ -1,0 +1,12 @@
+ Effectiveness of gene expression profiling for response prediction of rectal adenocarcinomas to preoperative chemoradiotherapy .
+ There is a wide spectrum of tumor responsiveness of rectal adenocarcinomas to preoperative chemoradiotherapy ranging from complete response to complete resistance .
+ This study aimed to investigate whether parallel gene expression profiling of the primary tumor can contribute to stratification of patients into groups of responders or nonresponders .
+ Pretherapeutic biopsies from 30 locally advanced rectal carcinomas were analyzed for gene expression signatures using microarrays .
+ All patients were participants of a phase III clinical trial ( CAO/ARO/AIO-94 , German Rectal Cancer Trial ) and were randomized to receive a preoperative combined-modality therapy including fluorouracil and radiation .
+ Class comparison was used to identify a set of genes that were differentially expressed between responders and nonresponders as measured by T level downsizing and histopathologic tumor regression grading .
+ In an initial set of 23 patients , responders and nonresponders showed significantly different expression levels for 54 genes ( P < .001 ) .
+ The ability to predict response to therapy using gene expression profiles was rigorously evaluated using leave-one-out cross-validation .
+ Tumor behavior was correctly predicted in 83 % of patients ( P = .02 ) .
+ Sensitivity ( correct prediction of response ) was 78 % , and specificity ( correct prediction of nonresponse ) was 86 % , with a positive and negative predictive value of 78 % and 86 % , respectively .
+ Our results suggest that pretherapeutic gene expression profiling may assist in response prediction of rectal adenocarcinomas to preoperative chemoradiotherapy .
+ The implementation of gene expression profiles for treatment stratification and clinical management of cancer patients requires validation in large , independent studies , which are now warranted .
